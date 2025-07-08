@@ -25,8 +25,7 @@ export default function Sidebar() {
           <div>
             <div className="flex flex-col items-start mb-8">
               <img
-                src="https://placehold.co/128x128.png"
-                data-ai-hint="profile picture"
+                src="https://i.ibb.co/CBrjkM5/1.jpg"
                 alt="Thanuka Ellepola"
                 width={128}
                 height={128}
