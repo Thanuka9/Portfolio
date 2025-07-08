@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import emailjs from '@emailjs/browser';
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,14 +46,26 @@ export default function ContactPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you would send this data to a server
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const serviceId = 'service_l295hid';
+    const templateId = 'template_oxg4tlo';
+    const publicKey = 'mqtA7O0dh4Q6-V-Ur';
+
+    try {
+      await emailjs.send(serviceId, templateId, values, publicKey);
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem sending your message. Please try again later.",
+      });
+    }
   }
 
   return (
