@@ -83,8 +83,12 @@ export default function ProjectsPage() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-        {projects.map((project) => (
-          <Card key={project.title} className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col">
+        {projects.map((project, index) => (
+          <Card 
+            key={project.title} 
+            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary h-full flex flex-col"
+            style={{ animationDelay: `${index * 150}ms` }}
+            >
             <CardHeader>
               <CardTitle>{project.title}</CardTitle>
               <CardDescription className="flex items-center gap-2 pt-1">

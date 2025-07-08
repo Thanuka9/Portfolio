@@ -98,7 +98,11 @@ export default function ExperiencePage() {
       <section>
         <div className="space-y-8">
           {professionalExperience.map((exp, index) => (
-            <Card key={index} className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+            <Card 
+              key={index} 
+              className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary"
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
               <CardHeader>
                 <CardTitle>{exp.role}</CardTitle>
                 <CardDescription>
@@ -124,7 +128,7 @@ export default function ExperiencePage() {
 
       <section>
         <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Cpu size={30} /> Technical Skills</h2>
-        <Card className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+        <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary">
           <CardContent className="pt-6">
             <div className="space-y-4">
               {Object.entries(technicalSkills).map(([category, skills]) => (
@@ -142,7 +146,7 @@ export default function ExperiencePage() {
       
       <section>
         <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Award size={30} /> Key Accomplishments</h2>
-        <Card className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+        <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary">
           <CardContent className="pt-6">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
               {keyAccomplishments.map((item, i) => (
@@ -155,7 +159,7 @@ export default function ExperiencePage() {
 
       <section>
         <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Star size={30} /> Other Highlights</h2>
-        <Card className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+        <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary">
           <CardContent className="pt-6">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
               {otherHighlights.map((item, i) => (

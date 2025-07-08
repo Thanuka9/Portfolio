@@ -49,7 +49,7 @@ export default function HomePage() {
   return (
     <div className="space-y-16">
       <section id="about">
-        <Card>
+        <Card className="opacity-0 animate-fade-in" style={{ animationDelay: '150ms' }}>
           <CardHeader>
             <CardTitle className="text-2xl font-headline flex items-center gap-2"><Briefcase /> About Me</CardTitle>
           </CardHeader>
@@ -68,11 +68,16 @@ export default function HomePage() {
       </section>
       
       <section id="navigation-grid">
-        <h2 className="text-2xl font-bold font-headline mb-6">Explore My Portfolio</h2>
+        <h2 className="text-2xl font-bold font-headline mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>Explore My Portfolio</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {navItems.map((item) => (
-            <Link href={item.href} key={item.title} className="group block">
-              <Card className="h-full transition-all duration-300 group-hover:border-primary group-hover:shadow-lg">
+          {navItems.map((item, index) => (
+            <Link 
+              href={item.href} 
+              key={item.title} 
+              className="group block opacity-0 animate-fade-in"
+              style={{ animationDelay: `${300 + (index + 1) * 150}ms` }}
+            >
+              <Card className="h-full transition-all duration-300 group-hover:border-primary group-hover:shadow-lg group-hover:-translate-y-1">
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-4">

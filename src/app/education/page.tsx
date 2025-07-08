@@ -48,8 +48,12 @@ export default function EducationPage() {
       </header>
 
       <div className="space-y-6">
-        {education.map((edu) => (
-          <Card key={edu.degree} className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+        {education.map((edu, index) => (
+          <Card 
+            key={edu.degree} 
+            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary"
+            style={{ animationDelay: `${index * 150}ms` }}
+          >
             <CardHeader>
               <CardTitle>{edu.degree}</CardTitle>
               <CardDescription>{edu.institution} &middot; {edu.period}</CardDescription>

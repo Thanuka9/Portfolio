@@ -26,15 +26,15 @@ export default function Sidebar() {
         <div className="p-8 lg:p-12 flex flex-col justify-between h-full">
           <div>
             <div className="flex flex-col items-start mb-8">
-              <div className="relative w-[128px] h-[128px] mb-4">
-                <Image
-                  src="/Profile.png"
-                  alt="Thanuka Ellepola"
-                  fill
-                  className="rounded-full object-cover"
-                  priority
-                />
-              </div>
+              <Image
+                src="https://placehold.co/128x128.png"
+                alt="Thanuka Ellepola"
+                width={128}
+                height={128}
+                className="rounded-full object-cover mb-4"
+                priority
+                data-ai-hint="profile person"
+              />
               <h1 className="text-4xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
               <h2 className="text-xl text-primary font-medium">Data Scientist | Full Stack Developer</h2>
               <p className="mt-4 text-muted-foreground">
@@ -74,12 +74,12 @@ export default function Sidebar() {
                     <Download className="mr-2" size={16} /> Download CV
                  </a>
               </Button>
-              <Button variant="outline" size="icon" asChild>
+              <Button variant="ghost" size="icon" asChild>
                 <a href="https://github.com/Thanuka9" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github />
                 </a>
               </Button>
-              <Button variant="outline" size="icon" asChild>
+              <Button variant="ghost" size="icon" asChild>
                 <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin />
                 </a>
