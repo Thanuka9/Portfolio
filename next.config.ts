@@ -15,16 +15,6 @@ const nextConfig: NextConfig = {
         hostname: 'placehold.co',
         port: '',
         pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'drive.google.com',
-      },
-       {
-        protocol: 'https',
-        hostname: 'i.postimg.cc',
-        port: '',
-        pathname: '/**',
       }
     ],
   },
