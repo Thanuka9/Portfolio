@@ -25,7 +25,7 @@ export default function Sidebar() {
           <div>
             <div className="flex flex-col items-start mb-8">
               <img
-                src="https://i.postimg.cc/Gpd6G5T3/1.jpg"
+                src="https://i.ibb.co/CBrjkM5/1.jpg"
                 alt="Thanuka Ellepola"
                 width={128}
                 height={128}
