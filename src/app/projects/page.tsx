@@ -6,13 +6,17 @@ const projects = [
   {
     title: "Predictive Analytics for Payment Prediction in RCM",
     role: "Lead Data Scientist / Researcher",
-    description: "Original thesis project applying advanced ML (Random Forests, Neural Networks, etc.) to predict healthcare payments. Full pipeline from data cleaning and feature engineering to model comparison and dashboard creation.",
+    description: `This thesis explores the application of predictive analytics in healthcare Revenue Cycle Management (RCM), with a focus on optimizing payment prediction and revenue forecasting. As healthcare organizations face increasing financial pressures and complex administrative challenges, data-driven solutions are essential for improving operational efficiency and financial performance. In this study, historical billing and claims data from a hospital network were leveraged to develop, compare, and evaluate four widely used machine learning models: Linear Regression, Decision Trees, Random Forests, and Neural Networks. The research encompassed four predictive scenarios—future payment prediction, location-based trends, provider-based payments, and overall revenue forecasting. Comprehensive data preprocessing, feature engineering, and rigorous cross-validation were employed to ensure robust and unbiased results. The findings revealed that Random Forest models consistently outperformed others in accuracy and stability, while Neural Networks demonstrated superior performance in data-rich environments. Importantly, the project demonstrates not only the practical feasibility of implementing predictive analytics in real-world RCM settings but also provides actionable insights for healthcare administrators seeking to proactively manage revenue cycles. This work highlights the transformative potential of advanced analytics in healthcare finance and offers a roadmap for organizations aiming to move from reactive to proactive financial management.`,
     tags: ["Python", "Pandas", "Scikit-learn", "Power BI", "SQL", "Machine Learning"],
   },
   {
     title: "Collective Intranet System & Analytics Dashboard",
     role: "Full Stack Developer / System Architect",
-    description: "Designed and developed a full-stack intranet to centralize workflow, document management, and communication, featuring interactive dashboards for real-time KPI tracking.",
+    description: `CollectiveRCM Intranet (Full stack) is a comprehensive, enterprise-grade Revenue Cycle Management (RCM) system designed to streamline, automate, and optimize financial workflows within healthcare organizations. Built with a modular, API-driven architecture, the platform supports secure patient data management, seamless claims processing, automated billing, and real-time analytics. The system leverages robust authentication mechanisms, including 2FA and GridFS-based document storage, to ensure HIPAA-compliant operations and data integrity.
+
+Key features include multi-role access controls, integrated task and exam management modules, dynamic routing logic for workflow automation, and extensible support for administrative operations. The platform is designed for scalability, maintainability, and secure integration with both legacy and modern EHR systems. As the principal developer, I contributed to every stage of the project lifecycle: from architecting MongoDB schema patterns and authentication layers to implementing seeders, utility APIs, and comprehensive documentation pipelines.
+
+CollectiveRCM Apex exemplifies best practices in secure, source-driven software engineering and demonstrates my ability to deliver complex, production-ready solutions for the healthcare technology sector.`,
     tags: ["Python", "SQL", "Power BI", "JavaScript", "Full Stack"],
   },
   {
@@ -80,7 +84,7 @@ export default function ProjectsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <p className="text-muted-foreground mb-4 whitespace-pre-line">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                 </div>
