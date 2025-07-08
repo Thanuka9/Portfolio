@@ -61,7 +61,7 @@ export default function Sidebar() {
           <div className="mt-8">
             <div className="space-y-2 text-sm">
               <a href="mailto:thanuka.ellepola@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Mail size={16} /> thanuka.ellepola@gmail.com</a>
-              <a href="tel:+94776705832" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Phone size={16} /> +94776705832</a>
+              <a href="tel:+94776705832" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Phone size={16} /> +94 77 670 5832</a>
               <p className="flex items-center gap-2 text-muted-foreground"><MapPin size={16} /> Sri Lanka</p>
             </div>
             <div className="flex items-center gap-4 mt-6">
