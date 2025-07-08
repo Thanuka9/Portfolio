@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { Code, Briefcase } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -64,6 +67,12 @@ CollectiveRCM Apex exemplifies best practices in secure, source-driven software 
 ];
 
 export default function ProjectsPage() {
+  const [year, setYear] = React.useState<number | string>('');
+
+  React.useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="space-y-12">
        <header>
@@ -93,7 +102,7 @@ export default function ProjectsPage() {
         ))}
       </div>
       <footer className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; {new Date().getFullYear()} Thanuka Ellepola. All rights reserved.</p>
+            <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
       </footer>
     </div>
   );

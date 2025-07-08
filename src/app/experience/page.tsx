@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { Briefcase, Cpu, Award, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -77,6 +80,12 @@ const otherHighlights = [
 ];
 
 export default function ExperiencePage() {
+  const [year, setYear] = React.useState<number | string>('');
+
+  React.useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="space-y-12">
       <header>
@@ -158,7 +167,7 @@ export default function ExperiencePage() {
       </section>
 
       <footer className="text-center text-sm text-muted-foreground pt-8">
-        <p>&copy; {new Date().getFullYear()} Thanuka Ellepola. All rights reserved.</p>
+        <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
       </footer>
     </div>
   );

@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import Link from "next/link";
 import {
   Briefcase,
@@ -37,6 +40,12 @@ const navItems = [
 ];
 
 export default function HomePage() {
+  const [year, setYear] = React.useState<number | string>('');
+
+  React.useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="space-y-16">
       <section id="about">
@@ -83,7 +92,7 @@ export default function HomePage() {
       </section>
 
       <footer className="text-center text-sm text-muted-foreground pt-8">
-        <p>&copy; {new Date().getFullYear()} Thanuka Ellepola. All rights reserved.</p>
+        <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
       </footer>
     </div>
   );
