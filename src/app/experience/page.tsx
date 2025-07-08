@@ -89,8 +89,14 @@ const technicalSkills = {
       "Networking & Systems": [
         "PSTN",
         "ADSL",
-        "network operating systems",
-        "switching systems",
+        "TCP/IP",
+        "LAN/WAN Setup",
+        "Network Operating Systems",
+        "Routing & Switching (Cisco)",
+        "Network Troubleshooting",
+        "Windows & Linux Server Administration",
+        "Basic Network Security (Firewalls/NAT)",
+        "ERP System Integration",
       ],
       "Workflow & Reporting Tools": ["WFP", "Clarity", "audit reporting tools"],
 };
