@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -181,7 +182,7 @@ export default function ContactPage() {
       </div>
       
       <footer className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
+        <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
       </footer>
     </div>
   );
