@@ -75,7 +75,7 @@ const technicalSkills = {
         "LLMs",
         "GPT Models",
       ],
-      "Data Visualization": ["Matplotlib", "Excel (Advanced Charts, PivotTables)", "(previously used Power BI for research; currently focus on custom dashboards & visualizations)"],
+      "Data Visualization": ["Power BI", "Matplotlib", "Excel (Advanced Charts, PivotTables)"],
       "Database & Backend": [
         "PostgreSQL",
         "MySQL",
