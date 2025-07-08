@@ -48,10 +48,6 @@ export default function ContactPage() {
     setYear(new Date().getFullYear());
   }, []);
 
-  React.useEffect(() => {
-    emailjs.init(PUBLIC_KEY);
-  }, []);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -63,18 +59,19 @@ export default function ContactPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values);
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, PUBLIC_KEY);
       toast({
         title: "Message Sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
       form.reset();
-    } catch (error) {
-      console.error('Failed to send email:', error);
+    } catch (error: any) {
+      const errorMessage = error?.text || "The email service failed to respond.";
+      console.error('Failed to send email:', errorMessage, error);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "There was a problem sending your message. Please check your EmailJS configuration and try again.",
+        description: `There was a problem with the contact form: ${errorMessage} Please check your EmailJS account settings (e.g., template variables, whitelisted domains) and try again.`,
       });
     }
   }
