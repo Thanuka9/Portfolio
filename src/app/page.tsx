@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -55,13 +56,13 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground whitespace-pre-line">
-              I’m Thanuka Ellepola, a passionate Data Scientist and Full Stack Developer with over five years of hands-on experience at the intersection of healthcare, business analytics, and technology. My journey has been defined by a drive to bridge the gap between operational needs and modern data solutions—leading teams, building full-stack platforms, and turning complex data into actionable insights.
+              I’m Thanuka Ellepola, an analytical and results-driven professional with over five years of experience at the intersection of healthcare operations, data science, and technology. As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
 
-              Currently, I serve as Assistant Manager and technical lead at Collective RCM (Pvt) Ltd, where I’ve architected and developed the company’s internal intranet and analytics dashboard, driving efficiency, transparency, and smarter decision-making across the organization. My work combines end-to-end technical expertise (Python, SQL, Power BI, modern web frameworks) with deep domain knowledge in healthcare revenue cycle management.
+              Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks. I’m passionate about using data to drive smarter decision-making, and my work often blends hands-on coding, advanced analytics, and process improvement.
 
-              My academic background includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking, giving me a strong foundation in both business and technology. I’ve completed a thesis on predictive analytics for payment forecasting in healthcare, and I regularly build and deploy AI models—from GPT-powered assistants to chess and crypto prediction bots.
+              My academic foundation includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking. I recently completed a research project on predictive analytics for healthcare payment forecasting, utilizing statistical and machine learning models to deliver actionable insights.
 
-              Whether it’s solving operational bottlenecks with code, delivering data-driven strategy, or pioneering automation, I thrive on challenges that blend leadership, innovation, and continuous learning. I believe in using data and technology not just for efficiency, but to create lasting impact for people and organizations.
+              Whether it’s architecting data-driven solutions, building and deploying AI models, or mentoring teams, I thrive in roles that combine leadership, innovation, and continuous learning. My goal is to bridge the gap between business needs and modern technology—creating lasting, positive impact for organizations and their people.
             </p>
           </CardContent>
         </Card>
