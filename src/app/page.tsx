@@ -45,8 +45,14 @@ export default function HomePage() {
             <CardTitle className="text-2xl font-headline flex items-center gap-2"><Briefcase /> About Me</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
-              Analytical and results-driven data scientist with a background in Computer Systems & Networking and a Master’s in Business Analytics. Over five years of leadership experience in healthcare revenue operations, predictive analytics, and technical project delivery. Proven expertise in building robust, data-driven solutions for real-world business and healthcare challenges.
+            <p className="text-muted-foreground whitespace-pre-line">
+              I’m Thanuka Ellepola, a passionate Data Scientist and Full Stack Developer with over five years of hands-on experience at the intersection of healthcare, business analytics, and technology. My journey has been defined by a drive to bridge the gap between operational needs and modern data solutions—leading teams, building full-stack platforms, and turning complex data into actionable insights.
+
+              Currently, I serve as Assistant Manager and technical lead at Collective RCM (Pvt) Ltd, where I’ve architected and developed the company’s internal intranet and analytics dashboard, driving efficiency, transparency, and smarter decision-making across the organization. My work combines end-to-end technical expertise (Python, SQL, Power BI, modern web frameworks) with deep domain knowledge in healthcare revenue cycle management.
+
+              My academic background includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking, giving me a strong foundation in both business and technology. I’ve completed a thesis on predictive analytics for payment forecasting in healthcare, and I regularly build and deploy AI models—from GPT-powered assistants to chess and crypto prediction bots.
+
+              Whether it’s solving operational bottlenecks with code, delivering data-driven strategy, or pioneering automation, I thrive on challenges that blend leadership, innovation, and continuous learning. I believe in using data and technology not just for efficiency, but to create lasting impact for people and organizations.
             </p>
           </CardContent>
         </Card>

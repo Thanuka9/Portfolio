@@ -23,17 +23,16 @@ export default function Sidebar() {
       <div>
         <div className="flex flex-col items-start mb-8">
           <Image
-            src="https://placehold.co/128x128.png"
+            src="https://drive.google.com/uc?export=view&id=1GqV_T0-NpqRL6Altra1w3azFEuB6gP3p"
             alt="Thanuka Ellepola"
             width={128}
             height={128}
             className="rounded-full mb-4"
-            data-ai-hint="professional man portrait"
           />
           <h1 className="text-4xl font-bold font-headline text-primary-foreground">Thanuka Ellepola</h1>
           <h2 className="text-xl text-primary font-medium">Data Scientist | Full Stack Developer</h2>
           <p className="mt-4 text-muted-foreground">
-            Transforming healthcare and business through data and technology
+            Driving innovation and insight at the intersection of data, AI, and business.
           </p>
         </div>
 
