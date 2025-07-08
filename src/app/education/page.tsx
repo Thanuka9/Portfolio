@@ -49,7 +49,7 @@ export default function EducationPage() {
 
       <div className="space-y-6">
         {education.map((edu) => (
-          <Card key={edu.degree}>
+          <Card key={edu.degree} className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
             <CardHeader>
               <CardTitle>{edu.degree}</CardTitle>
               <CardDescription>{edu.institution} &middot; {edu.period}</CardDescription>

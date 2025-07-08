@@ -7,6 +7,7 @@ import { Home, Briefcase, Code, GraduationCap, Mail, Download, Github, Linkedin,
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { ThemeToggle } from './theme-toggle';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -67,7 +68,12 @@ export default function Sidebar() {
               <a href="tel:+94776705832" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Phone size={16} /> +94 77 670 5832</a>
               <p className="flex items-center gap-2 text-muted-foreground"><MapPin size={16} /> Sri Lanka</p>
             </div>
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-2 mt-6">
+              <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground flex-1">
+                 <a href="https://drive.google.com/file/d/1-qfFUhpeUF8G_uWDhASd9qj3DI0suTyT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    <Download className="mr-2" size={16} /> Download CV
+                 </a>
+              </Button>
               <Button variant="outline" size="icon" asChild>
                 <a href="https://github.com/Thanuka9" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github />
@@ -78,11 +84,7 @@ export default function Sidebar() {
                   <Linkedin />
                 </a>
               </Button>
-              <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground flex-1">
-                 <a href="https://drive.google.com/file/d/1-qfFUhpeUF8G_uWDhASd9qj3DI0suTyT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                    <Download className="mr-2" size={16} /> Download CV
-                 </a>
-              </Button>
+              <ThemeToggle />
             </div>
           </div>
         </div>

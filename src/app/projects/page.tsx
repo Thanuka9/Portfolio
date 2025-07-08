@@ -84,7 +84,7 @@ export default function ProjectsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
         {projects.map((project) => (
-          <Card key={project.title}>
+          <Card key={project.title} className="transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col">
             <CardHeader>
               <CardTitle>{project.title}</CardTitle>
               <CardDescription className="flex items-center gap-2 pt-1">
@@ -92,8 +92,8 @@ export default function ProjectsPage() {
                 {project.role}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-                <p className="text-muted-foreground mb-4 whitespace-pre-line">{project.description}</p>
+            <CardContent className="flex-grow flex flex-col">
+                <p className="text-muted-foreground mb-4 whitespace-pre-line flex-grow">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                 </div>
