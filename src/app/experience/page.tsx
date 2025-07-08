@@ -1,45 +1,79 @@
-import { Briefcase } from "lucide-react";
+import { Briefcase, Cpu, Award, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-const experiences = [
+const professionalExperience = [
   {
-    role: "Team Lead, Technical Support & Automation Specialist",
-    company: "Collective RCM",
-    period: "JAN 2022 - PRESENT | Colombo",
-    details: [
-      "Lead a team of 15, improving operational efficiency by 25% through data analysis and workflow redesign.",
-      "Developed predictive models to forecast claim denials, reducing them by 15% and increasing revenue.",
-      "Managed technical support for ERP systems, ensuring minimal downtime and swift issue resolution.",
-      "Designed and implemented automation scripts (Python, SQL), saving over 200 manual hours monthly.",
+    role: "Assistant Manager",
+    company: "Collective RCM (Pvt) Ltd",
+    period: "2019 – Present",
+    sections: [
+      {
+        title: "Leadership & Operations",
+        details: [
+          "Managed and trained teams in healthcare revenue cycle management (RCM).",
+          "Implemented strategic policies that improved efficiency, quality control, and client satisfaction.",
+          "Prepared audit reports, allocated work volumes, and addressed direct client inquiries.",
+          "Drove a 20% boost in team performance through targeted training and leadership.",
+        ],
+      },
+      {
+        title: "Full Stack Development",
+        details: [
+          "Developed the Collective Intranet System: End-to-end architect and developer of the intranet, handling backend (Python, SQL) and frontend (modern JS frameworks, Power BI, dashboards).",
+          "Built analytics dashboards for KPI, financial, and operational tracking.",
+          "Centralized documentation, user management, reporting, and workflow tools.",
+          "Integrated real-time performance monitoring and improved cross-team communication.",
+        ],
+      },
+      {
+        title: "Predictive Analytics & Data Science",
+        details: [
+          "Led data-driven initiatives for RCM optimization.",
+          "Designed and deployed machine learning models for payment prediction, revenue forecasting, and trend analysis.",
+          "Used Python, Power BI, and SQL for data modeling, feature engineering, and result visualization.",
+        ],
+      },
     ],
   },
   {
-    role: "Associate Team Lead",
-    company: "Collective RCM",
-    period: "MAR 2021 - DEC 2021 | Colombo",
-    details: [
-      "Supervised a team of 10, providing coaching and performance feedback to achieve a 10% increase in productivity.",
-      "Implemented data-driven strategies for workflow optimization and quality control.",
-    ],
+    role: "Trainee",
+    company: "Sri Lanka Telecom",
+    period: "2018 – 2019",
+    sections: [
+        {
+            title: "Responsibilities",
+            details: [
+                "Troubleshot PSTN and ADSL systems; ensured minimal disruption.",
+                "Worked in the switching department and with network operation systems.",
+                "Used ERP, WFP, and Clarity software for workflow and process management.",
+            ]
+        }
+    ]
   },
-  {
-    role: "Senior Medical Billing Associate",
-    company: "Collective RCM",
-    period: "MAR 2019 - FEB 2021 | Colombo",
-    details: [
-      "Managed end-to-end RCM processes, including charge entry, payment posting, and denial management.",
-      "Conducted regular audits to ensure compliance and accuracy, reducing billing errors by 20%.",
-    ],
-  },
-  {
-    role: "Medical Billing Associate",
-    company: "Collective RCM",
-    period: "MAR 2018 - FEB 2019 | Colombo",
-    details: [
-      "Handled medical billing and coding for various specialties, ensuring timely and accurate claim submissions.",
-      "Resolved claim rejections and denials by communicating with insurance companies.",
-    ],
-  },
+];
+
+const technicalSkills = {
+  "Programming/Scripting": ["Python (Pandas, NumPy, Scikit-learn)", "SQL", "Git/GitHub"],
+  "Analytics & Modeling": ["Predictive modeling", "regression", "classification", "advanced statistics", "feature engineering", "cross-validation", "model evaluation"],
+  "Data Visualization": ["Power BI", "Matplotlib", "Excel (Advanced Charts, PivotTables)"],
+  "Database": ["MySQL", "SQL-based querying", "ERP systems"],
+  "Networking & Systems": ["PSTN", "ADSL", "network OS", "switching systems"],
+  "Workflow Tools": ["WFP", "Clarity", "Audit Reporting"],
+  "Version Control": ["Git", "GitHub"],
+};
+
+const keyAccomplishments = [
+  "Led technical projects and data-driven initiatives that measurably improved team performance and financial outcomes.",
+  "Successfully bridged the gap between technical and operational teams as both a leader and developer.",
+  "Drove organizational transformation through the implementation of analytics and digital workflow platforms.",
+];
+
+const otherHighlights = [
+  "Strong communication and problem-solving skills.",
+  "Experience with both leadership and hands-on technical roles.",
+  "Active participation in extracurriculars (AIESEC, chess, science society, IT club).",
+  "Fluent in English and Sinhala.",
 ];
 
 export default function ExperiencePage() {
@@ -47,33 +81,84 @@ export default function ExperiencePage() {
     <div className="space-y-12">
       <header>
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Briefcase size={36} /> Work Experience
+          <Briefcase size={36} /> Professional Experience
         </h1>
-        <p className="mt-2 text-muted-foreground">My professional journey and key accomplishments.</p>
+        <p className="mt-2 text-muted-foreground">My professional journey, skills, and key accomplishments.</p>
       </header>
 
-      <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-border/70">
-        {experiences.map((exp, index) => (
-          <Card key={index} className="pl-12 relative">
-            <div className="absolute left-5 top-5 w-3 h-3 bg-primary rounded-full -translate-x-[5px]"></div>
-            <CardHeader>
-              <CardTitle>{exp.role}</CardTitle>
-              <CardDescription>
-                {exp.company} &middot; {exp.period}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                {exp.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
+      <section>
+        <div className="space-y-8">
+          {professionalExperience.map((exp, index) => (
+            <Card key={index}>
+              <CardHeader>
+                <CardTitle>{exp.role}</CardTitle>
+                <CardDescription>
+                  {exp.company} &middot; {exp.period}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {exp.sections.map(section => (
+                    <div key={section.title}>
+                        <h3 className="font-semibold text-card-foreground/90 mb-2">{section.title}</h3>
+                        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                            {section.details.map((detail, i) => (
+                                <li key={i}>{detail}</li>
+                            ))}
+                        </ul>
+                    </div>
                 ))}
-              </ul>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Cpu size={30} /> Technical Skills</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <div className="space-y-4">
+              {Object.entries(technicalSkills).map(([category, skills]) => (
+                <div key={category}>
+                  <h3 className="font-semibold mb-2">{category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map(skill => <Badge key={skill} variant="secondary">{skill}</Badge>)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+      
+      <section>
+        <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Award size={30} /> Key Accomplishments</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+              {keyAccomplishments.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Star size={30} /> Other Highlights</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+              {otherHighlights.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
+
       <footer className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; {new Date().getFullYear()} Thanuka Ellepola. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Thanuka Ellepola. All rights reserved.</p>
       </footer>
     </div>
   );

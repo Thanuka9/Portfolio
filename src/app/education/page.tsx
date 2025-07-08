@@ -1,22 +1,31 @@
 import { GraduationCap } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const education = [
   {
     degree: "Master of Business Analytics",
-    period: "2023–2025",
     institution: "University of Colombo",
+    period: "2023 – 2025 (Expected)",
+    description: "Focus on predictive analytics, machine learning, business intelligence, and real-world applications in healthcare finance. Thesis on 'Predictive Analytics for Payment Prediction in RCM' involved developing and comparing ML models.",
   },
   {
     degree: "Bachelor of Computer Systems & Networking",
-    period: "2019–2021",
     institution: "Greenwich University",
+    period: "2019 – 2021",
+    description: "Emphasis on computer networks, programming, and systems administration. Gained strong foundations in database management, software development, and networking protocols.",
   },
   {
     degree: "Advanced Diploma in Telecommunication System & Digital Networking",
-    period: "2017–2018",
     institution: "City & Guilds",
+    period: "2017 – 2018",
+    description: "Specialized in digital networking, telecom systems, and network troubleshooting.",
   },
+  {
+    degree: "G.C.E. Advanced & Ordinary Levels",
+    institution: "School Qualification",
+    period: "2011 & 2014",
+    description: "Completed secondary education with G.C.E. Advanced Level in 2014 and Ordinary Level in 2011.",
+  }
 ];
 
 export default function EducationPage() {
@@ -34,8 +43,11 @@ export default function EducationPage() {
           <Card key={edu.degree}>
             <CardHeader>
               <CardTitle>{edu.degree}</CardTitle>
-              <p className="text-sm text-muted-foreground">{edu.institution} &middot; {edu.period}</p>
+              <CardDescription>{edu.institution} &middot; {edu.period}</CardDescription>
             </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">{edu.description}</p>
+            </CardContent>
           </Card>
         ))}
       </div>
