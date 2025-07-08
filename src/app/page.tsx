@@ -104,7 +104,7 @@ export default function PortfolioPage() {
                 className="rounded-full mb-4"
                 data-ai-hint="professional man portrait"
               />
-              <h1 className="text-4xl font-bold font-headline text-primary-foreground lg:text-foreground">Thanuka Ellepola</h1>
+              <h1 className="text-4xl font-bold font-headline text-primary-foreground">Thanuka Ellepola</h1>
               <h2 className="text-xl text-primary font-medium">Data Scientist | Full Stack Developer</h2>
               <p className="mt-4 text-muted-foreground">
                 Transforming healthcare and business through data and technology
