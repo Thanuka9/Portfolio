@@ -99,6 +99,8 @@ const technicalSkills = {
         "ERP System Integration",
       ],
       "Workflow & Reporting Tools": ["WFP", "Clarity", "audit reporting tools"],
+      "Practice Management Systems": ["AdvancedMD", "eClinicalWorks (ECW)", "HST Pathways"],
+      "Clearinghouses & RCM Tools": ["Waystar"],
 };
 
 
