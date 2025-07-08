@@ -25,15 +25,16 @@ export default function Sidebar() {
         <div className="p-8 lg:p-12 flex flex-col justify-between h-full">
           <div>
             <div className="flex flex-col items-start mb-8">
-              <Image
-                src="/Profile.png"
-                alt="Thanuka Ellepola"
-                width={128}
-                height={128}
-                className="rounded-full mb-4 object-cover"
-                priority
-              />
-              <h1 className="text-4xl font-bold font-headline text-foreground">Thanuka Ellepola</h1>
+              <div className="relative w-32 h-32 mb-4">
+                <Image
+                  src="/Profile.png"
+                  alt="Thanuka Ellepola"
+                  fill
+                  className="rounded-full object-cover"
+                  priority
+                />
+              </div>
+              <h1 className="text-4xl font-bold font-headline text-primary-foreground">Thanuka Ellepola</h1>
               <h2 className="text-xl text-primary font-medium">Data Scientist | Full Stack Developer</h2>
               <p className="mt-4 text-muted-foreground">
                 Driving innovation and insight at the intersection of data, AI, and business.
