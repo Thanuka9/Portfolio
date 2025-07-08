@@ -36,12 +36,20 @@ const formSchema = z.object({
   }),
 });
 
+const SERVICE_ID = 'service_l295hid';
+const TEMPLATE_ID = 'template_oxg4tlo';
+const PUBLIC_KEY = 'mqtA7O0dh4Q6-V-Ur';
+
 export default function ContactPage() {
   const { toast } = useToast();
   const [year, setYear] = React.useState<number | string>("");
 
   React.useEffect(() => {
     setYear(new Date().getFullYear());
+  }, []);
+
+  React.useEffect(() => {
+    emailjs.init(PUBLIC_KEY);
   }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -54,12 +62,8 @@ export default function ContactPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const serviceId = 'service_l295hid';
-    const templateId = 'template_oxg4tlo';
-    const publicKey = 'mqtA7O0dh4Q6-V-Ur';
-
     try {
-      await emailjs.send(serviceId, templateId, values, publicKey);
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values);
       toast({
         title: "Message Sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
@@ -70,7 +74,7 @@ export default function ContactPage() {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "There was a problem sending your message. Please try again later.",
+        description: "There was a problem sending your message. Please check your EmailJS configuration and try again.",
       });
     }
   }
