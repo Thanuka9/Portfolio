@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import Sidebar from '@/components/sidebar';
 
 export const metadata: Metadata = {
   title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
@@ -21,7 +22,14 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        <div className="flex flex-col lg:flex-row">
+          <Sidebar />
+          <main className="w-full lg:w-2/3 lg:ml-[33.3333%] p-8 lg:p-16">
+            <div className="w-full max-w-4xl mx-auto">
+              {children}
+            </div>
+          </main>
+        </div>
         <Toaster />
       </body>
     </html>
