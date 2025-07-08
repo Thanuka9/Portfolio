@@ -74,12 +74,12 @@ export default function Sidebar() {
                     <Download className="mr-2" size={16} /> Download CV
                  </a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
+              <Button variant="outline" size="icon" asChild>
                 <a href="https://github.com/Thanuka9" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
+              <Button variant="outline" size="icon" asChild>
                 <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin />
                 </a>
