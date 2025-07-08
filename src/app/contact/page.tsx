@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from '@emailjs/browser';
+import React from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,11 @@ const formSchema = z.object({
 
 export default function ContactPage() {
   const { toast } = useToast();
+  const [year, setYear] = React.useState<number | string>("");
+
+  React.useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -175,7 +181,7 @@ export default function ContactPage() {
       </div>
       
       <footer className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; {new Date().getFullYear()} Thanuka Ellepola. All rights reserved.</p>
+            <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
       </footer>
     </div>
   );
