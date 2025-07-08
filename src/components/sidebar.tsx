@@ -19,7 +19,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="lg:w-1/3 lg:h-screen lg:fixed lg:top-0 lg:left-0 lg:border-r lg:border-border/60 p-8 lg:p-12 flex flex-col justify-between bg-card lg:bg-background">
+    <aside className="lg:w-1/3 lg:h-screen lg:fixed lg:top-0 lg:left-0 lg:border-r lg:border-border/60 p-8 lg:p-12 flex flex-col justify-between bg-card lg:bg-background overflow-y-auto">
       <div>
         <div className="flex flex-col items-start mb-8">
           <Image
