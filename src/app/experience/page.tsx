@@ -54,7 +54,7 @@ const technicalSkills = [
   {
     category: "Programming & Scripting",
     icon: Code,
-    skills: ["Python (Pandas, NumPy, Scikit-learn)", "SQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "HTML/CSS", "Git/GitHub"],
+    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "HTML/CSS", "Git/GitHub", "Snowflake", "Vector Databases"],
   },
   {
     category: "Analytics & Modeling",
