@@ -38,8 +38,8 @@ export default function SeoPage() {
     },
   });
 
-  const copyToClipboard = (text: string, type: 'title' | 'description') => {
-    let fullTag = '';
+  const handleCopyToClipboard = (text: string, type: 'title' | 'description') => {
+    let fullTag = text;
     if (type === 'title') {
       fullTag = `<title>${text}</title>`;
     } else {
@@ -147,7 +147,7 @@ export default function SeoPage() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => copyToClipboard(generatedMeta.title, 'title')}
+                      onClick={() => handleCopyToClipboard(generatedMeta.title, 'title')}
                     >
                       <Copy size={16} />
                     </Button>
@@ -163,7 +163,7 @@ export default function SeoPage() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => copyToClipboard(generatedMeta.description, 'description')}
+                      onClick={() => handleCopyToClipboard(generatedMeta.description, 'description')}
                     >
                       <Copy size={16} />
                     </Button>
