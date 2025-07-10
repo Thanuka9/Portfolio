@@ -1,6 +1,7 @@
 
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -19,16 +20,30 @@ const navLinks = [
 ];
 
 function AnimatedChart() {
+    const [chartData, setChartData] = React.useState<Array<{height: string, duration: string}>>([]);
+
+    React.useEffect(() => {
+        const data = Array.from({ length: 7 }).map(() => ({
+            height: `${Math.floor(Math.random() * 60) + 20}%`,
+            duration: `${(Math.random() * 2 + 1).toFixed(2)}s`,
+        }));
+        setChartData(data);
+    }, []);
+
+    if (!chartData.length) {
+        return <div className="w-24 h-16" />;
+    }
+
     return (
       <div className="flex items-end gap-1.5 h-full">
-        {Array.from({ length: 7 }).map((_, i) => (
+        {chartData.map((bar, i) => (
           <div
             key={i}
             className="w-2 bg-primary/20 animate-chart-bar"
             style={{
-              height: `${Math.floor(Math.random() * 60) + 20}%`,
+              height: bar.height,
               animationDelay: `${i * 150}ms`,
-              animationDuration: `${(Math.random() * 2 + 1).toFixed(2)}s`
+              animationDuration: bar.duration
             }}
           />
         ))}
