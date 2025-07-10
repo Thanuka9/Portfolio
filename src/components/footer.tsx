@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -6,11 +7,7 @@ import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from './ui/button';
 
 export default function Footer() {
-  const [year, setYear] = React.useState<number | string>('');
-
-  React.useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
+  const year = new Date().getFullYear();
 
   return (
     <footer className="bg-card text-card-foreground border-t mt-16 pt-12 pb-8">
@@ -50,8 +47,8 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold">Contact Info</h4>
             <ul className="mt-4 space-y-3 text-muted-foreground">
-              <li className="flex items-center gap-3">
-                <Mail size={16} />
+              <li className="flex items-start gap-3">
+                <Mail size={16} className="mt-1 shrink-0" />
                 <a href="mailto:thanuka.ellepola@gmail.com" className="hover:text-primary break-all">thanuka.ellepola@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
