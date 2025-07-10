@@ -54,7 +54,7 @@ const technicalSkills = [
   {
     category: "Programming & Scripting",
     icon: Code,
-    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "HTML/CSS", "Git/GitHub"],
+    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "C#", "Laravel", "HTML/CSS"],
   },
   {
     category: "Analytics & Modeling",
@@ -74,7 +74,7 @@ const technicalSkills = [
   {
     category: "DevOps & Deployment",
     icon: CloudCog,
-    skills: ["Azure (Server Setup, Deployment)", "Version Control (Git)"],
+    skills: ["Azure (Server Setup, Deployment)", "Version Control (Git)", "Git/GitHub"],
   },
   {
     category: "Networking & Systems",
