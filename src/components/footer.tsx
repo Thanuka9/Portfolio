@@ -50,19 +50,19 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold">Contact Info</h4>
             <ul className="mt-4 space-y-3 text-muted-foreground">
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-3">
                 <Mail size={16} />
-                <a href="mailto:thanuka.ellepola@gmail.com" className="hover:text-primary">thanuka.ellepola@gmail.com</a>
+                <a href="mailto:thanuka.ellepola@gmail.com" className="hover:text-primary break-all">thanuka.ellepola@gmail.com</a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-3">
                 <Phone size={16} />
                 <a href="tel:+94776705832" className="hover:text-primary">+94 77 670 5832</a>
               </li>
-               <li className="flex items-center gap-2">
+               <li className="flex items-center gap-3">
                 <Linkedin size={16} />
                 <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn Profile</a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-3">
                 <MapPin size={16} />
                 <span>Colombo, Sri Lanka</span>
               </li>
