@@ -9,6 +9,23 @@ export const metadata: Metadata = {
   title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
   description: 'Portfolio of Thanuka Ellepola, a Data Scientist and Full Stack Developer, showcasing expertise in transforming healthcare and business through data and technology. Explore projects in predictive analytics, revenue cycle management, and more.',
   keywords: "Thanuka Ellepola, Data Scientist, Full Stack Developer, Healthcare Analytics, Python, Sri Lanka, Revenue Cycle Management, Predictive Analytics, Business Analytics",
+  creator: 'Thanuka Ellepola',
+  authors: [{ name: 'Thanuka Ellepola', url: 'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/' }],
+  openGraph: {
+    title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
+    description: 'Explore the portfolio of Thanuka Ellepola, showcasing data science and full stack development projects.',
+    url: 'https://studio--ellepola-portfolio.us-central1.hosted.app/',
+    siteName: 'Thanuka Ellepola Portfolio',
+    images: [
+      {
+        url: '/og-image.png', // Update with a real image path
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
