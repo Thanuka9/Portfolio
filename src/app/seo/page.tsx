@@ -118,7 +118,7 @@ export default function SeoPage() {
             <CardTitle>Generated Meta Tags</CardTitle>
             <CardDescription>
               Copy these tags into the `<head>` section of your HTML.
-            </CardDescription>
+            </cardDescription>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col justify-center">
             {isLoading && (
@@ -142,7 +142,7 @@ export default function SeoPage() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => copyToClipboard(`<title>${generatedMeta.title}</title>`)}
+                      onClick={() => copyToClipboard(generatedMeta.title)}
                     >
                       <Copy size={16} />
                     </Button>
@@ -158,7 +158,7 @@ export default function SeoPage() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => copyToClipboard(`<meta name="description" content="${generatedMeta.description}">`)}
+                      onClick={() => copyToClipboard(generatedMeta.description)}
                     >
                       <Copy size={16} />
                     </Button>
