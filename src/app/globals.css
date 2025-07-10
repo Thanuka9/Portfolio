@@ -83,12 +83,6 @@ html {
   .animate-fade-in {
     animation: fade-in 0.5s ease-out forwards;
   }
-
-  .animate-heartbeat-line {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw-line 2.5s ease-out forwards infinite;
-  }
   
   @keyframes fade-in {
     from {
@@ -98,18 +92,6 @@ html {
     to {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes draw-line {
-    0% {
-      stroke-dashoffset: 1000;
-    }
-    50% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 0;
     }
   }
 }

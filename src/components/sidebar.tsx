@@ -19,29 +19,6 @@ const navLinks = [
     { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
-function HeartbeatAnimation() {
-  return (
-    <div className="w-full h-20 flex items-center justify-center">
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 200 50"
-        preserveAspectRatio="xMidYMid meet"
-        className="text-purple-400"
-        style={{ filter: 'drop-shadow(0 0 3px rgba(192, 132, 252, 0.7))' }}
-      >
-        <path
-          d="M0 25 H50 L60 15 L70 35 L80 20 L90 30 L100 25 H200"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="none"
-          className="animate-heartbeat-line"
-        />
-      </svg>
-    </div>
-  );
-}
-
 export default function Sidebar() {
   const pathname = usePathname();
 
@@ -50,25 +27,20 @@ export default function Sidebar() {
       <ScrollArea className="h-full">
         <div className="p-8 lg:p-12 flex flex-col justify-between h-full">
           <div>
-            <div className="flex items-start justify-between mb-8">
-              <div className="flex items-center gap-4">
-                  <Image
-                    src="/Profile.png"
-                    alt="Thanuka Ellepola"
-                    width={80}
-                    height={80}
-                    className="rounded-full object-cover"
-                    priority
-                    data-ai-hint="profile person"
-                  />
-                  <div>
-                    <h1 className="text-2xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
-                    <h2 className="text-lg text-muted-foreground font-medium">Data Scientist | Full Stack Developer</h2>
-                  </div>
-              </div>
-              <div className="w-32 h-20">
-                <HeartbeatAnimation />
-              </div>
+            <div className="flex items-center gap-4 mb-8">
+                <Image
+                  src="/Profile.png"
+                  alt="Thanuka Ellepola"
+                  width={80}
+                  height={80}
+                  className="rounded-full object-cover"
+                  priority
+                  data-ai-hint="profile person"
+                />
+                <div>
+                  <h1 className="text-2xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
+                  <h2 className="text-lg text-muted-foreground font-medium">Data Scientist | Full Stack Developer</h2>
+                </div>
             </div>
              <p className="mt-4 text-muted-foreground">
                 Driving innovation and insight at the intersection of data, AI, and business.
