@@ -39,7 +39,7 @@ export default function SeoPage() {
   });
 
   const handleCopyToClipboard = (text: string, type: 'title' | 'description') => {
-    let fullTag = text;
+    let fullTag: string;
     if (type === 'title') {
       fullTag = `<title>${text}</title>`;
     } else {
