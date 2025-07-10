@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -6,12 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const projects = [
-    {
-    title: "Disaster Management System (BCS Project)",
-    role: "Lead Developer",
-    description: `This project, developed for my Bachelor of Computer Science degree, is a critical incident response system designed to mitigate the impact of floods in Sri Lanka. Using the Laravel framework, the system integrates with SMS gateways to send real-time alerts to citizens in flood-prone areas. Key features include identifying at-risk populations based on location data, broadcasting emergency notifications, and guiding them to government-organized safety shelters with clear directions. The system was built with a MySQL database to manage user data, locations, and alert history, and features a frontend built with HTML, CSS, and Java.`,
-    tags: ["Laravel", "PHP", "MySQL", "HTML", "CSS", "Java", "SMS Gateway"],
-  },
   {
     title: "Predictive Analytics for Payment Prediction in RCM",
     role: "Lead Data Scientist / Researcher",
@@ -27,6 +22,12 @@ Key features include multi-role access controls, integrated task and exam manage
 
 CollectiveRCM Apex exemplifies best practices in secure, source-driven software engineering and demonstrates my ability to deliver complex, production-ready solutions for the healthcare technology sector.`,
     tags: ["Python", "SQL", "Power BI", "JavaScript", "Full Stack"],
+  },
+  {
+    title: "Disaster Management System (BCS Project)",
+    role: "Lead Developer",
+    description: `This project, developed for my Bachelor of Computer Science degree, is a critical incident response system designed to mitigate the impact of floods in Sri Lanka. Using the Laravel framework, the system integrates with SMS gateways to send real-time alerts to citizens in flood-prone areas. Key features include identifying at-risk populations based on location data, broadcasting emergency notifications, and guiding them to government-organized safety shelters with clear directions. The system was built with a MySQL database to manage user data, locations, and alert history, and features a frontend built with HTML, CSS, and Java.`,
+    tags: ["Laravel", "PHP", "MySQL", "HTML", "CSS", "Java", "SMS Gateway"],
   },
   {
     title: "GPT-based Chess Analysis Model",
