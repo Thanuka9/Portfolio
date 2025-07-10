@@ -14,7 +14,7 @@ const projects = [
     tags: ["Python", "Pandas", "Scikit-learn", "Power BI", "SQL", "Machine Learning"],
   },
   {
-    title: "Collective Intranet System & Analytics Dashboard",
+    title: "Collective Intranet System",
     role: "Full Stack Developer / System Architect",
     description: `CollectiveRCM Intranet (Full stack) is a comprehensive, enterprise-grade Revenue Cycle Management (RCM) system designed to streamline, automate, and optimize financial workflows within healthcare organizations. Built with a modular, API-driven architecture, the platform supports secure patient data management, seamless claims processing, automated billing, and real-time analytics. The system leverages robust authentication mechanisms, including 2FA and GridFS-based document storage, to ensure HIPAA-compliant operations and data integrity.
 
@@ -26,7 +26,7 @@ CollectiveRCM Apex exemplifies best practices in secure, source-driven software 
   {
     title: "Disaster Management System (BCS Project)",
     role: "Lead Developer",
-    description: `This project, developed for my Bachelor of Computer Science degree, is a critical incident response system designed to mitigate the impact of floods in Sri Lanka. Using the Laravel framework, the system integrates with SMS gateways to send real-time alerts to citizens in flood-prone areas. Key features include identifying at-risk populations based on location data, broadcasting emergency notifications, and guiding them to government-organized safety shelters with clear directions. The system was built with a MySQL database to manage user data, locations, and alert history, and features a frontend built with HTML, CSS, and Java.`,
+    description: `This project, developed for my Bachelor of Science in Computer systems and networking, is a critical incident response system designed to mitigate the impact of floods in Sri Lanka. The system operates by integrating with SMS gateways to broadcast real-time alerts. When a flood is detected in a specific area, the system identifies at-risk citizens based on location data stored in a MySQL database. It then automatically sends emergency SMS notifications, guiding them to government-organized safety shelters with clear directions. The backend was built using the Laravel framework, with a frontend developed using HTML, CSS, and Java.`,
     tags: ["Laravel", "PHP", "MySQL", "HTML", "CSS", "Java", "SMS Gateway"],
   },
   {
