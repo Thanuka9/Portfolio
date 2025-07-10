@@ -123,7 +123,7 @@ export default function SeoPage() {
             <CardTitle>Generated Meta Tags</CardTitle>
             <CardDescription>
               Copy these tags into the `<head>` section of your HTML.
-            </cardDescription>
+            </CardDescription>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col justify-center">
             {isLoading && (
