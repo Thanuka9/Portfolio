@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, Copy } from 'lucide-react';
+import { Sparkles, Copy, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -15,10 +15,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { generateSeoMetaTags, GenerateSeoMetaTagsInput, GenerateSeoMetaTagsOutput } from '@/ai/flows/seo-flow';
+import { generateSeoMetaTags } from '@/ai/flows/seo-flow';
+import type { GenerateSeoMetaTagsInput, GenerateSeoMetaTagsOutput } from '@/ai/flows/seo-flow';
 
 const formSchema = z.object({
   keywords: z.string().min(3, {
@@ -38,18 +40,15 @@ export default function SeoPage() {
     },
   });
 
-  const handleCopyToClipboard = (text: string, type: 'title' | 'description') => {
-    let fullTag: string;
-    if (type === 'title') {
-      fullTag = `<title>${text}</title>`;
-    } else {
-      fullTag = `<meta name="description" content="${text}">`;
+  const handleCopyToClipboard = (text: string) => {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            toast({
+                title: 'Copied to Clipboard!',
+                description: 'The meta tag has been copied successfully.',
+            });
+        });
     }
-    navigator.clipboard.writeText(fullTag);
-    toast({
-      title: 'Copied to Clipboard!',
-      description: 'The meta tag has been copied successfully.',
-    });
   };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -72,22 +71,23 @@ export default function SeoPage() {
   }
 
   return (
-    <div className="space-y-12 pb-16">
-      <header>
-        <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Sparkles size={36} /> SEO Meta Tag Generator
+    <div className="space-y-8 pb-16">
+      <header className="text-center">
+        <h1 className="text-4xl lg:text-5xl font-bold font-headline text-primary flex items-center justify-center gap-3">
+          <Sparkles size={36} />
+          <span>AI SEO Meta Tag Generator</span>
         </h1>
-        <p className="mt-2 text-muted-foreground">
-          Generate optimized meta titles and descriptions for your web pages based on your target keywords.
+        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+          Enter a few keywords related to your page content, and let our AI craft the perfect SEO title and meta description to improve your search engine visibility.
         </p>
       </header>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
         <Card>
           <CardHeader>
-            <CardTitle>Enter Keywords</CardTitle>
+            <CardTitle>Enter Your Keywords</CardTitle>
             <CardDescription>
-              Provide a comma-separated list of keywords you want to target.
+              Provide a comma-separated list of keywords that best describe your content.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -98,11 +98,11 @@ export default function SeoPage() {
                   name="keywords"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Keywords</FormLabel>
+                      <FormLabel className="sr-only">Keywords</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="e.g., data science, full stack developer, portfolio"
-                          className="resize-none"
+                          placeholder="e.g., data science, full stack developer, healthcare analytics, portfolio"
+                          className="resize-none min-h-[100px]"
                           {...field}
                         />
                       </FormControl>
@@ -111,68 +111,80 @@ export default function SeoPage() {
                   )}
                 />
                 <Button type="submit" className="w-full bg-accent hover:bg-accent/90" disabled={isLoading}>
-                  {isLoading ? 'Generating...' : 'Generate Meta Tags'}
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    'Generate Meta Tags'
+                  )}
                 </Button>
               </form>
             </Form>
           </CardContent>
         </Card>
 
-        <Card className="flex flex-col">
-          <CardHeader>
-            <CardTitle>Generated Meta Tags</CardTitle>
-            <CardDescription>
-              Copy these tags into the `<head>` section of your HTML.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex-grow flex flex-col justify-center">
-            {isLoading && (
-              <div className="flex items-center justify-center space-x-2">
-                <Sparkles className="h-5 w-5 animate-spin text-primary" />
-                <p className="text-muted-foreground">Generating...</p>
-              </div>
-            )}
-            {!isLoading && !generatedMeta && (
-              <p className="text-center text-muted-foreground">Your generated meta tags will appear here.</p>
-            )}
-            {generatedMeta && (
-              <div className="space-y-4 font-mono text-sm">
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground mb-1">TITLE TAG</label>
-                  <div className="relative">
-                    <pre className="p-3 rounded-md bg-muted text-muted-foreground overflow-x-auto">
-                      <code>{`<title>${generatedMeta.title}</title>`}</code>
-                    </pre>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => handleCopyToClipboard(generatedMeta.title, 'title')}
-                    >
-                      <Copy size={16} />
-                    </Button>
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground mb-1">META DESCRIPTION</label>
-                   <div className="relative">
-                    <pre className="p-3 rounded-md bg-muted text-muted-foreground overflow-x-auto">
-                      <code>{`<meta name="description" content="${generatedMeta.description}">`}</code>
-                    </pre>
-                     <Button
-                      variant="ghost"
-                      size="icon"
-                      className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => handleCopyToClipboard(generatedMeta.description, 'description')}
-                    >
-                      <Copy size={16} />
-                    </Button>
-                  </div>
+        {isLoading && (
+          <div className="text-center text-muted-foreground flex items-center justify-center gap-2">
+            <Loader2 className="h-5 w-5 animate-spin text-primary" />
+            <span>Crafting the perfect tags for you...</span>
+          </div>
+        )}
+
+        {generatedMeta && (
+          <Card className="animate-fade-in">
+            <CardHeader>
+              <CardTitle>Your Generated Meta Tags</CardTitle>
+              <CardDescription>
+                Copy these tags and paste them into the `<head>` section of your website's HTML.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="meta-title" className="text-base font-semibold">Meta Title</Label>
+                <div className="relative">
+                  <p
+                    id="meta-title"
+                    className="p-4 pr-12 rounded-md bg-muted text-muted-foreground border min-h-[4rem] flex items-center"
+                  >
+                    {generatedMeta.title}
+                  </p>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1/2 right-2 -translate-y-1/2 h-8 w-8"
+                    onClick={() => handleCopyToClipboard(generatedMeta.title)}
+                    aria-label="Copy meta title"
+                  >
+                    <Copy size={16} />
+                  </Button>
                 </div>
               </div>
-            )}
-          </CardContent>
-        </Card>
+
+              <div className="space-y-2">
+                <Label htmlFor="meta-description" className="text-base font-semibold">Meta Description</Label>
+                <div className="relative">
+                   <p
+                    id="meta-description"
+                    className="p-4 pr-12 rounded-md bg-muted text-muted-foreground border min-h-[8rem] flex items-center"
+                  >
+                    {generatedMeta.description}
+                  </p>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1/2 right-2 -translate-y-1/2 h-8 w-8"
+                    onClick={() => handleCopyToClipboard(generatedMeta.description)}
+                    aria-label="Copy meta description"
+                  >
+                    <Copy size={16} />
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
