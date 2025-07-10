@@ -74,7 +74,7 @@ export default function Footer() {
         <div className="mt-12 border-t pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
           <div className="flex items-center gap-4 mt-4 sm:mt-0">
-             <p className="flex items-center gap-1.5">Made with <span className="text-red-500">&hearts;</span> for innovation in healthcare technology</p>
+             <p className="flex items-center gap-1.5">Crafted with <span className="text-red-500">&hearts;</span> for building innovative solutions</p>
              <div className="flex items-center gap-2">
                 <a href="https://github.com/Thanuka9" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-primary"><Github size={18}/></a>
                 <a href="mailto:thanuka.ellepola@gmail.com" aria-label="Email" className="hover:text-primary"><Mail size={18}/></a>
