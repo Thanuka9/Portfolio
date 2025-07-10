@@ -15,7 +15,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -58,8 +57,14 @@ export default function SeoPage() {
     }
   }
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
+  const copyToClipboard = (text: string, type: 'title' | 'description') => {
+    let fullTag = '';
+    if (type === 'title') {
+      fullTag = `<title>${text}</title>`;
+    } else {
+      fullTag = `<meta name="description" content="${text}">`;
+    }
+    navigator.clipboard.writeText(fullTag);
     toast({
       title: 'Copied to Clipboard!',
       description: 'The meta tag has been copied successfully.',
@@ -142,7 +147,7 @@ export default function SeoPage() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => copyToClipboard(generatedMeta.title)}
+                      onClick={() => copyToClipboard(generatedMeta.title, 'title')}
                     >
                       <Copy size={16} />
                     </Button>
@@ -158,7 +163,7 @@ export default function SeoPage() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-1 right-1 h-7 w-7"
-                      onClick={() => copyToClipboard(generatedMeta.description)}
+                      onClick={() => copyToClipboard(generatedMeta.description, 'description')}
                     >
                       <Copy size={16} />
                     </Button>
