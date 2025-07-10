@@ -1,14 +1,15 @@
 
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Send, ExternalLink } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from '@emailjs/browser';
 import React from "react";
+import Link from "next/link";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -21,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Badge } from "@/components/ui/badge";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -67,7 +69,25 @@ const contactDetails = [
         label: "Location",
         value: "Colombo, Sri Lanka",
     }
-]
+];
+
+const services = [
+  "Data Science Consulting",
+  "Healthcare Analytics Solutions",
+  "Full Stack Web Development",
+  "Predictive Modeling Projects",
+  "Database Design & Optimization",
+  "Team Training & Workshops"
+];
+
+const opportunities = [
+  "Full-time Opportunities",
+  "Consulting Projects",
+  "Research Collaborations",
+  "Speaking Engagements",
+  "Technical Mentoring"
+];
+
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -216,6 +236,64 @@ export default function ContactPage() {
             </Card>
         </div>
       </div>
+
+      <section className="space-y-8">
+        <div className="grid md:grid-cols-2 gap-8">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="text-2xl">Services Offered</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="space-y-3">
+                        {services.map((service) => (
+                            <li key={service} className="flex items-start">
+                                <span className="text-accent mr-3 mt-1">&#8226;</span>
+                                <span className="text-muted-foreground">{service}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <CardTitle className="text-2xl">Available For</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="space-y-4">
+                        {opportunities.map((opp) => (
+                            <li key={opp} className="flex items-center justify-between">
+                                <span className="text-muted-foreground">{opp}</span>
+                                <Badge variant="outline" className="border-green-500/50 text-green-600 bg-green-500/10">Open</Badge>
+                            </li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
+        </div>
+
+        <Card className="text-center">
+            <CardContent className="p-8">
+                <h2 className="text-3xl font-bold mb-2">Ready to Start a Conversation?</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+                    If you're looking for a data scientist, full-stack developer, or research collaborator, I'm here to help bring your ideas to life.
+                </p>
+                <div className="flex justify-center gap-4">
+                    <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                        <a href="mailto:thanuka.ellepola@gmail.com">
+                            <Mail size={18} />
+                            Send Email
+                        </a>
+                    </Button>
+                    <Button asChild size="lg" variant="outline">
+                        <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer">
+                            <ExternalLink size={18} />
+                            Connect on LinkedIn
+                        </a>
+                    </Button>
+                </div>
+            </CardContent>
+        </Card>
+      </section>
     </div>
   );
 }
