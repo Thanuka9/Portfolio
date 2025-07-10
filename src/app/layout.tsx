@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import Sidebar from '@/components/sidebar';
 import { ThemeProvider } from '@/components/theme-provider';
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
@@ -27,8 +28,11 @@ export default function RootLayout({
           <div className="flex flex-col lg:flex-row">
             <Sidebar />
             <main className="w-full lg:w-2/3 lg:ml-[33.3333%] p-8 lg:p-16 animate-fade-in">
-              <div className="w-full max-w-4xl mx-auto">
-                {children}
+              <div className="w-full max-w-4xl mx-auto flex flex-col min-h-screen">
+                <div className="flex-grow">
+                  {children}
+                </div>
+                <Footer />
               </div>
             </main>
           </div>

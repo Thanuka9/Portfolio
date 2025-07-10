@@ -42,11 +42,6 @@ const PUBLIC_KEY = 'mqtA7O0dh4Q6-V-Ur';
 
 export default function ContactPage() {
   const { toast } = useToast();
-  const [year, setYear] = React.useState<number | string>("");
-
-  React.useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -77,7 +72,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 pb-16">
       <header>
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
           <Mail size={36} /> Get In Touch
@@ -181,10 +176,6 @@ export default function ContactPage() {
           </Card>
         </div>
       </div>
-      
-      <footer className="text-center text-sm text-muted-foreground pt-8">
-        <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
-      </footer>
     </div>
   );
 }

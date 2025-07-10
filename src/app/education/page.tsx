@@ -32,14 +32,8 @@ const education = [
 ];
 
 export default function EducationPage() {
-  const [year, setYear] = React.useState<number | string>('');
-
-  React.useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 pb-16">
       <header>
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
           <GraduationCap size={36} /> Education
@@ -64,9 +58,6 @@ export default function EducationPage() {
           </Card>
         ))}
       </div>
-      <footer className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
-      </footer>
     </div>
   );
 }

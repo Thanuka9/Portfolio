@@ -105,14 +105,8 @@ const technicalSkills = {
 
 
 export default function ExperiencePage() {
-  const [year, setYear] = React.useState<number | string>('');
-
-  React.useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 pb-16">
       <header>
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
           <Briefcase size={36} /> Professional Experience
@@ -168,10 +162,6 @@ export default function ExperiencePage() {
           </CardContent>
         </Card>
       </section>
-      
-      <footer className="text-center text-sm text-muted-foreground pt-8">
-        <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
-      </footer>
     </div>
   );
 }

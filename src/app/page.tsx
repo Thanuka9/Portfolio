@@ -77,12 +77,6 @@ const competencies = [
 ];
 
 export default function HomePage() {
-  const [year, setYear] = React.useState<number | string>('');
-
-  React.useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
   return (
     <div className="space-y-16">
       <section id="about">
@@ -134,7 +128,7 @@ export default function HomePage() {
         </div>
       </section>
       
-      <section id="navigation-grid">
+      <section id="navigation-grid" className="pb-16">
         <h2 className="text-3xl font-bold font-headline mb-8 text-center opacity-0 animate-fade-in" style={{ animationDelay: '450ms' }}>Explore My Portfolio</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {navItems.map((item, index) => (
@@ -162,10 +156,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <footer className="text-center text-sm text-muted-foreground pt-8">
-        <p>&copy; {year} Thanuka Ellepola. All rights reserved.</p>
-      </footer>
     </div>
   );
 }
