@@ -270,29 +270,6 @@ export default function ContactPage() {
                 </CardContent>
             </Card>
         </div>
-
-        <Card className="text-center">
-            <CardContent className="p-8">
-                <h2 className="text-3xl font-bold mb-2">Ready to Start a Conversation?</h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                    If you're looking for a data scientist, full-stack developer, or research collaborator, I'm here to help bring your ideas to life.
-                </p>
-                <div className="flex justify-center gap-4">
-                    <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                        <a href="mailto:thanuka.ellepola@gmail.com">
-                            <Mail size={18} />
-                            Send Email
-                        </a>
-                    </Button>
-                    <Button asChild size="lg" variant="outline">
-                        <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer">
-                            <ExternalLink size={18} />
-                            Connect on LinkedIn
-                        </a>
-                    </Button>
-                </div>
-            </CardContent>
-        </Card>
       </section>
     </div>
   );
