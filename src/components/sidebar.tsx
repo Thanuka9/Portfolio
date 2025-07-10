@@ -19,41 +19,28 @@ const navLinks = [
     { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
-const barColors = ['#3b82f6', '#8b5cf6', '#ec4899'];
-
-function AnimatedChart() {
-    const [chartData, setChartData] = React.useState<Array<{height: string, duration: string, color: string}>>([]);
-
-    React.useEffect(() => {
-        const data = Array.from({ length: 7 }).map((_, i) => ({
-            height: `${Math.floor(Math.random() * 60) + 25}%`,
-            duration: `${(Math.random() * 1.5 + 1).toFixed(2)}s`,
-            color: barColors[i % barColors.length],
-        }));
-        setChartData(data);
-    }, []);
-
-    if (!chartData.length) {
-        return <div className="w-32 h-20" />;
-    }
-
-    return (
-      <div className="flex items-end gap-2 h-full">
-        {chartData.map((bar, i) => (
-          <div
-            key={i}
-            className="w-3 animate-chart-bar"
-            style={{
-              height: bar.height,
-              animationDelay: `${i * 150}ms`,
-              animationDuration: bar.duration,
-              backgroundColor: bar.color,
-            }}
-          />
-        ))}
-      </div>
-    );
-  }
+function HeartbeatAnimation() {
+  return (
+    <div className="w-full h-20 flex items-center justify-center">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 200 50"
+        preserveAspectRatio="xMidYMid meet"
+        className="text-purple-400"
+        style={{ filter: 'drop-shadow(0 0 3px rgba(192, 132, 252, 0.7))' }}
+      >
+        <path
+          d="M0 25 H50 L60 15 L70 35 L80 20 L90 30 L100 25 H200"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="none"
+          className="animate-heartbeat-line"
+        />
+      </svg>
+    </div>
+  );
+}
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -80,7 +67,7 @@ export default function Sidebar() {
                   </div>
               </div>
               <div className="w-32 h-20">
-                <AnimatedChart />
+                <HeartbeatAnimation />
               </div>
             </div>
              <p className="mt-4 text-muted-foreground">
