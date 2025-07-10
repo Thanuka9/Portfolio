@@ -38,6 +38,20 @@ export default function SeoPage() {
     },
   });
 
+  const copyToClipboard = (text: string, type: 'title' | 'description') => {
+    let fullTag = '';
+    if (type === 'title') {
+      fullTag = `<title>${text}</title>`;
+    } else {
+      fullTag = `<meta name="description" content="${text}">`;
+    }
+    navigator.clipboard.writeText(fullTag);
+    toast({
+      title: 'Copied to Clipboard!',
+      description: 'The meta tag has been copied successfully.',
+    });
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     setGeneratedMeta(null);
@@ -56,20 +70,6 @@ export default function SeoPage() {
       setIsLoading(false);
     }
   }
-
-  const copyToClipboard = (text: string, type: 'title' | 'description') => {
-    let fullTag = '';
-    if (type === 'title') {
-      fullTag = `<title>${text}</title>`;
-    } else {
-      fullTag = `<meta name="description" content="${text}">`;
-    }
-    navigator.clipboard.writeText(fullTag);
-    toast({
-      title: 'Copied to Clipboard!',
-      description: 'The meta tag has been copied successfully.',
-    });
-  };
 
   return (
     <div className="space-y-12 pb-16">
