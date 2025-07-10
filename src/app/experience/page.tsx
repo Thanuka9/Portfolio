@@ -2,9 +2,8 @@
 'use client';
 
 import React from 'react';
-import { Briefcase, Cpu } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Network, Wrench, Building, Share2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 const professionalExperience = [
   {
@@ -51,57 +50,53 @@ const professionalExperience = [
   },
 ];
 
-const technicalSkills = {
-    "Programming & Scripting": [
-        "Python (Pandas, NumPy, Scikit-learn)",
-        "SQL",
-        "JavaScript (ES6+)",
-        "React",
-        "Tailwind CSS",
-        "Java",
-        "HTML",
-        "CSS",
-        "Git",
-        "GitHub",
-      ],
-      "Analytics & Modeling": [
-        "Predictive Modeling",
-        "Regression",
-        "Classification",
-        "Advanced Statistics",
-        "Feature Engineering",
-        "Cross-Validation",
-        "Model Evaluation",
-        "LLMs",
-        "GPT Models",
-      ],
-      "Data Visualization": ["Power BI", "Matplotlib", "Excel (Advanced Charts, PivotTables)"],
-      "Database & Backend": [
-        "PostgreSQL",
-        "MySQL",
-        "MongoDB",
-        "SQLAlchemy",
-        "ERP systems",
-        "SQL-based querying",
-        "Python (Flask)",
-      ],
-      "DevOps & Deployment": ["Azure (server setup, deployment)", "version control (Git, GitHub)"],
-      "Networking & Systems": [
-        "PSTN",
-        "ADSL",
-        "TCP/IP",
-        "LAN/WAN Setup",
-        "Network Operating Systems",
-        "Routing & Switching (Cisco)",
-        "Network Troubleshooting",
-        "Windows & Linux Server Administration",
-        "Basic Network Security (Firewalls/NAT)",
-        "ERP System Integration",
-      ],
-      "Workflow & Reporting Tools": ["WFP", "Clarity", "audit reporting tools"],
-      "Practice Management Systems": ["AdvancedMD", "eClinicalWorks (ECW)", "HST Pathways"],
-      "Clearinghouses & RCM Tools": ["Waystar"],
-};
+const technicalSkills = [
+  {
+    category: "Programming & Scripting",
+    icon: Code,
+    skills: ["Python (Pandas, NumPy, Scikit-learn)", "SQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "HTML/CSS", "Git/GitHub"],
+  },
+  {
+    category: "Analytics & Modeling",
+    icon: BrainCircuit,
+    skills: ["Predictive Modeling", "Regression/Classification", "Advanced Statistics", "Feature Engineering", "Cross-Validation", "LLMs & GPT Models"],
+  },
+  {
+    category: "Data Visualization",
+    icon: BarChart3,
+    skills: ["Power BI", "Matplotlib", "Excel (Advanced Charts, PivotTables)"],
+  },
+  {
+    category: "Database & Backend",
+    icon: Database,
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLAlchemy", "Python (Flask)"],
+  },
+  {
+    category: "DevOps & Deployment",
+    icon: CloudCog,
+    skills: ["Azure (Server Setup, Deployment)", "Version Control (Git)"],
+  },
+  {
+    category: "Networking & Systems",
+    icon: Network,
+    skills: ["TCP/IP", "LAN/WAN", "Windows/Linux Server Admin", "Network Security Basics"],
+  },
+  {
+    category: "Workflow & Reporting Tools",
+    icon: Wrench,
+    skills: ["WFP", "Clarity", "Audit Reporting Tools", "ERP System Integration"],
+  },
+  {
+    category: "Practice Management Systems",
+    icon: Building,
+    skills: ["AdvancedMD", "eClinicalWorks (ECW)", "HST Pathways"],
+  },
+  {
+    category: "Clearinghouses & RCM Tools",
+    icon: Share2,
+    skills: ["Waystar"],
+  },
+];
 
 
 export default function ExperiencePage() {
@@ -147,20 +142,34 @@ export default function ExperiencePage() {
 
       <section>
         <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Cpu size={30} /> Technical Skills</h2>
-        <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary">
-          <CardContent className="pt-6">
-            <div className="space-y-4">
-              {Object.entries(technicalSkills).map(([category, skills]) => (
-                <div key={category}>
-                  <h3 className="font-semibold mb-2">{category}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map(skill => <Badge key={skill} variant="secondary">{skill}</Badge>)}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {technicalSkills.map((category, index) => (
+              <Card 
+                key={category.category} 
+                className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary flex flex-col"
+                style={{ animationDelay: `${(professionalExperience.length + index) * 150}ms` }}
+              >
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <category.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <span>{category.category}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <ul className="space-y-2">
+                    {category.skills.map(skill => (
+                      <li key={skill} className="flex items-start">
+                        <span className="text-primary/80 mr-2 mt-1">&#8226;</span>
+                        <span className="text-muted-foreground">{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+        </div>
       </section>
     </div>
   );
