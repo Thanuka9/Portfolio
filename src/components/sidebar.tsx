@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Home, Briefcase, Code, GraduationCap, Mail, Download, Github, Linkedin, Phone, MapPin, Sparkles } from 'lucide-react';
+import { Home, Briefcase, Code, GraduationCap, Mail, Download, Github, Linkedin, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -17,7 +17,6 @@ const navLinks = [
     { href: '/projects', label: 'Projects', icon: Code },
     { href: '/education', label: 'Education', icon: GraduationCap },
     { href: '/contact', label: 'Contact', icon: Mail },
-    { href: '/seo', label: 'SEO Tool', icon: Sparkles },
 ];
 
 export default function Sidebar() {
