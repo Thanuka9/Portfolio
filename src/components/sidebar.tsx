@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -17,6 +18,24 @@ const navLinks = [
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
+function AnimatedChart() {
+    return (
+      <div className="flex items-end gap-1.5 h-full">
+        {Array.from({ length: 7 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-2 bg-primary/20 animate-chart-bar"
+            style={{
+              height: `${Math.floor(Math.random() * 60) + 20}%`,
+              animationDelay: `${i * 150}ms`,
+              animationDuration: `${(Math.random() * 2 + 1).toFixed(2)}s`
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
+
 export default function Sidebar() {
   const pathname = usePathname();
 
@@ -25,24 +44,31 @@ export default function Sidebar() {
       <ScrollArea className="h-full">
         <div className="p-8 lg:p-12 flex flex-col justify-between h-full">
           <div>
-            <div className="flex flex-col items-start mb-8">
-              <Image
-                src="/Profile.png"
-                alt="Thanuka Ellepola"
-                width={128}
-                height={128}
-                className="rounded-full object-cover mb-4"
-                priority
-                data-ai-hint="profile person"
-              />
-              <h1 className="text-4xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
-              <h2 className="text-xl text-primary font-medium">Data Scientist | Full Stack Developer</h2>
-              <p className="mt-4 text-muted-foreground">
-                Driving innovation and insight at the intersection of data, AI, and business.
-              </p>
+            <div className="flex items-start justify-between mb-8">
+              <div className="flex items-center gap-4">
+                  <Image
+                    src="/Profile.png"
+                    alt="Thanuka Ellepola"
+                    width={80}
+                    height={80}
+                    className="rounded-full object-cover"
+                    priority
+                    data-ai-hint="profile person"
+                  />
+                  <div>
+                    <h1 className="text-2xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
+                    <h2 className="text-lg text-muted-foreground font-medium">Data Scientist | Full Stack Developer</h2>
+                  </div>
+              </div>
+              <div className="w-24 h-16">
+                <AnimatedChart />
+              </div>
             </div>
+             <p className="mt-4 text-muted-foreground">
+                Driving innovation and insight at the intersection of data, AI, and business.
+            </p>
 
-            <nav className="hidden lg:block space-y-2">
+            <nav className="hidden lg:block space-y-2 mt-8">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -50,8 +76,8 @@ export default function Sidebar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      'flex items-center gap-3 p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors',
-                      isActive && 'text-primary bg-accent/50 font-semibold'
+                      'flex items-center gap-3 p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors',
+                      isActive && 'text-primary bg-primary/10 font-semibold'
                     )}
                   >
                     <link.icon size={18} />
