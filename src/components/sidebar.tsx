@@ -12,38 +12,42 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { ThemeToggle } from './theme-toggle';
 
 const navLinks = [
-  { href: '/', label: 'Home', icon: Home },
-  { href: '/experience', label: 'Experience', icon: Briefcase },
-  { href: '/projects', label: 'Projects', icon: Code },
-  { href: '/education', label: 'Education', icon: GraduationCap },
-  { href: '/contact', label: 'Contact', icon: Mail },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/experience', label: 'Experience', icon: Briefcase },
+    { href: '/projects', label: 'Projects', icon: Code },
+    { href: '/education', label: 'Education', icon: GraduationCap },
+    { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
+const barColors = ['#3b82f6', '#8b5cf6', '#ec4899'];
+
 function AnimatedChart() {
-    const [chartData, setChartData] = React.useState<Array<{height: string, duration: string}>>([]);
+    const [chartData, setChartData] = React.useState<Array<{height: string, duration: string, color: string}>>([]);
 
     React.useEffect(() => {
-        const data = Array.from({ length: 7 }).map(() => ({
-            height: `${Math.floor(Math.random() * 60) + 20}%`,
-            duration: `${(Math.random() * 2 + 1).toFixed(2)}s`,
+        const data = Array.from({ length: 7 }).map((_, i) => ({
+            height: `${Math.floor(Math.random() * 60) + 25}%`,
+            duration: `${(Math.random() * 1.5 + 1).toFixed(2)}s`,
+            color: barColors[i % barColors.length],
         }));
         setChartData(data);
     }, []);
 
     if (!chartData.length) {
-        return <div className="w-24 h-16" />;
+        return <div className="w-32 h-20" />;
     }
 
     return (
-      <div className="flex items-end gap-1.5 h-full">
+      <div className="flex items-end gap-2 h-full">
         {chartData.map((bar, i) => (
           <div
             key={i}
-            className="w-2 bg-primary/20 animate-chart-bar"
+            className="w-3 animate-chart-bar"
             style={{
               height: bar.height,
               animationDelay: `${i * 150}ms`,
-              animationDuration: bar.duration
+              animationDuration: bar.duration,
+              backgroundColor: bar.color,
             }}
           />
         ))}
@@ -75,7 +79,7 @@ export default function Sidebar() {
                     <h2 className="text-lg text-muted-foreground font-medium">Data Scientist | Full Stack Developer</h2>
                   </div>
               </div>
-              <div className="w-24 h-16">
+              <div className="w-32 h-20">
                 <AnimatedChart />
               </div>
             </div>
