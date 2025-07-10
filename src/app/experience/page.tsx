@@ -54,7 +54,7 @@ const technicalSkills = [
   {
     category: "Programming & Scripting",
     icon: Code,
-    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "HTML/CSS", "Git/GitHub", "Snowflake", "Vector Databases"],
+    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "HTML/CSS", "Git/GitHub"],
   },
   {
     category: "Analytics & Modeling",
@@ -69,7 +69,7 @@ const technicalSkills = [
   {
     category: "Database & Backend",
     icon: Database,
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLAlchemy", "Python (Flask)"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLAlchemy", "Python (Flask)", "Snowflake", "Vector Databases"],
   },
   {
     category: "DevOps & Deployment",
