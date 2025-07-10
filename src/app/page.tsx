@@ -8,7 +8,10 @@ import {
   Code,
   GraduationCap,
   Mail,
-  ArrowRight
+  ArrowRight,
+  Zap,
+  Users,
+  TrendingUp
 } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,6 +43,39 @@ const navItems = [
   }
 ];
 
+const competencies = [
+  {
+    icon: Zap,
+    title: "Technical Excellence",
+    points: [
+      "Advanced proficiency in Python and machine learning frameworks",
+      "Exceptional database design and optimization skills",
+      "Strong full-stack development capabilities",
+      "Innovative approach to problem-solving"
+    ]
+  },
+  {
+    icon: Users,
+    title: "Leadership & Communication",
+    points: [
+      "Effective team leadership and project management",
+      "Clear communication of technical concepts to stakeholders",
+      "Mentoring and training team members",
+      "Strategic thinking and business acumen"
+    ]
+  },
+  {
+    icon: TrendingUp,
+    title: "Professional Impact",
+    points: [
+      "Delivered measurable improvements in system efficiency",
+      "Led successful digital transformation initiatives",
+      "Contributed to academic research and publications",
+      "Built scalable solutions for enterprise environments"
+    ]
+  }
+];
+
 export default function HomePage() {
   const [year, setYear] = React.useState<number | string>('');
 
@@ -67,16 +103,46 @@ export default function HomePage() {
           </CardContent>
         </Card>
       </section>
+
+      <section id="core-competencies">
+        <h2 className="text-3xl font-bold font-headline mb-8 text-center opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>Core Competencies</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {competencies.map((item, index) => (
+            <Card 
+              key={item.title} 
+              className="opacity-0 animate-fade-in h-full transition-all duration-300 hover:border-primary hover:shadow-lg hover:-translate-y-1"
+              style={{ animationDelay: `${300 + (index + 1) * 150}ms` }}
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3">
+                  <item.icon className="w-6 h-6 text-primary" />
+                  {item.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 list-inside">
+                  {item.points.map((point, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="text-primary mr-2 mt-1">&#8226;</span>
+                      <span className="text-muted-foreground">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
       
       <section id="navigation-grid">
-        <h2 className="text-2xl font-bold font-headline mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>Explore My Portfolio</h2>
+        <h2 className="text-3xl font-bold font-headline mb-8 text-center opacity-0 animate-fade-in" style={{ animationDelay: '450ms' }}>Explore My Portfolio</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {navItems.map((item, index) => (
             <Link 
               href={item.href} 
               key={item.title} 
               className="group block opacity-0 animate-fade-in"
-              style={{ animationDelay: `${300 + (index + 1) * 150}ms` }}
+              style={{ animationDelay: `${450 + (index + 1) * 150}ms` }}
             >
               <Card className="h-full transition-all duration-300 group-hover:border-primary group-hover:shadow-lg group-hover:-translate-y-1">
                 <CardHeader>
