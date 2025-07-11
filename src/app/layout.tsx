@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
   metadataBase: new URL('https://thanukaellepola.careers'),
+  verification: {
+    google: 'ZQtbsNwZsL_u6jqqqC2oep-_N2sU-5RJ8IxgWrspGOI',
+  },
   alternates: {
     canonical: '/',
   },
