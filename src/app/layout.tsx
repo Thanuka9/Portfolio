@@ -7,14 +7,18 @@ import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
-  description: 'Portfolio of Thanuka Ellepola, a Data Scientist and Full Stack Developer, showcasing expertise in transforming healthcare and business through data and technology. Explore projects in predictive analytics, revenue cycle management, and more.',
-  keywords: "Thanuka Ellepola, Data Scientist, Full Stack Developer, Healthcare Analytics, Python, Sri Lanka, Revenue Cycle Management, Predictive Analytics, Business Analytics",
+  description: 'The official portfolio for Thanuka Ellepola (Ellepola), a Data Scientist and Full Stack Developer. Discover projects in data science, healthcare analytics, and web development.',
+  keywords: "Thanuka Ellepola, Ellepola, Thanuka, Data Scientist, Full Stack Developer, Healthcare Analytics, Python, Sri Lanka, Revenue Cycle Management, Predictive Analytics, Business Analytics",
   creator: 'Thanuka Ellepola',
-  authors: [{ name: 'Thanuka Ellepola', url: 'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/' }],
+  authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
+  metadataBase: new URL('https://thanukaellepola.careers'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
-    description: 'Explore the portfolio of Thanuka Ellepola, showcasing data science and full stack development projects.',
-    url: 'https://studio--ellepola-portfolio.us-central1.hosted.app/',
+    description: 'The official portfolio for Thanuka Ellepola, showcasing data science and full stack development projects.',
+    url: 'https://thanukaellepola.careers/',
     siteName: 'Thanuka Ellepola Portfolio',
     images: [
       {
