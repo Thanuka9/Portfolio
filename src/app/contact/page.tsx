@@ -48,7 +48,7 @@ const PUBLIC_KEY = 'mqtA7O0dh4Q6-V-Ur';
 const contactDetails = [
     {
         icon: Mail,
-        label: "Email",
+        label: "Email (Thanuka Ellepola)",
         value: "thanuka.ellepola@gmail.com",
         href: "mailto:thanuka.ellepola@gmail.com",
     },
@@ -223,7 +223,7 @@ export default function ContactPage() {
                                     />
                                 </FormControl>
                                 <FormMessage />
-                                </FormItem>
+                                </Form.Item>
                             )}
                             />
                             <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={form.formState.isSubmitting}>
