@@ -223,7 +223,7 @@ export default function ContactPage() {
                                     />
                                 </FormControl>
                                 <FormMessage />
-                                </Form.Item>
+                                </.Item>
                             )}
                             />
                             <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={form.formState.isSubmitting}>
