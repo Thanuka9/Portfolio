@@ -35,7 +35,7 @@ const formSchema = z.object({
     message: "Subject must be at least 5 characters.",
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: "Message must be at least 10 characters."
   }).max(500, {
     message: "Message must not be longer than 500 characters."
   }),
@@ -223,7 +223,7 @@ export default function ContactPage() {
                                     />
                                 </FormControl>
                                 <FormMessage />
-                                </.Item>
+                                </FormItem>
                             )}
                             />
                             <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={form.formState.isSubmitting}>
@@ -273,4 +273,5 @@ export default function ContactPage() {
       </section>
     </div>
   );
-}
+
+    
