@@ -228,7 +228,7 @@ export default function ContactPage() {
                             />
                             <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={form.formState.isSubmitting}>
                                 <Send size={18} />
-                                {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                                {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
                             </Button>
                         </form>
                     </Form>
@@ -273,5 +273,4 @@ export default function ContactPage() {
       </section>
     </div>
   );
-
-    
+}
