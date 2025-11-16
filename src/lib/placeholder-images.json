@@ -1,0 +1,9 @@
+{
+  "profile": {
+    "src": "https://picsum.photos/seed/profile/80/80",
+    "width": 80,
+    "height": 80,
+    "alt": "Thanuka Ellepola profile picture",
+    "hint": "profile person"
+  }
+}

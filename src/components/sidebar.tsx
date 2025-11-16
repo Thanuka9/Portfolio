@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { ThemeToggle } from './theme-toggle';
+import imageData from '@/lib/placeholder-images.json';
 
 const navLinks = [
     { href: '/', label: 'Home', icon: Home },
@@ -21,6 +22,7 @@ const navLinks = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const profileImage = imageData.profile;
 
   return (
     <aside className="lg:w-1/3 lg:h-screen lg:fixed lg:top-0 lg:left-0 lg:border-r lg:border-border/60 bg-card lg:bg-background">
@@ -29,13 +31,13 @@ export default function Sidebar() {
           <div>
             <div className="flex items-center gap-4 mb-8">
                 <Image
-                  src="/Profile.png"
-                  alt="Thanuka Ellepola"
-                  width={80}
-                  height={80}
+                  src={profileImage.src}
+                  alt={profileImage.alt}
+                  width={profileImage.width}
+                  height={profileImage.height}
                   className="rounded-full object-cover"
                   priority
-                  data-ai-hint="profile person"
+                  data-ai-hint={profileImage.hint}
                 />
                 <div>
                   <h1 className="text-2xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
