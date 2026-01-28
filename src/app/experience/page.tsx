@@ -1,9 +1,13 @@
 
-'use client';
-
 import React from 'react';
 import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Network, Wrench, Building, Share2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Professional Experience & Technical Skills',
+  description: 'Detailed work experience and technical skills of Thanuka Ellepola, showcasing expertise in data science, AI, full-stack development, and leadership in healthcare RCM.',
+}
 
 const professionalExperience = [
   {

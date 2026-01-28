@@ -1,9 +1,13 @@
 
-'use client';
-
 import React from 'react';
 import { GraduationCap } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Education & Academic Background',
+  description: 'Explore the academic qualifications of Thanuka Ellepola, including a Master of Business Analytics from the University of Colombo and a Bachelor of Computer Systems & Networking.',
+}
 
 const education = [
   {

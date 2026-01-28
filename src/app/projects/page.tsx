@@ -1,16 +1,20 @@
 
-'use client';
-
 import React from 'react';
 import { Code, Briefcase } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Projects & Research',
+  description: 'A showcase of technical projects and research by Thanuka Ellepola, including predictive analytics in RCM, a full-stack intranet system, and AI/ML models.',
+}
 
 const projects = [
   {
     title: "Predictive Analytics for Payment Prediction in RCM",
     role: "Lead Data Scientist / Researcher",
-    description: `As Lead Data Scientist, this thesis explored the application of predictive analytics in healthcare Revenue Cycle Management (RCM) to optimize payment prediction. By leveraging historical hospital claims data, I developed and compared four machine learning models: Linear Regression, Decision Trees, Random Forests, and Neural Networks. The research demonstrated the practical feasibility of implementing predictive analytics in RCM and provided actionable insights for proactive revenue management, highlighting the value of a data scientist in healthcare finance.`,
+    description: `As the lead researcher for this thesis project, I explored predictive analytics in healthcare Revenue Cycle Management (RCM) to forecast payment timelines. I developed and evaluated several machine learning models, including Linear Regression and Random Forests, using historical hospital claims data to provide actionable insights for proactive revenue management. This project highlights my expertise in statistical modeling, data analysis, and the practical application of data science in healthcare finance.`,
     tags: ["Python", "Pandas", "Scikit-learn", "Power BI", "SQL", "Machine Learning"],
   },
   {

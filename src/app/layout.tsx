@@ -7,12 +7,15 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
-  description: 'The official portfolio for Thanuka Ellepola, a Data Scientist and Full Stack Developer who transforms complex business challenges into innovative technological solutions. Explore a proven track record in healthcare analytics, predictive modeling, and enterprise applications.',
-  keywords: "Thanuka Ellepola, Ellepola, Thanuka, Data Scientist, Full Stack Developer, AI Engineer, Data Engineer, Healthcare Analytics, Python, SQL, Power BI, Predictive Analytics, Machine Learning, Sri Lanka",
+  metadataBase: new URL('https://thanukaellepola.careers'),
+  title: {
+    default: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
+    template: `%s | Thanuka Ellepola`,
+  },
+  description: 'The official portfolio for Thanuka Ellepola, a Data Scientist, AI Engineer, and Full Stack Developer based in Sri Lanka, who transforms complex business challenges into innovative technological solutions. Explore a proven track record in healthcare analytics, predictive modeling, and enterprise applications.',
+  keywords: ["Thanuka Ellepola", "Ellepola", "Thanuka", "Data Scientist", "Full Stack Developer", "AI Engineer", "Data Engineer", "Healthcare Analytics", "Python", "SQL", "Power BI", "Predictive Analytics", "Machine Learning", "Sri Lanka", "Colombo", "revenue cycle management", "full-stack developer portfolio"],
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
-  metadataBase: new URL('https://thanukaellepola.careers'),
   verification: {
     google: 'ZQtbsNwZsL_u6jqqqC2oep-_N2sU-5RJ8IxgWrspGOI',
   },
@@ -36,23 +39,33 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const profilePageSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Thanuka Ellepola',
-  alternateName: 'Ellepola',
-  url: 'https://thanukaellepola.careers/',
-  jobTitle: 'Data Scientist & Full Stack Developer',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Collective RCM (Pvt) Ltd',
-  },
-  alumniOf: 'University of Colombo',
-  sameAs: [
-    'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/',
-    'https://github.com/Thanuka9',
-  ],
-  knowsAbout: ["Data Science", "Full Stack Development", "AI Engineering", "Predictive Analytics", "Healthcare Analytics", "Python", "SQL", "Machine Learning"]
+  '@type': 'ProfilePage',
+  dateCreated: '2023-10-01T12:00:00-05:00',
+  dateModified: new Date().toISOString(),
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Thanuka Ellepola',
+    alternateName: 'Ellepola',
+    url: 'https://thanukaellepola.careers/',
+    jobTitle: 'Data Scientist, AI Engineer, & Full Stack Developer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Collective RCM (Pvt) Ltd',
+    },
+    alumniOf: 'University of Colombo',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Colombo',
+      addressCountry: 'LK',
+    },
+    sameAs: [
+      'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/',
+      'https://github.com/Thanuka9',
+    ],
+    knowsAbout: ["Data Science", "Full Stack Development", "AI Engineering", "Data Engineering", "Predictive Analytics", "Healthcare Analytics", "Revenue Cycle Management", "Python", "SQL", "Machine Learning", "Power BI", "React", "Next.js"]
+  }
 };
 
 
@@ -69,7 +82,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         />
       </head>
       <body className="font-body antialiased">

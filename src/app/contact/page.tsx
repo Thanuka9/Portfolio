@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin, Send, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";

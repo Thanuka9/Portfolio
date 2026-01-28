@@ -1,6 +1,4 @@
 
-'use client';
-
 import React from 'react';
 import Link from "next/link";
 import {
@@ -13,8 +11,14 @@ import {
   Users,
   TrendingUp
 } from "lucide-react";
+import type { Metadata } from "next";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: 'Home | About Thanuka Ellepola',
+  description: 'About Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience.',
+}
 
 const navItems = [
   {
@@ -50,7 +54,7 @@ const competencies = [
     points: [
       "Advanced proficiency in Python and machine learning frameworks",
       "Exceptional database design and data engineering skills",
-      "Strong full-stack development capabilities",
+      "Strong full-stack development capabilities (React, Next.js, Python, SQL)",
       "Innovative approach to AI and problem-solving"
     ]
   },
@@ -89,10 +93,13 @@ export default function HomePage() {
               I’m Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience at the intersection of healthcare operations, data engineering, and technology.
             </p>
             <p className="text-muted-foreground">
-              As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management. Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks.
+              As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
             </p>
             <p className="text-muted-foreground">
-              My academic foundation includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking. I recently completed a research project on predictive analytics for healthcare payment forecasting, utilizing statistical and machine learning models to deliver actionable insights.
+              Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks like React and Next.js.
+            </p>
+             <p className="text-muted-foreground">
+              My academic foundation includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking. My research on predictive analytics for healthcare payment forecasting utilized statistical and machine learning models to deliver actionable insights.
             </p>
              <p className="text-muted-foreground">
               Whether it’s architecting data-driven solutions, building and deploying AI models, or mentoring teams, I thrive in roles that combine leadership, innovation, and continuous learning. My goal is to bridge the gap between business needs and modern technology—creating lasting, positive impact for organizations and their people.
