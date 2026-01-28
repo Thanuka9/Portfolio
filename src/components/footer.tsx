@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold font-headline text-primary">Thanuka Ellepola</h3>
             <p className="mt-2 text-muted-foreground max-w-md">
-              Data Scientist & Full Stack Developer specializing in healthcare analytics, predictive modeling, and enterprise web applications. Transforming complex business challenges into innovative technological solutions.
+              A Data Scientist and Full Stack Developer transforming complex business challenges into innovative technological solutions.
             </p>
             <div className="mt-4 flex gap-2">
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">

@@ -84,14 +84,17 @@ export default function HomePage() {
           <CardHeader>
             <CardTitle className="text-2xl font-headline flex items-center gap-2"><Briefcase /> About Me</CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground whitespace-pre-line">
-              I’m Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience at the intersection of healthcare operations, data engineering, and technology. As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
-
-              Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks. I’m passionate about using data to drive smarter decision-making, and my work often blends hands-on coding, advanced analytics, and process improvement.
-
+          <CardContent className="space-y-4">
+            <p className="text-muted-foreground">
+              I’m Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience at the intersection of healthcare operations, data engineering, and technology.
+            </p>
+            <p className="text-muted-foreground">
+              As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management. Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks.
+            </p>
+            <p className="text-muted-foreground">
               My academic foundation includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking. I recently completed a research project on predictive analytics for healthcare payment forecasting, utilizing statistical and machine learning models to deliver actionable insights.
-
+            </p>
+             <p className="text-muted-foreground">
               Whether it’s architecting data-driven solutions, building and deploying AI models, or mentoring teams, I thrive in roles that combine leadership, innovation, and continuous learning. My goal is to bridge the gap between business needs and modern technology—creating lasting, positive impact for organizations and their people.
             </p>
           </CardContent>

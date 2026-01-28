@@ -8,8 +8,8 @@ import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
-  description: 'The portfolio of Thanuka Ellepola, a skilled Data Scientist, AI Engineer, Data Engineer, and Full Stack Developer. Explore projects in machine learning, AI, data engineering, and healthcare analytics.',
-  keywords: "Thanuka Ellepola, Data Scientist, AI Engineer, Data Engineer, Full Stack Developer, Machine Learning Engineer, Python, SQL, Azure, Power BI, Healthcare Analytics, Sri Lanka",
+  description: 'The official portfolio for Thanuka Ellepola, a Data Scientist and Full Stack Developer who transforms complex business challenges into innovative technological solutions. Explore a proven track record in healthcare analytics, predictive modeling, and enterprise applications.',
+  keywords: "Thanuka Ellepola, Ellepola, Thanuka, Data Scientist, Full Stack Developer, AI Engineer, Data Engineer, Healthcare Analytics, Python, SQL, Power BI, Predictive Analytics, Machine Learning, Sri Lanka",
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
   metadataBase: new URL('https://thanukaellepola.careers'),
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
-    description: 'The portfolio of Thanuka Ellepola, a skilled Data Scientist, AI Engineer, Data Engineer, and Full Stack Developer.',
+    description: 'The official portfolio for Thanuka Ellepola, showcasing data science and full stack development projects.',
     url: 'https://thanukaellepola.careers/',
     siteName: 'Thanuka Ellepola Portfolio',
     images: [
@@ -42,7 +42,7 @@ const jsonLd = {
   name: 'Thanuka Ellepola',
   alternateName: 'Ellepola',
   url: 'https://thanukaellepola.careers/',
-  jobTitle: 'Data Scientist, AI Engineer, Data Engineer, Full Stack Developer',
+  jobTitle: 'Data Scientist & Full Stack Developer',
   worksFor: {
     '@type': 'Organization',
     name: 'Collective RCM (Pvt) Ltd',
@@ -52,6 +52,7 @@ const jsonLd = {
     'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/',
     'https://github.com/Thanuka9',
   ],
+  knowsAbout: ["Data Science", "Full Stack Development", "AI Engineering", "Predictive Analytics", "Healthcare Analytics", "Python", "SQL", "Machine Learning"]
 };
 
 
