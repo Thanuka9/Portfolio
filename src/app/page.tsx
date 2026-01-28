@@ -49,9 +49,9 @@ const competencies = [
     title: "Technical Excellence",
     points: [
       "Advanced proficiency in Python and machine learning frameworks",
-      "Exceptional database design and optimization skills",
+      "Exceptional database design and data engineering skills",
       "Strong full-stack development capabilities",
-      "Innovative approach to problem-solving"
+      "Innovative approach to AI and problem-solving"
     ]
   },
   {
@@ -86,7 +86,7 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground whitespace-pre-line">
-              I’m Thanuka Ellepola, an analytical and results-driven professional with over five years of experience at the intersection of healthcare operations, data science, and technology. As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
+              I’m Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience at the intersection of healthcare operations, data engineering, and technology. As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
 
               Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks. I’m passionate about using data to drive smarter decision-making, and my work often blends hands-on coding, advanced analytics, and process improvement.
 

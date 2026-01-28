@@ -41,7 +41,7 @@ export default function Sidebar() {
                 />
                 <div>
                   <h1 className="text-2xl font-bold font-headline text-primary">Thanuka Ellepola</h1>
-                  <h2 className="text-lg text-muted-foreground font-medium">Data Scientist | Full Stack Developer</h2>
+                  <h2 className="text-lg text-muted-foreground font-medium">Data Scientist | AI Engineer | Full Stack Developer</h2>
                 </div>
             </div>
              <p className="mt-4 text-muted-foreground">

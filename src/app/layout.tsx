@@ -7,9 +7,9 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
-  description: 'The official portfolio for Thanuka Ellepola (Ellepola), a Data Scientist and Full Stack Developer. Discover projects in data science, healthcare analytics, and web development.',
-  keywords: "Thanuka Ellepola, Ellepola, Thanuka, Data Scientist, Full Stack Developer, Healthcare Analytics, Python, Sri Lanka, Revenue Cycle Management, Predictive Analytics, Business Analytics",
+  title: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
+  description: 'The portfolio of Thanuka Ellepola, a skilled Data Scientist, AI Engineer, Data Engineer, and Full Stack Developer. Explore projects in machine learning, AI, data engineering, and healthcare analytics.',
+  keywords: "Thanuka Ellepola, Data Scientist, AI Engineer, Data Engineer, Full Stack Developer, Machine Learning Engineer, Python, SQL, Azure, Power BI, Healthcare Analytics, Sri Lanka",
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
   metadataBase: new URL('https://thanukaellepola.careers'),
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Thanuka Ellepola | Data Scientist & Full Stack Developer',
-    description: 'The official portfolio for Thanuka Ellepola, showcasing data science and full stack development projects.',
+    title: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
+    description: 'The portfolio of Thanuka Ellepola, a skilled Data Scientist, AI Engineer, Data Engineer, and Full Stack Developer.',
     url: 'https://thanukaellepola.careers/',
     siteName: 'Thanuka Ellepola Portfolio',
     images: [
@@ -42,7 +42,7 @@ const jsonLd = {
   name: 'Thanuka Ellepola',
   alternateName: 'Ellepola',
   url: 'https://thanukaellepola.careers/',
-  jobTitle: 'Data Scientist & Full Stack Developer',
+  jobTitle: 'Data Scientist, AI Engineer, Data Engineer, Full Stack Developer',
   worksFor: {
     '@type': 'Organization',
     name: 'Collective RCM (Pvt) Ltd',
