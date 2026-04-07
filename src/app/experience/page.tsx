@@ -47,8 +47,9 @@ const professionalExperience = [
           "CodeX (Architecture Intelligence Engine): Engineered a system to decode GitHub repositories into visual 'Code Wikis' using Gemini 3.1 Pro and a custom GraphEngine for automated Mermaid.js diagram generation.",
           "RevOps AI (Predictive RCM Platform): Architected a B2B SaaS for healthcare revenue cycle management using an Autonomous Agent Architecture (multi-agent 'Pods') and Scikit-learn for cash-flow forecasting.",
           "CareerForge AI 3.0 (Multi-Agent Career OS): Developed an end-to-end job-seeking automation platform featuring low-latency voice AI via Gemini 3.1 Flash Live API and real-time market data grounding.",
-          "ReviewRadar AI: Built an intelligent sentiment analysis and review aggregation tool for deep market intelligence using NLP and web scraping.",
-          "Statistical-app: Designed a comprehensive research tool for descriptive statistics, hypothesis testing, and predictive model evaluation with Streamlit and Python.",
+          "ReviewRadar AI: Built an intelligent sentiment analysis and review aggregation tool (7M+ records) using an ensemble ML pipeline (XGBoost, VADER, spaCy).",
+          "Statistical-app: Designed a comprehensive research tool for descriptive statistics, hypothesis testing, PCA, and predictive model evaluation with Streamlit.",
+          "Payment Prediction Research: Achieved R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks on 3-year HIPAA datasets.",
         ],
       },
       {

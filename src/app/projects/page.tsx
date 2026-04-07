@@ -18,57 +18,75 @@ const projects = [
     description: `A production-grade web application designed to "decode" GitHub repositories. It transforms raw code into a structured, visual "Code Wiki" with instant technical documentation and high-fidelity architecture diagrams.
     
     Key Features:
-    • Smart Context Injection: Prioritizes "DNA files" for AI to provide high signal-to-noise ratios.
-    • GraphEngine: Custom static analysis parsing file relationships into Mermaid.js diagrams.
-    • Multi-tier Fetching: Resilient strategy (GitHub API → JsDelivr) to ensure 100% uptime.
-    • AI Insights: Deep-context analysis focusing on "Why" and "How" using Gemini 3.1 Pro.`,
+    • Smart Context Injection: Prioritizes "DNA files" (READMEs, manifests, entry points) to provide high signal-to-noise ratios for AI.
+    • GraphEngine: Custom static analysis parsing file relationships into multiple Mermaid.js diagrams (System Architecture, Call Graphs, Data Flow).
+    • Multi-tier Fetching: Resilient strategy (GitHub API → JsDelivr → Raw Content) to ensure 100% uptime and bypass rate limits.
+    • AI Insights: Deep-context analysis using Gemini 3.1 Pro focusing on architectural "Why" and "How".`,
     tags: ["React 18", "TypeScript", "Gemini 3.1 Pro", "Mermaid.js", "Tailwind CSS", "Vite"],
     github: "https://github.com/Thanuka9",
   },
   {
     title: "RevOps AI: Predictive Revenue Operations Platform",
     role: "System Architect & Full Stack Developer",
-    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. Uses an Autonomous Agent Architecture where specialized AI "Pods" (CEO, Engineering, Data/ML) collaborate.
+    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. Built using an Autonomous Agent Architecture where specialized AI "Pods" collaborate.
     
     Key Features:
-    • Automated Data Auditing: Autonomous scanner for billing errors and missing fields.
-    • Payment Forecasting: Regression models (Random Forest) to predict cash flow timelines.
-    • CRM Integration: Direct API integration with Monday.com for seamless operational sync.
-    • Asynchronous Processing: Built on FastAPI for high-performance data handling.`,
+    • Automated Data Auditing: Autonomous scanner identifying missing data and billing errors with heuristic logic.
+    • Payment Forecasting: Regression models (Random Forest) trained on historical data to predict cash flow timelines.
+    • CRM Integration: Direct API integration with Monday.com for seamless operational synchronization.
+    • Agentic Monitoring: "Founder’s Executive Suite" for real-time monitoring of AI agent health and status.`,
     tags: ["FastAPI", "Python", "React", "Scikit-learn", "Docker", "GCP", "SQLAlchemy"],
     github: "https://github.com/Thanuka9",
   },
   {
     title: "CareerForge AI 3.0: Multi-Agent Career OS",
     role: "Full Stack AI Engineer",
-    description: `An end-to-end career development platform designed to automate the end-to-end job-seeking process. Features a decentralized multi-agent approach powered by the Gemini 3.1 series.
+    description: `An advanced career development platform automating the end-to-end job-seeking process using a decentralized multi-agent approach powered by the Gemini 3.1 series.
     
     Key Features:
-    • Live Audio Interaction: Low-latency interview simulation using Gemini 3.1 Flash Live API.
-    • Resume Architect: Multimodal document analysis with "Thinking" budget reasoning.
-    • Market Scout: Real-time salary and trend fetching using Google Search Grounding.
-    • Custom Visualizations: SVG-based Radar charts and Gauges for hiring verdicts.`,
+    • Live Audio Interaction: Low-latency interview simulation using Gemini 3.1 Flash Live API and Web Audio API.
+    • Resume Architect: Multimodal document analysis with "Thinking" budget reasoning for deep candidate impact analysis.
+    • Market Scout: Real-time salary and trend fetching using Google Search Grounding to bypass static training data.
+    • Dual-Model Strategy: Implements "Economy vs. Pro" toggles for optimized speed and reasoning accuracy.`,
     tags: ["React 19", "Gemini 3.1 Live", "Web Audio API", "SVG Visualization", "JSON Schema"],
     github: "https://github.com/Thanuka9",
   },
   {
     title: "Predictive Analytics for Payment Prediction in RCM",
     role: "Lead Data Scientist / Researcher",
-    description: `Academic thesis project explored predictive analytics in healthcare Revenue Cycle Management to forecast payment timelines. Developed and evaluated several machine learning models using historical hospital claims data to provide actionable insights for proactive revenue management.`,
-    tags: ["Python", "Pandas", "Scikit-learn", "SQL", "Machine Learning"],
+    description: `Academic research introducing a multi-scenario predictive framework for healthcare finance. This study bridges the gap between academic ML models and real-world Revenue Cycle Management.
+
+    Key Contributions:
+    • Future Payment Prediction: Achieved R² > 0.90 using Random Forest and Neural Networks to prioritize collections.
+    • Multi-Scenario Modeling: Developed specialized models for Provider-based variations and Location-based trends (K-Means clustering).
+    • Feature Engineering: Implemented a Branch & Bound inspired feature selection on a 3-year HIPAA-compliant dataset.
+    • Insight Generation: Identified key drivers like "Days since billing" and "Payer Mix" to reduce financial inefficiencies.`,
+    tags: ["Python", "Pandas", "Scikit-learn", "Neural Networks", "Statistical Modeling"],
   },
   {
-    title: "ReviewRadar AI",
-    role: "AI Developer",
-    description: `Intelligent sentiment analysis and review aggregation tool. It scrapes and analyzes customer reviews to provide deep market intelligence, identifying key themes, pain points, and competitive advantages using NLP.`,
-    tags: ["Python", "NLP", "OpenAI API", "Web Scraping"],
+    title: "ReviewRadar AI: Smart Product Review Intelligence",
+    role: "AI & Data Engineer",
+    description: `End-to-end AI platform analyzing ~7M+ Yelp reviews to generate actionable sentiment insights and recommendations.
+
+    Key Technical Layers:
+    • Data Pipeline: Scalable ETL pipeline loading JSON to PostgreSQL with batch inserts and multi-threaded loading.
+    • Feature Engineering: Advanced NLP pipeline (VADER, spaCy) extracting sentiment, TF-IDF terms, and behavioral features.
+    • ML Ensemble: VotingClassifier (Logistic Regression, RF, XGBoost) for robust sentiment classification.
+    • LLM Integration: Architected for automated summarization and pros/cons generation from large-scale text data.`,
+    tags: ["Python", "XGBoost", "PostgreSQL", "spaCy", "VADER", "ETL"],
     github: "https://github.com/Thanuka9/reviewradar_ai",
   },
   {
-    title: "Statistical-app",
+    title: "Statistical Application: Advanced Modeling Tool",
     role: "Lead Developer",
-    description: `A comprehensive data analysis and statistical modeling tool built for research purposes. It provides a suite of tools for descriptive statistics, hypothesis testing, and predictive model evaluation with intuitive visualizations.`,
-    tags: ["Python", "Streamlit", "Statistical Modeling", "Data Visualization"],
+    description: `Interactive web application for comprehensive statistical analysis and machine learning, designed for research and educational purposes.
+
+    Key Capabilities:
+    • Data Processing: Robust cleaning tools for missing value handling, outlier detection, and scaling.
+    • Advanced Analysis: PCA for dimensionality reduction and Time-Series forecasting with rolling averages.
+    • ML Integration: Full lifecycle support (Regression, Clustering, Classification) with interactive hyperparameter tuning.
+    • Visual Dashboard: Dynamic Plotly-based visualizations and filtered data export functionality.`,
+    tags: ["Python", "Streamlit", "Plotly", "Scikit-learn", "SciPy"],
     github: "https://github.com/Thanuka9/Statistical-app",
   },
   {
