@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Network, Wrench, Building, Share2, Rocket } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Network, Wrench, Building, Share2, Rocket, LineChart, Zap, Search } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import type { Metadata } from 'next';
 
@@ -44,19 +44,19 @@ const professionalExperience = [
       {
         title: "Key Innovations & AI Systems",
         details: [
-          "CodeX (Architecture Intelligence Engine): Engineered a system to decode GitHub repositories into visual 'Code Wikis' using Gemini 3.1 Pro and a custom GraphEngine for automated Mermaid.js diagram generation.",
-          "RevOps AI (Predictive RCM Platform): Architected a B2B SaaS for healthcare revenue cycle management using an Autonomous Agent Architecture (multi-agent 'Pods') and Scikit-learn for cash-flow forecasting.",
-          "CareerForge AI 3.0 (Multi-Agent Career OS): Developed an end-to-end job-seeking automation platform featuring low-latency voice AI via Gemini 3.1 Flash Live API and real-time market data grounding.",
-          "ReviewRadar AI: Built an intelligent sentiment analysis and review aggregation tool (7M+ records) using an ensemble ML pipeline (XGBoost, VADER, spaCy).",
-          "Statistical-app: Designed a comprehensive research tool for descriptive statistics, hypothesis testing, PCA, and predictive model evaluation with Streamlit.",
-          "Payment Prediction Research: Achieved R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks on 3-year HIPAA datasets.",
+          "CodeX (Architecture Intelligence Engine): Engineered a system to decode GitHub repositories into visual 'Code Wikis' using Gemini 3.1 Pro and a custom GraphEngine for automated Mermaid.js diagram generation. Implemented multi-tier fetching (GitHub API → JsDelivr) to ensure 100% uptime.",
+          "RevOps AI (Predictive RCM Platform): Architected a B2B SaaS for healthcare revenue cycle management using an Autonomous Agent Architecture (multi-agent 'Pods') and Scikit-learn for payment forecasting. Integrated with Monday.com API for real-time operational sync.",
+          "CareerForge AI 3.0 (Multi-Agent Career OS): Developed an end-to-end job-seeking automation platform featuring low-latency voice AI via Gemini 3.1 Flash Live API and real-time market data grounding via Google Search.",
+          "ReviewRadar AI: Built a scalable ETL pipeline and ensemble ML system (Logistic Regression, RF, XGBoost) to analyze ~7M+ Yelp reviews. Implemented VADER sentiment analysis and TF-IDF feature engineering.",
+          "Statistical-app: Designed a research tool for descriptive stats, hypothesis testing (ANOVA, Chi-Square), PCA, and predictive model evaluation with Streamlit and Plotly.",
+          "Payment Prediction Research: Achieved R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks on a 3-year HIPAA-compliant dataset, bridging the gap between academic ML and real-world RCM.",
         ],
       },
       {
         title: "Technical Leadership & Methodologies",
         details: [
           "Implemented 'Smart Context' algorithms to optimize LLM performance by prioritizing high-signal files (DNA files) in large codebases.",
-          "Developed resilient data acquisition strategies using multi-tier fallbacks (GitHub API -> JsDelivr -> Raw Content) to ensure 100% system uptime.",
+          "Developed resilient data acquisition strategies using multi-tier fallbacks to ensure zero downtime during API rate limiting.",
           "Pioneered the use of 'Thinking Config' reasoning tokens for complex architectural critiques and document optimization.",
           "Integrated real-time audio processing using Web Audio API and custom PCM encoding for human-like AI interactions.",
         ]

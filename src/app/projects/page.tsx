@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code, Briefcase, ExternalLink, Github } from "lucide-react";
+import { Code, Briefcase, ExternalLink, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,20 +15,21 @@ const projects = [
   {
     title: "CodeX: Architecture Intelligence Engine",
     role: "Lead Architect & Developer",
-    description: `A production-grade web application designed to "decode" GitHub repositories. It transforms raw code into a structured, visual "Code Wiki" with instant technical documentation and high-fidelity architecture diagrams.
+    description: `A production-grade web application designed to "decode" any GitHub repository. It transforms raw code into a structured, visual "Code Wiki" with instant technical documentation and high-fidelity architecture diagrams.
     
-    Key Features:
+    Key Innovations:
     • Smart Context Injection: Prioritizes "DNA files" (READMEs, manifests, entry points) to provide high signal-to-noise ratios for AI.
     • GraphEngine: Custom static analysis parsing file relationships into multiple Mermaid.js diagrams (System Architecture, Call Graphs, Data Flow).
     • Multi-tier Fetching: Resilient strategy (GitHub API → JsDelivr → Raw Content) to ensure 100% uptime and bypass rate limits.
     • AI Insights: Deep-context analysis using Gemini 3.1 Pro focusing on architectural "Why" and "How".`,
     tags: ["React 18", "TypeScript", "Gemini 3.1 Pro", "Mermaid.js", "Tailwind CSS", "Vite"],
     github: "https://github.com/Thanuka9",
+    icon: Code
   },
   {
     title: "RevOps AI: Predictive Revenue Operations Platform",
     role: "System Architect & Full Stack Developer",
-    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. Built using an Autonomous Agent Architecture where specialized AI "Pods" collaborate.
+    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. Built using an Autonomous Agent Architecture where specialized AI "Pods" (CEO, Engineering, Data/ML, DevOps) collaborate.
     
     Key Features:
     • Automated Data Auditing: Autonomous scanner identifying missing data and billing errors with heuristic logic.
@@ -37,6 +38,7 @@ const projects = [
     • Agentic Monitoring: "Founder’s Executive Suite" for real-time monitoring of AI agent health and status.`,
     tags: ["FastAPI", "Python", "React", "Scikit-learn", "Docker", "GCP", "SQLAlchemy"],
     github: "https://github.com/Thanuka9",
+    icon: Zap
   },
   {
     title: "CareerForge AI 3.0: Multi-Agent Career OS",
@@ -50,31 +52,36 @@ const projects = [
     • Dual-Model Strategy: Implements "Economy vs. Pro" toggles for optimized speed and reasoning accuracy.`,
     tags: ["React 19", "Gemini 3.1 Live", "Web Audio API", "SVG Visualization", "JSON Schema"],
     github: "https://github.com/Thanuka9",
+    icon: BrainCircuit
   },
   {
     title: "Predictive Analytics for Payment Prediction in RCM",
     role: "Lead Data Scientist / Researcher",
     description: `Academic research introducing a multi-scenario predictive framework for healthcare finance. This study bridges the gap between academic ML models and real-world Revenue Cycle Management.
 
-    Key Contributions:
-    • Future Payment Prediction: Achieved R² > 0.90 using Random Forest and Neural Networks to prioritize collections.
-    • Multi-Scenario Modeling: Developed specialized models for Provider-based variations and Location-based trends (K-Means clustering).
-    • Feature Engineering: Implemented a Branch & Bound inspired feature selection on a 3-year HIPAA-compliant dataset.
-    • Insight Generation: Identified key drivers like "Days since billing" and "Payer Mix" to reduce financial inefficiencies.`,
-    tags: ["Python", "Pandas", "Scikit-learn", "Neural Networks", "Statistical Modeling"],
+    Key Research Pillars:
+    • Objectives: Forecast future payment likelihood, timing, and provider-based variations using a 3-year HIPAA-compliant dataset (~28,000+ records).
+    • Methodology: Implemented feature engineering (behavioral indicators, payer mix, lags) and feature selection via Branch & Bound inspired approaches.
+    • ML Models: Evaluated Random Forest, Neural Networks, and Decision Trees. Achieved R² > 0.90 for future payment prediction.
+    • Insights: Demonstrated that while RF/NN excel at complex payment patterns, simpler linear models are superior for high-level revenue forecasting due to the bias-variance tradeoff.
+    • Impact: Enables proactive RCM by prioritizing collections and supporting early intervention for high-risk accounts.`,
+    tags: ["Python", "Pandas", "Scikit-learn", "Neural Networks", "Statistical Modeling", "HIPAA Compliance"],
+    icon: LineChart
   },
   {
     title: "ReviewRadar AI: Smart Product Review Intelligence",
     role: "AI & Data Engineer",
-    description: `End-to-end AI platform analyzing ~7M+ Yelp reviews to generate actionable sentiment insights and recommendations.
+    description: `End-to-end AI platform analyzing ~7M+ Yelp reviews to generate actionable sentiment insights and recommendations using a scalable production pipeline.
 
-    Key Technical Layers:
-    • Data Pipeline: Scalable ETL pipeline loading JSON to PostgreSQL with batch inserts and multi-threaded loading.
-    • Feature Engineering: Advanced NLP pipeline (VADER, spaCy) extracting sentiment, TF-IDF terms, and behavioral features.
-    • ML Ensemble: VotingClassifier (Logistic Regression, RF, XGBoost) for robust sentiment classification.
-    • LLM Integration: Architected for automated summarization and pros/cons generation from large-scale text data.`,
-    tags: ["Python", "XGBoost", "PostgreSQL", "spaCy", "VADER", "ETL"],
+    Technical Architecture:
+    • ETL Pipeline: Scalable ingestion from raw JSON to PostgreSQL using multi-threaded loading and batch inserts for 100% data integrity.
+    • Feature Engineering: Advanced NLP pipeline (VADER sentiment, TF-IDF semantic terms) combined with temporal, geo-spatial (K-Means), and behavioral user features.
+    • ML Ensemble: VotingClassifier (Logistic Regression, Random Forest, XGBoost) with Stratified K-Fold validation and RandomizedSearchCV tuning.
+    • Production Design: Implemented chunked data loading, SVD dimensionality reduction, and memory-optimized training pipelines.
+    • LLM Ready: Architected to support review summarization and automated Pros/Cons generation via Gemini integration.`,
+    tags: ["Python", "XGBoost", "PostgreSQL", "spaCy", "VADER", "ETL", "Scikit-learn"],
     github: "https://github.com/Thanuka9/reviewradar_ai",
+    icon: Search
   },
   {
     title: "Statistical Application: Advanced Modeling Tool",
@@ -82,24 +89,27 @@ const projects = [
     description: `Interactive web application for comprehensive statistical analysis and machine learning, designed for research and educational purposes.
 
     Key Capabilities:
-    • Data Processing: Robust cleaning tools for missing value handling, outlier detection, and scaling.
+    • Data Processing: Robust cleaning tools for missing value handling, outlier detection (IQR/Z-Score), and scaling.
     • Advanced Analysis: PCA for dimensionality reduction and Time-Series forecasting with rolling averages.
-    • ML Integration: Full lifecycle support (Regression, Clustering, Classification) with interactive hyperparameter tuning.
-    • Visual Dashboard: Dynamic Plotly-based visualizations and filtered data export functionality.`,
+    • Inferential Stats: Automated T-Tests, ANOVA, Chi-Square, and non-parametric tests with full visualization.
+    • ML Models: Full lifecycle support (Regression, Clustering, Classification) with interactive hyperparameter tuning and residual analysis.`,
     tags: ["Python", "Streamlit", "Plotly", "Scikit-learn", "SciPy"],
     github: "https://github.com/Thanuka9/Statistical-app",
+    icon: BarChart3
   },
   {
     title: "Collective Intranet System",
     role: "Full Stack Developer",
     description: `Enterprise-grade RCM system that automates financial workflows, supports secure patient data management, and provides real-time analytics for healthcare operations.`,
     tags: ["Python", "Flask", "MongoDB", "JavaScript", "Azure"],
+    icon: Database
   },
   {
     title: "Disaster Management System",
     role: "Lead Developer",
     description: `Critical incident response system designed to mitigate the impact of floods in Sri Lanka using SMS gateways and real-time location mapping.`,
     tags: ["Laravel", "PHP", "MySQL", "SMS Gateway"],
+    icon: ShieldCheck
   }
 ];
 
@@ -122,12 +132,17 @@ export default function ProjectsPage() {
             >
             <CardHeader>
               <div className="flex justify-between items-start">
-                <div>
-                    <CardTitle className="text-2xl">{project.title}</CardTitle>
-                    <CardDescription className="flex items-center gap-2 pt-1 text-base font-medium">
-                        <Briefcase size={16} className="text-muted-foreground" />
-                        {project.role}
-                    </CardDescription>
+                <div className="flex gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                        <project.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                        <CardTitle className="text-2xl">{project.title}</CardTitle>
+                        <CardDescription className="flex items-center gap-2 pt-1 text-base font-medium">
+                            <Briefcase size={16} className="text-muted-foreground" />
+                            {project.role}
+                        </CardDescription>
+                    </div>
                 </div>
                 {project.github && (
                     <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary">
