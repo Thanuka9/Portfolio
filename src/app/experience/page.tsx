@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Network, Wrench, Building, Share2 } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Network, Wrench, Building, Share2, Rocket } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import type { Metadata } from 'next';
 
@@ -25,14 +25,30 @@ const professionalExperience = [
         ],
       },
       {
-        title: "Technical & Project Initiatives (in addition to my core role)",
+        title: "Technical & Project Initiatives",
         details: [
           "Independently designed and developed the Collective Intranet System, serving as the principal architect and main developer.",
           "Led backend and frontend development using Python (Flask), SQLAlchemy, Java, HTML, CSS, and JavaScript frameworks.",
           "Built analytics dashboards for KPI, financial, and operational tracking using PostgreSQL, MongoDB, and custom visualizations.",
           "Centralized documentation, user management, reporting, and workflow tools.",
-          "Integrated real-time performance monitoring and improved cross-team communication.",
           "Deployed and maintained solutions on Azure servers.",
+        ],
+      },
+    ],
+  },
+  {
+    role: "Independent Full Stack & AI Developer",
+    company: "Technical Project Portfolio",
+    period: "Ongoing",
+    sections: [
+      {
+        title: "Key Innovations",
+        details: [
+          "Developed CodeX: An Architecture Intelligence Engine that decodes GitHub repositories into visual diagrams and AI-driven documentation.",
+          "Architected RevOps AI: A B2B SaaS platform for predictive revenue cycle management with autonomous agent pods.",
+          "Built CareerForge AI 3.0: A multi-agent career operating system featuring real-time market grounding and low-latency voice AI.",
+          "Created ReviewRadar AI: An intelligent sentiment analysis and review aggregation tool for market intelligence.",
+          "Developed Statistical-app: A comprehensive data analysis tool focused on research and predictive modeling.",
         ],
       },
     ],
@@ -58,47 +74,32 @@ const technicalSkills = [
   {
     category: "Programming & Scripting",
     icon: Code,
-    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (ES6+)", "React", "Tailwind CSS", "Java", "C", "Assembly", "Laravel", "HTML/CSS"],
+    skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch)", "SQL & NoSQL", "JavaScript (React, Node.js)", "TypeScript", "Tailwind CSS", "Java", "C", "Laravel"],
   },
   {
-    category: "Analytics & Modeling",
+    category: "AI & Machine Learning",
     icon: BrainCircuit,
-    skills: ["Predictive Modeling", "Regression/Classification", "Advanced Statistics", "Feature Engineering", "Cross-Validation", "LLMs & GPT Models"],
+    skills: ["Generative AI (Gemini, GPT-4)", "Multi-Agent Systems", "Predictive Modeling", "NLP & Vision", "Prompt Engineering", "Thinking Config Reasoning"],
   },
   {
     category: "Data Visualization",
     icon: BarChart3,
-    skills: ["Power BI", "Matplotlib", "Excel (Advanced Charts, PivotTables)"],
+    skills: ["Power BI", "Matplotlib", "Mermaid.js (Diagrams-as-code)", "Recharts", "Excel (Advanced)"],
   },
   {
     category: "Database & Backend",
     icon: Database,
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLAlchemy", "Python (Flask)", "Snowflake", "Vector Databases"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "FastAPI", "Python (Flask)", "SQLAlchemy", "Snowflake", "Vector Databases"],
   },
   {
-    category: "DevOps & Deployment",
+    category: "DevOps & Infrastructure",
     icon: CloudCog,
-    skills: ["Azure (Server Setup, Deployment)", "Version Control (Git)", "Git/GitHub"],
+    skills: ["Docker & Containerization", "Google Cloud Platform (GCP)", "Azure", "CI/CD (Cloud Build)", "Git/GitHub"],
   },
   {
-    category: "Networking & Systems",
-    icon: Network,
-    skills: ["TCP/IP", "LAN/WAN", "Windows/Linux Server Admin", "Network Security Basics"],
-  },
-  {
-    category: "Workflow & Reporting Tools",
-    icon: Wrench,
-    skills: ["WFP", "Clarity", "Audit Reporting Tools", "ERP System Integration"],
-  },
-  {
-    category: "Practice Management Systems",
+    category: "Analytics & RCM Tools",
     icon: Building,
-    skills: ["AdvancedMD", "eClinicalWorks (ECW)", "HST Pathways"],
-  },
-  {
-    category: "Clearinghouses & RCM Tools",
-    icon: Share2,
-    skills: ["Waystar"],
+    skills: ["Healthcare Analytics", "Predictive RCM", "AdvancedMD", "eClinicalWorks", "Waystar", "Monday.com API"],
   },
 ];
 
@@ -108,9 +109,9 @@ export default function ExperiencePage() {
     <div className="space-y-12 pb-16">
       <header>
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Briefcase size={36} /> Professional Experience
+          <Briefcase size={36} /> Experience & Skills
         </h1>
-        <p className="mt-2 text-muted-foreground">My professional journey, skills, and key accomplishments.</p>
+        <p className="mt-2 text-muted-foreground">My professional journey, key innovations, and technical expertise.</p>
       </header>
 
       <section>
@@ -122,10 +123,15 @@ export default function ExperiencePage() {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <CardHeader>
-                <CardTitle>{exp.role}</CardTitle>
-                <CardDescription>
-                  {exp.company} &middot; {exp.period}
-                </CardDescription>
+                <div className="flex justify-between items-start">
+                    <div>
+                        <CardTitle>{exp.role}</CardTitle>
+                        <CardDescription>
+                        {exp.company} &middot; {exp.period}
+                        </CardDescription>
+                    </div>
+                    {exp.company === "Technical Project Portfolio" && <Rocket className="text-accent" size={24} />}
+                </div>
               </CardHeader>
               <CardContent className="space-y-6">
                 {exp.sections.map(section => (
@@ -158,7 +164,7 @@ export default function ExperiencePage() {
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                         <category.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <span>{category.category}</span>
+                    <span className="text-lg">{category.category}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -166,7 +172,7 @@ export default function ExperiencePage() {
                     {category.skills.map(skill => (
                       <li key={skill} className="flex items-start">
                         <span className="text-primary/80 mr-2 mt-1">&#8226;</span>
-                        <span className="text-muted-foreground">{skill}</span>
+                        <span className="text-sm text-muted-foreground">{skill}</span>
                       </li>
                     ))}
                   </ul>

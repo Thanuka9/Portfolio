@@ -96,13 +96,13 @@ export default function HomePage() {
               As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
             </p>
             <p className="text-muted-foreground">
-              Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms—including the company’s internal intranet and analytics dashboard—leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks like React and Next.js.
+              Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms, including the company’s internal intranet and analytics dashboard, leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks like React and Next.js.
             </p>
              <p className="text-muted-foreground">
               My academic foundation includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking. My research on predictive analytics for healthcare payment forecasting utilized statistical and machine learning models to deliver actionable insights.
             </p>
              <p className="text-muted-foreground">
-              Whether it’s architecting data-driven solutions, building and deploying AI models, or mentoring teams, I thrive in roles that combine leadership, innovation, and continuous learning. My goal is to bridge the gap between business needs and modern technology—creating lasting, positive impact for organizations and their people.
+              Whether it’s architecting data-driven solutions, building and deploying AI models, or mentoring teams, I thrive in roles that combine leadership, innovation, and continuous learning. My goal is to bridge the gap between business needs and modern technology, creating lasting, positive impact for organizations and their people.
             </p>
           </CardContent>
         </Card>
