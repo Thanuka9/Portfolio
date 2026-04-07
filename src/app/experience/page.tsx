@@ -5,8 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Professional Experience & Technical Skills',
-  description: 'Detailed work experience and technical skills of Thanuka Ellepola, showcasing expertise in data science, AI, and enterprise full-stack development.',
+  title: 'Experience & Technical Expertise | Thanuka Ellepola',
+  description: 'Detailed professional journey and technical skills of Thanuka Ellepola, specializing in Data Science, AI Engineering, and Enterprise Full-Stack Development.',
 }
 
 const professionalExperience = [
@@ -16,20 +16,20 @@ const professionalExperience = [
     period: "2019 – Present",
     sections: [
       {
-        title: "Enterprise Platform Innovation",
+        title: "Enterprise Architecture & Digital Transformation",
         details: [
-          "Principal Architect of the Collective Intranet System: Built a hybrid SQL/NoSQL platform (Flask, PostgreSQL, MongoDB GridFS) centralizing RCM onboarding, training, and task management.",
-          "Engineered a complex training-and-progression engine with approval gates, automated timed exams, and progression analytics.",
-          "Implemented rigorous enterprise security including 2FA, account lock logic, Redis-based rate limiting, and CSRF protection.",
-          "Deployed and maintained scalable cloud solutions on Azure with automated CI/CD via GitHub Actions.",
+          "Principal Architect of the Collective Intranet System: Engineered a secure, hybrid SQL/NoSQL platform (Flask, PostgreSQL, MongoDB GridFS) centralizing all enterprise workflows.",
+          "Implemented a high-security framework featuring 2FA, company email validation, Redis-based rate limiting, and account lock logic.",
+          "Designed a complex training-and-progression engine with timed assessments, automated scoring, and administrative approval gates.",
+          "Managed end-to-end CI/CD pipelines via GitHub Actions with deployment to Azure Web Apps.",
         ],
       },
       {
-        title: "Leadership & Operations",
+        title: "Strategic Leadership & Operational Impact",
         details: [
-          "Manage and train multi-functional teams in healthcare Revenue Cycle Management (RCM) workflows.",
-          "Drive operational efficiency through automated KPI reporting and strategic process improvements.",
-          "Architected centralized documentation and reporting tools, reducing manual effort in audit cycles by over 40%.",
+          "Lead multi-functional teams in healthcare Revenue Cycle Management (RCM), optimizing Billing, Posting, and Denial Management workflows.",
+          "Architected real-time performance analytics dashboards, reducing manual audit effort by over 40% and improving KPI visibility.",
+          "Mentored and trained staff on technical and operational workflows, ensuring a 95% pass rate in internal certification programs.",
         ],
       },
     ],
@@ -40,19 +40,19 @@ const professionalExperience = [
     period: "Ongoing",
     sections: [
       {
-        title: "Advanced AI Systems & Architecture",
+        title: "Cutting-Edge AI & System Innovation",
         details: [
-          "CodeX (Architecture Intelligence): Engineered a system using Gemini 3.1 Pro and a custom GraphEngine to transform GitHub repos into visual diagrams and technical wikis. Implemented Smart Context Injection for optimized LLM signal.",
-          "RevOps AI (Predictive RCM SaaS): Architected a B2B platform using an Autonomous Agent Architecture (AI 'Pods') for healthcare data auditing and payment forecasting (Scikit-learn).",
-          "CareerForge AI 3.0 (Multi-Agent OS): Developed a job-seeking automation platform with low-latency voice AI (Gemini 3.1 Flash Live API) and real-time market grounding.",
-          "ReviewRadar AI: Built a production ETL pipeline to ingest ~7M+ reviews into PostgreSQL, using an ensemble ML system (XGBoost/RF) for sentiment intelligence.",
+          "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom GraphEngine for automatic repository mapping and 'Wiki-grade' documentation.",
+          "RevOps AI: Developed a B2B SaaS for healthcare revenue auditing using an Autonomous Agent Architecture (CEO, Eng, ML 'Pods') and Scikit-learn forecasting.",
+          "CareerForge AI 3.0: Architected a multi-agent career OS featuring low-latency voice AI (Gemini 3.1 Flash Live API) and real-time market grounding.",
+          "ReviewRadar AI: Engineered an ETL pipeline for ~7M+ reviews, implementing ensemble ML (XGBoost/RF) for sentiment intelligence with R² optimized models.",
         ],
       },
       {
-        title: "Critical Incident Systems",
+        title: "Scientific Research & Critical Systems",
         details: [
-          "Disaster Management System: Developed a Laravel-based flood mitigation system for Sri Lanka, integrating SMS gateways for mass emergency alerts and real-time incident mapping.",
-          "Research: Achieved R² > 0.90 in healthcare payment forecasting research, bridging academic ML with enterprise financial operations.",
+          "RCM Predictive Analytics: Published research achieving R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks.",
+          "Disaster Management: Developed a Laravel-based flood mitigation system for Sri Lanka with integrated SMS gateways for mass geo-fenced alerting.",
         ]
       }
     ],
@@ -61,24 +61,24 @@ const professionalExperience = [
 
 const technicalSkills = [
   {
-    category: "Programming & AI",
+    category: "AI & Machine Learning",
+    icon: BrainCircuit,
+    skills: ["Gemini 3.1 (Pro/Flash/Live API)", "Scikit-learn (RF, XGBoost)", "Neural Networks", "NLP (spaCy, VADER)", "Prompt Engineering", "Multi-Agent Systems"],
+  },
+  {
+    category: "Full Stack & Backend",
     icon: Code,
-    skills: ["Python (Scikit-learn, TensorFlow)", "JavaScript/TypeScript", "React/Next.js", "Generative AI (Gemini 3.1, GPT-4)", "Multi-Agent Systems", "Prompt Engineering"],
+    skills: ["Python (Flask, FastAPI)", "TypeScript / React 19", "PostgreSQL (SQLAlchemy)", "MongoDB (GridFS)", "Redis", "PHP / Laravel"],
   },
   {
-    category: "Database & Backend",
-    icon: Database,
-    skills: ["PostgreSQL (SQLAlchemy)", "MongoDB (GridFS)", "Redis", "Flask", "FastAPI", "Laravel", "MySQL"],
-  },
-  {
-    category: "Cloud & DevOps",
+    category: "Cloud & Infrastructure",
     icon: CloudCog,
-    skills: ["Azure App Service", "GCP", "Docker", "GitHub Actions (CI/CD)", "Git/GitHub"],
+    skills: ["Azure Web Apps", "Google Cloud Platform (GCP)", "Docker / Compose", "GitHub Actions (CI/CD)", "Git / Version Control"],
   },
   {
-    category: "Data Visualization",
+    category: "Data & Visualization",
     icon: BarChart3,
-    skills: ["Mermaid.js (Diagrams-as-code)", "Power BI", "Recharts", "Plotly", "Streamlit"],
+    skills: ["Power BI", "Mermaid.js (Architecture-as-code)", "Plotly / Recharts", "Streamlit", "Pandas / NumPy"],
   },
 ];
 
@@ -87,23 +87,23 @@ export default function ExperiencePage() {
     <div className="space-y-12 pb-16">
       <header>
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Briefcase size={36} /> Experience & Skills
+          <Briefcase size={36} /> Experience & Expertise
         </h1>
-        <p className="mt-2 text-muted-foreground">Professional journey, enterprise innovations, and technical expertise.</p>
+        <p className="mt-2 text-muted-foreground">Professional journey, enterprise innovations, and deep technical capabilities.</p>
       </header>
 
       <div className="space-y-8">
         {professionalExperience.map((exp, index) => (
           <Card 
             key={index} 
-            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary"
+            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:border-primary"
             style={{ animationDelay: `${index * 150}ms` }}
           >
             <CardHeader>
               <div className="flex justify-between items-start">
                   <div>
-                      <CardTitle>{exp.role}</CardTitle>
-                      <CardDescription>
+                      <CardTitle className="text-2xl">{exp.role}</CardTitle>
+                      <CardDescription className="text-base font-medium">
                       {exp.company} &middot; {exp.period}
                       </CardDescription>
                   </div>
@@ -132,7 +132,7 @@ export default function ExperiencePage() {
             {technicalSkills.map((category, index) => (
               <Card 
                 key={category.category} 
-                className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary"
+                className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:border-primary"
                 style={{ animationDelay: `${(professionalExperience.length + index) * 150}ms` }}
               >
                 <CardHeader>
