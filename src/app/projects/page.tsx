@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code, Briefcase, ExternalLink, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck } from "lucide-react";
+import { Code, Briefcase, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck, Activity, Globe, Lock, Server } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Projects & Innovations',
-  description: 'A showcase of technical projects and research by Thanuka Ellepola, including CodeX, RevOps AI, CareerForge AI 3.0, and healthcare analytics.',
+  description: 'A showcase of technical projects and research by Thanuka Ellepola, including CodeX, RevOps AI, CareerForge AI 3.0, and enterprise healthcare platforms.',
 }
 
 const projects = [
@@ -29,7 +29,7 @@ const projects = [
   {
     title: "RevOps AI: Predictive Revenue Operations Platform",
     role: "System Architect & Full Stack Developer",
-    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. Built using an Autonomous Agent Architecture where specialized AI "Pods" (CEO, Engineering, Data/ML, DevOps) collaborate.
+    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. Built using an Autonomous Agent Architecture where specialized AI "Pods" collaborate.
     
     Key Features:
     • Automated Data Auditing: Autonomous scanner identifying missing data and billing errors with heuristic logic.
@@ -48,68 +48,72 @@ const projects = [
     Key Features:
     • Live Audio Interaction: Low-latency interview simulation using Gemini 3.1 Flash Live API and Web Audio API.
     • Resume Architect: Multimodal document analysis with "Thinking" budget reasoning for deep candidate impact analysis.
-    • Market Scout: Real-time salary and trend fetching using Google Search Grounding to bypass static training data.
-    • Dual-Model Strategy: Implements "Economy vs. Pro" toggles for optimized speed and reasoning accuracy.`,
+    • Market Scout: Real-time salary and trend fetching using Google Search Grounding to bypass static training data.`,
     tags: ["React 19", "Gemini 3.1 Live", "Web Audio API", "SVG Visualization", "JSON Schema"],
     github: "https://github.com/Thanuka9",
     icon: BrainCircuit
+  },
+  {
+    title: "Collective Intranet System",
+    role: "Full Stack Architect & Main Developer",
+    description: `Enterprise internal platform for a healthcare RCM organization to centralize onboarding, training, task management, and admin reporting.
+    
+    Technical Highlights:
+    • Hybrid Database: Used PostgreSQL (SQLAlchemy) for relational business data and MongoDB (GridFS) for scalable document storage (PDFs, PPTs).
+    • Workflow Logic: Built a complex training-and-progression system with approval gates, timed exams, and automated scoring rules.
+    • Enterprise Security: Implemented 2FA, CSRF protection, Redis-based rate limiting, and account lock logic for high-security standards.
+    • Operational Tools: Admin dashboards for performance analytics, audit-style login monitoring, and automated task cleanup via APScheduler.`,
+    tags: ["Python", "Flask", "PostgreSQL", "MongoDB", "Redis", "Azure", "CI/CD"],
+    icon: Server
   },
   {
     title: "Predictive Analytics for Payment Prediction in RCM",
     role: "Lead Data Scientist / Researcher",
     description: `Academic research introducing a multi-scenario predictive framework for healthcare finance. This study bridges the gap between academic ML models and real-world Revenue Cycle Management.
 
-    Key Research Pillars:
-    • Objectives: Forecast future payment likelihood, timing, and provider-based variations using a 3-year HIPAA-compliant dataset (~28,000+ records).
-    • Methodology: Implemented feature engineering (behavioral indicators, payer mix, lags) and feature selection via Branch & Bound inspired approaches.
-    • ML Models: Evaluated Random Forest, Neural Networks, and Decision Trees. Achieved R² > 0.90 for future payment prediction.
-    • Insights: Demonstrated that while RF/NN excel at complex payment patterns, simpler linear models are superior for high-level revenue forecasting due to the bias-variance tradeoff.
-    • Impact: Enables proactive RCM by prioritizing collections and supporting early intervention for high-risk accounts.`,
-    tags: ["Python", "Pandas", "Scikit-learn", "Neural Networks", "Statistical Modeling", "HIPAA Compliance"],
+    Key Findings:
+    • Achieved R² > 0.90 for future payment prediction using Random Forest and Neural Networks on a 3-year HIPAA-compliant dataset (~28k+ records).
+    • Identified behavioral indicators and payer mix as primary drivers for payment likelihood.
+    • Demonstrated that simpler linear models outperform complex ones for high-level revenue forecasting due to bias-variance tradeoffs.`,
+    tags: ["Python", "Pandas", "Scikit-learn", "Neural Networks", "Statistical Modeling", "HIPAA"],
     icon: LineChart
   },
   {
-    title: "ReviewRadar AI: Smart Product Review Intelligence",
+    title: "ReviewRadar AI: Smart Review Intelligence",
     role: "AI & Data Engineer",
-    description: `End-to-end AI platform analyzing ~7M+ Yelp reviews to generate actionable sentiment insights and recommendations using a scalable production pipeline.
+    description: `End-to-end AI platform analyzing ~7M+ Yelp reviews to generate actionable sentiment insights using a scalable production pipeline.
 
     Technical Architecture:
-    • ETL Pipeline: Scalable ingestion from raw JSON to PostgreSQL using multi-threaded loading and batch inserts for 100% data integrity.
-    • Feature Engineering: Advanced NLP pipeline (VADER sentiment, TF-IDF semantic terms) combined with temporal, geo-spatial (K-Means), and behavioral user features.
-    • ML Ensemble: VotingClassifier (Logistic Regression, Random Forest, XGBoost) with Stratified K-Fold validation and RandomizedSearchCV tuning.
-    • Production Design: Implemented chunked data loading, SVD dimensionality reduction, and memory-optimized training pipelines.
-    • LLM Ready: Architected to support review summarization and automated Pros/Cons generation via Gemini integration.`,
+    • ETL Pipeline: Multi-threaded batch ingestion from raw JSON to PostgreSQL with 100% data integrity.
+    • Feature Engineering: Advanced NLP pipeline (VADER sentiment, TF-IDF semantic terms) combined with geo-spatial clustering (K-Means).
+    • ML Ensemble: VotingClassifier (Logistic Regression, Random Forest, XGBoost) with Stratified K-Fold validation.`,
     tags: ["Python", "XGBoost", "PostgreSQL", "spaCy", "VADER", "ETL", "Scikit-learn"],
     github: "https://github.com/Thanuka9/reviewradar_ai",
     icon: Search
   },
   {
+    title: "Disaster Management System",
+    role: "Lead Developer",
+    description: `Critical incident response system designed to mitigate the impact of floods in Sri Lanka through real-time mapping and mass communication.
+    
+    Key Capabilities:
+    • Mass Alerting: Integrated SMS gateways for automated emergency alerts to at-risk populations based on geo-fencing.
+    • Incident Mapping: Real-time location tracking for flood reports and emergency resource allocation using mapping APIs.
+    • Crisis Coordination: Centralized dashboard for disaster management units to coordinate field responses and monitor weather behavioral trends.`,
+    tags: ["Laravel", "PHP", "MySQL", "SMS Gateway", "Geo-mapping"],
+    icon: Globe
+  },
+  {
     title: "Statistical Application: Advanced Modeling Tool",
     role: "Lead Developer",
     description: `Interactive web application for comprehensive statistical analysis and machine learning, designed for research and educational purposes.
-
-    Key Capabilities:
+    
+    Features:
     • Data Processing: Robust cleaning tools for missing value handling, outlier detection (IQR/Z-Score), and scaling.
-    • Advanced Analysis: PCA for dimensionality reduction and Time-Series forecasting with rolling averages.
-    • Inferential Stats: Automated T-Tests, ANOVA, Chi-Square, and non-parametric tests with full visualization.
-    • ML Models: Full lifecycle support (Regression, Clustering, Classification) with interactive hyperparameter tuning and residual analysis.`,
+    • ML Lifecycle: Full lifecycle support for Regression, Clustering, and Classification with interactive tuning.`,
     tags: ["Python", "Streamlit", "Plotly", "Scikit-learn", "SciPy"],
     github: "https://github.com/Thanuka9/Statistical-app",
     icon: BarChart3
-  },
-  {
-    title: "Collective Intranet System",
-    role: "Full Stack Developer",
-    description: `Enterprise-grade RCM system that automates financial workflows, supports secure patient data management, and provides real-time analytics for healthcare operations.`,
-    tags: ["Python", "Flask", "MongoDB", "JavaScript", "Azure"],
-    icon: Database
-  },
-  {
-    title: "Disaster Management System",
-    role: "Lead Developer",
-    description: `Critical incident response system designed to mitigate the impact of floods in Sri Lanka using SMS gateways and real-time location mapping.`,
-    tags: ["Laravel", "PHP", "MySQL", "SMS Gateway"],
-    icon: ShieldCheck
   }
 ];
 
@@ -120,7 +124,7 @@ export default function ProjectsPage() {
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
           <Code size={36} /> Projects & Innovations
         </h1>
-        <p className="mt-2 text-muted-foreground">Showcasing production-grade AI systems, full-stack platforms, and data research.</p>
+        <p className="mt-2 text-muted-foreground">Showcasing production-grade AI systems, enterprise platforms, and data research.</p>
       </header>
 
       <div className="grid grid-cols-1 gap-8">
