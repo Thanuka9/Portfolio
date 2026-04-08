@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -76,7 +75,7 @@ export default function Sidebar() {
             </div>
             <div className="flex items-center gap-2 mt-6">
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground flex-1">
-                 <a href="https://drive.google.com/file/d/1-qfFUhpeUF8G_uWDhASd9qj3DI0suTyT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                 <a href="https://drive.google.com/file/d/1H1b0lXTZ4gVZwm68Hl6S0nSAdiywi-jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                     <Download className="mr-2" size={16} /> Download CV
                  </a>
               </Button>

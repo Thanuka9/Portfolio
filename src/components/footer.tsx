@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -21,7 +20,7 @@ export default function Footer() {
             </p>
             <div className="mt-4 flex gap-2">
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <a href="https://drive.google.com/file/d/1-qfFUhpeUF8G_uWDhASd9qj3DI0suTyT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1H1b0lXTZ4gVZwm68Hl6S0nSAdiywi-jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   Download CV
                 </a>
               </Button>
