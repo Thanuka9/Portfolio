@@ -42,7 +42,7 @@ const professionalExperience = [
       {
         title: "Advanced AI Systems & RAG Innovation",
         details: [
-          "AI Job Hunter: Architected an autonomous job application system using a RAG pipeline, FAISS vector search, and Playwright browser automation.",
+          "AI Job Hunter: Architected an autonomous job application system using a LangChain-orchestrated RAG pipeline, FAISS vector search, and Playwright browser automation.",
           "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom static analysis GraphEngine for automatic repository mapping.",
           "RevOps AI: Developed a B2B SaaS for healthcare revenue auditing using an Autonomous Agent Architecture (CEO, Eng, ML Pods) and Scikit-learn forecasting.",
           "CareerForge AI 3.0: Engineered a multi-agent career OS featuring low-latency voice AI (Gemini 3.1 Live API) and real-time market grounding.",
@@ -65,7 +65,7 @@ const technicalSkills = [
   {
     category: "AI & Machine Learning",
     icon: BrainCircuit,
-    skills: ["Gemini 3.1 (Pro/Flash/Live API)", "RAG & Vector DB (FAISS)", "Scikit-learn (RF, XGBoost)", "Neural Networks", "NLP (spaCy, VADER)", "Multi-Agent Systems"],
+    skills: ["Gemini 3.1 (Pro/Flash/Live API)", "LangChain", "RAG & Vector DB (FAISS)", "Scikit-learn (RF, XGBoost)", "Neural Networks", "Multi-Agent Systems"],
   },
   {
     category: "Full Stack & Backend",
