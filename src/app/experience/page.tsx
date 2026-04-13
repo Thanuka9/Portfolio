@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Building, Rocket, Server, ShieldCheck, Globe } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Building, Rocket, Server, ShieldCheck, Globe, Bot } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import type { Metadata } from 'next';
 
@@ -40,19 +40,21 @@ const professionalExperience = [
     period: "Ongoing",
     sections: [
       {
-        title: "Cutting-Edge AI & System Innovation",
+        title: "Advanced AI Systems & RAG Innovation",
         details: [
-          "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom GraphEngine for automatic repository mapping and 'Wiki-grade' documentation.",
-          "RevOps AI: Developed a B2B SaaS for healthcare revenue auditing using an Autonomous Agent Architecture (CEO, Eng, ML 'Pods') and Scikit-learn forecasting.",
-          "CareerForge AI 3.0: Architected a multi-agent career OS featuring low-latency voice AI (Gemini 3.1 Flash Live API) and real-time market grounding.",
-          "ReviewRadar AI: Engineered an ETL pipeline for ~7M+ reviews, implementing ensemble ML (XGBoost/RF) for sentiment intelligence with R² optimized models.",
+          "AI Job Hunter: Architected an autonomous job application system using a RAG pipeline, FAISS vector search, and Playwright browser automation.",
+          "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom static analysis GraphEngine for automatic repository mapping.",
+          "RevOps AI: Developed a B2B SaaS for healthcare revenue auditing using an Autonomous Agent Architecture (CEO, Eng, ML Pods) and Scikit-learn forecasting.",
+          "CareerForge AI 3.0: Engineered a multi-agent career OS featuring low-latency voice AI (Gemini 3.1 Live API) and real-time market grounding.",
+          "ReviewRadar AI: Developed an end-to-end sentiment intelligence platform processing ~7M+ reviews with ensemble ML models and multi-threaded ETL pipelines.",
         ],
       },
       {
         title: "Scientific Research & Critical Systems",
         details: [
           "RCM Predictive Analytics: Published research achieving R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks.",
-          "Disaster Management: Developed a Laravel-based flood mitigation system for Sri Lanka with integrated SMS gateways for mass geo-fenced alerting.",
+          "Disaster Management: Developed a Laravel-based flood mitigation system for Sri Lanka with integrated SMS gateways for geo-fenced mass alerting.",
+          "Statistical App: Built an interactive analysis tool for PCA, Inferential Statistics, and ML lifecycle management using Streamlit.",
         ]
       }
     ],
@@ -63,7 +65,7 @@ const technicalSkills = [
   {
     category: "AI & Machine Learning",
     icon: BrainCircuit,
-    skills: ["Gemini 3.1 (Pro/Flash/Live API)", "Scikit-learn (RF, XGBoost)", "Neural Networks", "NLP (spaCy, VADER)", "Prompt Engineering", "Multi-Agent Systems"],
+    skills: ["Gemini 3.1 (Pro/Flash/Live API)", "RAG & Vector DB (FAISS)", "Scikit-learn (RF, XGBoost)", "Neural Networks", "NLP (spaCy, VADER)", "Multi-Agent Systems"],
   },
   {
     category: "Full Stack & Backend",
@@ -73,7 +75,7 @@ const technicalSkills = [
   {
     category: "Cloud & Infrastructure",
     icon: CloudCog,
-    skills: ["Azure Web Apps", "Google Cloud Platform (GCP)", "Docker / Compose", "GitHub Actions (CI/CD)", "Git / Version Control"],
+    skills: ["Azure Web Apps", "Google Cloud Platform (GCP)", "Docker / Compose", "GitHub Actions (CI/CD)", "Playwright Automation"],
   },
   {
     category: "Data & Visualization",
@@ -107,7 +109,7 @@ export default function ExperiencePage() {
                       {exp.company} &middot; {exp.period}
                       </CardDescription>
                   </div>
-                  {exp.company === "Technical Project Portfolio" && <Rocket className="text-accent" size={24} />}
+                  {exp.company === "Technical Project Portfolio" ? <Rocket className="text-accent" size={24} /> : <Building className="text-primary" size={24} />}
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
