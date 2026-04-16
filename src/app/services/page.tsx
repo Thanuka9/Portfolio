@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Sparkles, 
@@ -76,8 +77,6 @@ const services = [
 ];
 
 export default function ServicesPage() {
-  const schedulingUrl = "https://calendly.com/thanuka-ellepola";
-
   return (
     <div className="space-y-20 pb-16 animate-reveal">
       <header className="space-y-6">
@@ -126,9 +125,9 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-10 rounded-full shadow-lg">
-              <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">
+              <Link href="/contact">
                 Schedule a 15-Min Strategy Call <ArrowRight className="ml-2" size={18} />
-              </a>
+              </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-primary-foreground/20 hover:bg-primary-foreground/10 text-primary-foreground h-14 px-10 rounded-full">
               <Link href="/projects">View Case Studies</Link>

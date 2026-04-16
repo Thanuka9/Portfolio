@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Link from "next/link";
 import {
@@ -60,8 +61,6 @@ const pillars = [
 ];
 
 export default function HomePage() {
-  const schedulingUrl = "https://calendly.com/thanuka-ellepola";
-
   return (
     <div className="space-y-24 animate-reveal">
       <section id="hero" className="space-y-8 pt-12">
@@ -77,7 +76,7 @@ export default function HomePage() {
         </p>
         <div className="flex flex-wrap gap-4 pt-6 animate-slide-up [animation-delay:300ms]">
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-8 rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95">
-            <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+            <Link href="/contact">Book a Strategy Call</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="font-bold h-14 px-8 rounded-xl border-border hover:bg-secondary transition-all">
             <Link href="/projects">View Case Studies</Link>
@@ -164,9 +163,9 @@ export default function HomePage() {
         </p>
         <div className="flex justify-center pt-4">
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-16 px-12 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
-            <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">
-              Schedule a Strategy Call <ArrowRight className="ml-2" />
-            </a>
+            <Link href="/contact">
+              Book a Strategy Call <ArrowRight className="ml-2" />
+            </Link>
           </Button>
         </div>
       </section>

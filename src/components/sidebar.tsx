@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -23,7 +24,6 @@ const navLinks = [
 export default function Sidebar() {
   const pathname = usePathname();
   const profileImage = imageData.profile;
-  const schedulingUrl = "https://calendly.com/thanuka-ellepola";
 
   return (
     <aside className="lg:w-1/3 lg:h-screen lg:fixed lg:top-0 lg:left-0 lg:border-r lg:border-border/60 bg-card lg:bg-background z-50">
@@ -84,9 +84,9 @@ export default function Sidebar() {
             
             <div className="flex flex-col gap-3">
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground w-full font-bold h-12 rounded-xl shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
-                 <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">
+                 <Link href="/contact">
                     Book a Strategy Call
-                 </a>
+                 </Link>
               </Button>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="icon" asChild className="rounded-xl hover:border-accent hover:text-accent transition-all">
