@@ -78,7 +78,7 @@ export default function HomePage() {
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-8 rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95">
             <Link href="/contact">Book a Strategy Call</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="font-bold h-14 px-8 rounded-xl border-border hover:bg-secondary transition-all">
+          <Button asChild variant="outline" size="lg" className="font-bold h-14 px-8 rounded-xl border-accent/30 hover:border-accent/60 hover:bg-secondary/50 transition-all text-foreground">
             <Link href="/projects">View Case Studies</Link>
           </Button>
         </div>
