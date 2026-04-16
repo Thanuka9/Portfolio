@@ -76,7 +76,7 @@ const services = [
 ];
 
 export default function ServicesPage() {
-  const schedulingUrl = "https://calendly.com/thanuka-ellepola"; // Replace with your actual link
+  const schedulingUrl = "https://calendly.com/thanuka-ellepola";
 
   return (
     <div className="space-y-20 pb-16 animate-reveal">

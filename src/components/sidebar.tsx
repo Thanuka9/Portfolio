@@ -45,7 +45,7 @@ export default function Sidebar() {
                   <h2 className="text-xs text-accent font-bold uppercase tracking-widest">AI • Fullstack • Data Science</h2>
                 </div>
             </div>
-             <p className="mt-4 text-muted-foreground leading-relaxed text-sm lg:text-base">
+             <p className="mt-4 text-muted-foreground leading-relaxed text-sm lg:text-base font-medium">
                 Helping organizations bridge the gap between complex data and high-performance, automated intelligence.
             </p>
 
