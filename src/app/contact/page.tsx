@@ -1,7 +1,6 @@
-
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Send, MessageSquare, Calendar, Sparkles } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -48,46 +47,22 @@ const PUBLIC_KEY = 'mqtA7O0dh4Q6-V-Ur';
 const contactDetails = [
     {
         icon: Mail,
-        label: "Email (Thanuka Ellepola)",
+        label: "Direct Email",
         value: "thanuka.ellepola@gmail.com",
         href: "mailto:thanuka.ellepola@gmail.com",
     },
     {
-        icon: Phone,
-        label: "Phone",
-        value: "+94 77 670 5832",
-        href: "tel:+94776705832",
-    },
-    {
         icon: Linkedin,
-        label: "LinkedIn",
-        value: "linkedin.com/in/thanuka-ellepola",
+        label: "LinkedIn Professional",
+        value: "thanuka-ellepola",
         href: "https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/",
     },
     {
         icon: MapPin,
-        label: "Location",
-        value: "Colombo, Sri Lanka",
+        label: "Primary Location",
+        value: "Colombo, Sri Lanka (Available for Remote Global Work)",
     }
 ];
-
-const services = [
-  "Data Science Consulting",
-  "Healthcare Analytics Solutions",
-  "Full Stack Web Development",
-  "Predictive Modeling Projects",
-  "Database Design & Optimization",
-  "Team Training & Workshops"
-];
-
-const opportunities = [
-  "Full-time Opportunities",
-  "Consulting Projects",
-  "Research Collaborations",
-  "Speaking Engagements",
-  "Technical Mentoring"
-];
-
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -106,68 +81,91 @@ export default function ContactPage() {
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, PUBLIC_KEY);
       toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Inquiry Received!",
+        description: "Thank you for reaching out. I'll get back to you within 24 hours.",
       });
       form.reset();
     } catch (error: any) {
-      const errorMessage = error?.text || "The email service failed to respond.";
-      console.error('Failed to send email:', errorMessage, error);
+      const errorMessage = error?.text || "Communication failed.";
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: `There was a problem with the contact form: ${errorMessage} Please check your EmailJS account settings and try again.`,
+        description: `There was a problem sending your inquiry: ${errorMessage}`,
       });
     }
   }
 
   return (
-    <div className="space-y-12 pb-16">
-      <header className="text-center">
+    <div className="space-y-16 pb-16">
+      <header className="text-center space-y-4 pt-8">
         <h1 className="text-4xl lg:text-5xl font-bold font-headline text-primary">
-          Let's Connect
+          Let's Build Something <span className="text-accent">Significant.</span>
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-          Ready to discuss your next project, explore collaboration opportunities, or learn more about my experience? I'd love to hear from you.
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          I'm currently accepting new consulting projects and strategic collaborations. If you have a complex problem that needs a data-driven or AI-powered solution, I'd love to discuss it.
         </p>
       </header>
       
       <div className="grid md:grid-cols-2 gap-12">
-        <div className="space-y-8">
-            <div>
-                <h2 className="text-2xl font-bold mb-2">Get In Touch</h2>
-                <p className="text-muted-foreground">Multiple ways to reach me for different types of opportunities.</p>
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <div className="space-y-2">
+                    <h2 className="text-2xl font-bold">Why Consult with Me?</h2>
+                    <p className="text-muted-foreground">Get a clear technical roadmap and ROI-focused implementation for your AI or data projects.</p>
+                </div>
+                <div className="grid gap-4">
+                    {[
+                        { title: "Technical Feasibility", desc: "Understand if your AI idea is buildable and scalable." },
+                        { title: "Data Strategy", desc: "Optimize how you collect and process business information." },
+                        { title: "Architecture Design", desc: "Ensure your systems are secure and future-proof." }
+                    ].map((item) => (
+                        <Card key={item.title} className="border-none bg-primary/5 p-4 flex gap-4">
+                             <Sparkles className="text-accent shrink-0" size={24} />
+                             <div>
+                                <h4 className="font-bold text-primary">{item.title}</h4>
+                                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                             </div>
+                        </Card>
+                    ))}
+                </div>
             </div>
-          <div className="space-y-6">
-            {contactDetails.map((detail) => (
-              <a 
-                key={detail.label} 
-                href={detail.href} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`flex items-center gap-4 text-lg transition-colors ${detail.href ? 'hover:text-primary' : 'cursor-default'}`}
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                  <detail.icon className="w-6 h-6 text-primary" />
+
+            <div className="space-y-6">
+                <h3 className="font-bold text-lg">Direct Channels</h3>
+                <div className="space-y-4">
+                    {contactDetails.map((detail) => (
+                    <a 
+                        key={detail.label} 
+                        href={detail.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className={`flex items-center gap-4 group transition-all ${detail.href ? 'hover:translate-x-1' : 'cursor-default'}`}
+                    >
+                        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
+                        <detail.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                        <p className="font-semibold text-sm">{detail.label}</p>
+                        <p className="text-xs text-muted-foreground">{detail.value}</p>
+                        </div>
+                    </a>
+                    ))}
                 </div>
-                <div>
-                  <p className="font-semibold">{detail.label}</p>
-                  <p className="text-sm text-muted-foreground">{detail.value}</p>
-                </div>
-              </a>
-            ))}
-          </div>
+            </div>
         </div>
 
         <div>
-           <Card>
-                <CardContent className="p-6 space-y-2">
-                    <div>
-                        <h2 className="text-2xl font-bold">Quick Contact</h2>
-                        <p className="text-muted-foreground pt-1">Send me a message and I'll get back to you within 24 hours.</p>
-                    </div>
+           <Card className="border-none shadow-xl ring-1 ring-border/60">
+                <CardHeader className="bg-primary/5">
+                    <CardTitle className="flex items-center gap-2">
+                        <MessageSquare className="text-accent" />
+                        Send an Inquiry
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">Describe your project or challenge below.</p>
+                </CardHeader>
+                <CardContent className="p-8">
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 pt-4">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                             <div className="grid sm:grid-cols-2 gap-6">
                                 <FormField
                                 control={form.control}
@@ -176,7 +174,7 @@ export default function ContactPage() {
                                     <FormItem>
                                     <FormLabel>Your Name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="John Doe" {...field} />
+                                        <Input placeholder="E.g. Jane Smith" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                     </FormItem>
@@ -187,9 +185,9 @@ export default function ContactPage() {
                                 name="email"
                                 render={({ field }) => (
                                     <FormItem>
-                                    <FormLabel>Email Address</FormLabel>
+                                    <FormLabel>Professional Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="john@example.com" {...field} />
+                                        <Input placeholder="jane@company.com" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                     </FormItem>
@@ -201,9 +199,9 @@ export default function ContactPage() {
                                 name="subject"
                                 render={({ field }) => (
                                     <FormItem>
-                                    <FormLabel>Subject</FormLabel>
+                                    <FormLabel>Project Interest</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Project Discussion / Job Opportunity / Collaboration" {...field} />
+                                        <Input placeholder="E.g. AI Integration / Data Auditing / Consulting" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                     </FormItem>
@@ -214,10 +212,10 @@ export default function ContactPage() {
                             name="message"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel>Message</FormLabel>
+                                <FormLabel>Project Details</FormLabel>
                                 <FormControl>
                                     <Textarea
-                                    placeholder="Tell me about your project or opportunity..."
+                                    placeholder="Briefly describe the challenge you're looking to solve..."
                                     className="resize-none min-h-[120px]"
                                     {...field}
                                     />
@@ -226,9 +224,9 @@ export default function ContactPage() {
                                 </FormItem>
                             )}
                             />
-                            <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={form.formState.isSubmitting}>
-                                <Send size={18} />
-                                {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
+                            <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-12" disabled={form.formState.isSubmitting}>
+                                {form.formState.isSubmitting ? 'Transmitting...' : 'Request Consultation'}
+                                <Send className="ml-2" size={18} />
                             </Button>
                         </form>
                     </Form>
@@ -236,41 +234,6 @@ export default function ContactPage() {
             </Card>
         </div>
       </div>
-
-      <section className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-8">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="text-2xl">Services Offered</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ul className="space-y-3">
-                        {services.map((service) => (
-                            <li key={service} className="flex items-start">
-                                <span className="text-accent mr-3 mt-1">&#8226;</span>
-                                <span className="text-muted-foreground">{service}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader>
-                    <CardTitle className="text-2xl">Available For</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ul className="space-y-4">
-                        {opportunities.map((opp) => (
-                            <li key={opp} className="flex items-center justify-between">
-                                <span className="text-muted-foreground">{opp}</span>
-                                <Badge variant="outline" className="border-green-500/50 text-green-600 bg-green-500/10">Open</Badge>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-            </Card>
-        </div>
-      </section>
     </div>
   );
 }

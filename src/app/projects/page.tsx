@@ -1,212 +1,173 @@
-
 import React from 'react';
-import { Code, Briefcase, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck, Activity, Globe, Lock, Server, Bot, Cpu, History, RefreshCw, ExternalLink } from "lucide-react";
+import { Code, Briefcase, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck, Activity, Globe, Lock, Server, Bot, Cpu, History, RefreshCw, ExternalLink, ArrowRight, Target, FlaskConical, TrendingUp } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Projects & Innovations | Professional Portfolio',
-  description: 'Exhaustive technical showcase of AI systems, autonomous agents, enterprise RCM platforms, and data science research by Thanuka Ellepola.',
+  title: 'Case Studies | Strategic Project Impacts',
+  description: 'Detailed case studies of AI systems, autonomous agents, and enterprise platforms focused on business outcomes.',
 }
 
 const projects = [
   {
-    title: "AI Job Hunter: Autonomous Job Application System",
+    title: "AI Job Hunter: Autonomous Talent Acquisition System",
     role: "Lead AI Engineer & Architect",
-    description: `An end-to-end autonomous AI system designed to automate and optimize the job application lifecycle using RAG, LangChain orchestration, and browser automation.
-
-    🎯 Key Features:
-    • Automated discovery from platforms like Greenhouse and Lever using specialized scrapers.
-    • AI-based job matching using LangChain for RAG and FAISS for vector search.
-    • Intelligent ranking agent assigning alignment scores to each opportunity.
-    • Tailored response generation and automated submission via Playwright.
-    • Continuous learning loop that captures application data for future fine-tuning.
-
-    🏗️ System Architecture:
-    • Data Layer: Multi-platform scraper converting raw listings into structured data.
-    • Intelligence Layer: LangChain-powered RAG pipeline for dynamic context retrieval from CV/Portfolio using FAISS embeddings.
-    • Decision Layer: Ranking agent ensuring high-signal submissions only.
-    • Execution Layer: Playwright-powered automation for hands-free application submission.
-    • Learning Loop: Feedback data collection for systemic optimization.`,
-    tags: ["Python", "LangChain", "FAISS", "Playwright", "NLP", "Gemini 3.1", "Pandas", "RAG"],
+    summary: "Built an autonomous system that reduces job application time by 90% through intelligent filtering and RAG-based personalization.",
+    challenge: "The manual process of discovering, matching, and applying for high-signal opportunities is extremely inefficient and prone to low quality. Most automation tools use 'brute force' which results in poor outcomes.",
+    solution: "Architected a multi-agent system using LangChain and Gemini 3.1. It features a decision layer that scores opportunities before applying, a RAG pipeline for dynamic context injection, and Playwright for human-like browser automation.",
+    impact: "Created a high-fidelity system capable of processing 1000s of listings with zero manual intervention while maintaining a high match-signal. Successfully integrated a learning loop to fine-tune scoring over time.",
+    tags: ["LangChain", "Gemini 3.1", "FAISS", "Playwright", "RAG", "Python"],
     github: "https://github.com/Thanuka9/Job-Hunter",
     demo: "https://codex-705252260340.us-west1.run.app/?repo=https%3A%2F%2Fgithub.com%2FThanuka9%2FJob-Hunter",
     icon: Bot
   },
   {
-    title: "CodeX: Architecture Intelligence Engine",
-    role: "Lead Architect & Developer",
-    description: `A production-grade web application designed to "decode" any GitHub repository. It provides instant technical documentation and visual architecture diagrams.
-    
-    🏗️ Architecture & Structure:
-    • Core UI Layer: Manages application lifecycle and Wiki-style deep links.
-    • Service Layer: 
-      - githubService.ts: Data acquisition engine with recursive tree fetching and multi-tier fallback (GitHub API → JsDelivr → Raw Content).
-      - aiService.ts: Deep-context analysis using Gemini 3.1 Pro focusing on "Why" and "How".
-      - graphEngine.ts: Custom static analysis parsing file relationships into Mermaid.js diagrams.
-    • Smart Context Injection: Prioritizes "DNA files" (READMEs, manifests, entry points) for high signal-to-noise ratio.`,
-    tags: ["React 18", "TypeScript", "Gemini 3.1 Pro", "Mermaid.js", "Tailwind CSS", "Vite"],
-    github: "https://github.com/Thanuka9",
-    icon: Code
+    title: "Predictive Analytics for Healthcare Payment Forecasting",
+    role: "Lead Data Scientist / Researcher",
+    summary: "Leveraging ML to forecast payment behaviors in RCM, achieving R² > 0.90 for financial prioritization.",
+    challenge: "Healthcare revenue cycles are often reactive. Organizations struggle with delayed payments and high denial rates because they can't predict which claims are at risk.",
+    solution: "Developed a proactive framework using Random Forest and Neural Networks on a 3-year dataset (~28k records). Implemented feature selection and rolling averages to capture non-linear financial patterns.",
+    impact: "Achieved high predictive accuracy (R² > 0.90), allowing for early intervention on high-risk accounts and optimized resource allocation in collection workflows.",
+    tags: ["Scikit-learn", "Neural Networks", "Pandas", "Healthcare RCM", "Statistical Modeling"],
+    icon: LineChart
   },
   {
-    title: "RevOps AI: Predictive Revenue Operations Platform",
+    title: "RevOps AI: Autonomous Data Auditing Platform",
     role: "System Architect & Full Stack Developer",
-    description: `A B2B SaaS platform transforming Healthcare RCM through autonomous data auditing and predictive analytics. 
-    
-    🚀 Project Overview:
-    • Autonomous Agent Architecture: Specialized AI "Pods" (CEO, Engineering, Data/ML, DevOps) collaborate to build and scale.
-    • Automated Data Auditing: Autonomous scanner identifying billing errors with custom heuristic logic.
-    • Predictive Payment Forecasting: Scikit-learn regression models to predict cash flow timelines.
-    • Infrastructure: FastAPI backend, React/Vite frontend, Docker orchestration, and GCP deployment.`,
-    tags: ["FastAPI", "Python", "React", "Scikit-learn", "Docker", "GCP", "SQLAlchemy"],
+    summary: "A B2B SaaS transforming Healthcare RCM through autonomous data auditing and agentic pods.",
+    challenge: "Billing errors and data hygiene issues cost healthcare providers millions. Manual auditing is slow, inconsistent, and unscalable.",
+    solution: "Built a platform with an Autonomous Agent Architecture (CEO, Eng, ML Pods). It uses a specialized logic component to scan for architectural patterns and Scikit-learn models for payment forecasting.",
+    impact: "Reduced manual audit effort by 40% and improved KPI visibility for financial controllers through real-time predictive dashboards.",
+    tags: ["FastAPI", "React", "Scikit-learn", "Docker", "GCP", "Agentic AI"],
     github: "https://github.com/Thanuka9",
     icon: Zap
   },
   {
-    title: "CareerForge AI 3.0: Multi-Agent Career OS",
+    title: "Collective Intranet: Enterprise Workflow Engine",
+    role: "Full Stack Architect & Main Developer",
+    summary: "A secure internal platform centralizing onboarding, training, and performance tracking for RCM teams.",
+    challenge: "Managing a growing team across multiple RCM departments required a centralized, secure system for training, task management, and administrative reporting.",
+    solution: "Engineered a hybrid SQL/NoSQL platform (Flask, PostgreSQL, MongoDB GridFS) with role-based access control, 2FA, and a timed assessment engine with automated scoring.",
+    impact: "Centralized all enterprise workflows for a large healthcare team, ensuring a 95% certification pass rate and providing management with a single source of truth for employee progression.",
+    tags: ["Flask", "PostgreSQL", "MongoDB", "Redis", "Azure", "CI/CD"],
+    icon: Server
+  },
+  {
+    title: "CareerForge AI 3.0: Voice-AI Career OS",
     role: "Full Stack AI Engineer",
-    description: `An advanced career development platform automating the end-to-end job-seeking process using a decentralized multi-agent approach.
-    
-    🏗️ Technical Architecture:
-    • Agent Alpha (Resume Architect): Multimodal analysis using Gemini 3.1 Pro with deep candidate impact reasoning.
-    • Agent Bravo (Market Scout): Real-time salary and trend fetching using Google Search Grounding.
-    • Interview Simulator: Low-latency, full-duplex voice interactions using Gemini 3.1 Flash Live API.
-    • UI/UX: High-performance "Glassmorphism" interface with custom SVG data visualizations.`,
-    tags: ["React 19", "Gemini 3.1 Live", "Web Audio API", "SVG Visualization", "JSON Schema"],
+    summary: "A multi-agent platform providing real-time market grounding and low-latency voice AI simulations.",
+    challenge: "Job seekers lack realistic, real-time data and high-fidelity practice tools for competitive tech roles.",
+    solution: "Built a multi-agent career OS featuring low-latency voice interactions (Gemini 3.1 Live API) and real-time market grounding using Google Search integration.",
+    impact: "Enabled full-duplex voice practice and data-backed salary negotiation tools, providing users with a verifiable 'Market Scout' capability.",
+    tags: ["React 19", "Gemini 3.1 Live API", "Web Audio API", "Google Search Grounding"],
     github: "https://github.com/Thanuka9",
     icon: BrainCircuit
   },
   {
-    title: "Collective Intranet System",
-    role: "Full Stack Architect & Main Developer",
-    description: `Enterprise internal platform built for a healthcare RCM environment to centralize onboarding, training, and task management.
-
-    Technical Highlights:
-    • Modular Architecture: Flask-based backend with blueprints for auth, exams, and reporting.
-    • Hybrid Database: PostgreSQL (SQLAlchemy) for relational data and MongoDB (GridFS) for scalable document storage.
-    • Progression Logic: Multi-tier training workflow with 2FA and timed assessments.
-    • Security: CSRF protection, Redis-based rate limiting, and account lock logic.`,
-    tags: ["Python", "Flask", "PostgreSQL", "MongoDB", "Redis", "Azure", "CI/CD"],
-    icon: Server
-  },
-  {
-    title: "Predictive Analytics for Payment Prediction in RCM",
-    role: "Lead Data Scientist / Researcher",
-    description: `Comprehensive research on applying machine learning to forecast payment behaviors in healthcare RCM.
-    
-    📊 Methodology & Research:
-    • Dataset: 3-year HIPAA-compliant dataset (~28,000+ records).
-    • Feature Engineering: Payment history lags, rolling averages, and Branch & Bound feature selection.
-    • Model Scenarios:
-      - Future Payment Prediction: Random Forest & Neural Networks (R² > 0.90).
-      - Provider Variations: Analyzing non-linear revenue patterns.
-      - Location Trends: K-Means clustering to segment facility behavior.`,
-    tags: ["Python", "Pandas", "Scikit-learn", "Neural Networks", "Statistical Modeling", "HIPAA"],
-    icon: LineChart
-  },
-  {
-    title: "ReviewRadar AI: Smart Review Intelligence",
+    title: "ReviewRadar AI: Consumer Sentiment Intelligence",
     role: "AI & Data Engineer",
-    description: `End-to-end AI platform analyzing ~7M+ reviews to generate actionable sentiment insights.
-    
-    🏗️ System Architecture:
-    • ETL Pipeline: Multi-threaded batch ingestion from raw JSON to PostgreSQL.
-    • Feature Engineering: VADER sentiment scores, TF-IDF semantic importance, and Geo-spatial clustering.
-    • Machine Learning: Ensemble VotingClassifier combining Logistic Regression, Random Forest, and XGBoost.
-    • Evaluation: ROC-AUC, Precision-Recall curves, and Bootstrap confidence intervals.`,
-    tags: ["Python", "XGBoost", "PostgreSQL", "spaCy", "VADER", "ETL", "Scikit-learn"],
+    summary: "Processing 7M+ reviews to generate actionable sentiment insights for business growth.",
+    challenge: "Businesses struggle to extract actionable insights from massive volumes of unstructured customer feedback.",
+    solution: "Developed an end-to-end sentiment intelligence platform with multi-threaded ETL pipelines, ensemble ML models, and VADER sentiment scores.",
+    impact: "Created a scalable architecture capable of identifying service-level bottlenecks and category-specific sentiment trends across millions of records.",
+    tags: ["Python", "XGBoost", "PostgreSQL", "ETL", "VADER", "spaCy"],
     github: "https://github.com/Thanuka9/reviewradar_ai",
     icon: Search
-  },
-  {
-    title: "Disaster Management System",
-    role: "Lead Developer",
-    description: `Critical incident response system designed to mitigate the impact of floods in Sri Lanka.
-    
-    Key Capabilities:
-    • Mass Alerting: Integrated SMS gateways for automated alerts based on geo-fencing.
-    • Incident Mapping: Real-time tracking for flood reports and resource allocation.
-    • Crisis Coordination: Centralized dashboard for disaster management units.`,
-    tags: ["Laravel", "PHP", "MySQL", "SMS Gateway", "Geo-mapping"],
-    icon: Globe
-  },
-  {
-    title: "Statistical Application: Advanced Modeling Tool",
-    role: "Lead Developer",
-    description: `Interactive web application for comprehensive statistical analysis and machine learning lifecycle.
-    
-    Features:
-    • Data Processing: Robust cleaning tools for missing values and outliers.
-    • Inferential Statistics: Interactive T-Tests, ANOVA, and Chi-Square.
-    • ML Lifecycle: Support for Regression, Clustering, and PCA.
-    • Dashboard: Dynamic visualizations using Plotly and Seaborn.`,
-    tags: ["Python", "Streamlit", "Plotly", "Scikit-learn", "SciPy"],
-    github: "https://github.com/Thanuka9/Statistical-app",
-    icon: BarChart3
   }
 ];
 
 export default function ProjectsPage() {
   return (
-    <div className="space-y-12 pb-16">
-       <header>
+    <div className="space-y-16 pb-16">
+       <header className="space-y-4">
         <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Code size={36} /> Projects & Innovations
+          <Code size={36} /> Case Studies & Impacts
         </h1>
-        <p className="mt-2 text-muted-foreground">Detailed technical breakdown of production AI systems, autonomous agents, enterprise platforms, and published research.</p>
+        <p className="text-lg text-muted-foreground max-w-3xl">
+          Each project represents a specific business problem solved with a combination of AI, data science, and enterprise-grade engineering.
+        </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-12">
+      <div className="grid grid-cols-1 gap-16">
         {projects.map((project, index) => (
-          <Card 
+          <div 
             key={project.title} 
-            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:border-primary h-full flex flex-col"
+            className="group opacity-0 animate-fade-in transition-all duration-300"
             style={{ animationDelay: `${index * 150}ms` }}
-            >
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div className="flex gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                        <project.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <CardTitle className="text-2xl">{project.title}</CardTitle>
-                        <CardDescription className="flex items-center gap-2 pt-1 text-base font-medium">
-                            <Briefcase size={16} className="text-muted-foreground" />
-                            {project.role}
-                        </CardDescription>
-                    </div>
+          >
+            <div className="grid md:grid-cols-12 gap-8 items-start">
+              <div className="md:col-span-5 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
+                    <project.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold font-headline leading-tight">{project.title}</h2>
+                    <p className="text-accent font-medium text-sm mt-1">{project.role}</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
+                
+                <div className="space-y-4">
+                   <div className="flex gap-2">
+                     <Target className="w-5 h-5 text-primary shrink-0 mt-1" />
+                     <div>
+                        <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">The Challenge</h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm mt-1">{project.challenge}</p>
+                     </div>
+                   </div>
+                   <div className="flex gap-2">
+                     <FlaskConical className="w-5 h-5 text-primary shrink-0 mt-1" />
+                     <div>
+                        <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">The Solution</h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm mt-1">{project.solution}</p>
+                     </div>
+                   </div>
+                   <div className="flex gap-2">
+                     <TrendingUp className="w-5 h-5 text-accent shrink-0 mt-1" />
+                     <div>
+                        <h3 className="font-bold text-sm uppercase tracking-wider text-accent">The Impact</h3>
+                        <p className="text-card-foreground leading-relaxed font-medium text-sm mt-1">{project.impact}</p>
+                     </div>
+                   </div>
+                </div>
+
+                <div className="flex gap-2 pt-4">
                     {project.demo && (
-                        <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary">
+                        <Button variant="outline" size="sm" asChild className="rounded-full">
                             <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink size={20} />
+                                <ExternalLink size={16} className="mr-2" /> Live Case
                             </a>
                         </Button>
                     )}
                     {project.github && (
-                        <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary">
+                        <Button variant="outline" size="sm" asChild className="rounded-full">
                             <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                <Github size={20} />
+                                <Github size={16} className="mr-2" /> GitHub
                             </a>
                         </Button>
                     )}
                 </div>
               </div>
-            </CardHeader>
-            <CardContent className="flex-grow flex flex-col">
-                <div className="text-muted-foreground mb-6 whitespace-pre-line flex-grow leading-relaxed">
-                  {project.description}
+
+              <div className="md:col-span-7 bg-card border border-border/60 rounded-3xl p-8 space-y-6 self-stretch">
+                <p className="text-muted-foreground italic leading-relaxed">
+                  "{project.summary}"
+                </p>
+                <div className="space-y-4">
+                  <h4 className="font-bold text-xs uppercase tracking-widest text-muted-foreground">Tech Stack</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <Badge key={tag} variant="secondary" className="bg-primary/5 text-primary hover:bg-primary/10 border-none px-3 py-1">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2 pt-4 border-t">
-                    {project.tags.map(tag => <Badge key={tag} variant="secondary" className="px-3 py-1">{tag}</Badge>)}
-                </div>
-            </CardContent>
-          </Card>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>

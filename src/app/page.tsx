@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from "next/link";
 import {
@@ -9,162 +8,142 @@ import {
   ArrowRight,
   Zap,
   Users,
-  TrendingUp
+  TrendingUp,
+  Quote,
+  CheckCircle2,
+  Sparkles
 } from "lucide-react";
 import type { Metadata } from "next";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: 'Home | About Thanuka Ellepola',
-  description: 'About Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience.',
+  title: 'Data Science & AI Consulting | Thanuka Ellepola',
+  description: 'Specialized consulting in AI Engineering, Full-Stack Development, and Healthcare Analytics. Helping businesses bridge the gap between complex data and actionable insights.',
 }
 
-const navItems = [
+const testimonials = [
   {
-    href: '/experience',
-    icon: Briefcase,
-    title: 'Work Experience',
-    description: 'Explore my professional journey and key roles.'
+    quote: "Thanuka's ability to translate complex RCM data into predictive models transformed how we view our revenue flow. His technical leadership reduced our manual audit efforts by 40%.",
+    author: "Senior Executive",
+    company: "Collective RCM (Pvt) Ltd"
   },
   {
-    href: '/projects',
-    icon: Code,
-    title: 'Projects',
-    description: 'See a collection of my technical and academic work.'
-  },
-  {
-    href: '/education',
-    icon: GraduationCap,
-    title: 'Education',
-    description: 'View my academic background and qualifications.'
-  },
-  {
-    href: '/contact',
-    icon: Mail,
-    title: 'Contact Me',
-    description: 'Get in touch for collaborations or inquiries.'
+    quote: "A rare talent who understands both the deep mathematics of AI and the practicalities of full-stack engineering. He delivers systems that actually solve business bottlenecks.",
+    author: "Technical Collaborator",
+    company: "AI Innovation Lab"
   }
 ];
 
-const competencies = [
+const valueProps = [
   {
     icon: Zap,
-    title: "Technical Excellence",
-    points: [
-      "Advanced proficiency in Python and machine learning frameworks",
-      "Exceptional database design and data engineering skills",
-      "Strong full-stack development capabilities (React, Next.js, Python, SQL)",
-      "Innovative approach to AI and problem-solving"
-    ]
-  },
-  {
-    icon: Users,
-    title: "Leadership & Communication",
-    points: [
-      "Effective team leadership and project management",
-      "Clear communication of technical concepts to stakeholders",
-      "Mentoring and training team members",
-      "Strategic thinking and business acumen"
-    ]
+    title: "Strategic AI Implementation",
+    description: "I don't just build models; I design autonomous systems that solve real-world operational bottlenecks, from talent acquisition to revenue forecasting."
   },
   {
     icon: TrendingUp,
-    title: "Professional Impact",
-    points: [
-      "Delivered measurable improvements in system efficiency",
-      "Led successful digital transformation initiatives",
-      "Contributed to academic research and publications",
-      "Built scalable solutions for enterprise environments"
-    ]
+    title: "Data-Driven Decisions",
+    description: "Leveraging predictive analytics with R² > 0.90 to transform raw healthcare data into actionable financial insights and improved cash flow."
+  },
+  {
+    icon: Code,
+    title: "Enterprise Architecture",
+    description: "Building secure, scalable hybrid SQL/NoSQL platforms designed for production environments and complex business logic."
   }
 ];
 
 export default function HomePage() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-20">
+      <section id="hero" className="space-y-6 pt-8">
+        <h1 className="text-4xl lg:text-6xl font-bold font-headline text-primary leading-tight">
+          Turning Complex Business Challenges into <span className="text-accent">Intelligent Solutions.</span>
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          I am a Data Scientist and AI Engineer who helps organizations reduce inefficiencies and drive growth through autonomous systems, predictive analytics, and high-performance engineering.
+        </p>
+        <div className="flex flex-wrap gap-4 pt-4">
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8">
+            <Link href="/contact">Book a Strategy Call</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="font-semibold px-8">
+            <Link href="/projects">View Case Studies</Link>
+          </Button>
+        </div>
+      </section>
+
+      <section id="value-propositions">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {valueProps.map((prop) => (
+            <div key={prop.title} className="space-y-4">
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                <prop.icon size={24} />
+              </div>
+              <h3 className="text-xl font-bold">{prop.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{prop.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="about">
-        <Card className="opacity-0 animate-fade-in" style={{ animationDelay: '150ms' }}>
+        <Card className="border-none bg-secondary/50 shadow-none">
           <CardHeader>
-            <CardTitle className="text-2xl font-headline flex items-center gap-2"><Briefcase /> About Me</CardTitle>
+            <CardTitle className="text-2xl font-headline flex items-center gap-2"><Sparkles className="text-accent" /> My Approach</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-muted-foreground">
-              I’m Thanuka Ellepola, an analytical and results-driven Data Scientist, AI Engineer, and Full Stack Developer with over five years of experience at the intersection of healthcare operations, data engineering, and technology.
-            </p>
-            <p className="text-muted-foreground">
-              As Assistant Manager at Collective RCM (Pvt) Ltd, I have played a pivotal role in leading teams, driving efficiency initiatives, and delivering high-impact solutions to real-world challenges in healthcare revenue cycle management.
-            </p>
-            <p className="text-muted-foreground">
-              Beyond my management responsibilities, I’ve proactively designed and developed full-stack platforms, including the company’s internal intranet and analytics dashboard, leveraging my technical expertise in Python, SQL, Power BI, and modern web frameworks like React and Next.js.
-            </p>
-             <p className="text-muted-foreground">
-              My academic foundation includes a Master’s in Business Analytics (University of Colombo) and a Bachelor’s in Computer Systems & Networking. My research on predictive analytics for healthcare payment forecasting utilized statistical and machine learning models to deliver actionable insights.
-            </p>
-             <p className="text-muted-foreground">
-              Whether it’s architecting data-driven solutions, building and deploying AI models, or mentoring teams, I thrive in roles that combine leadership, innovation, and continuous learning. My goal is to bridge the gap between business needs and modern technology, creating lasting, positive impact for organizations and their people.
-            </p>
+          <CardContent className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-4">
+              <p className="text-muted-foreground leading-relaxed">
+                With over five years of experience at the intersection of healthcare operations and technology, I bridge the gap between business needs and modern AI.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                As Assistant Manager at Collective RCM, I led digital transformation initiatives that fundamentally improved system efficiency. I believe in **People-First technology**—building systems that empower teams rather than replace them.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-bold text-lg mb-2">Why Work with Me?</h4>
+              {[
+                "Proven track record in Healthcare RCM & Analytics",
+                "Expertise in Gemini 3.1 & Autonomous Agent Systems",
+                "Full-stack proficiency (Python, React, SQL, NoSQL)",
+                "Masters-level focus on Business Analytics"
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-muted-foreground">
+                  <CheckCircle2 size={18} className="text-accent shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
       </section>
 
-      <section id="core-competencies">
-        <h2 className="text-3xl font-bold font-headline mb-8 text-center opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>Core Competencies</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {competencies.map((item, index) => (
-            <Card 
-              key={item.title} 
-              className="opacity-0 animate-fade-in h-full transition-all duration-300 hover:border-primary hover:shadow-lg hover:-translate-y-1"
-              style={{ animationDelay: `${300 + (index + 1) * 150}ms` }}
-            >
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                  <item.icon className="w-6 h-6 text-primary" />
-                  {item.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 list-inside">
-                  {item.points.map((point, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-primary mr-2 mt-1">&#8226;</span>
-                      <span className="text-muted-foreground">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+      <section id="testimonials" className="py-12 border-y border-border/60">
+        <h2 className="text-3xl font-bold font-headline mb-12 text-center italic text-primary">What Stakeholders Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {testimonials.map((t, i) => (
+            <div key={i} className="space-y-6 relative">
+              <Quote className="absolute -top-4 -left-4 w-12 h-12 text-primary/10 -z-10" />
+              <p className="text-lg italic leading-relaxed text-muted-foreground">"{t.quote}"</p>
+              <div>
+                <p className="font-bold text-primary">{t.author}</p>
+                <p className="text-sm text-muted-foreground">{t.company}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
-      
-      <section id="navigation-grid" className="pb-16">
-        <h2 className="text-3xl font-bold font-headline mb-8 text-center opacity-0 animate-fade-in" style={{ animationDelay: '450ms' }}>Explore My Portfolio</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {navItems.map((item, index) => (
-            <Link 
-              href={item.href} 
-              key={item.title} 
-              className="group block opacity-0 animate-fade-in"
-              style={{ animationDelay: `${450 + (index + 1) * 150}ms` }}
-            >
-              <Card className="h-full transition-all duration-300 group-hover:border-primary group-hover:shadow-lg group-hover:-translate-y-1">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div className="flex items-center gap-4">
-                      <item.icon className="w-8 h-8 text-primary" />
-                      <CardTitle className="text-xl">{item.title}</CardTitle>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary" />
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+
+      <section id="cta" className="text-center py-20 space-y-8 bg-primary/5 rounded-3xl">
+        <h2 className="text-4xl font-bold font-headline">Ready to solve your next big data challenge?</h2>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Whether you need a custom AI agent, a predictive analytics dashboard, or a full-stack platform, I'm here to help.
+        </p>
+        <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-10 rounded-full">
+          <Link href="/contact">Let's Discuss Your Project <ArrowRight className="ml-2" /></Link>
+        </Button>
       </section>
     </div>
   );
