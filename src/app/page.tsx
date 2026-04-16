@@ -11,7 +11,12 @@ import {
   TrendingUp,
   Quote,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Target,
+  FlaskConical,
+  Bot,
+  Database,
+  Cpu
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -36,83 +41,94 @@ const testimonials = [
   }
 ];
 
-const valueProps = [
+const pillars = [
   {
-    icon: Zap,
-    title: "Strategic AI Implementation",
-    description: "I don't just build models; I design autonomous systems that solve real-world operational bottlenecks, from talent acquisition to revenue forecasting."
-  },
-  {
-    icon: TrendingUp,
-    title: "Data-Driven Decisions",
-    description: "Leveraging predictive analytics with R² > 0.90 to transform raw healthcare data into actionable financial insights and improved cash flow."
+    icon: Bot,
+    title: "AI Engineering",
+    description: "Building autonomous agent architectures and RAG pipelines that reason and execute complex tasks."
   },
   {
     icon: Code,
-    title: "Enterprise Architecture",
-    description: "Building secure, scalable hybrid SQL/NoSQL platforms designed for production environments and complex business logic."
+    title: "Full-Stack Dev",
+    description: "Architecting scalable enterprise platforms with modern React 19, Next.js, and hybrid DB systems."
+  },
+  {
+    icon: Database,
+    title: "Data & ML",
+    description: "Transforming raw data into predictive assets with statistical accuracy and automated ETL pipelines."
   }
 ];
 
 export default function HomePage() {
+  const schedulingUrl = "https://calendly.com/thanuka-ellepola";
+
   return (
-    <div className="space-y-20">
-      <section id="hero" className="space-y-6 pt-8">
-        <h1 className="text-4xl lg:text-6xl font-bold font-headline text-primary leading-tight">
-          Turning Complex Business Challenges into <span className="text-accent">Intelligent Solutions.</span>
+    <div className="space-y-24 animate-reveal">
+      <section id="hero" className="space-y-8 pt-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold animate-slide-up">
+          <Sparkles size={16} /> 
+          <span>Available for New Projects</span>
+        </div>
+        <h1 className="text-4xl lg:text-7xl font-bold font-headline text-primary leading-[1.1] tracking-tight animate-slide-up [animation-delay:100ms]">
+          Architecting <span className="text-accent">Intelligent</span> Systems for Modern Enterprises.
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          I am a Data Scientist and AI Engineer who helps organizations reduce inefficiencies and drive growth through autonomous systems, predictive analytics, and high-performance engineering.
+        <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed animate-slide-up [animation-delay:200ms]">
+          I bridge the gap between complex business challenges and high-performance solutions through AI engineering, predictive analytics, and enterprise full-stack development.
         </p>
-        <div className="flex flex-wrap gap-4 pt-4">
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8">
-            <Link href="/contact">Book a Strategy Call</Link>
+        <div className="flex flex-wrap gap-4 pt-6 animate-slide-up [animation-delay:300ms]">
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-8 rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95">
+            <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
           </Button>
-          <Button asChild variant="outline" size="lg" className="font-semibold px-8">
+          <Button asChild variant="outline" size="lg" className="font-bold h-14 px-8 rounded-xl border-border hover:bg-secondary transition-all">
             <Link href="/projects">View Case Studies</Link>
           </Button>
         </div>
       </section>
 
-      <section id="value-propositions">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {valueProps.map((prop) => (
-            <div key={prop.title} className="space-y-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                <prop.icon size={24} />
-              </div>
-              <h3 className="text-xl font-bold">{prop.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{prop.description}</p>
+      <section id="pillars" className="grid grid-cols-1 md:grid-cols-3 gap-10 py-12">
+        {pillars.map((pillar, i) => (
+          <div key={pillar.title} className="space-y-4 group animate-slide-up" style={{ animationDelay: `${400 + (i * 100)}ms` }}>
+            <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-accent group-hover:scale-110 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
+              <pillar.icon size={28} />
             </div>
-          ))}
-        </div>
+            <h3 className="text-2xl font-bold">{pillar.title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
+          </div>
+        ))}
       </section>
 
-      <section id="about">
-        <Card className="border-none bg-secondary/50 shadow-none">
-          <CardHeader>
-            <CardTitle className="text-2xl font-headline flex items-center gap-2"><Sparkles className="text-accent" /> My Approach</CardTitle>
+      <section id="about" className="animate-slide-up [animation-delay:800ms]">
+        <Card className="border-none bg-secondary/30 shadow-none rounded-[2rem] overflow-hidden">
+          <CardHeader className="p-8 lg:p-12 pb-0">
+            <CardTitle className="text-3xl font-headline flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-accent-foreground">
+                <Target size={20} />
+              </div>
+              My Strategic Approach
+            </CardTitle>
           </CardHeader>
-          <CardContent className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
-                With over five years of experience at the intersection of healthcare operations and technology, I bridge the gap between business needs and modern AI.
+          <CardContent className="p-8 lg:p-12 grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                With over five years of experience leading digital transformation in high-stakes healthcare environments, I don't just write code—I design systems that solve operational bottlenecks.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                As Assistant Manager at Collective RCM, I led digital transformation initiatives that fundamentally improved system efficiency. I believe in **People-First technology**—building systems that empower teams rather than replace them.
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                As Assistant Manager at Collective RCM, I pioneered architectures that reduced manual effort by 40% and achieved R² > 0.90 in financial forecasting. I believe in <strong>results-first engineering</strong>.
               </p>
             </div>
-            <div className="space-y-3">
-              <h4 className="font-bold text-lg mb-2">Why Work with Me?</h4>
+            <div className="space-y-4">
+              <h4 className="font-bold text-xl mb-4">Core Value Proposition</h4>
               {[
-                "Proven track record in Healthcare RCM & Analytics",
-                "Expertise in Gemini 3.1 & Autonomous Agent Systems",
-                "Full-stack proficiency (Python, React, SQL, NoSQL)",
-                "Masters-level focus on Business Analytics"
+                "Autonomous Agent Architectures (Gemini 3.1)",
+                "Predictive RCM & Healthcare Analytics",
+                "Scalable Hybrid Database Systems (SQL + NoSQL)",
+                "Full-Lifecycle Enterprise Product Strategy"
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-muted-foreground">
-                  <CheckCircle2 size={18} className="text-accent shrink-0" />
-                  <span>{item}</span>
+                <div key={item} className="flex items-center gap-3 text-muted-foreground group">
+                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
+                    <CheckCircle2 size={14} className="text-accent group-hover:text-accent-foreground transition-colors" />
+                  </div>
+                  <span className="font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -120,30 +136,39 @@ export default function HomePage() {
         </Card>
       </section>
 
-      <section id="testimonials" className="py-12 border-y border-border/60">
-        <h2 className="text-3xl font-bold font-headline mb-12 text-center italic text-primary">What Stakeholders Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section id="testimonials" className="py-20 border-y border-border/60 animate-slide-up [animation-delay:900ms]">
+        <h2 className="text-3xl font-bold font-headline mb-16 text-center italic text-primary">Trusted by Enterprise Stakeholders</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {testimonials.map((t, i) => (
-            <div key={i} className="space-y-6 relative">
-              <Quote className="absolute -top-4 -left-4 w-12 h-12 text-primary/10 -z-10" />
-              <p className="text-lg italic leading-relaxed text-muted-foreground">"{t.quote}"</p>
-              <div>
-                <p className="font-bold text-primary">{t.author}</p>
-                <p className="text-sm text-muted-foreground">{t.company}</p>
+            <div key={i} className="space-y-8 relative">
+              <Quote className="absolute -top-10 -left-6 w-20 h-20 text-accent/10 -z-10" />
+              <p className="text-xl italic leading-relaxed text-muted-foreground">"{t.quote}"</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-accent">
+                  {t.author[0]}
+                </div>
+                <div>
+                  <p className="font-bold text-primary">{t.author}</p>
+                  <p className="text-sm text-accent font-semibold">{t.company}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="cta" className="text-center py-20 space-y-8 bg-primary/5 rounded-3xl">
-        <h2 className="text-4xl font-bold font-headline">Ready to solve your next big data challenge?</h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Whether you need a custom AI agent, a predictive analytics dashboard, or a full-stack platform, I'm here to help.
+      <section id="cta" className="text-center py-20 lg:py-32 space-y-10 bg-accent rounded-[3rem] text-accent-foreground shadow-2xl animate-slide-up [animation-delay:1000ms]">
+        <h2 className="text-4xl lg:text-6xl font-bold font-headline max-w-4xl mx-auto leading-tight">Ready to solve your next big data bottleneck?</h2>
+        <p className="text-xl lg:text-2xl opacity-90 max-w-2xl mx-auto">
+          From custom AI agents to enterprise dashboards, let's build something significant together.
         </p>
-        <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-10 rounded-full">
-          <Link href="/contact">Let's Discuss Your Project <ArrowRight className="ml-2" /></Link>
-        </Button>
+        <div className="flex justify-center pt-4">
+          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-16 px-12 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
+            <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">
+              Schedule a Strategy Call <ArrowRight className="ml-2" />
+            </a>
+          </Button>
+        </div>
       </section>
     </div>
   );
