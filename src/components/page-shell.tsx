@@ -12,7 +12,6 @@ import { CookieConsent } from './cookie-consent';
 
 export const PageShell = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
-  const isHome = pathname === '/';
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   // If we are on the home page, the sidebar is always "open" conceptually for the layout
@@ -30,9 +29,9 @@ export const PageShell = ({ children }: { children: React.ReactNode }) => {
         <Sidebar isOpen={isSidebarOpen} onToggle={setIsSidebarOpen} />
         
         <Spotlight className="min-w-0 w-full min-h-screen flex flex-col">
-          <main id="main-content" className="flex-grow flex flex-col items-center p-6 lg:p-12 xl:p-20 relative">
-            <div className="w-full max-w-7xl flex flex-col min-h-full">
-              <div className="flex-grow w-full">
+          <main id="main-content" className="flex-grow flex flex-col items-center justify-center p-6 lg:p-12 xl:p-20 relative">
+            <div className="w-full max-w-6xl flex flex-col min-h-full">
+              <div className="flex-grow">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={pathname}
@@ -40,7 +39,6 @@ export const PageShell = ({ children }: { children: React.ReactNode }) => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="w-full"
                   >
                     {children}
                   </motion.div>

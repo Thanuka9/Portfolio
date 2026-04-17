@@ -88,11 +88,11 @@ const technicalSkills = [
 export default function ExperiencePage() {
   return (
     <div className="space-y-20 pb-20 animate-reveal">
-      <header className="space-y-6 text-center flex flex-col items-center">
-        <h1 className="text-3xl lg:text-7xl font-black font-headline tracking-tighter leading-none">
+      <header className="space-y-4">
+        <h1 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter">
           Experience <span className="opacity-30">&</span> <span className="text-primary">Expertise</span>
         </h1>
-        <p className="text-2xl text-muted-foreground/80 max-w-3xl font-medium leading-relaxed">
+        <p className="text-xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
           A track record of engineering complex systems and leading digital transformation at scale.
         </p>
       </header>
