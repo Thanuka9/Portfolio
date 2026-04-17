@@ -30,6 +30,7 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen: externalOpen, onToggle }: SidebarProps) {
   const pathname = usePathname();
+  const isHome = pathname === '/';
   const profileImage = imageData.profile;
 
   const [internalHover, setInternalHover] = React.useState(false);
@@ -45,13 +46,13 @@ export default function Sidebar({ isOpen: externalOpen, onToggle }: SidebarProps
       <motion.aside 
         initial={false}
         animate={{ 
-          width: isHovered || pathname === '/' ? '25%' : '72px',
-          minWidth: isHovered || pathname === '/' ? '380px' : '72px',
+          width: isHovered || isHome ? '25%' : '72px',
+          minWidth: isHovered || isHome ? '300px' : '72px'
         }}
+        onMouseEnter={() => !isHome && handleToggle(true)}
+        onMouseLeave={() => !isHome && handleToggle(false)}
+        className="hidden lg:flex flex-col h-screen sticky top-0 z-50 bg-background/90 backdrop-blur-3xl border-r border-border/50 shadow-2xl overflow-hidden"
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        onMouseEnter={() => handleToggle(true)}
-        onMouseLeave={() => handleToggle(false)}
-        className="sticky top-0 h-screen bg-background/90 backdrop-blur-3xl z-50 overflow-hidden border-r border-border/50 shadow-2xl group/sidebar"
       >
         <div className={cn(
           "h-full transition-all duration-500",

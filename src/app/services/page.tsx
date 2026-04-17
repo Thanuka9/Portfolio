@@ -79,7 +79,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="space-y-32 pb-24 animate-reveal">
-      <header className="space-y-8">
+      <header className="space-y-8 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel text-primary text-xs font-bold tracking-wider uppercase animate-slide-up">
           <Sparkles size={16} /> 
           Available for Technical Consulting

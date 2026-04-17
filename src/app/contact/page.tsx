@@ -99,12 +99,12 @@ export default function ContactPage() {
 
   return (
     <div className="space-y-24 pb-24 animate-reveal">
-      <header className="space-y-8">
+      <header className="space-y-8 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel text-primary text-xs font-bold tracking-wider uppercase animate-slide-up">
           <Calendar size={16} /> 
           Strategic Collaboration
         </div>
-        <h1 className="text-3xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
+        <h1 className="text-3xl lg:text-7xl font-black font-headline tracking-tighter leading-none">
           Build the <br />
           <span className="text-primary italic">Significant.</span>
         </h1>

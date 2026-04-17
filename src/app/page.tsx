@@ -85,7 +85,7 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-6xl lg:text-8xl font-black font-headline tracking-tighter leading-[0.85] text-center"
+              className="text-4xl md:text-6xl lg:text-7xl font-black font-headline tracking-tighter leading-[0.9] text-center"
             >
               <span className="text-gradient block">Architecting</span>
               <span className="text-foreground/90 block">Enterprise</span>

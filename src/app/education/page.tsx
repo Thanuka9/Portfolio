@@ -40,11 +40,11 @@ const education = [
 export default function EducationPage() {
   return (
     <div className="space-y-20 pb-20 animate-reveal">
-      <header className="space-y-4">
-        <h1 className="text-3xl lg:text-5xl font-black font-headline tracking-tighter leading-none">
+      <header className="space-y-6 text-center flex flex-col items-center">
+        <h1 className="text-3xl lg:text-7xl font-black font-headline tracking-tighter leading-none">
           Academic <span className="text-primary italic">Foundation.</span>
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
+        <p className="text-2xl text-muted-foreground/80 max-w-3xl font-medium leading-relaxed">
           Bridging the gap between theory and practical impact through rigorous academic and technical qualification.
         </p>
       </header>
