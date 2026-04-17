@@ -23,17 +23,28 @@ const navLinks = [
 ];
 
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onToggle?: (val: boolean) => void;
+}
+
+export default function Sidebar({ isOpen: externalOpen, onToggle }: SidebarProps) {
   const pathname = usePathname();
   const profileImage = imageData.profile;
 
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [internalHover, setInternalHover] = React.useState(false);
+  const isHovered = externalOpen !== undefined ? externalOpen : internalHover;
+  
+  const handleToggle = (val: boolean) => {
+    if (onToggle) onToggle(val);
+    else setInternalHover(val);
+  };
 
   return (
     <>
       <div 
         className="hidden lg:block fixed top-0 left-0 w-8 h-screen z-[60]"
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => handleToggle(true)}
       />
 
       <motion.aside 
@@ -44,8 +55,8 @@ export default function Sidebar() {
           width: isHovered || pathname === '/' ? '33.3333%' : '80px'
         }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => handleToggle(true)}
+        onMouseLeave={() => handleToggle(false)}
         className="fixed lg:h-screen lg:top-0 lg:left-0 bg-background/90 backdrop-blur-3xl z-50 overflow-hidden lg:border-r border-border/50 shadow-2xl group/sidebar"
       >
         <div className={cn(
