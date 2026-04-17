@@ -23,6 +23,7 @@ import { motion } from "framer-motion";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from '@/lib/language-context';
 
 const testimonials = [
   {
@@ -59,6 +60,8 @@ const pillars = [
 ];
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-32 pb-32 overflow-x-hidden">
       {/* Hero Section */}
@@ -77,7 +80,7 @@ export default function HomePage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Available for Strategic AI & Engineering Projects
+            {t.hero.available}
           </motion.div>
           
           <div className="space-y-8 w-full">
@@ -87,10 +90,10 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-3xl md:text-4xl lg:text-6xl font-black font-headline tracking-tighter leading-[0.85] text-center"
             >
-              <span className="text-gradient block">Architecting</span>
-              <span className="text-foreground/90 block">Enterprise</span>
+              <span className="text-gradient block">{t.hero.title1}</span>
+              <span className="text-foreground/90 block">{t.hero.title2}</span>
               <span className="text-foreground block relative inline-block mx-auto">
-                Intelligence.
+                {t.hero.title3}
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
@@ -117,8 +120,7 @@ export default function HomePage() {
               </div>
               
               <p className="text-xl lg:text-2xl text-muted-foreground/80 max-w-3xl leading-relaxed font-medium mx-auto">
-                Engineering high-performance intelligence for complex enterprise ecosystems. 
-                I bridge the gap between cutting-edge AI research and mission-critical production systems.
+                {t.hero.description}
               </p>
             </motion.div>
           </div>
@@ -131,12 +133,12 @@ export default function HomePage() {
           >
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1 font-black h-16 rounded-2xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-[0.98] text-lg">
               <Link href="/contact" className="flex items-center gap-3">
-                Book a Strategy Call <Sparkles size={20} />
+                {t.hero.cta1} <Sparkles size={20} />
               </Link>
             </Button>
             <Button asChild variant="ghost" className="flex-1 font-bold h-16 px-12 rounded-2xl border-2 border-primary/20 hover:bg-primary/10 transition-all group text-lg">
               <Link href="/projects" className="flex items-center gap-3">
-                View Case Studies <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                {t.hero.cta2} <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </motion.div>

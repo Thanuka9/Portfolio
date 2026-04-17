@@ -80,6 +80,7 @@ const profilePageSchema = {
 
 import { NeuralBackground } from '@/components/neural-background';
 import { PageShell } from '@/components/page-shell';
+import { LanguageProvider } from '@/lib/language-context';
 
 export default function RootLayout({
   children,
@@ -99,9 +100,11 @@ export default function RootLayout({
         <NeuralBackground />
         <div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         
-        <PageShell>
-          {children}
-        </PageShell>
+        <LanguageProvider>
+          <PageShell>
+            {children}
+          </PageShell>
+        </LanguageProvider>
       </body>
     </html>
   );

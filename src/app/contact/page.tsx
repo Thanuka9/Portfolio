@@ -39,6 +39,13 @@ const formSchema = z.object({
   }).max(500, {
     message: "Message must not be longer than 500 characters."
   }),
+  website: z.string().optional(), // Honeypot field
+  consent: z.boolean().refine(v => v === true, {
+    message: "You must agree to the privacy policy.",
+  }),
+  human_ver: z.string().refine(v => v === "12", {
+    message: "Incorrect answer.",
+  }),
 });
 
 const SERVICE_ID = 'service_3q31q6h';
@@ -66,6 +73,8 @@ const contactDetails = [
 ];
 
 
+import { Checkbox } from "@/components/ui/checkbox";
+
 export default function ContactPage() {
   const { toast } = useToast();
 
@@ -76,12 +85,27 @@ export default function ContactPage() {
       email: "",
       subject: "",
       message: "",
+      website: "",
+      consent: false,
+      human_ver: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    // Honeypot check
+    if (values.website) {
+       console.log("Bot detected!");
+       return;
+    }
+
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, values, PUBLIC_KEY);
+      const templateParams = {
+        name: values.name,
+        email: values.email,
+        subject: values.subject,
+        message: values.message,
+      };
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       toast({
         title: "Inquiry Received!",
         description: "Thank you for reaching out. I'll get back to you within 24 hours.",
@@ -141,6 +165,18 @@ export default function ContactPage() {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            <div className="space-y-6 p-10 rounded-[3rem] bg-primary/5 border border-primary/20 animate-slide-up" style={{ animationDelay: '300ms' }}>
+                <div className="space-y-2">
+                    <h3 className="text-2xl font-black font-headline tracking-tight">Professional Dossier</h3>
+                    <p className="text-muted-foreground font-medium">Download the comprehensive overview of technical capabilities and project history.</p>
+                </div>
+                <Button variant="outline" className="w-full h-16 rounded-2xl border-2 border-primary/20 hover:bg-primary hover:text-primary-foreground font-black group transition-all" asChild>
+                    <a href="/Thanuka_Ellepola_CV.pdf" download>
+                        Download Official CV <Activity className="ml-2 group-hover:animate-bounce" />
+                    </a>
+                </Button>
             </div>
 
             <div className="space-y-10">
@@ -223,23 +259,75 @@ export default function ContactPage() {
                                 </FormItem>
                             )}
                             />
+
                         <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                            <FormItem className="space-y-4">
-                            <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Details</FormLabel>
-                            <FormControl>
-                                <Textarea
-                                placeholder="Briefly describe the challenge..."
-                                className="resize-none min-h-[160px] p-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg leading-relaxed"
-                                {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                            </FormItem>
-                        )}
+                            control={form.control}
+                            name="message"
+                            render={({ field }) => (
+                                <FormItem className="space-y-4">
+                                <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Details</FormLabel>
+                                <FormControl>
+                                    <Textarea
+                                    placeholder="Briefly describe the challenge..."
+                                    className="resize-none min-h-[160px] p-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg leading-relaxed"
+                                    {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
                         />
+
+                        <FormField
+                            control={form.control}
+                            name="website"
+                            render={({ field }) => (
+                                <FormItem className="hidden">
+                                  <FormControl>
+                                      <Input {...field} tabIndex={-1} autoComplete="off" />
+                                  </FormControl>
+                                </FormItem>
+                            )}
+                        />
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                          <FormField
+                          control={form.control}
+                          name="human_ver"
+                          render={({ field }) => (
+                              <FormItem className="space-y-4">
+                              <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Human Verification: 8 + 4 = ?</FormLabel>
+                              <FormControl>
+                                  <Input placeholder="Enter result" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg" />
+                              </FormControl>
+                              <FormMessage />
+                              </FormItem>
+                          )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="consent"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-4 space-y-0 p-4 rounded-2xl border border-primary/10 bg-secondary/20">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    className="mt-1"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 overflow-hidden">
+                                  <FormLabel className="text-sm font-medium leading-tight">
+                                    I agree to the <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> and data processing terms.
+                                  </FormLabel>
+                                  <FormMessage />
+                                </div>
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
                         <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-20 rounded-3xl text-xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]" disabled={form.formState.isSubmitting}>
                             {form.formState.isSubmitting ? 'Transmitting...' : 'Request Consultation'}
                             <Send className="ml-3" size={24} />
