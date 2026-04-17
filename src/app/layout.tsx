@@ -1,7 +1,11 @@
 
 import React from 'react';
 import type {Metadata} from 'next';
+import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 
 export const metadata: Metadata = {
@@ -83,17 +87,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} dark`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         />
       </head>
-      <body className="font-body antialiased selection:bg-primary/20 bg-background text-foreground min-h-screen relative overflow-x-hidden">
+      <body className="font-sans antialiased selection:bg-primary/20 bg-background text-foreground min-h-screen relative overflow-x-hidden">
         <div className="fixed inset-0 mesh-gradient opacity-60 pointer-events-none -z-10" />
         <NeuralBackground />
         <div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />

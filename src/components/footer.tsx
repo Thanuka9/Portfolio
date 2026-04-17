@@ -48,6 +48,7 @@ export default function Footer() {
                 { label: 'Case Studies', href: '/projects' },
                 { label: 'Professional Impact', href: '/experience' },
                 { label: 'Academic Foundation', href: '/education' },
+                { label: 'Privacy & Data Protection', href: '/privacy' },
               ].map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-bold tracking-tight">

@@ -34,7 +34,7 @@ export function ThemeToggle() {
         onClick={() => setTheme("light")}
         className={cn(
           "h-8 w-8 rounded-lg transition-all duration-300",
-          theme === "light" ? "bg-primary/10 text-primary shadow-sm" : "text-muted-foreground hover:text-foreground"
+          theme === "light" ? "bg-primary text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.3)]" : "text-muted-foreground hover:text-foreground"
         )}
       >
         <Sun className="h-4 w-4" />
@@ -46,7 +46,7 @@ export function ThemeToggle() {
         onClick={() => setTheme("dark")}
         className={cn(
           "h-8 w-8 rounded-lg transition-all duration-300",
-          theme === "dark" ? "bg-primary/10 text-primary shadow-sm" : "text-muted-foreground hover:text-foreground"
+          theme === "dark" ? "bg-primary text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.3)]" : "text-muted-foreground hover:text-foreground"
         )}
       >
         <Moon className="h-4 w-4" />
