@@ -95,14 +95,29 @@ export default function ContactPage() {
   const exportCardAsPNG = async () => {
     const el = document.getElementById('vcard-element');
     if (!el) return;
+    
+    // Switch to a modern, high-fidelity export library
+    const { toPng } = await import('html-to-image');
+    
     try {
-      const canvas = await html2canvas(el, { 
-        useCORS: true, 
-        allowTaint: true, 
-        scale: 2,
-        backgroundColor: '#0c051a'
+      const dataUrl = await toPng(el, {
+        quality: 1.0,
+        pixelRatio: 3, // Ultra high quality
+        backgroundColor: '#0c051a',
+        filter: (node) => {
+          // Ignore elements with data-html2canvas-ignore or typical UI elements
+          const exclusionClasses = ['btn', 'button', 'sparkles'];
+          if (node instanceof HTMLElement) {
+             if (node.hasAttribute('data-html2canvas-ignore')) return false;
+             if (exclusionClasses.some(cls => node.classList.contains(cls))) {
+                // Only exclude if it's the main Export button container
+                if (node.parentElement?.classList.contains('absolute')) return false;
+             }
+          }
+          return true;
+        }
       });
-      const dataUrl = canvas.toDataURL('image/png');
+
       const link = document.createElement('a');
       link.href = dataUrl;
       link.download = 'Thanuka_Ellepola_ID_Card.png';
@@ -112,14 +127,14 @@ export default function ContactPage() {
       
       toast({
         title: "Export Successful",
-        description: "Your digital identity card has been downloaded.",
+        description: "Your digital identity card has been downloaded in UHD.",
       });
     } catch (err) {
       console.error('Failed to export PNG', err);
       toast({
         variant: "destructive",
         title: "Export Failed",
-        description: "There was an error generating the image.",
+        description: "High-fidelity generation failed. Please try again.",
       });
     }
   };
@@ -357,9 +372,9 @@ export default function ContactPage() {
             <div className="relative group w-full max-w-3xl mx-auto">
                 <div className="absolute -inset-10 bg-gradient-to-r from-purple-600/10 via-pink-600/10 to-indigo-600/10 rounded-[3.5rem] blur-[120px] opacity-0 group-hover:opacity-100 transition duration-1000 pointer-events-none" />
 
-                <div id="vcard-element" className="relative w-full rounded-[2.5rem] md:rounded-[3.5rem] bg-gradient-to-br from-[#0c051a] via-[#1a0524] to-[#04020a] border border-white/10 shadow-2xl overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/[0.04] rounded-full blur-[120px] -mr-60 -mt-60 pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/[0.04] rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
+                <div id="vcard-element" className="relative w-full rounded-[2.5rem] md:rounded-[3.5rem] bg-[#0c051a] border border-white/10 shadow-2xl overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/[0.03] rounded-full blur-[120px] -mr-60 -mt-60 pointer-events-none z-0" />
+                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/[0.03] rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none z-0" />
 
                     <div className="relative z-10 p-8 sm:p-10 lg:p-12">
                         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-12">
@@ -384,7 +399,7 @@ export default function ContactPage() {
                             <div className="flex-1 flex flex-col items-center lg:items-start gap-10 w-full min-w-0">
                                 <div className="flex-1 min-w-0 space-y-5 text-center lg:text-left w-full">
                                     <div className="space-y-2">
-                                        <h4 className="text-3xl sm:text-4xl lg:text-3xl xl:text-4xl font-black font-headline tracking-tighter text-white leading-[0.85] [text-wrap:balance]">
+                                        <h4 className="text-3xl sm:text-4xl lg:text-3xl xl:text-[2.75rem] font-black font-headline tracking-tighter text-white leading-[1.05] [text-wrap:balance]">
                                             Thanuka<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">Ellepola.</span>
                                         </h4>
                                         <p className="text-pink-400/90 font-black uppercase tracking-[0.2em] text-[10px]">Lead AI Architect & Data Scientist</p>
@@ -409,7 +424,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* ─ Corner Action Button (Export) ─ */}
-                        <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-30">
+                        <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-30" data-html2canvas-ignore>
                             <Button 
                                 variant="outline" 
                                 onClick={exportCardAsPNG} 
