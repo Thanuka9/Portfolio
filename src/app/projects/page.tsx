@@ -115,7 +115,7 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="space-y-24 pb-24 animate-reveal">
-       <header className="space-y-6">
+      <header className="space-y-6 text-center flex flex-col items-center">
         <h1 className="text-3xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
           Strategic <span className="text-primary">Impacts.</span>
         </h1>

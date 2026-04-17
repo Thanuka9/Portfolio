@@ -62,12 +62,11 @@ export default function HomePage() {
   return (
     <div className="space-y-32 pb-32 overflow-x-hidden">
       {/* Hero Section */}
-      <section id="hero" className="relative flex flex-col justify-center min-h-[85vh] py-12 lg:py-24">
+      <section id="hero" className="relative flex flex-col justify-center items-center min-h-[85vh] py-12 lg:py-24 text-center">
         {/* Animated Background Elements */}
-        <div className="absolute top-0 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-40 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse-subtle" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
         
-        <div className="space-y-12 relative z-10">
+        <div className="space-y-12 relative z-10 w-full flex flex-col items-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,16 +80,16 @@ export default function HomePage() {
             Available for Strategic AI & Engineering Projects
           </motion.div>
           
-          <div className="space-y-8">
+          <div className="space-y-8 w-full">
             <motion.h1 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-3xl md:text-4xl lg:text-5xl font-black font-headline tracking-tighter leading-[0.85]"
+              className="text-4xl md:text-6xl lg:text-8xl font-black font-headline tracking-tighter leading-[0.85] text-center"
             >
               <span className="text-gradient block">Architecting</span>
               <span className="text-foreground/90 block">Enterprise</span>
-              <span className="text-foreground block relative">
+              <span className="text-foreground block relative inline-block mx-auto">
                 Intelligence.
                 <motion.span 
                   initial={{ width: 0 }}
@@ -102,28 +101,24 @@ export default function HomePage() {
             </motion.h1>
             
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-8 flex flex-col items-center"
             >
-              <p className="text-xl md:text-2xl font-bold text-primary/90 flex flex-wrap items-center gap-x-3 gap-y-2 uppercase tracking-wide">
+              <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-primary font-black uppercase tracking-[0.2em] text-xs md:text-sm">
                 <span>AI Architect</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
-                <span>AI Engineer</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
+                <span className="w-1 h-1 rounded-full bg-primary/40" />
                 <span>Data Scientist</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
-                <span>Full-Stack Architect</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
-                <span>Consultant</span>
-              </p>
+                <span className="w-1 h-1 rounded-full bg-primary/40" />
+                <span>AI Engineer</span>
+                <span className="w-1 h-1 rounded-full bg-primary/40" />
+                <span>Solutions Architect</span>
+              </div>
               
-              <p className="text-xl lg:text-3xl text-muted-foreground/80 max-w-4xl leading-relaxed font-medium">
+              <p className="text-xl lg:text-2xl text-muted-foreground/80 max-w-3xl leading-relaxed font-medium mx-auto">
                 Engineering high-performance intelligence for complex enterprise ecosystems. 
-                I bridge the gap between cutting-edge AI research and mission-critical production systems, 
-                specializing in autonomous agent architectures and predictive analytics that deliver 
-                surgical precision and measurable business impact.
+                I bridge the gap between cutting-edge AI research and mission-critical production systems.
               </p>
             </motion.div>
           </div>
@@ -132,14 +127,14 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col gap-3"
+            className="flex flex-col sm:flex-row gap-6 w-full max-w-xl mx-auto"
           >
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full font-black h-14 rounded-xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-base">
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1 font-black h-16 rounded-2xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-[0.98] text-lg">
               <Link href="/contact" className="flex items-center gap-3">
                 Book a Strategy Call <Sparkles size={20} />
               </Link>
             </Button>
-            <Button asChild variant="ghost" size="lg" className="font-bold h-14 px-12 rounded-xl border-2 border-primary/20 hover:bg-primary/10 transition-all group text-base">
+            <Button asChild variant="ghost" className="flex-1 font-bold h-16 px-12 rounded-2xl border-2 border-primary/20 hover:bg-primary/10 transition-all group text-lg">
               <Link href="/projects" className="flex items-center gap-3">
                 View Case Studies <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </Link>

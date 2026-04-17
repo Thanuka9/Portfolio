@@ -42,22 +42,16 @@ export default function Sidebar({ isOpen: externalOpen, onToggle }: SidebarProps
 
   return (
     <>
-      <div 
-        className="hidden lg:block fixed top-0 left-0 w-8 h-screen z-[60]"
-        onMouseEnter={() => handleToggle(true)}
-      />
-
       <motion.aside 
         initial={false}
         animate={{ 
-          x: isHovered || pathname === '/' ? 0 : -320,
-          opacity: isHovered || pathname === '/' ? 1 : 0.8,
-          width: isHovered || pathname === '/' ? '33.3333%' : '80px'
+          width: isHovered || pathname === '/' ? '25%' : '72px',
+          minWidth: isHovered || pathname === '/' ? '380px' : '72px',
         }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         onMouseEnter={() => handleToggle(true)}
         onMouseLeave={() => handleToggle(false)}
-        className="fixed lg:h-screen lg:top-0 lg:left-0 bg-background/90 backdrop-blur-3xl z-50 overflow-hidden lg:border-r border-border/50 shadow-2xl group/sidebar"
+        className="sticky top-0 h-screen bg-background/90 backdrop-blur-3xl z-50 overflow-hidden border-r border-border/50 shadow-2xl group/sidebar"
       >
         <div className={cn(
           "h-full transition-all duration-500",
