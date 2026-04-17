@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-black px-8 rounded-2xl h-14 shadow-xl shadow-primary/10">
                 <a href="https://drive.google.com/file/d/1H1b0lXTZ4gVZwm68Hl6S0nSAdiywi-jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                  Download Credentials
+                  Project Dossier
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-primary/20 hover:bg-primary/5 font-black px-8 rounded-2xl h-14">

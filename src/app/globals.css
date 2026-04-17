@@ -173,3 +173,23 @@ html {
     @apply bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/80 to-primary/80;
   }
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #vcard-element, #vcard-element * {
+    visibility: visible;
+  }
+  #vcard-element {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    width: 600px;
+    background: #060e20 !important;
+    border-radius: 2rem !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+  }
+}

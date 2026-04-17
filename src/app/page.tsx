@@ -23,7 +23,6 @@ import { motion } from "framer-motion";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from '@/lib/language-context';
 
 const testimonials = [
   {
@@ -60,12 +59,10 @@ const pillars = [
 ];
 
 export default function HomePage() {
-  const { t } = useLanguage();
-
   return (
     <div className="space-y-32 pb-32 overflow-x-hidden">
       {/* Hero Section */}
-      <section id="hero" className="relative flex flex-col justify-center items-center min-h-[85vh] py-12 lg:py-24 text-center">
+      <section id="hero" className="relative flex flex-col justify-center items-center min-h-[90vh] py-12 lg:py-24 text-center">
         {/* Animated Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
         
@@ -80,7 +77,7 @@ export default function HomePage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            {t.hero.available}
+            Available for Strategic AI & Engineering Projects
           </motion.div>
           
           <div className="space-y-8 w-full">
@@ -88,17 +85,17 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-3xl md:text-4xl lg:text-6xl font-black font-headline tracking-tighter leading-[0.85] text-center"
+              className="text-4xl md:text-6xl lg:text-8xl font-black font-headline tracking-tighter leading-[0.85] text-center"
             >
-              <span className="text-gradient block">{t.hero.title1}</span>
-              <span className="text-foreground/90 block">{t.hero.title2}</span>
+              <span className="text-gradient block">Architecting</span>
+              <span className="text-foreground/90 block">Enterprise</span>
               <span className="text-foreground block relative inline-block mx-auto">
-                {t.hero.title3}
+                Intelligence.
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1, duration: 1 }}
-                  className="absolute bottom-1 left-0 h-1.5 bg-primary/20 -z-10 rounded-full"
+                  className="absolute bottom-2 left-0 h-2 bg-primary/20 -z-10 rounded-full"
                 />
               </span>
             </motion.h1>
@@ -109,7 +106,7 @@ export default function HomePage() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="space-y-8 flex flex-col items-center"
             >
-              <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-primary font-black uppercase tracking-[0.2em] text-xs md:text-sm">
+              <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-primary font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px]">
                 <span>AI Architect</span>
                 <span className="w-1 h-1 rounded-full bg-primary/40" />
                 <span>Data Scientist</span>
@@ -119,8 +116,8 @@ export default function HomePage() {
                 <span>Solutions Architect</span>
               </div>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground/80 max-w-3xl leading-relaxed font-medium mx-auto">
-                {t.hero.description}
+              <p className="text-base lg:text-lg text-muted-foreground/80 max-w-3xl leading-relaxed font-medium mx-auto">
+                Engineering high-performance intelligence for complex enterprise ecosystems. I bridge the gap between cutting-edge AI research and mission-critical production systems.
               </p>
             </motion.div>
           </div>
@@ -131,14 +128,14 @@ export default function HomePage() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-6 w-full max-w-xl mx-auto"
           >
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1 font-black h-16 rounded-2xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-[0.98] text-lg">
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1 font-black h-16 rounded-2xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-[0.98] text-base">
               <Link href="/contact" className="flex items-center gap-3">
-                {t.hero.cta1} <Sparkles size={20} />
+                Book a Strategy Call <Sparkles size={20} />
               </Link>
             </Button>
-            <Button asChild variant="ghost" className="flex-1 font-bold h-16 px-12 rounded-2xl border-2 border-primary/20 hover:bg-primary/10 transition-all group text-lg">
+            <Button asChild variant="ghost" className="flex-1 font-bold h-16 px-12 rounded-2xl border-2 border-primary/20 hover:bg-primary/10 transition-all group text-base">
               <Link href="/projects" className="flex items-center gap-3">
-                {t.hero.cta2} <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                View Case Studies <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </motion.div>
@@ -164,8 +161,8 @@ export default function HomePage() {
             <div className="flex justify-center mb-4">
                <stat.icon size={28} className="text-primary/60" />
             </div>
-            <div className="text-3xl md:text-4xl font-black font-headline text-primary">{stat.value}{stat.suffix}</div>
-            <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</div>
+            <div className="text-2xl md:text-3xl font-black font-headline text-primary">{stat.value}{stat.suffix}</div>
+            <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</div>
           </motion.div>
         ))}
       </section>
@@ -185,8 +182,8 @@ export default function HomePage() {
             <div className="w-20 h-20 glass-panel rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 mb-10 border-primary/10 group-hover:scale-110">
               <pillar.icon size={40} />
             </div>
-            <h3 className="text-2xl font-black font-headline mb-6 group-hover:text-primary transition-colors leading-tight">{pillar.title}</h3>
-            <p className="text-lg text-muted-foreground leading-relaxed font-medium group-hover:text-foreground/90 transition-colors">{pillar.description}</p>
+            <h3 className="text-xl font-black font-headline mb-6 group-hover:text-primary transition-colors leading-tight">{pillar.title}</h3>
+            <p className="text-base text-muted-foreground leading-relaxed font-medium group-hover:text-foreground/90 transition-colors">{pillar.description}</p>
           </motion.div>
         ))}
       </section>
@@ -211,7 +208,7 @@ export default function HomePage() {
             </CardHeader>
             <CardContent className="p-12 lg:p-20 pt-10 grid lg:grid-cols-2 gap-20">
               <div className="space-y-10">
-                <p className="text-2xl text-muted-foreground leading-relaxed font-medium">
+                <p className="text-lg text-muted-foreground leading-relaxed font-medium">
                   With over five years of leadership at the intersection of Healthcare and Technology, 
                   I don't just solve technical problems—I architect systems that redefine operational efficiency.
                 </p>
@@ -220,7 +217,7 @@ export default function HomePage() {
                     <BrainCircuit size={100} />
                   </div>
                   <h4 className="text-primary font-bold uppercase tracking-[0.2em] text-sm">Signature Achievement</h4>
-                  <p className="text-2xl leading-relaxed italic font-bold text-foreground">
+                  <p className="text-lg leading-relaxed italic font-bold text-foreground">
                     "Engineered AI-driven forecasting kernels achieving R² &gt; 0.90, effectively reducing manual audit overhead by 40% across enterprise workflows."
                   </p>
                   <p className="text-base font-black opacity-60 tracking-tight">— Assistant Manager @ Collective RCM</p>
@@ -246,7 +243,7 @@ export default function HomePage() {
                     <div className="shrink-0 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:rotate-12 transition-all duration-300">
                       <item.icon size={24} className="text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
-                    <span className="font-bold text-xl md:text-2xl text-muted-foreground group-hover:text-foreground transition-colors tracking-tight">{item.label}</span>
+                    <span className="font-bold text-lg md:text-xl text-muted-foreground group-hover:text-foreground transition-colors tracking-tight">{item.label}</span>
                   </motion.div>
                 ))}
               </div>
@@ -266,7 +263,7 @@ export default function HomePage() {
           >
             Verified <span className="text-primary italic">Impact</span>
           </motion.h2>
-          <p className="text-xl text-muted-foreground font-medium uppercase tracking-widest">Feedback from the industry</p>
+          <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest">Feedback from the industry</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -282,7 +279,7 @@ export default function HomePage() {
               <div className="absolute top-0 right-0 p-10">
                 <Quote size={100} className="text-primary/5 -rotate-12 transition-all group-hover:rotate-0 group-hover:text-primary/10" />
               </div>
-              <p className="text-xl md:text-2xl italic leading-relaxed text-foreground/90 font-medium mb-12 relative z-10 font-headline">"{t.quote}"</p>
+              <p className="text-lg md:text-xl italic leading-relaxed text-foreground/90 font-medium mb-12 relative z-10 font-headline">"{t.quote}"</p>
               <div className="flex items-center gap-6 pt-4">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center font-black text-2xl text-primary border-2 border-primary/10 shadow-inner group-hover:scale-110 transition-transform">
                   {t.author[0]}
@@ -313,7 +310,7 @@ export default function HomePage() {
               <h2 className="text-3xl lg:text-5xl font-black font-headline tracking-tighter leading-[0.9]">
                 Ready to <span className="text-primary italic">Engineer</span> <br /> the Future?
               </h2>
-              <p className="text-lg lg:text-xl text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed">
+              <p className="text-base lg:text-lg text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed">
                 From autonomous AI pods to enterprise-scale platforms—let's build something that moves the needle.
               </p>
             </header>

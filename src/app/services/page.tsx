@@ -88,7 +88,7 @@ export default function ServicesPage() {
           Solutions for <br />
           <span className="text-primary italic">Intelligence.</span>
         </h1>
-        <p className="text-2xl text-muted-foreground/80 max-w-3xl leading-relaxed font-medium">
+        <p className="text-lg text-muted-foreground/80 max-w-3xl leading-relaxed font-medium">
           I provide specialized technical bridge-building for organizations that need to transform complex data into automated, measurable ROI.
         </p>
       </header>
@@ -113,7 +113,7 @@ export default function ServicesPage() {
                 
                 <div className="space-y-4">
                   <h2 className="text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{service.title}</h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed font-medium">{service.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed font-medium">{service.description}</p>
                 </div>
               </div>
 
@@ -144,18 +144,18 @@ export default function ServicesPage() {
             <h2 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
               Need a <span className="text-primary italic">Technical Roadmap?</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-base lg:text-lg text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed">
               Whether you need an AI audit or a high-scale data platform, let's map out your architecture.
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-black h-20 px-12 rounded-3xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 text-lg">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-black h-20 px-12 rounded-3xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 text-base">
               <Link href="/contact" className="flex items-center gap-3">
                 Book a Strategy Call <ArrowRight size={24} />
               </Link>
             </Button>
-            <Button asChild variant="ghost" size="lg" className="font-black h-20 px-12 rounded-3xl hover:bg-background/50 border-primary/20 text-lg group">
+            <Button asChild variant="ghost" size="lg" className="font-black h-20 px-12 rounded-3xl hover:bg-background/50 border-primary/20 text-base group">
               <Link href="/projects" className="flex items-center gap-2 text-foreground">
                 Explore Case Studies <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
               </Link>

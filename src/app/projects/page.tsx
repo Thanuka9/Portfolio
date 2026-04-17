@@ -119,7 +119,7 @@ export default function ProjectsPage() {
         <h1 className="text-3xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
           Strategic <span className="text-primary">Impacts.</span>
         </h1>
-        <p className="text-2xl text-muted-foreground/80 max-w-3xl font-medium leading-relaxed">
+        <p className="text-lg text-muted-foreground/80 max-w-3xl font-medium leading-relaxed">
           Case studies in AI engineering, data science, and enterprise architecture—focused on solving complex business bottlenecks.
         </p>
       </header>
@@ -144,8 +144,8 @@ export default function ProjectsPage() {
                     <project.icon size={40} />
                   </div>
                   <div className="space-y-1">
-                    <h2 className="text-3xl font-black font-headline leading-tight tracking-tight group-hover:text-primary transition-colors">{project.title}</h2>
-                    <p className="text-primary font-bold text-lg uppercase tracking-widest">{project.role}</p>
+                    <h2 className="text-xl font-black font-headline leading-tight tracking-tight group-hover:text-primary transition-colors">{project.title}</h2>
+                    <p className="text-primary font-bold text-sm uppercase tracking-widest">{project.role}</p>
                   </div>
                 </div>
 
@@ -154,30 +154,30 @@ export default function ProjectsPage() {
                      <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/10 group-hover/item:bg-primary transition-all">
                         <Target className="w-5 h-5 text-primary group-hover/item:text-primary-foreground" />
                      </div>
-                     <div className="space-y-2">
-                        <h3 className="font-black text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover/item:text-foreground transition-colors">The Challenge</h3>
-                        <p className="text-muted-foreground leading-relaxed font-medium">{project.challenge}</p>
-                     </div>
+                      <div className="space-y-2">
+                         <h3 className="font-black text-[10px] uppercase tracking-[0.2em] text-muted-foreground group-hover/item:text-foreground transition-colors">The Challenge</h3>
+                         <p className="text-muted-foreground leading-relaxed font-medium text-sm">{project.challenge}</p>
+                      </div>
                    </div>
 
                    <div className="flex gap-6 group/item">
                      <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/10 group-hover/item:bg-primary transition-all">
                         <FlaskConical className="w-5 h-5 text-primary group-hover/item:text-primary-foreground" />
                      </div>
-                     <div className="space-y-2">
-                        <h3 className="font-black text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover/item:text-foreground transition-colors">The Solution</h3>
-                        <p className="text-muted-foreground leading-relaxed font-medium">{project.solution}</p>
-                     </div>
+                      <div className="space-y-2">
+                         <h3 className="font-black text-[10px] uppercase tracking-[0.2em] text-muted-foreground group-hover/item:text-foreground transition-colors">The Solution</h3>
+                         <p className="text-muted-foreground leading-relaxed font-medium text-sm">{project.solution}</p>
+                      </div>
                    </div>
 
                    <div className="flex gap-6 group/item">
                      <div className="w-10 h-10 rounded-2xl bg-primary/30 flex items-center justify-center shrink-0 border border-primary/20 group-hover/item:bg-primary transition-all">
                         <TrendingUp className="w-5 h-5 text-primary group-hover/item:text-primary-foreground" />
                      </div>
-                     <div className="space-y-2">
-                        <h3 className="font-black text-xs uppercase tracking-[0.2em] text-primary group-hover/item:text-foreground transition-colors">The Impact</h3>
-                        <p className="text-foreground leading-relaxed font-bold italic">{project.impact}</p>
-                     </div>
+                      <div className="space-y-2">
+                         <h3 className="font-black text-[10px] uppercase tracking-[0.2em] text-primary group-hover/item:text-foreground transition-colors">The Impact</h3>
+                         <p className="text-foreground leading-relaxed font-bold italic text-base">{project.impact}</p>
+                      </div>
                    </div>
                 </div>
 
@@ -204,7 +204,7 @@ export default function ProjectsPage() {
                 <div className="bg-background/40 backdrop-blur-3xl rounded-[3.8rem] p-10 lg:p-16 h-full flex flex-col justify-between space-y-12">
                   <div className="space-y-8">
                     <Quote size={60} className="text-primary opacity-20" />
-                    <p className="text-3xl italic leading-tight text-foreground/90 font-medium tracking-tight">
+                    <p className="text-xl italic leading-tight text-foreground/90 font-medium tracking-tight">
                       {project.summary}
                     </p>
                   </div>
@@ -213,7 +213,7 @@ export default function ProjectsPage() {
                     <h4 className="font-black text-xs uppercase tracking-[0.3em] text-primary">Technical Engine</h4>
                     <div className="flex flex-wrap gap-3">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-5 py-2 rounded-xl glass-panel text-sm font-bold text-muted-foreground border-primary/10 group-hover:border-primary/30 group-hover:text-primary transition-all duration-500">
+                        <span key={tag} className="px-5 py-2 rounded-xl glass-panel text-xs font-bold text-muted-foreground border-primary/10 group-hover:border-primary/30 group-hover:text-primary transition-all duration-500">
                           {tag}
                         </span>
                       ))}

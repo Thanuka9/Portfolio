@@ -44,7 +44,7 @@ export default function EducationPage() {
         <h1 className="text-3xl lg:text-5xl font-black font-headline tracking-tighter leading-none">
           Academic <span className="text-primary italic">Foundation.</span>
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
+        <p className="text-base text-muted-foreground max-w-2xl font-medium leading-relaxed">
           Bridging the gap between theory and practical impact through rigorous academic and technical qualification.
         </p>
       </header>
@@ -63,13 +63,13 @@ export default function EducationPage() {
               
               <div className="space-y-4 flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                  <h2 className="text-2xl lg:text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{edu.degree}</h2>
+                  <h2 className="text-xl lg:text-2xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{edu.degree}</h2>
                   <span className="px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20 self-start md:self-auto">
                     {edu.period}
                   </span>
                 </div>
-                <p className="text-primary font-bold text-lg">{edu.institution}</p>
-                <p className="text-muted-foreground leading-relaxed font-medium text-lg max-w-4xl">{edu.description}</p>
+                <p className="text-primary font-bold text-base">{edu.institution}</p>
+                <p className="text-muted-foreground leading-relaxed font-medium text-sm max-w-4xl">{edu.description}</p>
               </div>
             </div>
           </div>

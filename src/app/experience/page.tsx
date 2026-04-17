@@ -92,7 +92,7 @@ export default function ExperiencePage() {
         <h1 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter">
           Experience <span className="opacity-30">&</span> <span className="text-primary">Expertise</span>
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
+        <p className="text-base text-muted-foreground max-w-2xl font-medium leading-relaxed">
           A track record of engineering complex systems and leading digital transformation at scale.
         </p>
       </header>
@@ -115,10 +115,10 @@ export default function ExperiencePage() {
             <div className="glass-panel p-8 lg:p-12 rounded-[2.5rem] transition-all duration-500 hover:scale-[1.01] hover:bg-background/60">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
                 <div className="space-y-1">
-                  <h2 className="text-3xl font-black font-headline tracking-tight">{exp.role}</h2>
-                  <p className="text-primary font-bold text-lg">{exp.company}</p>
+                  <h2 className="text-2xl font-black font-headline tracking-tight">{exp.role}</h2>
+                  <p className="text-primary font-bold text-base">{exp.company}</p>
                 </div>
-                <div className="px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold border border-primary/20 self-start md:self-auto">
+                <div className="px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20 self-start md:self-auto">
                   {exp.period}
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function ExperiencePage() {
               <div className="grid lg:grid-cols-2 gap-12">
                 {exp.sections.map(section => (
                   <div key={section.title} className="space-y-6">
-                    <h3 className="text-xl font-bold flex items-center gap-2">
+                    <h3 className="text-lg font-bold flex items-center gap-2">
                        <div className="w-1.5 h-6 bg-primary rounded-full transition-all group-hover:h-8" />
                        {section.title}
                     </h3>
@@ -134,7 +134,7 @@ export default function ExperiencePage() {
                       {section.details.map((detail, i) => (
                         <li key={i} className="flex gap-4 group/item">
                           <CheckCircle2 size={18} className="text-primary shrink-0 mt-1 opacity-50 group-hover/item:opacity-100 transition-opacity" />
-                          <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium">
+                          <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium text-sm">
                             {detail}
                           </span>
                         </li>
