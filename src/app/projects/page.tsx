@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Briefcase, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck, Activity, Globe, Lock, Server, Bot, Cpu, History, RefreshCw, ExternalLink, ArrowRight, Target, FlaskConical, TrendingUp } from "lucide-react";
+import { Code, Briefcase, Github, Database, BrainCircuit, BarChart3, LineChart, Zap, Search, ShieldCheck, Activity, Globe, Lock, Server, Bot, Cpu, History, RefreshCw, ExternalLink, ArrowRight, Target, FlaskConical, TrendingUp, Quote } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -52,6 +52,7 @@ const projects = [
     solution: "Engineered a hybrid SQL/NoSQL platform (Flask, PostgreSQL, MongoDB GridFS) with role-based access control, 2FA, and a timed assessment engine with automated scoring.",
     impact: "Centralized all enterprise workflows for a large healthcare team, ensuring a 95% certification pass rate and providing management with a single source of truth for employee progression.",
     tags: ["Flask", "PostgreSQL", "MongoDB", "Redis", "Azure", "CI/CD"],
+    github: "https://github.com/Thanuka9",
     icon: Server
   },
   {
@@ -75,94 +76,148 @@ const projects = [
     tags: ["Python", "XGBoost", "PostgreSQL", "ETL", "VADER", "spaCy"],
     github: "https://github.com/Thanuka9/reviewradar_ai",
     icon: Search
+  },
+  {
+    title: "CodeX: Competitive Coding & Algorithmic Practice",
+    role: "Full Stack Developer & Algorithmic Researcher",
+    summary: "A robust platform for high-performance algorithmic practice and competitive coding simulations.",
+    challenge: "Traditional coding platforms often lack specialized local-first performance tracking and specialized practice modes for high-level data structures.",
+    solution: "Built a specialized environment focusing on algorithmic efficiency, featuring real-time execution metrics and structural complexity analysis.",
+    impact: "Created a dedicated space for mastering competitive programming paradigms, reducing the friction between theoretical complexity and actual implementation.",
+    tags: ["C++", "Python", "Data Structures", "Algorithms", "Competitive Programming"],
+    github: "https://github.com/Thanuka9",
+    icon: Code
+  },
+  {
+    title: "Disaster Management System: Centralized Response Hub",
+    role: "System Designer & Lead Developer",
+    summary: "Digitizing relief coordination and resource allocation during critical natural disasters.",
+    challenge: "Coordination during natural disasters is often fragmented, leading to delayed relief and inefficient resource distribution.",
+    solution: "Developed a centralized response platform integrating real-time reporting, resource tracking, and volunteer coordination modules.",
+    impact: "Significantly improved information flow between relief centers and donors, ensuring that high-need areas received prioritized support based on data-backed insights.",
+    tags: ["PHP", "MySQL", "JavaScript", "Response Automation", "Hub-Spoke Architecture"],
+    github: "https://github.com/Thanuka9",
+    icon: Globe
+  },
+  {
+    title: "Statistical Application: Financial Forecast Modeling",
+    role: "Statistical Researcher",
+    summary: "Applying rigorous statistical methodologies to validate financial forecasting accuracy.",
+    challenge: "Financial forecasts often fail due to improper validation of underlying statistical assumptions in high-volatility environments.",
+    solution: "Engineered a specialized application for comparing predictive performance across various statistical models, incorporating sensitivity analysis and error distribution checks.",
+    impact: "Provided a data-backed validation framework that identifies the limits of predictive modeling in volatile finance, ensuring more robust strategic decision-making.",
+    tags: ["R", "Statistics", "Predictive Modeling", "Hypothesis Testing", "Data Analysis"],
+    github: "https://github.com/Thanuka9",
+    icon: BarChart3
   }
 ];
 
 export default function ProjectsPage() {
   return (
-    <div className="space-y-16 pb-16">
-       <header className="space-y-4">
-        <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Code size={36} /> Case Studies & Impacts
+    <div className="space-y-24 pb-24 animate-reveal">
+       <header className="space-y-6">
+        <h1 className="text-3xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
+          Strategic <span className="text-primary">Impacts.</span>
         </h1>
-        <p className="text-lg text-muted-foreground max-w-3xl">
-          Each project represents a specific business problem solved with a combination of AI, data science, and enterprise-grade engineering.
+        <p className="text-2xl text-muted-foreground/80 max-w-3xl font-medium leading-relaxed">
+          Case studies in AI engineering, data science, and enterprise architecture—focused on solving complex business bottlenecks.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-16">
+      <div className="space-y-32">
         {projects.map((project, index) => (
           <div 
             key={project.title} 
-            className="group opacity-0 animate-fade-in transition-all duration-300"
+            className="group relative animate-slide-up"
             style={{ animationDelay: `${index * 150}ms` }}
           >
-            <div className="grid md:grid-cols-12 gap-8 items-start">
-              <div className="md:col-span-5 space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
-                    <project.icon className="w-8 h-8 text-primary" />
+            {/* Project Number (Decorative) */}
+            <div className="absolute -top-12 -left-4 text-9xl font-black opacity-[0.03] select-none pointer-events-none font-headline tracking-tighter">
+              0{index + 1}
+            </div>
+
+            <div className="grid lg:grid-cols-12 gap-12 items-start relative z-10">
+              {/* Sidebar Content */}
+              <div className="lg:col-span-5 space-y-10">
+                <div className="flex items-center gap-6">
+                  <div className="w-20 h-20 glass-panel rounded-3xl flex items-center justify-center shrink-0 border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                    <project.icon size={40} />
                   </div>
-                  <div>
-                    <h2 className="text-2xl font-bold font-headline leading-tight">{project.title}</h2>
-                    <p className="text-accent font-medium text-sm mt-1">{project.role}</p>
+                  <div className="space-y-1">
+                    <h2 className="text-3xl font-black font-headline leading-tight tracking-tight group-hover:text-primary transition-colors">{project.title}</h2>
+                    <p className="text-primary font-bold text-lg uppercase tracking-widest">{project.role}</p>
                   </div>
                 </div>
-                
-                <div className="space-y-4">
-                   <div className="flex gap-2">
-                     <Target className="w-5 h-5 text-primary shrink-0 mt-1" />
-                     <div>
-                        <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">The Challenge</h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm mt-1">{project.challenge}</p>
+
+                <div className="space-y-10">
+                   <div className="flex gap-6 group/item">
+                     <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/10 group-hover/item:bg-primary transition-all">
+                        <Target className="w-5 h-5 text-primary group-hover/item:text-primary-foreground" />
+                     </div>
+                     <div className="space-y-2">
+                        <h3 className="font-black text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover/item:text-foreground transition-colors">The Challenge</h3>
+                        <p className="text-muted-foreground leading-relaxed font-medium">{project.challenge}</p>
                      </div>
                    </div>
-                   <div className="flex gap-2">
-                     <FlaskConical className="w-5 h-5 text-primary shrink-0 mt-1" />
-                     <div>
-                        <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground">The Solution</h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm mt-1">{project.solution}</p>
+
+                   <div className="flex gap-6 group/item">
+                     <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/10 group-hover/item:bg-primary transition-all">
+                        <FlaskConical className="w-5 h-5 text-primary group-hover/item:text-primary-foreground" />
+                     </div>
+                     <div className="space-y-2">
+                        <h3 className="font-black text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover/item:text-foreground transition-colors">The Solution</h3>
+                        <p className="text-muted-foreground leading-relaxed font-medium">{project.solution}</p>
                      </div>
                    </div>
-                   <div className="flex gap-2">
-                     <TrendingUp className="w-5 h-5 text-accent shrink-0 mt-1" />
-                     <div>
-                        <h3 className="font-bold text-sm uppercase tracking-wider text-accent">The Impact</h3>
-                        <p className="text-card-foreground leading-relaxed font-medium text-sm mt-1">{project.impact}</p>
+
+                   <div className="flex gap-6 group/item">
+                     <div className="w-10 h-10 rounded-2xl bg-primary/30 flex items-center justify-center shrink-0 border border-primary/20 group-hover/item:bg-primary transition-all">
+                        <TrendingUp className="w-5 h-5 text-primary group-hover/item:text-primary-foreground" />
+                     </div>
+                     <div className="space-y-2">
+                        <h3 className="font-black text-xs uppercase tracking-[0.2em] text-primary group-hover/item:text-foreground transition-colors">The Impact</h3>
+                        <p className="text-foreground leading-relaxed font-bold italic">{project.impact}</p>
                      </div>
                    </div>
                 </div>
 
-                <div className="flex gap-2 pt-4">
+                <div className="flex flex-wrap gap-4 pt-4">
                     {project.demo && (
-                        <Button variant="outline" size="sm" asChild className="rounded-full">
+                        <Button variant="outline" size="lg" asChild className="rounded-2xl border-primary/20 hover:bg-primary/10 font-bold h-14 px-8 group">
                             <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink size={16} className="mr-2" /> Live Case
+                                <ExternalLink size={20} className="mr-2 group-hover:scale-110 transition-transform" /> Live Case Study
                             </a>
                         </Button>
                     )}
                     {project.github && (
-                        <Button variant="outline" size="sm" asChild className="rounded-full">
+                        <Button variant="ghost" size="lg" asChild className="rounded-2xl font-bold h-14 px-8 hover:bg-background/80 group">
                             <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                <Github size={16} className="mr-2" /> GitHub
+                                <Github size={20} className="mr-2 group-hover:scale-110 transition-transform" /> Repository
                             </a>
                         </Button>
                     )}
                 </div>
               </div>
 
-              <div className="md:col-span-7 bg-card border border-border/60 rounded-3xl p-8 space-y-6 self-stretch">
-                <p className="text-muted-foreground italic leading-relaxed">
-                  "{project.summary}"
-                </p>
-                <div className="space-y-4">
-                  <h4 className="font-bold text-xs uppercase tracking-widest text-muted-foreground">Tech Stack</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <Badge key={tag} variant="secondary" className="bg-primary/5 text-primary hover:bg-primary/10 border-none px-3 py-1">
-                        {tag}
-                      </Badge>
-                    ))}
+              {/* Main Content Card */}
+              <div className="lg:col-span-7 relative p-1 lg:p-1.5 rounded-[4rem] bg-gradient-to-br from-primary/20 to-transparent group-hover:from-primary/40 transition-all duration-700">
+                <div className="bg-background/40 backdrop-blur-3xl rounded-[3.8rem] p-10 lg:p-16 h-full flex flex-col justify-between space-y-12">
+                  <div className="space-y-8">
+                    <Quote size={60} className="text-primary opacity-20" />
+                    <p className="text-3xl italic leading-tight text-foreground/90 font-medium tracking-tight">
+                      {project.summary}
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <h4 className="font-black text-xs uppercase tracking-[0.3em] text-primary">Technical Engine</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="px-5 py-2 rounded-xl glass-panel text-sm font-bold text-muted-foreground border-primary/10 group-hover:border-primary/30 group-hover:text-primary transition-all duration-500">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

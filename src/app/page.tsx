@@ -1,33 +1,28 @@
 
+"use client";
+
 import React from 'react';
 import Link from "next/link";
-import {
-  Briefcase,
-  Code,
-  GraduationCap,
-  Mail,
-  ArrowRight,
+import { 
+  ArrowRight, 
+  Bot, 
+  Code, 
+  Database, 
+  CheckCircle2, 
+  Quote, 
+  Target, 
   Zap,
-  Users,
-  TrendingUp,
-  Quote,
-  CheckCircle2,
   Sparkles,
-  Target,
-  FlaskConical,
-  Bot,
-  Database,
-  Cpu
+  Layers,
+  Cpu,
+  ShieldCheck,
+  TrendingUp,
+  BrainCircuit
 } from "lucide-react";
-import type { Metadata } from "next";
+import { motion } from "framer-motion";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-export const metadata: Metadata = {
-  title: 'Data Science & AI Consulting | Thanuka Ellepola',
-  description: 'Specialized consulting in AI Engineering, Full-Stack Development, and Healthcare Analytics. Helping businesses bridge the gap between complex data and actionable insights.',
-}
 
 const testimonials = [
   {
@@ -45,129 +40,296 @@ const testimonials = [
 const pillars = [
   {
     icon: Bot,
-    title: "AI Engineering",
-    description: "Building autonomous agent architectures and RAG pipelines that reason and execute complex tasks."
-  },
-  {
-    icon: Code,
-    title: "Full-Stack Dev",
-    description: "Architecting scalable enterprise platforms with modern React 19, Next.js, and hybrid DB systems."
+    title: "AI & Autonomous Agents",
+    description: "Architecting multi-agent systems and RAG pipelines that reason, execute, and scale with enterprise-grade reliability.",
+    gradient: "from-blue-500/20 to-cyan-500/20"
   },
   {
     icon: Database,
-    title: "Data & ML",
-    description: "Transforming raw data into predictive assets with statistical accuracy and automated ETL pipelines."
+    title: "Intelligence & Analytics",
+    description: "Engineering predictive kernels and ML pipelines with R² > 0.90 accuracy, turning fragmented data into strategic foresight.",
+    gradient: "from-purple-500/20 to-pink-500/20"
+  },
+  {
+    icon: Code,
+    title: "Enterprise Solutions",
+    description: "Designing high-security, full-stack platforms with hybrid SQL/NoSQL architectures and low-latency performance.",
+    gradient: "from-emerald-500/20 to-teal-500/20"
   }
 ];
 
 export default function HomePage() {
   return (
-    <div className="space-y-24 animate-reveal">
-      <section id="hero" className="space-y-8 pt-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold animate-slide-up">
-          <Sparkles size={16} /> 
-          <span>Available for New Projects</span>
-        </div>
-        <h1 className="text-4xl lg:text-7xl font-bold font-headline text-primary leading-[1.1] tracking-tight animate-slide-up [animation-delay:100ms]">
-          Architecting <span className="text-accent">Intelligent</span> Systems for Modern Enterprises.
-        </h1>
-        <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed animate-slide-up [animation-delay:200ms]">
-          I bridge the gap between complex business challenges and high-performance solutions through AI engineering, predictive analytics, and enterprise full-stack development.
-        </p>
-        <div className="flex flex-wrap gap-4 pt-6 animate-slide-up [animation-delay:300ms]">
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-8 rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95">
-            <Link href="/contact">Book a Strategy Call</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="font-bold h-14 px-8 rounded-xl border-accent/30 hover:border-accent/60 hover:bg-secondary/50 transition-all text-foreground">
-            <Link href="/projects">View Case Studies</Link>
-          </Button>
+    <div className="space-y-32 pb-32 overflow-x-hidden">
+      {/* Hero Section */}
+      <section id="hero" className="relative flex flex-col justify-center min-h-[85vh] py-12 lg:py-24">
+        {/* Animated Background Elements */}
+        <div className="absolute top-0 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+        <div className="absolute bottom-40 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse-subtle" />
+        
+        <div className="space-y-12 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass-panel text-primary text-sm font-bold tracking-wider uppercase"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Available for Strategic AI & Engineering Projects
+          </motion.div>
+          
+          <div className="space-y-8">
+            <motion.h1 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-3xl md:text-4xl lg:text-5xl font-black font-headline tracking-tighter leading-[0.85]"
+            >
+              <span className="text-gradient block">Architecting</span>
+              <span className="text-foreground/90 block">Enterprise</span>
+              <span className="text-foreground block relative">
+                Intelligence.
+                <motion.span 
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ delay: 1, duration: 1 }}
+                  className="absolute bottom-1 left-0 h-1.5 bg-primary/20 -z-10 rounded-full"
+                />
+              </span>
+            </motion.h1>
+            
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="space-y-6"
+            >
+              <p className="text-xl md:text-2xl font-bold text-primary/90 flex flex-wrap items-center gap-x-3 gap-y-2 uppercase tracking-wide">
+                <span>AI Architect</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
+                <span>AI Engineer</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
+                <span>Data Scientist</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
+                <span>Full-Stack Architect</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/30 hidden md:block" />
+                <span>Consultant</span>
+              </p>
+              
+              <p className="text-xl lg:text-3xl text-muted-foreground/80 max-w-4xl leading-relaxed font-medium">
+                Engineering high-performance intelligence for complex enterprise ecosystems. 
+                I bridge the gap between cutting-edge AI research and mission-critical production systems, 
+                specializing in autonomous agent architectures and predictive analytics that deliver 
+                surgical precision and measurable business impact.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex flex-col gap-3"
+          >
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full font-black h-14 rounded-xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-base">
+              <Link href="/contact" className="flex items-center gap-3">
+                Book a Strategy Call <Sparkles size={20} />
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="lg" className="font-bold h-14 px-12 rounded-xl border-2 border-primary/20 hover:bg-primary/10 transition-all group text-base">
+              <Link href="/projects" className="flex items-center gap-3">
+                View Case Studies <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-      <section id="pillars" className="grid grid-cols-1 md:grid-cols-3 gap-10 py-12">
-        {pillars.map((pillar, i) => (
-          <div key={pillar.title} className="space-y-4 group animate-slide-up" style={{ animationDelay: `${400 + (i * 100)}ms` }}>
-            <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-accent group-hover:scale-110 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
-              <pillar.icon size={28} />
+      {/* Stats/Highlights Section */}
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { label: "Predictive Accuracy", value: "90%", suffix: "+", icon: TrendingUp },
+          { label: "Manual Effort Reduction", value: "40%", suffix: "+", icon: Zap },
+          { label: "Data Points Processed", value: "7M", suffix: "+", icon: Database },
+          { label: "Successful Projects", value: "15", suffix: "+", icon: Layers },
+        ].map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="glass-panel p-8 rounded-[2rem] text-center space-y-2 hover:bg-primary/5 transition-colors border-primary/10"
+          >
+            <div className="flex justify-center mb-4">
+               <stat.icon size={28} className="text-primary/60" />
             </div>
-            <h3 className="text-2xl font-bold">{pillar.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
-          </div>
+            <div className="text-3xl md:text-4xl font-black font-headline text-primary">{stat.value}{stat.suffix}</div>
+            <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</div>
+          </motion.div>
         ))}
       </section>
 
-      <section id="about" className="animate-slide-up [animation-delay:800ms]">
-        <Card className="border-none bg-secondary/30 shadow-none rounded-[2rem] overflow-hidden">
-          <CardHeader className="p-8 lg:p-12 pb-0">
-            <CardTitle className="text-3xl font-headline flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-accent-foreground">
-                <Target size={20} />
-              </div>
-              My Strategic Approach
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-8 lg:p-12 grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                With over five years of experience leading digital transformation in high-stakes healthcare environments, I don't just write code—I design systems that solve operational bottlenecks.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                As Assistant Manager at Collective RCM, I pioneered architectures that reduced manual effort by 40% and achieved R² > 0.90 in financial forecasting. I believe in <strong>results-first engineering</strong>.
-              </p>
+      {/* Pillars Section */}
+      <section id="pillars" className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {pillars.map((pillar, i) => (
+          <motion.div 
+            key={pillar.title} 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="group relative p-10 rounded-[3rem] glass-panel transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2 cursor-default"
+          >
+            <div className={`absolute inset-0 bg-gradient-to-br ${pillar.gradient} opacity-0 group-hover:opacity-100 transition-opacity rounded-[3rem]`} />
+            <div className="w-20 h-20 glass-panel rounded-3xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 mb-10 border-primary/10 group-hover:scale-110">
+              <pillar.icon size={40} />
             </div>
-            <div className="space-y-4">
-              <h4 className="font-bold text-xl mb-4">Core Value Proposition</h4>
-              {[
-                "Autonomous Agent Architectures (Gemini 3.1)",
-                "Predictive RCM & Healthcare Analytics",
-                "Scalable Hybrid Database Systems (SQL + NoSQL)",
-                "Full-Lifecycle Enterprise Product Strategy"
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 text-muted-foreground group">
-                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
-                    <CheckCircle2 size={14} className="text-accent group-hover:text-accent-foreground transition-colors" />
-                  </div>
-                  <span className="font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+            <h3 className="text-2xl font-black font-headline mb-6 group-hover:text-primary transition-colors leading-tight">{pillar.title}</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed font-medium group-hover:text-foreground/90 transition-colors">{pillar.description}</p>
+          </motion.div>
+        ))}
       </section>
 
-      <section id="testimonials" className="py-20 border-y border-border/60 animate-slide-up [animation-delay:900ms]">
-        <h2 className="text-3xl font-bold font-headline mb-16 text-center italic text-primary">Trusted by Enterprise Stakeholders</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+      {/* Strategic Approach */}
+      <section id="about">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative p-1 lg:p-2 rounded-[4rem] bg-gradient-to-br from-primary/30 via-primary/5 to-transparent shadow-2xl"
+        >
+          <Card className="border-none bg-background/60 backdrop-blur-3xl rounded-[3.8rem] overflow-hidden">
+            <CardHeader className="p-12 lg:p-20 pb-0">
+              <CardTitle className="text-2xl lg:text-4xl font-black font-headline flex items-center gap-6 tracking-tighter">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                  <Target size={36} />
+                </div>
+                The Strategic Edge
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-12 lg:p-20 pt-10 grid lg:grid-cols-2 gap-20">
+              <div className="space-y-10">
+                <p className="text-2xl text-muted-foreground leading-relaxed font-medium">
+                  With over five years of leadership at the intersection of Healthcare and Technology, 
+                  I don't just solve technical problems—I architect systems that redefine operational efficiency.
+                </p>
+                <div className="p-10 rounded-[2.5rem] bg-primary/5 border-2 border-primary/10 space-y-6 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
+                    <BrainCircuit size={100} />
+                  </div>
+                  <h4 className="text-primary font-bold uppercase tracking-[0.2em] text-sm">Signature Achievement</h4>
+                  <p className="text-2xl leading-relaxed italic font-bold text-foreground">
+                    "Engineered AI-driven forecasting kernels achieving R² &gt; 0.90, effectively reducing manual audit overhead by 40% across enterprise workflows."
+                  </p>
+                  <p className="text-base font-black opacity-60 tracking-tight">— Assistant Manager @ Collective RCM</p>
+                </div>
+              </div>
+              <div className="space-y-8">
+                <h4 className="font-black font-headline text-3xl mb-10 tracking-tight">Core Competencies</h4>
+                {[
+                  { label: "Autonomous AI Architectures", icon: Bot },
+                  { label: "Predictive Analytics (RCM/Healthcare)", icon: TrendingUp },
+                  { label: "Enterprise Full-Stack Ecosystems", icon: Layers },
+                  { label: "Multi-Agent System Orchestration", icon: Cpu },
+                  { label: "Mission-Critical Security & 2FA", icon: ShieldCheck }
+                ].map((item, idx) => (
+                  <motion.div 
+                    key={item.label} 
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-6 group cursor-default"
+                  >
+                    <div className="shrink-0 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:rotate-12 transition-all duration-300">
+                      <item.icon size={24} className="text-primary group-hover:text-primary-foreground transition-colors" />
+                    </div>
+                    <span className="font-bold text-xl md:text-2xl text-muted-foreground group-hover:text-foreground transition-colors tracking-tight">{item.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="py-24">
+        <div className="text-center space-y-6 mb-24">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl lg:text-4xl font-black font-headline tracking-tighter"
+          >
+            Verified <span className="text-primary italic">Impact</span>
+          </motion.h2>
+          <p className="text-xl text-muted-foreground font-medium uppercase tracking-widest">Feedback from the industry</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {testimonials.map((t, i) => (
-            <div key={i} className="space-y-8 relative">
-              <Quote className="absolute -top-10 -left-6 w-20 h-20 text-accent/10 -z-10" />
-              <p className="text-xl italic leading-relaxed text-muted-foreground">"{t.quote}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-accent">
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className="glass-panel p-8 lg:p-12 rounded-[3rem] relative group hover:scale-[1.02] transition-all duration-500 hover:shadow-primary/5"
+            >
+              <div className="absolute top-0 right-0 p-10">
+                <Quote size={100} className="text-primary/5 -rotate-12 transition-all group-hover:rotate-0 group-hover:text-primary/10" />
+              </div>
+              <p className="text-xl md:text-2xl italic leading-relaxed text-foreground/90 font-medium mb-12 relative z-10 font-headline">"{t.quote}"</p>
+              <div className="flex items-center gap-6 pt-4">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center font-black text-2xl text-primary border-2 border-primary/10 shadow-inner group-hover:scale-110 transition-transform">
                   {t.author[0]}
                 </div>
                 <div>
-                  <p className="font-bold text-primary">{t.author}</p>
-                  <p className="text-sm text-accent font-semibold">{t.company}</p>
+                  <p className="font-black text-xl font-headline tracking-tight">{t.author}</p>
+                  <p className="text-primary font-bold text-sm uppercase tracking-widest">{t.company}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      <section id="cta" className="text-center py-20 lg:py-32 space-y-10 bg-accent rounded-[3rem] text-accent-foreground shadow-2xl animate-slide-up [animation-delay:1000ms]">
-        <h2 className="text-4xl lg:text-6xl font-bold font-headline max-w-4xl mx-auto leading-tight">Ready to solve your next big data bottleneck?</h2>
-        <p className="text-xl lg:text-2xl opacity-90 max-w-2xl mx-auto">
-          From custom AI agents to enterprise dashboards, let's build something significant together.
-        </p>
-        <div className="flex justify-center pt-4">
-          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-16 px-12 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
-            <Link href="/contact">
-              Book a Strategy Call <ArrowRight className="ml-2" />
-            </Link>
-          </Button>
-        </div>
+      {/* CTA Section */}
+      <section id="cta">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative group p-1 lg:p-1.5 rounded-[3rem] bg-gradient-to-br from-primary via-primary/40 to-primary shadow-3xl"
+        >
+          <div className="bg-background/95 backdrop-blur-3xl rounded-[2.9rem] py-16 lg:py-24 px-8 text-center space-y-10 overflow-hidden relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[180px] rounded-full pointer-events-none -z-10" />
+            
+            <header className="space-y-4">
+              <h2 className="text-3xl lg:text-5xl font-black font-headline tracking-tighter leading-[0.9]">
+                Ready to <span className="text-primary italic">Engineer</span> <br /> the Future?
+              </h2>
+              <p className="text-lg lg:text-xl text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed">
+                From autonomous AI pods to enterprise-scale platforms—let's build something that moves the needle.
+              </p>
+            </header>
+            
+            <div className="flex justify-center pt-8">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-black h-16 px-10 rounded-2xl shadow-3xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 text-xl">
+                <Link href="/contact" className="flex items-center gap-3">
+                  Book Strategy <ArrowRight size={24} />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );

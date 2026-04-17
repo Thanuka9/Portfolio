@@ -1,19 +1,17 @@
 
+import React from 'react';
 import type {Metadata} from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"
-import Sidebar from '@/components/sidebar';
-import { ThemeProvider } from '@/components/theme-provider';
-import Footer from '@/components/footer';
+
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thanukaellepola.careers'),
   title: {
-    default: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
+    default: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
     template: `%s | Thanuka Ellepola`,
   },
-  description: 'The official portfolio for Thanuka Ellepola, a Data Scientist, AI Engineer, and Full Stack Developer based in Sri Lanka, who transforms complex business challenges into innovative technological solutions. Explore a proven track record in healthcare analytics, predictive modeling, and enterprise applications.',
-  keywords: ["Thanuka Ellepola", "Ellepola", "Thanuka", "Data Scientist", "Full Stack Developer", "AI Engineer", "Data Engineer", "Healthcare Analytics", "Python", "SQL", "Power BI", "Predictive Analytics", "Machine Learning", "Sri Lanka", "Colombo", "revenue cycle management", "full-stack developer portfolio"],
+  description: 'AI Engineer & Full-Stack Developer specializing in autonomous agents, predictive analytics, and enterprise systems. Transforming complex data into intelligent, scalable business assets.',
+  keywords: ["AI Engineer", "Data Scientist", "Full Stack Developer", "Autonomous Agents", "Generative AI", "Predictive Modeling", "Healthcare Analytics", "RCM Automation", "React 19", "Next.js", "Python", "Technical Consultant"],
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
   verification: {
@@ -23,8 +21,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Thanuka Ellepola | Data Scientist, AI Engineer & Full Stack Developer',
-    description: 'The official portfolio for Thanuka Ellepola, showcasing data science and full stack development projects.',
+    title: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
+    description: 'Specialized AI Engineering and Full-Stack development for modern enterprises.',
     url: 'https://thanukaellepola.careers/',
     siteName: 'Thanuka Ellepola Portfolio',
     images: [
@@ -32,24 +30,31 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
+        alt: 'Thanuka Ellepola Portfolio',
       },
     ],
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Thanuka Ellepola | AI Architect',
+    description: 'Transforming complex data into intelligent business assets.',
+    images: ['/twitter-image.png'],
+  }
 };
 
 const profilePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   dateCreated: '2023-10-01T12:00:00-05:00',
-  dateModified: new Date().toISOString(),
+  dateModified: '2026-04-17', // Use static date to prevent hydration mismatch
   mainEntity: {
     '@type': 'Person',
     name: 'Thanuka Ellepola',
-    alternateName: 'Ellepola',
+    description: 'AI Architect, Data Scientist, and Full-Stack Engineer with a track record of building autonomous agents, optimizing RCM workflows, and deploying scalable enterprise AI solutions.',
     url: 'https://thanukaellepola.careers/',
-    jobTitle: 'Data Scientist, AI Engineer, & Full Stack Developer',
+    jobTitle: 'AI Architect & Full-Stack Developer',
     worksFor: {
       '@type': 'Organization',
       name: 'Collective RCM (Pvt) Ltd',
@@ -64,10 +69,13 @@ const profilePageSchema = {
       'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/',
       'https://github.com/Thanuka9',
     ],
-    knowsAbout: ["Data Science", "Full Stack Development", "AI Engineering", "Data Engineering", "Predictive Analytics", "Healthcare Analytics", "Revenue Cycle Management", "Python", "SQL", "Machine Learning", "Power BI", "React", "Next.js"]
+    knowsAbout: ["AI Engineering", "Generative AI", "Data Science", "Full Stack Development", "Predictive Analytics", "Healthcare Analytics", "Revenue Cycle Management", "Autonomous Agents", "Cloud Architecture"]
   }
 };
 
+
+import { NeuralBackground } from '@/components/neural-background';
+import { PageShell } from '@/components/page-shell';
 
 export default function RootLayout({
   children,
@@ -75,31 +83,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         />
       </head>
-      <body className="font-body antialiased">
-        <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
-          <div className="flex flex-col lg:flex-row">
-            <Sidebar />
-            <main className="w-full lg:w-2/3 lg:ml-[33.3333%] p-8 lg:p-16 animate-fade-in">
-              <div className="w-full max-w-4xl mx-auto flex flex-col min-h-screen">
-                <div className="flex-grow">
-                  {children}
-                </div>
-                <Footer />
-              </div>
-            </main>
-          </div>
-          <Toaster />
-        </ThemeProvider>
+      <body className="font-body antialiased selection:bg-primary/20 bg-background text-foreground min-h-screen relative overflow-x-hidden">
+        <div className="fixed inset-0 mesh-gradient opacity-60 pointer-events-none -z-10" />
+        <NeuralBackground />
+        <div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        
+        <PageShell>
+          {children}
+        </PageShell>
       </body>
     </html>
   );

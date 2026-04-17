@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Building, Rocket, Server, ShieldCheck, Globe, Bot } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, Database, CloudCog, Building, Rocket, Server, ShieldCheck, Globe, Bot, CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import type { Metadata } from 'next';
 
@@ -84,73 +84,94 @@ const technicalSkills = [
   },
 ];
 
+
 export default function ExperiencePage() {
   return (
-    <div className="space-y-12 pb-16">
-      <header>
-        <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <Briefcase size={36} /> Experience & Expertise
+    <div className="space-y-20 pb-20 animate-reveal">
+      <header className="space-y-4">
+        <h1 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter">
+          Experience <span className="opacity-30">&</span> <span className="text-primary">Expertise</span>
         </h1>
-        <p className="mt-2 text-muted-foreground">Professional journey, enterprise innovations, and deep technical capabilities.</p>
+        <p className="text-xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
+          A track record of engineering complex systems and leading digital transformation at scale.
+        </p>
       </header>
 
-      <div className="space-y-8">
+      <div className="relative space-y-16">
+        {/* Timeline Path */}
+        <div className="absolute left-[31px] top-6 bottom-6 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
+
         {professionalExperience.map((exp, index) => (
-          <Card 
+          <div 
             key={index} 
-            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:border-primary"
+            className="relative pl-0 md:pl-20 group animate-slide-up"
             style={{ animationDelay: `${index * 150}ms` }}
           >
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                  <div>
-                      <CardTitle className="text-2xl">{exp.role}</CardTitle>
-                      <CardDescription className="text-base font-medium">
-                      {exp.company} &middot; {exp.period}
-                      </CardDescription>
-                  </div>
-                  {exp.company === "Technical Project Portfolio" ? <Rocket className="text-accent" size={24} /> : <Building className="text-primary" size={24} />}
+            {/* Timeline Dot */}
+            <div className="absolute left-0 top-6 w-16 h-16 rounded-2xl glass-panel hidden md:flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 z-10 border-primary/20">
+              {exp.company === "Technical Project Portfolio" ? <Rocket size={24} /> : <Building size={24} />}
+            </div>
+
+            <div className="glass-panel p-8 lg:p-12 rounded-[2.5rem] transition-all duration-500 hover:scale-[1.01] hover:bg-background/60">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+                <div className="space-y-1">
+                  <h2 className="text-3xl font-black font-headline tracking-tight">{exp.role}</h2>
+                  <p className="text-primary font-bold text-lg">{exp.company}</p>
+                </div>
+                <div className="px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold border border-primary/20 self-start md:self-auto">
+                  {exp.period}
+                </div>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {exp.sections.map(section => (
-                  <div key={section.title}>
-                      <h3 className="font-semibold text-card-foreground/90 mb-2">{section.title}</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                          {section.details.map((detail, i) => (
-                              <li key={i}>{detail}</li>
-                          ))}
-                      </ul>
+
+              <div className="grid lg:grid-cols-2 gap-12">
+                {exp.sections.map(section => (
+                  <div key={section.title} className="space-y-6">
+                    <h3 className="text-xl font-bold flex items-center gap-2">
+                       <div className="w-1.5 h-6 bg-primary rounded-full transition-all group-hover:h-8" />
+                       {section.title}
+                    </h3>
+                    <ul className="space-y-4">
+                      {section.details.map((detail, i) => (
+                        <li key={i} className="flex gap-4 group/item">
+                          <CheckCircle2 size={18} className="text-primary shrink-0 mt-1 opacity-50 group-hover/item:opacity-100 transition-opacity" />
+                          <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium">
+                            {detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-              ))}
-            </CardContent>
-          </Card>
+                ))}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
-      <section className="pt-8">
-        <h2 className="text-3xl font-bold font-headline text-primary flex items-center gap-3 mb-6"><Cpu size={30} /> Technical Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="space-y-12">
+        <h2 className="text-4xl font-black font-headline tracking-tight flex items-center gap-4">
+          <Cpu size={40} className="text-primary" />
+          Technical Stack
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {technicalSkills.map((category, index) => (
-              <Card 
+              <div 
                 key={category.category} 
-                className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:border-primary"
-                style={{ animationDelay: `${(professionalExperience.length + index) * 150}ms` }}
+                className="glass-panel p-8 rounded-[2rem] space-y-6 group hover:bg-primary/5 transition-colors animate-slide-up"
+                style={{ animationDelay: `${(professionalExperience.length + index) * 100}ms` }}
               >
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <category.icon className="w-5 h-5 text-primary" />
-                    <span className="text-lg">{category.category}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-1">
-                    {category.skills.map(skill => (
-                      <li key={skill} className="text-sm text-muted-foreground">{skill}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary border border-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <category.icon size={24} />
+                </div>
+                <h3 className="text-xl font-bold">{category.category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map(skill => (
+                    <span key={skill} className="px-3 py-1 rounded-lg bg-secondary/50 text-xs font-bold text-muted-foreground border border-border/50 group-hover:border-primary/20 group-hover:text-foreground transition-colors">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
         </div>
       </section>

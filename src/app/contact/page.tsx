@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin, Send, MessageSquare, Calendar, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Send, MessageSquare, Calendar, Sparkles, Activity, Database, ShieldCheck } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -65,6 +65,7 @@ const contactDetails = [
     }
 ];
 
+
 export default function ContactPage() {
   const { toast } = useToast();
 
@@ -97,57 +98,71 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="space-y-16 pb-16">
-      <header className="text-center space-y-4 pt-8">
-        <h1 className="text-4xl lg:text-5xl font-bold font-headline text-primary">
-          Let's Build Something <span className="text-accent">Significant.</span>
+    <div className="space-y-24 pb-24 animate-reveal">
+      <header className="space-y-8">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel text-primary text-xs font-bold tracking-wider uppercase animate-slide-up">
+          <Calendar size={16} /> 
+          Strategic Collaboration
+        </div>
+        <h1 className="text-3xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
+          Build the <br />
+          <span className="text-primary italic">Significant.</span>
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          I'm currently accepting new consulting projects and strategic collaborations. If you have a complex problem that needs a data-driven or AI-powered solution, I'd love to discuss it.
+        <p className="text-2xl text-muted-foreground/80 max-w-3xl font-medium leading-relaxed">
+          I'm currently accepting new consulting projects and strategic collaborations. Let's discuss how we can solve your most complex architectural bottlenecks.
         </p>
       </header>
       
-      <div className="grid md:grid-cols-2 gap-12">
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <div className="space-y-2">
-                    <h2 className="text-2xl font-bold">Why Consult with Me?</h2>
-                    <p className="text-muted-foreground">Get a clear technical roadmap and ROI-focused implementation for your AI or data projects.</p>
+      <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="lg:col-span-5 space-y-16">
+            <div className="space-y-10">
+                <div className="space-y-4">
+                    <h2 className="text-3xl font-black font-headline tracking-tight">The Value Proposition</h2>
+                    <p className="text-lg text-muted-foreground font-medium leading-relaxed">Get a clear technical roadmap and ROI-focused implementation for your AI or data projects.</p>
                 </div>
-                <div className="grid gap-4">
+                <div className="space-y-6">
                     {[
-                        { title: "Technical Feasibility", desc: "Understand if your AI idea is buildable and scalable." },
-                        { title: "Data Strategy", desc: "Optimize how you collect and process business information." },
-                        { title: "Architecture Design", desc: "Ensure your systems are secure and future-proof." }
-                    ].map((item) => (
-                        <Card key={item.title} className="border-none bg-primary/5 p-4 flex gap-4">
-                             <Sparkles className="text-accent shrink-0" size={24} />
-                             <div>
-                                <h4 className="font-bold text-primary">{item.title}</h4>
-                                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        { title: "Technical Feasibility", desc: "Understand if your AI idea is buildable and scalable.", icon: Activity },
+                        { title: "Data Strategy", desc: "Optimize how you collect and process business information.", icon: Database },
+                        { title: "Architecture Design", desc: "Ensure your systems are secure and future-proof.", icon: ShieldCheck }
+                    ].map((item, index) => (
+                        <div 
+                          key={item.title} 
+                          className="group flex gap-6 items-start animate-slide-up"
+                          style={{ animationDelay: `${index * 100}ms` }}
+                        >
+                             <div className="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center shrink-0 border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                                <item.icon size={24} />
                              </div>
-                        </Card>
+                             <div className="space-y-1">
+                                <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{item.title}</h4>
+                                <p className="text-muted-foreground font-medium">{item.desc}</p>
+                             </div>
+                        </div>
                     ))}
                 </div>
             </div>
 
-            <div className="space-y-6">
-                <h3 className="font-bold text-lg">Direct Channels</h3>
-                <div className="space-y-4">
-                    {contactDetails.map((detail) => (
+            <div className="space-y-10">
+                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">Direct Access</h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                    {contactDetails.map((detail, index) => (
                     <a 
                         key={detail.label} 
                         href={detail.href} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className={`flex items-center gap-4 group transition-all ${detail.href ? 'hover:translate-x-1' : 'cursor-default'}`}
+                        className={`group p-6 rounded-3xl glass-panel border-primary/10 hover:border-primary/40 hover:bg-primary/5 transition-all animate-slide-up ${!detail.href && 'cursor-default pointer-events-none'}`}
+                        style={{ animationDelay: `${(3 + index) * 100}ms` }}
                     >
-                        <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
-                        <detail.icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <div>
-                        <p className="font-semibold text-sm">{detail.label}</p>
-                        <p className="text-xs text-muted-foreground">{detail.value}</p>
+                        <div className="flex items-center gap-6">
+                          <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                            <detail.icon className="w-6 h-6" />
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">{detail.label}</p>
+                            <p className="font-bold text-foreground break-all">{detail.value}</p>
+                          </div>
                         </div>
                     </a>
                     ))}
@@ -155,84 +170,83 @@ export default function ContactPage() {
             </div>
         </div>
 
-        <div>
-           <Card className="border-none shadow-xl ring-1 ring-border/60">
-                <CardHeader className="bg-primary/5">
-                    <CardTitle className="flex items-center gap-2">
-                        <MessageSquare className="text-accent" />
-                        Send an Inquiry
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground">Describe your project or challenge below.</p>
-                </CardHeader>
-                <CardContent className="p-8">
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                            <div className="grid sm:grid-cols-2 gap-6">
-                                <FormField
-                                control={form.control}
-                                name="name"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormLabel>Your Name</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="E.g. Jane Smith" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                                />
-                                <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormLabel>Professional Email</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="jane@company.com" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                                />
-                            </div>
-                            <FormField
-                                control={form.control}
-                                name="subject"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormLabel>Project Interest</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="E.g. AI Integration / Data Auditing / Consulting" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                                />
+        <div className="lg:col-span-7 relative p-1 lg:p-1.5 rounded-[4rem] bg-gradient-to-br from-primary/20 to-transparent shadow-2xl animate-reveal">
+           <div className="bg-background/95 backdrop-blur-3xl rounded-[3.8rem] p-10 lg:p-16 space-y-12">
+                <div className="space-y-4">
+                    <h2 className="text-4xl font-black font-headline tracking-tighter flex items-center gap-4">
+                        <div className="w-2 h-10 bg-primary rounded-full" />
+                        Strategic Inquiry
+                    </h2>
+                    <p className="text-xl text-muted-foreground font-medium">Describe your project or challenge below.</p>
+                </div>
+
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+                        <div className="grid sm:grid-cols-2 gap-10">
                             <FormField
                             control={form.control}
-                            name="message"
+                            name="name"
                             render={({ field }) => (
-                                <FormItem>
-                                <FormLabel>Project Details</FormLabel>
+                                <FormItem className="space-y-4">
+                                <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Your Name</FormLabel>
                                 <FormControl>
-                                    <Textarea
-                                    placeholder="Briefly describe the challenge you're looking to solve..."
-                                    className="resize-none min-h-[120px]"
-                                    {...field}
-                                    />
+                                    <Input placeholder="E.g. Jane Smith" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg" />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
                             )}
                             />
-                            <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-12" disabled={form.formState.isSubmitting}>
-                                {form.formState.isSubmitting ? 'Transmitting...' : 'Request Consultation'}
-                                <Send className="ml-2" size={18} />
-                            </Button>
-                        </form>
-                    </Form>
-                </CardContent>
-            </Card>
+                            <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem className="space-y-4">
+                                <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Professional Email</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="jane@company.com" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg" />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                            />
+                        </div>
+                        <FormField
+                            control={form.control}
+                            name="subject"
+                            render={({ field }) => (
+                                <FormItem className="space-y-4">
+                                <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Interest</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="E.g. AI Integration / Data Auditing" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg" />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                            />
+                        <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                            <FormItem className="space-y-4">
+                            <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Details</FormLabel>
+                            <FormControl>
+                                <Textarea
+                                placeholder="Briefly describe the challenge..."
+                                className="resize-none min-h-[160px] p-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-lg leading-relaxed"
+                                {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-20 rounded-3xl text-xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]" disabled={form.formState.isSubmitting}>
+                            {form.formState.isSubmitting ? 'Transmitting...' : 'Request Consultation'}
+                            <Send className="ml-3" size={24} />
+                        </Button>
+                    </form>
+                </Form>
+           </div>
         </div>
       </div>
     </div>

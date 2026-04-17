@@ -78,66 +78,92 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="space-y-20 pb-16 animate-reveal">
-      <header className="space-y-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-2">
+    <div className="space-y-32 pb-24 animate-reveal">
+      <header className="space-y-8">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel text-primary text-xs font-bold tracking-wider uppercase animate-slide-up">
           <Sparkles size={16} /> 
-          <span>Available for Strategic Consulting</span>
+          Available for Technical Consulting
         </div>
-        <h1 className="text-4xl lg:text-6xl font-bold font-headline text-primary leading-tight">
-          Solving Complex Bottlenecks with <span className="text-accent">Data & AI.</span>
+        <h1 className="text-4xl lg:text-7xl font-black font-headline tracking-tighter leading-none">
+          Solutions for <br />
+          <span className="text-primary italic">Intelligence.</span>
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-          I provide specialized technical expertise for organizations that need to bridge the gap between messy data and intelligent, automated outcomes. My work focuses on measurable ROI, security, and enterprise scalability.
+        <p className="text-2xl text-muted-foreground/80 max-w-3xl leading-relaxed font-medium">
+          I provide specialized technical bridge-building for organizations that need to transform complex data into automated, measurable ROI.
         </p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {services.map((service, index) => (
-          <Card key={service.title} className="group border-none bg-secondary/30 hover:bg-secondary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-            <CardHeader className="p-8">
-              <div className={`w-14 h-14 rounded-2xl bg-background flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform`}>
-                <service.icon size={28} className={service.accent} />
+          <div 
+            key={service.title} 
+            className="group relative p-1 rounded-[3.5rem] bg-gradient-to-br from-primary/10 to-transparent hover:from-primary/30 transition-all duration-700 animate-slide-up"
+            style={{ animationDelay: `${index * 150}ms` }}
+          >
+            <div className="bg-background/40 backdrop-blur-3xl rounded-[3.4rem] p-10 lg:p-14 h-full flex flex-col justify-between space-y-12">
+              <div className="space-y-10">
+                <div className="flex items-start justify-between">
+                  <div className="w-20 h-20 glass-panel rounded-3xl flex items-center justify-center border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                    <service.icon size={36} />
+                  </div>
+                  <div className="text-6xl font-black opacity-[0.05] group-hover:opacity-[0.1] transition-opacity font-headline">
+                    0{index + 1}
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h2 className="text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{service.title}</h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed font-medium">{service.description}</p>
+                </div>
               </div>
-              <CardTitle className="text-2xl font-bold mb-2">{service.title}</CardTitle>
-              <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="px-8 pb-8 space-y-4">
-              <h4 className="font-bold text-xs uppercase tracking-widest text-muted-foreground">Strategic Offerings</h4>
-              <ul className="space-y-3">
-                {service.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-3 group/item">
-                    <ArrowRight size={14} className="text-accent mt-1 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
-                    <span className="text-muted-foreground text-sm leading-relaxed">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+
+              <div className="space-y-6">
+                <h4 className="font-black text-xs uppercase tracking-[0.3em] text-primary">Strategic Scope</h4>
+                <ul className="space-y-4">
+                  {service.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-4 group/item">
+                      <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-primary transition-all">
+                        <ArrowRight size={12} className="text-primary group-hover/item:text-primary-foreground" />
+                      </div>
+                      <span className="text-muted-foreground font-bold text-sm leading-relaxed group-hover/item:text-foreground transition-colors">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
-      <section className="relative overflow-hidden bg-primary p-12 lg:p-20 rounded-[2rem] text-primary-foreground">
-        <div className="relative z-10 space-y-8 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-5xl font-bold font-headline leading-tight">Ready to architect your next breakthrough?</h2>
-          <p className="text-lg lg:text-xl text-primary-foreground/80 leading-relaxed">
-            Whether you need a full-scale AI agent architecture, a predictive RCM engine, or a high-performance data platform, let's discuss your roadmap.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 px-10 rounded-full shadow-lg">
-              <Link href="/contact">
-                Schedule a 15-Min Strategy Call <ArrowRight className="ml-2" size={18} />
+      {/* Conversion Section */}
+      <section id="consulting-cta" className="relative group p-1 lg:p-2 rounded-[4rem] bg-gradient-to-br from-primary via-primary/50 to-primary/80 shadow-2xl animate-reveal">
+        <div className="bg-background/95 backdrop-blur-3xl rounded-[3.8rem] py-20 lg:py-32 px-10 text-center space-y-12 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+          
+          <div className="space-y-6">
+            <h2 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
+              Need a <span className="text-primary italic">Technical Roadmap?</span>
+            </h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed">
+              Whether you need an AI audit or a high-scale data platform, let's map out your architecture.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-black h-20 px-12 rounded-3xl shadow-2xl shadow-primary/40 transition-all hover:scale-105 active:scale-95 text-lg">
+              <Link href="/contact" className="flex items-center gap-3">
+                Book a Strategy Call <ArrowRight size={24} />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-primary-foreground/20 hover:bg-primary-foreground/10 text-primary-foreground h-14 px-10 rounded-full">
-              <Link href="/projects">View Case Studies</Link>
+            <Button asChild variant="ghost" size="lg" className="font-black h-20 px-12 rounded-3xl hover:bg-background/50 border-primary/20 text-lg group">
+              <Link href="/projects" className="flex items-center gap-2 text-foreground">
+                Explore Case Studies <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
           </div>
         </div>
-        {/* Abstract background elements */}
-        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-accent/10 rounded-full blur-2xl" />
       </section>
     </div>
   );
 }
+

@@ -36,31 +36,43 @@ const education = [
   }
 ];
 
+
 export default function EducationPage() {
   return (
-    <div className="space-y-12 pb-16">
-      <header>
-        <h1 className="text-4xl font-bold font-headline text-primary flex items-center gap-3">
-          <GraduationCap size={36} /> Education
+    <div className="space-y-20 pb-20 animate-reveal">
+      <header className="space-y-4">
+        <h1 className="text-3xl lg:text-5xl font-black font-headline tracking-tighter leading-none">
+          Academic <span className="text-primary italic">Foundation.</span>
         </h1>
-        <p className="mt-2 text-muted-foreground">My academic background and qualifications.</p>
+        <p className="text-xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
+          Bridging the gap between theory and practical impact through rigorous academic and technical qualification.
+        </p>
       </header>
 
-      <div className="space-y-6">
+      <div className="grid grid-cols-1 gap-8">
         {education.map((edu, index) => (
-          <Card 
+          <div 
             key={edu.degree} 
-            className="opacity-0 animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary"
+            className="group relative p-1 rounded-[3rem] bg-gradient-to-br from-primary/10 to-transparent hover:from-primary/30 transition-all duration-700 animate-slide-up"
             style={{ animationDelay: `${index * 150}ms` }}
           >
-            <CardHeader>
-              <CardTitle>{edu.degree}</CardTitle>
-              <CardDescription>{edu.institution} &middot; {edu.period}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">{edu.description}</p>
-            </CardContent>
-          </Card>
+            <div className="bg-background/40 backdrop-blur-3xl rounded-[2.9rem] p-8 lg:p-12 h-full flex flex-col md:flex-row gap-8 items-start">
+              <div className="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center shrink-0 border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                <GraduationCap size={32} />
+              </div>
+              
+              <div className="space-y-4 flex-grow">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                  <h2 className="text-2xl lg:text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{edu.degree}</h2>
+                  <span className="px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20 self-start md:self-auto">
+                    {edu.period}
+                  </span>
+                </div>
+                <p className="text-primary font-bold text-lg">{edu.institution}</p>
+                <p className="text-muted-foreground leading-relaxed font-medium text-lg max-w-4xl">{edu.description}</p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>

@@ -21,35 +21,47 @@ const navLinks = [
     { href: '/contact', label: 'Work with Me', icon: Mail },
 ];
 
+
 export default function Sidebar() {
   const pathname = usePathname();
   const profileImage = imageData.profile;
 
   return (
-    <aside className="lg:w-1/3 lg:h-screen lg:fixed lg:top-0 lg:left-0 lg:border-r lg:border-border/60 bg-card lg:bg-background z-50">
+    <aside className="lg:w-1/3 lg:h-screen lg:fixed lg:top-0 lg:left-0 bg-background/80 backdrop-blur-3xl z-50 overflow-hidden lg:border-r border-border/50 shadow-2xl">
       <ScrollArea className="h-full">
-        <div className="p-8 lg:p-12 flex flex-col justify-between min-h-screen">
-          <div>
-            <div className="flex items-center gap-4 mb-8">
+        <div className="p-10 lg:p-14 flex flex-col justify-between min-h-screen">
+          <div className="space-y-12">
+            <div className="space-y-8">
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary/0 blur-2xl group-hover:from-primary transition-all duration-700 opacity-30" />
                 <Image
                   src={profileImage.src}
                   alt={profileImage.alt}
-                  width={profileImage.width}
-                  height={profileImage.height}
-                  className="rounded-full border-2 border-accent/20 object-cover shadow-sm"
+                  width={140}
+                  height={140}
+                  className="relative rounded-3xl border-2 border-primary/20 object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.02]"
                   priority
                   data-ai-hint={profileImage.hint}
                 />
-                <div>
-                  <h1 className="text-2xl font-bold font-headline text-primary tracking-tight">Thanuka Ellepola</h1>
-                  <h2 className="text-xs text-accent font-bold uppercase tracking-widest">AI • Fullstack • Data Science</h2>
-                </div>
-            </div>
-             <p className="mt-4 text-muted-foreground leading-relaxed text-sm lg:text-base font-medium">
-                Helping organizations bridge the gap between complex data and high-performance, automated intelligence.
-            </p>
+              </div>
+              
 
-            <nav className="hidden lg:block space-y-1.5 mt-10">
+              <div className="space-y-4">
+                <h1 className="text-3xl font-black font-headline tracking-tighter text-foreground group-hover:text-primary transition-colors leading-[0.9]">
+                  Thanuka Ellepola.
+                </h1>
+                <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted-foreground leading-tight">
+                  AI Architect | Data Scientist | AI Engineer <br />
+                  Lead Solutions Engineer | Strategic Consultant
+                </p>
+              </div>
+
+              <p className="text-muted-foreground leading-relaxed font-medium text-lg">
+                Architecting high-performance enterprise AI ecosystems and predictive platforms.
+              </p>
+            </div>
+
+            <nav className="hidden lg:block space-y-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -57,48 +69,57 @@ export default function Sidebar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      'flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground hover:text-primary hover:bg-secondary transition-all duration-200 group',
-                      isActive && 'text-primary bg-secondary/80 font-semibold shadow-sm ring-1 ring-border'
+                      'group flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-500',
+                      isActive 
+                        ? 'bg-primary text-primary-foreground shadow-2xl shadow-primary/20 translate-x-2' 
+                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50 hover:translate-x-1'
                     )}
                   >
-                    <link.icon size={18} className={cn(isActive ? 'text-accent' : 'group-hover:text-accent transition-colors')} />
-                    {link.label}
+                    <link.icon size={20} className={cn(
+                      'transition-all duration-500',
+                      isActive ? 'rotate-0 scale-110' : 'group-hover:rotate-12 group-hover:scale-110'
+                    )} />
+                    <span className="font-bold tracking-tight">{link.label}</span>
                   </Link>
                 );
               })}
             </nav>
           </div>
 
-          <div className="mt-12 space-y-8">
-            <div className="space-y-4 text-sm">
-              <a href="mailto:thanuka.ellepola@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center"><Mail size={14} /></div> thanuka.ellepola@gmail.com
-              </a>
-              <a href="tel:+94776705832" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center"><Phone size={14} /></div> +94 77 670 5832
-              </a>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center"><MapPin size={14} /></div> Colombo, Sri Lanka
+          <div className="space-y-12 pt-12">
+            <div className="space-y-6">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Connectivity</h4>
+              <div className="space-y-4">
+                <a href="mailto:thanuka.ellepola@gmail.com" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center border border-border/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all"><Mail size={16} /></div> 
+                  <span className="text-sm font-bold truncate">thanuka.ellepola@gmail.com</span>
+                </a>
+                <a href="tel:+94776705832" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center border border-border/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all"><Phone size={16} /></div> 
+                  <span className="text-sm font-bold">+94 77 670 5832</span>
+                </a>
               </div>
             </div>
             
-            <div className="flex flex-col gap-3">
-              <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground w-full font-bold h-12 rounded-xl shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
-                 <Link href="/contact">
-                    Book a Strategy Call
+            <div className="flex flex-col gap-4">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full font-black h-14 rounded-xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-base group/btn">
+                 <Link href="/contact" className="flex items-center justify-center gap-2">
+                    Book Strategy <Sparkles size={18} className="group-hover/btn:rotate-12 transition-transform" />
                  </Link>
               </Button>
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon" asChild className="rounded-xl hover:border-accent hover:text-accent transition-all">
-                  <a href="https://github.com/Thanuka9" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <Github size={20} />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild className="rounded-xl hover:border-accent hover:text-accent transition-all">
-                  <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <Linkedin size={20} />
-                  </a>
-                </Button>
+              <div className="flex items-center justify-between gap-3 p-1.5 bg-secondary/40 backdrop-blur-xl rounded-2xl border border-border/50">
+                <div className="flex gap-1">
+                  <Button variant="ghost" size="icon" asChild className="w-10 h-10 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
+                    <a href="https://github.com/Thanuka9" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                      <Github size={18} />
+                    </a>
+                  </Button>
+                  <Button variant="ghost" size="icon" asChild className="w-10 h-10 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
+                    <a href="https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                      <Linkedin size={18} />
+                    </a>
+                  </Button>
+                </div>
                 <ThemeToggle />
               </div>
             </div>
@@ -106,5 +127,6 @@ export default function Sidebar() {
         </div>
       </ScrollArea>
     </aside>
+
   );
 }

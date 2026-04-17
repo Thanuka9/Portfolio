@@ -12,9 +12,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Skeleton } from "./ui/skeleton";
+import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -26,25 +27,31 @@ export function ThemeToggle() {
   }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex items-center gap-1 bg-secondary/80 backdrop-blur-2xl p-1.5 rounded-2xl border-2 border-primary/20 shadow-xl">
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        onClick={() => setTheme("light")}
+        className={cn(
+          "h-8 w-8 rounded-lg transition-all duration-300",
+          theme === "light" ? "bg-primary/10 text-primary shadow-sm" : "text-muted-foreground hover:text-foreground"
+        )}
+      >
+        <Sun className="h-4 w-4" />
+        <span className="sr-only">Light</span>
+      </Button>
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        onClick={() => setTheme("dark")}
+        className={cn(
+          "h-8 w-8 rounded-lg transition-all duration-300",
+          theme === "dark" ? "bg-primary/10 text-primary shadow-sm" : "text-muted-foreground hover:text-foreground"
+        )}
+      >
+        <Moon className="h-4 w-4" />
+        <span className="sr-only">Dark</span>
+      </Button>
+    </div>
   );
 }
