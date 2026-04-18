@@ -48,8 +48,13 @@ const formSchema = z.object({
   consent: z.boolean().refine(v => v === true, {
     message: "You must agree to the privacy policy.",
   }),
-  human_ver: z.string().refine(v => v === "12", {
-    message: "Incorrect answer.",
+  human_ver: z.string().superRefine((v, ctx) => {
+    if (v !== "12") {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Incorrect answer. Hint: 6 + 6",
+      });
+    }
   }),
 });
 
