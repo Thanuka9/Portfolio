@@ -78,7 +78,32 @@ export const SITE_KNOWLEDGE = {
   ],
   skills: [
     "Gemini 3.1 (Pro/Flash/Live API)", "LangChain", "RAG & Vector DB (FAISS)", "Scikit-learn", "Neural Networks", "FastAPI", "Next.js", "Azure", "GCP", "Docker", "Playwright"
-  ]
+  ],
+  services: {
+    aiAutonomousSystems: {
+      title: "AI & Autonomous Systems",
+      tagline: "Architecting the next generation of business logic using multi-agent systems and real-time intelligence.",
+      scope: [
+        "Custom Autonomous Agent Architectures (CEO, Eng, & ML Pod pods)",
+        "LangChain-orchestrated RAG Pipelines with FAISS Vector Search",
+        "Low-latency Voice AI Simulations (Gemini Live API)",
+        "Real-time Market Intelligence & Google Search Grounding",
+        "Automated Discovery Engines with RAG-driven Personalization",
+        "Agentic Auditing for identifying operational bottlenecks"
+      ]
+    },
+    fullStackEnterprise: {
+      title: "Full-Stack Enterprise Development",
+      tagline: "Building resilient, high-performance platforms that scale with your operational complexity.",
+      scope: [
+        "Developed a full-stack web application using Flask, SQL, HTML, CSS, and JavaScript for internal enterprise operations",
+        "Implemented authentication (2FA), role-based access control, and performance dashboards",
+        "Designed backend APIs and optimized database architecture for scalability",
+        "Integrated structured data storage using MySQL/PostgreSQL",
+        "Managed high-availability hosting and automated CI/CD pipelines (GitHub Actions) for Azure/GCP"
+      ]
+    }
+  }
 };
 
 export type KnowledgeBase = typeof SITE_KNOWLEDGE;

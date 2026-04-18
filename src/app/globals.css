@@ -172,6 +172,30 @@ html {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/80 to-primary/80;
   }
+
+  /* Hides scrollbar but keeps scrolling functional */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Subtle custom scrollbar for chat panels */
+  .chat-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .chat-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .chat-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.2);
+    border-radius: 99px;
+  }
+  .chat-scroll::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.4);
+  }
 }
 
 @media print {

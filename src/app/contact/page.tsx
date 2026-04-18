@@ -10,7 +10,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { generateVCard } from "@/lib/vcard-generator";
 import imageData from '@/lib/placeholder-images.json';
-import html2canvas from 'html2canvas';
+
+
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -77,6 +78,7 @@ const contactDetails = [
 ];
 
 export default function ContactPage() {
+  const [isExporting, setIsExporting] = React.useState(false);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -94,25 +96,29 @@ export default function ContactPage() {
 
   const exportCardAsPNG = async () => {
     const el = document.getElementById('vcard-element');
-    if (!el) return;
-    
-    // Switch to a modern, high-fidelity export library
+    if (!el || isExporting) return;
+
+    setIsExporting(true);
+    // Small delay so the button visually disappears before capture
+    await new Promise(r => setTimeout(r, 80));
+
     const { toPng } = await import('html-to-image');
-    
+
     try {
       const dataUrl = await toPng(el, {
         quality: 1.0,
-        pixelRatio: 3, // Ultra high quality
+        pixelRatio: 3, // Ultra-high quality (3× DPI)
         backgroundColor: '#0c051a',
+        // Exclude any node that has data-export-ignore attribute (set on the button container)
         filter: (node) => {
-          // Ignore elements with data-html2canvas-ignore or typical UI elements
-          const exclusionClasses = ['btn', 'button', 'sparkles'];
           if (node instanceof HTMLElement) {
-             if (node.hasAttribute('data-html2canvas-ignore')) return false;
-             if (exclusionClasses.some(cls => node.classList.contains(cls))) {
-                // Only exclude if it's the main Export button container
-                if (node.parentElement?.classList.contains('absolute')) return false;
-             }
+            if (node.dataset.exportIgnore === 'true') return false;
+            // Also walk up and exclude if any ancestor is ignored
+            let el = node.parentElement;
+            while (el) {
+              if (el.dataset.exportIgnore === 'true') return false;
+              el = el.parentElement;
+            }
           }
           return true;
         }
@@ -124,10 +130,10 @@ export default function ContactPage() {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
+
       toast({
-        title: "Export Successful",
-        description: "Your digital identity card has been downloaded in UHD.",
+        title: "✅ Export Successful",
+        description: "Your Digital Identity Card has been exported in UHD (3× DPI).",
       });
     } catch (err) {
       console.error('Failed to export PNG', err);
@@ -136,6 +142,8 @@ export default function ContactPage() {
         title: "Export Failed",
         description: "High-fidelity generation failed. Please try again.",
       });
+    } finally {
+      setIsExporting(false);
     }
   };
 
@@ -423,15 +431,16 @@ export default function ContactPage() {
                             </div>
                         </div>
 
-                        {/* ─ Corner Action Button (Export) ─ */}
-                        <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-30" data-html2canvas-ignore>
+                        {/* ─ Corner Action Button (Export) — EXCLUDED from PNG via data-export-ignore ─ */}
+                        <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-30" data-export-ignore="true">
                             <Button 
                                 variant="outline" 
-                                onClick={exportCardAsPNG} 
-                                className="bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-pink-500/50 font-black rounded-xl h-10 px-4 transition-all text-[9px] uppercase tracking-widest flex items-center gap-2 backdrop-blur-xl group/btn"
+                                onClick={exportCardAsPNG}
+                                disabled={isExporting}
+                                className="bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-pink-500/50 font-black rounded-xl h-10 px-4 transition-all text-[9px] uppercase tracking-widest flex items-center gap-2 backdrop-blur-xl group/btn disabled:opacity-50"
                             >
-                                <Sparkles className="w-3.5 h-3.5 text-pink-400 group-hover/btn:scale-110 transition-transform" /> 
-                                <span className="hidden sm:inline">Export PNG</span>
+                                <Sparkles className={`w-3.5 h-3.5 text-pink-400 transition-transform ${isExporting ? 'animate-pulse' : 'group-hover/btn:scale-110'}`} /> 
+                                <span className="hidden sm:inline">{isExporting ? 'Exporting...' : 'Export PNG'}</span>
                             </Button>
                         </div>
 

@@ -100,6 +100,3 @@ This project has been audited for:
 **Thanuka Ellepola**  
 Lead AI Architect & Data Scientist  
 [LinkedIn](https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/) · [Email](mailto:thanuka.ellepola@gmail.com)
-
----
-*Created with architectural precision by Antigravity AI.*
