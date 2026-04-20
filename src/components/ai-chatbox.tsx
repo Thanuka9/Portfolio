@@ -40,9 +40,9 @@ type ChatTurn = {
 // ── Constants ─────────────────────────────────────────────────────────────────
 
 const QUICK_PROMPTS = [
-  'Is LangChain used?',
+  'Tell me about Thanuka',
   'Show projects',
-  'Can he build RAG?',
+  'Is LangChain used?',
   'Book a call?',
 ];
 
@@ -53,15 +53,54 @@ const RAG_STEPS = [
 ];
 
 const WELCOME_MESSAGE =
-  "Hello! I'm Thanuka's AI Inquisitor — powered by **Gemma 3** with RAG context grounding.\n\nI can answer YES/NO questions, project deep-dives, tech stack queries, and more. Try:\n• \"Is LangChain used in his projects?\"\n• \"Does he have healthcare AI experience?\"\n• \"Tell me about RevOps AI\"";
+  "Hello! I'm **AI Inquisitor** — Thanuka's personal portfolio assistant, powered by **Gemini** with RAG context grounding.\n\nAsk me anything about his work:\n• \"Tell me about Thanuka Ellepola\"\n• \"What projects has he built?\"\n• \"Is LangChain used in his stack?\"\n• \"How can I hire him?\"";
 
-// ── Local fallback (used if API is unavailable) ───────────────────────────────
-function localFallback(userMsg: string): string {
+// ── Local RAG: returns a confident answer or null (triggers API escalation) ──
+// COVERAGE: intro · all 6 named projects · Yes/No · skills · experience · education · contact
+function localRAG(userMsg: string): string | null {
   const q = userMsg.toLowerCase().trim();
 
-  // Yes/No detection
-  const isYesNoQuestion =
-    /^(is|does|can|has|did|do|are|will|was)\b/.test(q);
+  // ── General intro / "who is" / "tell me about" ───────────────────────────
+  const isIntro =
+    /tell me about (thanuka|him|yourself)|who is thanuka|introduce (thanuka|yourself)|what does he do|who are you|about thanuka/i.test(q);
+
+  if (isIntro) {
+    return (
+      "**Thanuka Ellepola** is a Lead AI Architect & Data Scientist based in **Colombo, Sri Lanka**.\n\n" +
+      "He currently serves as **Assistant Manager & Lead Architect at Collective RCM**, where he drives enterprise digital transformation in healthcare revenue cycle management.\n\n" +
+      "His expertise spans:\n" +
+      "• **Autonomous AI Agents** — multi-pod architectures (CEO/Eng/ML pods)\n" +
+      "• **RAG Pipelines** — LangChain + FAISS vector search\n" +
+      "• **Generative AI** — Gemini 3.1 (Pro/Flash/Live API)\n" +
+      "• **Full-Stack** — React, Next.js, FastAPI, Flask\n" +
+      "• **Cloud** — Azure & GCP with Docker & CI/CD\n\n" +
+      "He holds an MBA (Business Analytics) from **University of Colombo** and has built 6+ flagship AI systems — from a predictive healthcare payment engine (R² > 0.90) to an autonomous job-application agent that reduces effort by 90%.\n\n" +
+      "📧 **thanuka.ellepola@gmail.com** · 📞 **+94 77 670 5832**"
+    );
+  }
+
+  // ── Named project deep-dive ───────────────────────────────────────────────
+  if (q.includes('revops')) {
+    return "**RevOps AI** is a B2B SaaS platform Thanuka architected with an **Autonomous Agent Architecture** — three specialized pods (CEO, Engineering, ML) that autonomously audit healthcare data.\n\nIt's built on **FastAPI + React**, deployed on **GCP with Docker**, and uses Scikit-learn models for operational bottleneck detection.";
+  }
+  if (q.includes('job hunter') || q.includes('ai job')) {
+    return "**AI Job Hunter** is Thanuka's flagship agentic pipeline — it discovers roles, personalises applications with a **LangChain + FAISS RAG engine**, then auto-fills and submits via **Playwright**, reducing manual effort by **90%**.\n\nBuilt with Gemini 3.1 Flash for fast reasoning and Python throughout.";
+  }
+  if (q.includes('careerforge')) {
+    return "**CareerForge AI 3.0** is Thanuka's multi-agent career OS featuring **low-latency voice AI** via the Gemini 3.1 Live API and real-time **Google Search Grounding**.\n\nIt's built on **React 19** with Web Audio API integration for seamless voice interaction.";
+  }
+  if (q.includes('reviewradar') || q.includes('review radar')) {
+    return "**ReviewRadar AI** is an end-to-end sentiment intelligence platform that processes **7M+ product reviews** using an ensemble of **XGBoost + VADER + spaCy** models.\n\nThe ETL pipeline feeds a **PostgreSQL** data warehouse for real-time sentiment dashboards.";
+  }
+  if (q.includes('collective intranet') || q.includes('intranet')) {
+    return "**Collective Intranet** is a secure hybrid SQL/NoSQL enterprise platform Thanuka built for Collective RCM.\n\nIt centralises onboarding, training, and performance tracking — built with **Flask + PostgreSQL + MongoDB + Redis** and hosted on **Azure** with CI/CD via GitHub Actions.";
+  }
+  if (q.includes('healthcare') && (q.includes('predict') || q.includes('forecast') || q.includes('payment'))) {
+    return "Thanuka's **Predictive Analytics for Healthcare Payment Forecasting** achieved **R² > 0.90** using an ML framework combining **Random Forest and Neural Networks** for financial prioritization in Revenue Cycle Management.\n\nBuilt with Scikit-learn, Pandas, and advanced statistical modelling.";
+  }
+
+  // ── Yes/No detection ──────────────────────────────────────────────────────
+  const isYesNoQuestion = /^(is|does|can|has|did|do|are|will|was)\b/.test(q);
 
   if (isYesNoQuestion) {
     if (q.includes('langchain') || q.includes('rag') || q.includes('faiss') || q.includes('vector'))
@@ -74,18 +113,40 @@ function localFallback(userMsg: string): string {
       return "Yes. Thanuka is accepting new consulting projects. Reach him at **thanuka.ellepola@gmail.com** or **+94 77 670 5832** — he responds within 24 hours.";
     if (q.includes('gemini') || q.includes('google ai'))
       return "Yes. Thanuka builds with **Gemini 3.1 (Pro/Flash/Live API)** for reasoning, voice AI, and real-time grounding — as seen in CareerForge AI 3.0.";
-    if (q.includes('azure') || q.includes('cloud'))
+    if (q.includes('azure') || q.includes('cloud') || q.includes('gcp'))
       return "Yes. Thanuka has deployed production workloads on both **Azure** and **GCP**, including CI/CD pipelines, Docker containers, and database hosting.";
-    return "I don't have a confident Yes/No for that specific query. Could you rephrase? Example: \"Is LangChain part of his stack?\" or ask me about a specific project.";
+    if (q.includes('next') || q.includes('react'))
+      return "Yes. Thanuka builds with **React and Next.js** for full-stack applications — including this portfolio and CareerForge AI 3.0.";
+    if (q.includes('docker') || q.includes('container'))
+      return "Yes. Thanuka uses **Docker** for containerised deployments on GCP and Azure, with automated CI/CD via GitHub Actions.";
+    if (q.includes('master') || q.includes('mba') || q.includes('degree'))
+      return "Yes. Thanuka is completing a **Master of Business Analytics** at the University of Colombo (2023–2025) focused on predictive analytics, ML, and business intelligence.";
+    // Yes/No asked but no specific keyword matched → let API handle it
+    return null;
   }
 
-  if (q.includes('project') || q.includes('portfolio') || q.includes('work'))
-    return "Thanuka has built **6 flagship projects**:\n\n1. **AI Job Hunter** — 90% time reduction via RAG\n2. **Predictive Healthcare Analytics** — R² > 0.90\n3. **RevOps AI** — Multi-agent B2B SaaS\n4. **Collective Intranet** — Enterprise Flask platform\n5. **CareerForge AI 3.0** — Voice AI + Search Grounding\n6. **ReviewRadar AI** — 7M+ review sentiment engine\n\nWhich would you like to dive into?";
+  // ── Skills / tech stack ───────────────────────────────────────────────────
+  if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('framework'))
+    return "Thanuka's core tech stack:\n\n**AI/ML:** Gemini 3.1, LangChain, FAISS, Scikit-learn, XGBoost, Neural Networks\n**Backend:** FastAPI, Flask, Python\n**Frontend:** React 19, Next.js\n**Cloud:** Azure, GCP, Docker, CI/CD\n**Databases:** PostgreSQL, MongoDB, Redis\n**Tooling:** Playwright, FAISS, spaCy, VADER";
 
-  if (q.includes('book') || q.includes('call') || q.includes('hire') || q.includes('contact'))
-    return "Ready to connect?\n\n📧 **Email:** thanuka.ellepola@gmail.com\n📞 **Phone:** +94 77 670 5832\n🔗 **LinkedIn:** linkedin.com/in/thanuka-ellepola-a559b01aa\n\nHe responds within 24 hours.";
+  // ── Experience ────────────────────────────────────────────────────────────
+  if (q.includes('experience') || q.includes('career') || q.includes('job') || q.includes('work'))
+    return "Thanuka has **dual professional tracks**:\n\n1. **Lead Architect @ Collective RCM** (2019–Present) — leading enterprise AI & digital transformation in healthcare RCM\n2. **Independent AI Developer** (Ongoing) — building advanced RAG systems, autonomous agents, and scientific research\n\nTotal: 5+ years of end-to-end AI systems delivery.";
 
-  return "I'm having trouble reaching the AI engine right now. Please try asking about:\n• Specific projects (\"Tell me about RevOps AI\")\n• Tech stack (\"What frameworks does he use?\")\n• Yes/No questions (\"Does he know Python?\")";
+  // ── Education ─────────────────────────────────────────────────────────────
+  if (q.includes('education') || q.includes('study') || q.includes('university') || q.includes('degree'))
+    return "Thanuka's educational background:\n\n🎓 **MBA (Business Analytics)** — University of Colombo (2023–2025 Expected)\n🎓 **BSc Computer Systems & Networking** — Greenwich University (2019–2021)\n\nFocus: Predictive analytics, ML, network architecture, and software engineering.";
+
+  // ── Projects overview ─────────────────────────────────────────────────────
+  if (q.includes('project') || q.includes('portfolio') || q.includes('built'))
+    return "Thanuka has built **6 flagship projects**:\n\n1. **AI Job Hunter** — 90% effort reduction via RAG\n2. **Predictive Healthcare Analytics** — R² > 0.90\n3. **RevOps AI** — Multi-agent B2B SaaS\n4. **Collective Intranet** — Enterprise Flask platform\n5. **CareerForge AI 3.0** — Voice AI + Search Grounding\n6. **ReviewRadar AI** — 7M+ review sentiment engine\n\nWhich would you like to explore?";
+
+  // ── Contact ───────────────────────────────────────────────────────────────
+  if (q.includes('book') || q.includes('call') || q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('reach'))
+    return "Ready to connect?\n\n📧 **Email:** thanuka.ellepola@gmail.com\n📞 **Phone:** +94 77 670 5832\n🔗 **LinkedIn:** linkedin.com/in/thanuka-ellepola-a559b01aa\n🐙 **GitHub:** github.com/Thanuka9\n\nHe responds within 24 hours.";
+
+  // ── No confident local match → escalate to API ───────────────────────────
+  return null;
 }
 
 // ── Main Component ────────────────────────────────────────────────────────────
@@ -96,7 +157,8 @@ export function AIChatbox() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [ragStatus, setRagStatus] = useState<string | null>(null);
-  const [modelLabel, setModelLabel] = useState<'Gemma 3' | 'Gemini Flash'>('Gemma 3');
+  // 'rag' = answered locally, 'api' = answered by Gemini, 'api-error' = API failed
+  const [sourceLabel, setSourceLabel] = useState<'RAG' | 'Gemini' | 'RAG·Offline'>('RAG');
   const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   const msgCounterRef = useRef(1000);
@@ -188,14 +250,31 @@ export function AIChatbox() {
     setMessages(prev => [...prev, { role: 'user', content: userMsg, id: userId }]);
     setIsTyping(true);
 
-    // RAG step animation
-    for (const step of RAG_STEPS) {
-      setRagStatus(step);
-      await new Promise(r => setTimeout(r, 380 + Math.random() * 220));
+    // ── STEP 1: Try local RAG first (no API cost) ────────────────────────────
+    setRagStatus('🔍 Searching knowledge base...');
+    await new Promise(r => setTimeout(r, 300));
+    const localAnswer = localRAG(userMsg);
+
+    if (localAnswer !== null) {
+      // ✅ Local RAG answered confidently — skip API entirely
+      setRagStatus('⚡ Retrieved from knowledge base');
+      await new Promise(r => setTimeout(r, 250));
+      setRagStatus(null);
+      setSourceLabel('RAG');
+      setIsTyping(false);
+      setMessages(prev => [...prev, { role: 'bot', content: '', id: botId }]);
+      await streamWords(localAnswer, botId);
+      return;
     }
+
+    // ── STEP 2: Local RAG couldn't answer → escalate to Gemini API ──────────
+    setRagStatus('🧠 Escalating to Gemini AI...');
+    await new Promise(r => setTimeout(r, 350));
+    setRagStatus('⚡ Synthesizing response...');
+    await new Promise(r => setTimeout(r, 350));
     setRagStatus(null);
 
-    // Add user turn to chat history
+    // Add user turn to API chat history
     chatHistoryRef.current = [
       ...chatHistoryRef.current,
       { role: 'user', parts: [{ text: userMsg }] },
@@ -216,27 +295,27 @@ export function AIChatbox() {
       if (data.error) throw new Error(data.error);
 
       responseText = data.text ?? '';
+      setSourceLabel('Gemini');
 
-      // Detect which model responded (heuristic from response header or content)
-      setModelLabel('Gemma 3');
-
-      // Store model response in history
+      // Store model response in history for multi-turn context
       chatHistoryRef.current = [
         ...chatHistoryRef.current,
         { role: 'model', parts: [{ text: responseText }] },
       ];
     } catch (err) {
-      console.warn('[Chat] API failed, using local fallback:', err);
-      responseText = localFallback(userMsg);
-      setModelLabel('Gemini Flash');
-
-      // Remove the user turn we added (will be retried)
+      console.warn('[Chat] API failed, best-effort local response:', err);
+      // API failed — give the best possible local response
+      responseText =
+        "I couldn't reach the AI engine for that query. Try rephrasing, or ask:\n" +
+        "• **\"Tell me about Thanuka Ellepola\"**\n" +
+        "• **\"Show me his projects\"**\n" +
+        "• **\"Is LangChain used?\"** (Yes/No questions work offline)";
+      setSourceLabel('RAG·Offline');
+      // Remove the user turn — don't persist failed API turns
       chatHistoryRef.current = chatHistoryRef.current.slice(0, -1);
     }
 
     setIsTyping(false);
-
-    // Begin streaming
     setMessages(prev => [...prev, { role: 'bot', content: '', id: botId }]);
     await streamWords(responseText, botId);
   }, [input, isTyping, streamWords]);
@@ -244,7 +323,7 @@ export function AIChatbox() {
   const clearHistory = () => {
     localStorage.removeItem('ai_inquisitor_v3_history');
     chatHistoryRef.current = [];
-    setMessages([{ role: 'bot', id: Date.now(), content: "History cleared. I'm powered by **Gemma 3** with RAG context — what would you like to know about Thanuka's work?" }]);
+    setMessages([{ role: 'bot', id: Date.now(), content: "History cleared. Ask me anything about Thanuka — most answers come straight from the **local knowledge base** (no API cost)." }]);
   };
 
   // Render markdown (bold + newlines + bullet points)
@@ -348,7 +427,7 @@ export function AIChatbox() {
                   <div className="flex items-center gap-1.5">
                     <Cpu size={9} className="text-primary" />
                     <p className="text-[10px] font-bold uppercase tracking-widest text-primary">
-                      {modelLabel} · RAG v3.0
+                      {sourceLabel === 'Gemini' ? 'Gemini AI' : sourceLabel === 'RAG·Offline' ? 'RAG · Offline' : 'Local RAG'} · v3.0
                     </p>
                   </div>
                 </div>
@@ -465,7 +544,7 @@ export function AIChatbox() {
                 </button>
               </div>
               <p className="text-[9px] text-muted-foreground/30 mt-2 text-center font-bold uppercase tracking-widest">
-                Powered by Gemma 3 · RAG · Portfolio Intelligence v3
+                RAG-First · {sourceLabel === 'Gemini' ? 'Gemini API (complex query)' : sourceLabel === 'RAG·Offline' ? 'Offline Mode' : 'Local Knowledge Base ⚡ Free'}
               </p>
             </div>
           </motion.div>
