@@ -422,7 +422,7 @@ export default function ContactPage() {
                                         {[
                                             { icon: Phone,    label: '+94 77 670 5832' },
                                             { icon: Mail,     label: 'thanuka.ellepola@gmail.com' },
-                                            { icon: Linkedin, label: 'linkedin-ellepola' },
+                                            { icon: Linkedin, label: 'Thanuka - Ellepola' },
                                         ].map((item, i) => (
                                             <div key={i} className="flex items-center justify-center lg:justify-start gap-3 group/item truncate">
                                                 <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
