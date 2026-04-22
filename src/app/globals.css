@@ -40,6 +40,11 @@ html {
     --ring: 239 84% 58%;
 
     --radius: 1.5rem;
+
+    --mesh-color-1: hsla(239, 84%, 58%, 0.1);
+    --mesh-color-2: hsla(271, 91%, 65%, 0.08);
+    --mesh-color-3: hsla(239, 84%, 58%, 0.04);
+    --mesh-opacity: 0.8;
   }
 
   .dark {
@@ -72,6 +77,11 @@ html {
     --ring: 239 100% 78%;
     
     --radius: 2rem;
+
+    --mesh-color-1: hsla(239, 100%, 78%, 0.15);
+    --mesh-color-2: hsla(271, 91%, 65%, 0.1);
+    --mesh-color-3: hsla(239, 100%, 78%, 0.1);
+    --mesh-opacity: 0.5;
   }
 }
 
@@ -141,14 +151,14 @@ html {
 
 
   .glass-panel {
-    @apply bg-background/40 backdrop-blur-xl border border-primary/10 shadow-2xl;
+    @apply bg-background/60 backdrop-blur-xl border border-primary/10 shadow-2xl;
   }
 
   .mesh-gradient {
     background-image: 
-      radial-gradient(at 0% 0%, hsla(239, 100%, 78%, 0.15) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(271, 91%, 65%, 0.1) 0, transparent 50%),
-      radial-gradient(at 50% 100%, hsla(239, 100%, 78%, 0.1) 0, transparent 50%);
+      radial-gradient(at 0% 0%, var(--mesh-color-1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, var(--mesh-color-2) 0, transparent 50%),
+      radial-gradient(at 50% 100%, var(--mesh-color-3) 0, transparent 50%);
   }
 
   .glass-card {

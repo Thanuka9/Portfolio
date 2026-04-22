@@ -91,11 +91,12 @@ import { notFound } from 'next/navigation';
 
 export default async function RootLayout({
   children,
-  params: {locale}
+  params
 }: Readonly<{
   children: React.ReactNode;
-  params: {locale: string};
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
@@ -107,7 +108,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.variable} ${outfit.variable} dark`} suppressHydrationWarning>
+    <html lang={locale} className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -117,8 +118,8 @@ export default async function RootLayout({
       <body className="font-sans antialiased selection:bg-primary/20 bg-background text-foreground min-h-screen relative overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           {/* Optimized Background Layering */}
-          <div className="fixed inset-0 bg-[#060e20] -z-30" />
-          <div className="fixed inset-0 mesh-gradient opacity-40 pointer-events-none -z-20" />
+          <div className="fixed inset-0 bg-background -z-30 transition-colors duration-500" />
+          <div className="fixed inset-0 mesh-gradient opacity-[var(--mesh-opacity)] pointer-events-none -z-20 transition-opacity duration-500" />
           <ClientOverlays />
           
           <GlobalErrorBoundary>

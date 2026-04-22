@@ -2,8 +2,9 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { useTheme } from './theme-provider';
 
-function ParticleSwarm() {
+function ParticleSwarm({ isDark }: { isDark: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
   const count = 2000; // Optimized density for performance
   
@@ -46,11 +47,11 @@ function ParticleSwarm() {
       </bufferGeometry>
       <pointsMaterial 
         size={0.025} 
-        color="#9093ff" 
+        color={isDark ? "#9093ff" : "#4f46e5"} 
         transparent 
-        opacity={0.3} 
+        opacity={isDark ? 0.3 : 0.15} 
         sizeAttenuation 
-        blending={THREE.AdditiveBlending}
+        blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
         depthWrite={false}
       />
     </points>
@@ -58,6 +59,24 @@ function ParticleSwarm() {
 }
 
 export const NeuralCanvas = React.memo(function NeuralCanvas() {
+  const { theme } = useTheme();
+  // We need to check system preference if theme is 'system'
+  const [isDark, setIsDark] = React.useState(true);
+
+  React.useEffect(() => {
+    const checkTheme = () => {
+      if (theme === 'system') {
+        setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      } else {
+        setIsDark(theme === 'dark');
+      }
+    };
+    checkTheme();
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', checkTheme);
+    return () => mediaQuery.removeEventListener('change', checkTheme);
+  }, [theme]);
+
   return (
     <div className="fixed inset-0 z-[-15] pointer-events-none">
       <Canvas 
@@ -66,12 +85,12 @@ export const NeuralCanvas = React.memo(function NeuralCanvas() {
         gl={{ antialias: false, powerPreference: "high-performance" }}
         performance={{ min: 0.5 }}
       >
-        <ambientLight intensity={0.5} />
-        <ParticleSwarm />
+        <ambientLight intensity={isDark ? 0.5 : 1.2} />
+        <ParticleSwarm isDark={isDark} />
         {/* Subtle glow orb */}
         <mesh position={[2, 1, -2]}>
           <sphereGeometry args={[2, 16, 16]} />
-          <meshBasicMaterial color="#8a2be2" transparent opacity={0.03} />
+          <meshBasicMaterial color={isDark ? "#8a2be2" : "#c7d2fe"} transparent opacity={isDark ? 0.03 : 0.08} />
         </mesh>
       </Canvas>
     </div>
