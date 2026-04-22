@@ -1,0 +1,301 @@
+{
+  "Navigation": {
+    "overview": "Resumen",
+    "services": "Servicios y Valor Estratégico",
+    "projects": "Casos de Estudio",
+    "experience": "Impacto Profesional",
+    "education": "Base Académica",
+    "contact": "Consulta Estratégica",
+    "labs": "Laboratorios de IA (Simulaciones)"
+  },
+  "Sidebar": {
+    "title": "Thanuka Ellepola.",
+    "role": "Arquitecto de IA | Científico de Datos",
+    "bio": "Arquitecturando ecosistemas de IA empresariales de alto rendimiento y plataformas predictivas.",
+    "connectivity": "Conectividad",
+    "bookStrategy": "Reservar Estrategia",
+    "privacy": "Política de Privacidad y Términos"
+  },
+  "Hero": {
+    "available": "Disponible para Proyectos Estratégicos de IA e Ingeniería",
+    "title": "Arquitecturando",
+    "subtitle": "Inteligencia Empresarial.",
+    "roles": {
+      "arch": "Arquitecto de IA",
+      "ds": "Científico de Datos",
+      "eng": "Ingeniero de IA",
+      "sol": "Arquitecto de Soluciones"
+    },
+    "description": "Ingeniería de inteligencia de alto rendimiento para ecosistemas empresariales complejos. Cierro la brecha entre la investigación de IA de vanguardia y los sistemas de producción críticos.",
+    "ctaBook": "Reservar Llamada de Estrategia",
+    "ctaView": "Ver Casos de Estudio"
+  },
+  "Stats": {
+    "accLabel": "Precisión Predictiva",
+    "effLabel": "Reducción de Esfuerzo Manual",
+    "dataLabel": "Puntos de Datos Procesados",
+    "projLabel": "Proyectos Exitosos"
+  },
+  "Pillars": {
+    "aiTitle": "IA y Agentes Autónomos",
+    "aiDesc": "Arquitecturando sistemas multi-agente y tuberías RAG que razonan, ejecutan y escalan con confiabilidad empresarial.",
+    "intelTitle": "Inteligencia y Analítica",
+    "intelDesc": "Ingeniería de kernels predictivos y tuberías de ML con precisión R² > 0.90, convirtiendo datos fragmentados en previsión estratégica.",
+    "entTitle": "Soluciones Empresariales",
+    "entDesc": "Diseño de plataformas full-stack de alta seguridad con arquitecturas híbridas SQL/NoSQL y rendimiento de baja latencia."
+  },
+  "About": {
+    "title": "La Ventaja Estratégica",
+    "p1": "Con más de cinco años de liderazgo en la intersección de la salud y la tecnología, no solo resuelvo problemas técnicos, sino que diseño sistemas que redefinen la eficiencia operativa.",
+    "sigTitle": "Logro Distintivo",
+    "sigQuote": "\"Diseñé kernels de pronóstico impulsados por IA que lograron R² > 0.90, reduciendo eficazmente la carga de auditoría manual en un 40% en los flujos de trabajo empresariales.\"",
+    "sigAuthor": "— Gerente Asistente @ Collective RCM",
+    "coreTitle": "Competencias Principales",
+    "c1": "Arquitecturas de IA Autónomas",
+    "c2": "Analítica Predictiva (RCM/Salud)",
+    "c3": "Ecosistemas Full-Stack Empresariales",
+    "c4": "Orquestación de Sistemas Multi-Agente",
+    "c5": "Seguridad Crítica y 2FA"
+  },
+  "Testimonials": {
+    "title1": "Impacto ",
+    "title2": "Verificado",
+    "subtitle": "Comentarios de la industria",
+    "t1Quote": "La capacidad de Thanuka para traducir datos complejos de RCM en modelos predictivos transformó nuestra visión del flujo de ingresos. Su liderazgo técnico redujo nuestros esfuerzos de auditoría manual en un 40%.",
+    "t1Author": "Ejecutivo Senior",
+    "t1Company": "Collective RCM (Pvt) Ltd",
+    "t2Quote": "Un talento raro que entiende tanto la matemática profunda de la IA como las practicidades de la ingeniería full-stack. Entrega sistemas que realmente resuelven cuellos de botella empresariales.",
+    "t2Author": "Colaborador Técnico",
+    "t2Company": "Laboratorio de Innovación de IA"
+  },
+  "Education": {
+    "pageTitle": "Base Académica.",
+    "pageSubtitle": "Cerrando la brecha entre la teoría y el impacto práctico a través de una calificación académica y técnica rigurosa.",
+    "mscTitle": "Magíster en Analítica de Negocios",
+    "mscInst": "Universidad de Colombo",
+    "mscDate": "2023 – 2025 (Previsto)",
+    "mscDesc": "Enfoque en analítica predictiva, aprendizaje automático, inteligencia de negocios y aplicaciones del mundo real en finanzas de la salud. Tesis sobre 'Analítica predictiva para la predicción de pagos en RCM' involucró el desarrollo y comparación de modelos de ML.",
+    "bscTitle": "Licenciatura en Sistemas Computacionales y Redes",
+    "bscInst": "Universidad de Greenwich",
+    "bscDate": "2019 – 2021",
+    "bscDesc": "Énfasis en redes de computadoras, programación y administración de sistemas. Obtuvo bases sólidas en gestión de bases de datos, desarrollo de software y protocolos de red. Especializado en redes digitales, sistemas de telecomunicaciones y resolución de problemas de red.",
+    "dipTitle": "Diploma Avanzado en Sistemas de Telecomunicaciones y Redes Digitales",
+    "dipInst": "City & Guilds",
+    "dipDate": "2017 – 2018",
+    "dipDesc": "Especializado en redes digitales, sistemas de telecomunicaciones y resolución de problemas de red.",
+    "schoolTitle": "Niveles Avanzado y Ordinario G.C.E.",
+    "schoolInst": "Calificación Escolar",
+    "schoolDate": "2011 y 2014",
+    "schoolDesc": "Completó la educación secundaria con el nivel avanzado G.C.E. en 2014 y el nivel ordinario en 2011."
+  },
+  "Labs": {
+    "pageTitle": "Laboratorios de IA y Simulaciones",
+    "pageSubtitle": "Un entorno de pruebas de alta fidelidad que demuestra la orquestación de IA de misión crítica, tuberías de Generación Aumentada por Recuperación (RAG) y capas de decisión autónomas.",
+    "telemetry": "Telemetría de Arquitectura en Vivo y Nodo del Sistema",
+    "metrics": {
+      "latency": "Latencia de Extremo a Extremo",
+      "latencyDesc": "Tiempo de inferencia de ida y vuelta global.",
+      "confidence": "Confianza Predictiva",
+      "confidenceDesc": "Precisión media a través de clústeres de nodos.",
+      "uptime": "Disponibilidad del Sistema",
+      "uptimeDesc": "Tiempo de actividad del servicio de alta disponibilidad."
+    },
+    "ragTitle": "Tubería Autónoma",
+    "ragDesc": "Experimente la lógica de toma de decisiones de un agente de IA autónomo que procesa tareas de recuperación complejas en tiempo real.",
+    "simulator": {
+      "btnRun": "EJECUTAR SIMULACIÓN DE ARQUITECTURA",
+      "btnProcessing": "PROCESANDO...",
+      "consoleTitle": "Consola del Agente",
+      "engineTitle": "Motor Neuronal",
+      "engineDesc": "Gemini 3.1 Pro Integrado",
+      "steps": {
+        "input": "Consulta de Usuario",
+        "inputDesc": "Procesando intención de lenguaje natural...",
+        "search": "Recuperación de Conocimiento",
+        "searchDesc": "Escaneando más de 7M de incrustaciones vectoriales...",
+        "reasoning": "Razonamiento LLM",
+        "reasoningDesc": "Sintetizando contexto a través de Gemini 3.1...",
+        "execution": "Acción del Agente",
+        "executionDesc": "Ejecutando llamadas de herramientas autónomas...",
+        "output": "Resultado Verificado",
+        "outputDesc": "Entregando respuesta fundamentada."
+      },
+      "logs": {
+        "search": "[RECUPERACIÓN] Coincidencia de clústeres vectoriales en FAISS... (Puntuación: 0.94)",
+        "reasoning": "[LLM] Ventana de contexto inyectada (4096 tokens). Gemini sintetizando...",
+        "execution": "[ACCIÓN] Llamada de función activada: get_market_data()",
+        "output": "[FINAL] Puerta de verificación pasada. Salida estructurada.",
+        "idle": "[SISTEMA] Orquestador de Agentes Inactivo.",
+        "init": "[SISTEMA] Iniciando flujo de trabajo de agentes...",
+        "buffer": "[INFO] Inicializando búferes de memoria...",
+        "completed": "[SISTEMA] Tarea completada con éxito."
+      }
+    }
+  },
+  "CaseStudies": {
+    "pageTitle": "Impactos Estratégicos.",
+    "pageSubtitle": "Casos de estudio en ingeniería de IA, ciencia de datos y arquitectura empresarial, enfocados en resolver cuellos de botella empresariales complejos.",
+    "p1": {
+      "title": "AI Job Hunter: Sistema Autónomo de Adquisición de Talento",
+      "role": "Ingeniero Principal de IA y Arquitecto",
+      "summary": "Construí un sistema autónomo que reduce el tiempo de solicitud de empleo en un 90% mediante filtrado inteligente y personalización basada en RAG.",
+      "challenge": "El proceso manual de descubrir, emparejar y solicitar oportunidades de alta señal es extremadamente ineficiente y propenso a una baja calidad. La mayoría de las herramientas de automatización utilizan 'fuerza bruta', lo que resulta en malos resultados.",
+      "solution": "Diseñé un sistema multi-agente utilizando LangChain y Gemini 3.1. Cuenta con una capa de decisión que califica las oportunidades antes de postularse, una tubería RAG para la inyección dinámica de contexto y Playwright para la automatización del navegador similar a la humana.",
+      "impact": "Construí un sistema autónomo que reduce el tiempo de solicitud de empleo en un 90% mediante filtrado inteligente y personalización basada en RAG."
+    },
+    "p2": {
+      "title": "Analítica Predictiva para el Pronóstico de Pagos en Salud",
+      "role": "Científico de Datos Principal / Investigador",
+      "summary": "Aprovechando el ML para pronosticar comportamientos de pago en RCM, logrando R² > 0.90 para la priorización financiera.",
+      "challenge": "Los ciclos de ingresos de salud suelen ser reactivos. Las organizaciones luchan con pagos retrasados y altas tasas de denegación porque no pueden predecir qué reclamaciones están en riesgo.",
+      "solution": "Desarrollé un marco proactivo utilizando Random Forest y Redes Neuronales en un conjunto de datos de 3 años (~28k registros). Aprovechando el aprendizaje automático para pronosticar comportamientos de pago en RCM, logrando R² > 0.90 para la priorización financiera.",
+      "impact": "Mejoró la previsibilidad financiera para proveedores de salud a gran escala y se logró una precisión de R² > 0.90."
+    },
+    "p3": {
+      "title": "RevOps AI: Plataforma Autónoma de Auditoría de Datos",
+      "role": "Arquitecto de Sistemas y Desarrollador Full Stack",
+      "summary": "Un SaaS B2B que transforma el RCM de salud a través de auditoría de datos autónoma y pods de agentes.",
+      "challenge": "Los errores de facturación y los problemas de higiene de datos cuestan millones a los proveedores de salud. La auditoría manual es lenta, inconsistente y no escalable.",
+      "solution": "Construí una plataforma con una Arquitectura de Agentes Autónomos (CEO, Eng, ML Pods). Utiliza un componente lógico especializado para escanear patrones arquitectónicos y modelos de Scikit-learn para el pronóstico de pagos.",
+      "impact": "Reducción del esfuerzo de auditoría manual en un 40% y mejora de la visibilidad de los KPI para los controladores financieros a través de paneles predictivos en tiempo real."
+    },
+    "p4": {
+      "title": "Intranet Colectiva: Motor de Flujo de Trabajo Empresarial",
+      "role": "Arquitecto Full Stack y Desarrollador Principal",
+      "summary": "Una plataforma interna segura que centraliza la incorporación, capacitación y seguimiento del desempeño para los equipos de RCM.",
+      "challenge": "La gestión de un equipo en crecimiento en múltiples departamentos de RCM requería un sistema centralizado y seguro para la capacitación, gestión de tareas e informes administrativos.",
+      "solution": "Diseñé una plataforma interna segura utilizando Next.js y PostgreSQL. Cuenta con tareas centralizadas, flujos de incorporación y seguimiento automatizado del desempeño para los equipos de RCM.",
+      "impact": "Operaciones optimizadas para más de 50 miembros, mejorando la productividad y la seguridad de los datos."
+    },
+    "p5": {
+      "title": "CareerForge AI 3.0: Sistema de Operación de Carrera con IA de Voz",
+      "role": "Ingeniero de IA Full Stack",
+      "summary": "Revolucionando cómo los candidatos se preparan para entrevistas de alto nivel con retroalimentación de IA en tiempo real.",
+      "challenge": "Los buscadores de empleo carecen de datos realistas y herramientas de práctica de alta fidelidad para roles tecnológicos competitivos.",
+      "solution": "Construí un sistema de operación de carrera multi-agente con interacciones de voz de baja latencia (Gemini 3.1 Live API) y fundamentación de mercado en tiempo real mediante la integración de Google Search.",
+      "impact": "Construí una plataforma de carrera enfocada en la voz que proporciona fundamentación de mercado en tiempo real y entrenamiento para entrevistas."
+    },
+    "p6": {
+      "title": "ReviewRadar AI: Inteligencia de Sentimiento del Consumidor",
+      "role": "Ingeniero de IA y Datos",
+      "summary": "Procesando más de 7M de reseñas para generar información accionable sobre el sentimiento para el crecimiento empresarial.",
+      "challenge": "Las empresas luchan por extraer información accionable de volúmenes masivos de comentarios de clientes no estructurados.",
+      "solution": "Desarrollé una plataforma de inteligencia de sentimiento de extremo a extremo con tuberías ETL multihilo, modelos de ML de ensamble y puntuaciones de sentimiento VADER.",
+      "impact": "Capturó y procesó más de 7M de puntos de datos para proporcionar una visión técnica profunda del comportamiento del consumidor."
+    },
+    "p7": {
+      "title": "CodeX: Práctica de Codificación Competitiva y Algorítmica",
+      "role": "Desarrollador Full Stack e Investigador Algorítmico",
+      "summary": "Una plataforma robusta para la práctica algorítmica de alto rendimiento y simulaciones de codificación competitiva.",
+      "challenge": "Las plataformas de codificación tradicionales a menudo carecen de un seguimiento de rendimiento especializado y modos de práctica particulares.",
+      "solution": "Construí un entorno especializado centrado en la eficiencia algorítmica, con métricas de ejecución en tiempo real y análisis de complejidad estructural.",
+      "impact": "Desarrollé un entorno de alto rendimiento para dominar las estructuras de datos y la complejidad algorítmica."
+    },
+    "p8": {
+      "title": "Sistema de Gestión de Desastres: Centro de Respuesta Centralizado",
+      "role": "Diseñador de Sistemas y Desarrollador Líder",
+      "summary": "Digitalización de la coordinación de ayuda y la asignación de recursos durante desastres naturales críticos.",
+      "challenge": "La coordinación durante los desastres naturales suele estar fragmentada, lo que provoca retrasos en la ayuda y una distribución ineficiente de los recursos.",
+      "solution": "Desarrollé una plataforma de respuesta centralizada que integra informes en tiempo real, seguimiento de recursos y módulos de coordinación de voluntarios utilizando PHP y MySQL.",
+      "impact": "Esfuerzos de ayuda centralizados y distribución de recursos optimizada para una respuesta ante desastres más rápida."
+    },
+    "p9": {
+      "title": "Aplicación Estadística: Modelado de Pronóstico Financiero",
+      "role": "Investigador Estadístico",
+      "summary": "Aplicando metodologías estadísticas rigurosas para validar la precisión de los pronósticos financieros.",
+      "challenge": "Los pronósticos financieros a menudo fallan debido a una validación inadecuada de los supuestos estadísticos subyacentes en entornos de alta volatilidad.",
+      "solution": "Diseñé una aplicación especializada para comparar el rendimiento predictivo a través de varios modelos estadísticos, incorporando análisis de sensibilidad.",
+      "impact": "Mejora de la confiabilidad de los pronósticos a través de validación estadística avanzada y verificaciones de distribución de errores."
+    }
+  },
+  "Services": {
+    "pageTitle": "Soluciones para la Inteligencia.",
+    "pageSubtitle": "Proporciono construcción de puentes técnicos especializados para organizaciones que necesitan transformar datos complejos en ROI automatizado y medible.",
+    "available": "Disponible para Consultoría Técnica",
+    "consultingTitle": "¿Necesita una Hoja de Ruta Técnica?",
+    "consultingDesc": "Ya sea que necesite una auditoría de IA o una plataforma de datos a gran escala, tracemos su arquitectura.",
+    "ctaBook": "Reservar Llamada de Estrategia",
+    "ctaExplore": "Explorar Casos de Estudio",
+    "s1": {
+      "title": "Sistemas de IA y Autónomos",
+      "desc": "Arquitecturando la próxima generación de lógica de negocios mediante sistemas multiagente.",
+      "scope": "Alcance Estratégico",
+      "b1": "Arquitecturas de Agentes Autónomos Personalizadas (Pods de CEO, Ing y ML)",
+      "b2": "Pipelines RAG orquestados por LangChain con búsqueda vectorial FAISS",
+      "b3": "Simulaciones de IA de voz de baja latencia (Gemini Live API)",
+      "b4": "Inteligencia de mercado en tiempo real y fundamentación en Google Search",
+      "b5": "Motores de descubrimiento automatizados con personalización impulsada por RAG",
+      "b6": "Auditoría de agentes para identificar cuellos de botella operativos"
+    },
+    "s2": {
+      "title": "Ecosistemas Empresariales Full-Stack",
+      "desc": "Construyendo plataformas resilientes y de alto rendimiento que escalan globalmente.",
+      "scope": "Alcance de Arquitectura",
+      "b1": "Desarrollo de aplicaciones web full-stack usando Flask, SQL, HTML, CSS y JavaScript",
+      "b2": "Implementación de autenticación (2FA), control de acceso basado en roles y paneles de rendimiento",
+      "b3": "Diseño de APIs backend y optimización de arquitectura de bases de datos para escalabilidad",
+      "b4": "Integración de almacenamiento de datos estructurados usando MySQL/PostgreSQL",
+      "b5": "Gestión de hosting de alta disponibilidad y pipelines de CI/CD automatizados (GitHub Actions)"
+    },
+    "s3": {
+      "title": "Ciencia de Datos e Inteligencia Predictiva",
+      "desc": "Ingeniería de plataformas predictivas especializadas para escala empresarial.",
+      "scope": "Alcance de Inteligencia",
+      "b1": "Ingeniería de kernels predictivos (R² > 0.90) para pronósticos de comportamiento financiero en salud.",
+      "b2": "Diseño de plataformas de inteligencia de sentimientos de extremo a extremo que procesan más de 7M de reseñas.",
+      "b3": "Implementación de validación estadística avanzada (PCA, Pruebas de Hipótesis) para confiabilidad del modelo.",
+      "b4": "Construcción de paneles interactivos del ciclo de vida de ML usando Streamlit y Plotly.",
+      "b5": "Arquitectura de pipelines ETL de alta escala para procesamiento de datos de misión crítica."
+    }
+  },
+  "Experience": {
+    "pageTitle": "Experiencia.",
+    "pageSubtitle": "Una trayectoria de ingeniería de sistemas complejos y liderazgo de la transformación digital a escala.",
+    "professional": "Arco Profesional",
+    "stack": "Pila Técnica",
+    "exp1": {
+      "role": "Gerente Asistente y Arquitecto Líder",
+      "company": "Collective RCM (Pvt) Ltd",
+      "period": "2019 – Presente",
+      "s1": {
+        "title": "Arquitectura Empresarial y Transformación Digital",
+        "d1": "Arquitecto Principal del Sistema de Intranet Colectiva: Diseñé una plataforma híbrida segura SQL/NoSQL (Flask, PostgreSQL, MongoDB GridFS) que centraliza todos los flujos de trabajo empresariales.",
+        "d2": "Implementé un marco de alta seguridad con 2FA, validación de correo electrónico de la empresa, limitación de velocidad basada en Redis y lógica de bloqueo de cuentas.",
+        "d3": "Diseñé un motor complejo de capacitación y progresión con evaluaciones programadas, calificación automatizada y puertas de aprobación administrativa.",
+        "d4": "Gestioné canales de CI/CD de extremo a extremo a través de GitHub Actions con implementación en Azure Web Apps."
+      },
+      "s2": {
+        "title": "Liderazgo Estratégico e Impacto Operativo",
+        "d1": "Lideré equipos multifuncionales en la Gestión del Ciclo de Ingresos (RCM) de atención médica, optimizando los flujos de trabajo de facturación, registro y gestión de denegaciones.",
+        "d2": "Arquitecté paneles de análisis de rendimiento en tiempo real, reduciendo el esfuerzo de auditoría manual en más del 40% y mejorando la visibilidad de los KPI.",
+        "d3": "Mentoricé y capacité al personal en flujos de trabajo técnicos y operativos, asegurando una tasa de aprobación del 95% en los programas de certificación interna."
+      }
+    },
+    "exp2": {
+      "role": "Desarrollador Independiente Full Stack e IA",
+      "company": "Portafolio de Proyectos Técnicos",
+      "period": "En curso",
+      "s1": {
+        "title": "Sistemas Avanzados de IA e Innovación RAG",
+        "d1": "AI Job Hunter: Diseñé un sistema autónomo de solicitud de empleo utilizando una tubería RAG orquestada por LangChain, búsqueda de vectores FAISS y automatización de navegador Playwright.",
+        "d2": "CodeX: Construí un motor de inteligencia de arquitectura utilizando Gemini 3.1 Pro y un GraphEngine de análisis estático personalizado para el mapeo automático de repositorios.",
+        "d3": "RevOps AI: Desarrollé un SaaS B2B para la auditoría de ingresos de atención médica utilizando una arquitectura de agentes autónomos (CEO, Eng, ML Pods) y pronósticos de Scikit-learn.",
+        "d4": "CareerForge AI 3.0: Diseñé un sistema operativo de carrera multi-agente con IA de voz de baja latencia (Gemini 3.1 Live API) y fundamentación de mercado en tiempo real.",
+        "d5": "ReviewRadar AI: Desarrollé una plataforma de inteligencia de sentimiento de extremo a extremo que procesa más de 7 millones de reseñas con modelos de ML de ensamble."
+      },
+      "s2": {
+        "title": "Investigación Científica y Sistemas Críticos",
+        "d1": "Análisis Predictivo de RCM: Publiqué una investigación que logró un R² > 0.90 en el pronóstico de pagos de atención médica utilizando Random Forest y Redes Neuronales.",
+        "d2": "Gestión de Desastres: Desarrollé un sistema de mitigación de inundaciones basado en Laravel para Sri Lanka con puertas de enlace SMS integradas para alertas masivas geocercadas.",
+        "d3": "Aplicación Estadística: Construí una herramienta de análisis interactiva para PCA, estadística inferencial y gestión del ciclo de vida de ML utilizando Streamlit."
+      }
+    }
+  },
+  "CTA": {
+    "title1": "¿Listo para ",
+    "title2": "Diseñar",
+    "title3": " el Futuro?",
+    "desc": "Desde pods de IA autónomos hasta plataformas a escala empresarial, construyamos algo que marque la diferencia.",
+    "btn": "Reservar Estrategia"
+  }
+}

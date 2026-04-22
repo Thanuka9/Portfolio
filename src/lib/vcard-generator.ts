@@ -19,7 +19,7 @@ EMAIL;TYPE=PREF,INTERNET:${contact.email}
 URL:${contact.url}
 X-SOCIALPROFILE;TYPE=linkedin:${contact.linkedin}
 ADR;TYPE=WORK,POSTAL,PARCEL:;;Colombo;Western Province;;Sri Lanka
-NOTE:AI Architect & Data Scientist specializing in Autonomous Agents and Predictive Analytics.
+NOTE:AI Architect & Data Scientist specializing in Autonomous Agents, RAG Pipelines, and Healthcare Predictive Analytics. Achieving R2 > 0.90 in production systems.
 REV:${new Date().toISOString()}
 END:VCARD`;
 

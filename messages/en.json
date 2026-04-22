@@ -1,0 +1,332 @@
+{
+  "Navigation": {
+    "overview": "Overview",
+    "services": "Services & Strategic Value",
+    "projects": "Case Studies",
+    "experience": "Professional Impact",
+    "education": "Academic Foundation",
+    "contact": "Strategic Inquiry",
+    "labs": "AI Labs (Simulations)"
+  },
+  "Sidebar": {
+    "title": "Thanuka Ellepola.",
+    "role": "AI Engineer | Data Scientist | Full Stack Dev",
+    "bio": "Architecting high-performance enterprise AI ecosystems and predictive platforms.",
+    "connectivity": "Connectivity",
+    "bookStrategy": "Book Strategy",
+    "privacy": "Privacy Policy & Terms"
+  },
+  "Hero": {
+    "available": "Available for Strategic AI & Engineering Projects",
+    "title": "Architecting",
+    "subtitle": "Enterprise Intelligence.",
+    "roles": {
+      "arch": "AI Engineer",
+      "ds": "Data Scientist",
+      "eng": "Full Stack Dev",
+      "sol": "AI Architect"
+    },
+    "description": "Engineering high-performance intelligence for complex enterprise ecosystems. I bridge the gap between cutting-edge AI research and mission-critical production systems.",
+    "ctaBook": "Book a Strategy Call",
+    "ctaView": "View Case Studies"
+  },
+  "Stats": {
+    "accLabel": "Predictive Accuracy",
+    "effLabel": "Manual Effort Reduction",
+    "dataLabel": "Data Points Processed",
+    "projLabel": "Successful Projects"
+  },
+  "Pillars": {
+    "aiTitle": "AI & Autonomous Agents",
+    "aiDesc": "Architecting multi-agent systems and RAG pipelines that reason, execute, and scale with enterprise-grade reliability.",
+    "intelTitle": "Intelligence & Analytics",
+    "intelDesc": "Engineering predictive kernels and ML pipelines with R² > 0.90 accuracy, turning fragmented data into strategic foresight.",
+    "entTitle": "Enterprise Solutions",
+    "entDesc": "Designing high-security, full-stack platforms with hybrid SQL/NoSQL architectures and low-latency performance."
+  },
+  "About": {
+    "title": "The Strategic Edge",
+    "p1": "With over five years of leadership at the intersection of Healthcare and Technology, I don't just solve technical problems—I architect systems that redefine operational efficiency.",
+    "sigTitle": "Signature Achievement",
+    "sigQuote": "\"Engineered AI-driven forecasting kernels achieving R² > 0.90, effectively reducing manual audit overhead by 40% across enterprise workflows.\"",
+    "sigAuthor": "— Assistant Manager @ Collective RCM",
+    "coreTitle": "Core Competencies",
+    "c1": "Autonomous AI Architectures",
+    "c2": "Predictive Analytics (RCM/Healthcare)",
+    "c3": "Enterprise Full-Stack Ecosystems",
+    "c4": "Multi-Agent System Orchestration",
+    "c5": "Mission-Critical Security & 2FA"
+  },
+  "Testimonials": {
+    "title1": "Verified ",
+    "title2": "Impact",
+    "subtitle": "Feedback from the industry",
+    "t1Quote": "Thanuka's ability to translate complex RCM data into predictive models transformed how we view our revenue flow. His technical leadership reduced our manual audit efforts by 40%.",
+    "t1Author": "Senior Executive",
+    "t1Company": "Collective RCM (Pvt) Ltd",
+    "t2Quote": "A rare talent who understands both the deep mathematics of AI and the practicalities of full-stack engineering. He delivers systems that actually solve business bottlenecks.",
+    "t2Author": "Technical Collaborator",
+    "t2Company": "AI Innovation Lab"
+  },
+  "Education": {
+    "pageTitle": "Academic Foundation.",
+    "pageSubtitle": "Bridging the gap between theory and practical impact through rigorous academic and technical qualification.",
+    "mscTitle": "Master of Business Analytics",
+    "mscInst": "University of Colombo",
+    "mscDate": "2022 – 2025",
+    "mscDesc": "Focus on predictive analytics, machine learning, business intelligence, and real-world applications in healthcare finance. Thesis on 'Predictive Analytics for Payment Prediction in RCM' involved developing and comparing ML models.",
+    "bscTitle": "Bachelor of Computer Systems & Networking",
+    "bscInst": "Greenwich University",
+    "bscDate": "2019 – 2021",
+    "bscDesc": "Emphasis on computer networks, programming, and systems administration. Gained strong foundations in database management, software development, and networking protocols. Specialized in digital networking, telecom systems, and network troubleshooting.",
+    "dipTitle": "Advanced Diploma in Telecommunication System & Digital Networking",
+    "dipInst": "City & Guilds",
+    "dipDate": "2017 – 2018",
+    "dipDesc": "Specialized in digital networking, telecom systems, and network troubleshooting.",
+    "schoolTitle": "G.C.E. Advanced & Ordinary Levels",
+    "schoolInst": "School Qualification",
+    "schoolDate": "2011 & 2014",
+    "schoolDesc": "Completed secondary education with G.C.E. Advanced Level in 2014 and Ordinary Level in 2011."
+  },
+  "Labs": {
+    "pageTitle": "Live AI Labs & Neural Playgrounds",
+    "pageSubtitle": "Mission-critical sandboxes demonstrating high-fidelity AI orchestration, predictive forecasting, and autonomous decision layers built for enterprise-scale reliability.",
+    "telemetry": "Live Architecture Telemetry & System Node",
+    "missionBriefing": {
+      "title": "Mission Briefing",
+      "p1": "The AI Labs are high-fidelity environments where I test and demonstrate the integration of cutting-edge AI research into production-ready enterprise systems. This isn't just code—it's a demonstration of reliability, security, and strategic value.",
+      "p2": "What I Do: I architect systems that don't just 'use' AI, but orchestrate it. From RAG pipelines that ground LLMs in enterprise truth to predictive kernels that forecast financial outcomes with R² > 0.90 accuracy."
+    },
+    "metrics": {
+      "latency": "End-to-End Latency",
+      "latencyDesc": "Global round-trip inference time.",
+      "confidence": "Predictive Confidence",
+      "confidenceDesc": "Mean accuracy across node clusters.",
+      "uptime": "System Availability",
+      "uptimeDesc": "High-availability service uptime."
+    },
+    "ragTitle": "Neural RAG Orchestrator",
+    "ragDesc": "A real-time simulation of a Retrieval-Augmented Generation pipeline. Witness the decision-making logic of autonomous agents scanning millions of vector embeddings to deliver grounded, context-aware intelligence.",
+    "predictiveTitle": "Predictive Forecasting Sandbox",
+    "predictiveDesc": "Interact with a high-fidelity simulation of an RCM (Revenue Cycle Management) forecasting kernel. Adjust system variables to see how neural networks predict payment outcomes and audit risks.",
+    "simulator": {
+      "btnRun": "BEGIN AGENTIC TRACE",
+      "btnProcessing": "PROCESSING KERNEL...",
+      "consoleTitle": "Telemetry Trace",
+      "engineTitle": "Neural Engine",
+      "engineDesc": "Gemini 1.5 Pro Cluster",
+      "steps": {
+        "input": "User Intent",
+        "inputDesc": "Deconstructing natural language intent...",
+        "search": "Vector Retrieval",
+        "searchDesc": "Scanning 7M+ FAISS embeddings...",
+        "reasoning": "LLM Reasoning",
+        "reasoningDesc": "Synthesizing truth via Gemini 1.5 Pro...",
+        "execution": "Agentic Action",
+        "executionDesc": "Executing autonomous tool chains...",
+        "output": "Verified Output",
+        "outputDesc": "Structured, grounded intelligence."
+      },
+      "logs": {
+        "search": "[RETRIEVAL] Matching vector clusters in FAISS... (Score: 0.982)",
+        "reasoning": "[LLM] Context window injected (8192 tokens). Reasoning initialized.",
+        "execution": "[ACTION] Spawning worker pod. Executing: fetch_ground_truth()",
+        "output": "[FINAL] Verification gate passed. Strategy payload delivered.",
+        "idle": "[SYSTEM] Agentic Orchestrator Idle.",
+        "init": "[SYSTEM] Initiating Agentic Workflow...",
+        "buffer": "[INFO] Initializing memory buffers...",
+        "completed": "[SYSTEM] Task Completed Successfully."
+      }
+    },
+    "forecaster": {
+      "title": "Revenue Forecasting Kernel",
+      "subtitle": "Achieving R² > 0.90 in Financial Prioritization",
+      "param1": "Data Density",
+      "param2": "Neural Complexity",
+      "param3": "Historical Variance",
+      "results": {
+        "accuracy": "Model Precision",
+        "risk": "Risk Assessment",
+        "impact": "Financial Impact"
+      },
+      "btnCalculate": "RUN FORECASTING ENGINE",
+      "btnCalculating": "COMPUTING TENSORS..."
+    }
+  },
+  "CaseStudies": {
+    "pageTitle": "Strategic Impacts.",
+    "pageSubtitle": "Case studies in AI engineering, data science, and enterprise architecture—focused on solving complex business bottlenecks.",
+    "p1": {
+      "title": "AI Job Hunter: Autonomous Talent Acquisition System",
+      "role": "Lead AI Engineer & Architect",
+      "summary": "Built an autonomous system that reduces job application time by 90% through intelligent filtering and RAG-based personalization.",
+      "challenge": "The manual process of discovering, matching, and applying for high-signal opportunities is extremely inefficient and prone to low quality. Most automation tools use 'brute force' which results in poor outcomes.",
+      "solution": "Architected a multi-agent system using LangChain and Gemini 3.1. It features a decision layer that scores opportunities before applying, a RAG pipeline for dynamic context injection, and Playwright for human-like browser automation.",
+      "impact": "Built an autonomous system that reduces job application time by 90% through intelligent filtering and RAG-based personalization."
+    },
+    "p2": {
+      "title": "Predictive Analytics for Healthcare Payment Forecasting",
+      "role": "Lead Data Scientist / Researcher",
+      "summary": "Leveraging ML to forecast payment behaviors in RCM, achieving R² > 0.90 for financial prioritization.",
+      "challenge": "Healthcare revenue cycles are often reactive. Organizations struggle with delayed payments and high denial rates because they can't predict which claims are at risk.",
+      "solution": "Developed a proactive framework using Random Forest and Neural Networks on a 3-year dataset (~28k records). Leveraging ML to forecast payment behaviors in RCM, achieving R² > 0.90 for financial prioritization.",
+      "impact": "Enhanced financial predictability for large-scale healthcare providers and achieved R² > 0.90 accuracy."
+    },
+    "p3": {
+      "title": "RevOps AI: Autonomous Data Auditing Platform",
+      "role": "System Architect & Full Stack Developer",
+      "summary": "A B2B SaaS transforming Healthcare RCM through autonomous data auditing and agentic pods.",
+      "challenge": "Billing errors and data hygiene issues cost healthcare providers millions. Manual auditing is slow, inconsistent, and unscalable.",
+      "solution": "Built a platform with an Autonomous Agent Architecture (CEO, Eng, ML Pods). It uses a specialized logic component to scan for architectural patterns and Scikit-learn models for payment forecasting.",
+      "impact": "Reduced manual audit effort by 40% and improved KPI visibility for financial controllers through real-time predictive dashboards."
+    },
+    "p4": {
+      "title": "Collective Intranet: Enterprise Workflow Engine",
+      "role": "Full Stack Architect & Main Developer",
+      "summary": "A secure internal platform centralizing onboarding, training, and performance tracking for RCM teams.",
+      "challenge": "Managing a growing team across multiple RCM departments required a centralized, secure system for training, task management, and administrative reporting.",
+      "solution": "Architected a secure internal platform using Next.js and PostgreSQL. Features centralized tasking, onboarding flows, and automated performance tracking for RCM teams.",
+      "impact": "Streamlined operations for 50+ members, improving productivity and data security."
+    },
+    "p5": {
+      "title": "CareerForge AI 3.0: Voice-AI Career OS",
+      "role": "Full Stack AI Engineer",
+      "summary": "Revolutionizing how candidates prepare for high-stakes interviews with real-time AI feedback.",
+      "challenge": "Job seekers lack realistic, real-time data and high-fidelity practice tools for competitive tech roles.",
+      "solution": "Built a multi-agent career OS featuring low-latency voice interactions (Gemini 3.1 Live API) and real-time market grounding using Google Search integration.",
+      "impact": "Built a voice-first career platform that provides real-time market grounding and interview coaching."
+    },
+    "p6": {
+      "title": "ReviewRadar AI: Consumer Sentiment Intelligence",
+      "role": "AI & Data Engineer",
+      "summary": "Processing 7M+ reviews to generate actionable sentiment insights for business growth.",
+      "challenge": "Businesses struggle to extract actionable insights from massive volumes of unstructured customer feedback.",
+      "solution": "Developed an end-to-end sentiment intelligence platform with multi-threaded ETL pipelines, ensemble ML models, and VADER sentiment scores.",
+      "impact": "Captured and processed 7M+ data points to provide deep technical insight into consumer behavior."
+    },
+    "p7": {
+      "title": "CodeX: Competitive Coding & Algorithmic Practice",
+      "role": "Full Stack Developer & Algorithmic Researcher",
+      "summary": "A robust platform for high-performance algorithmic practice and competitive coding simulations.",
+      "challenge": "Traditional coding platforms often lack specialized local-first performance tracking and specialized practice modes.",
+      "solution": "Built a specialized environment focusing on algorithmic efficiency, featuring real-time execution metrics and structural complexity analysis.",
+      "impact": "Developed a high-performance environment for mastering data structures and algorithmic complexity."
+    },
+    "p8": {
+      "title": "Disaster Management System: Centralized Response Hub",
+      "role": "System Designer & Lead Developer",
+      "summary": "Digitizing relief coordination and resource allocation during critical natural disasters.",
+      "challenge": "Coordination during natural disasters is often fragmented, leading to delayed relief and inefficient resource distribution.",
+      "solution": "Developed a centralized response platform integrating real-time reporting, resource tracking, and volunteer coordination modules using PHP and MySQL.",
+      "impact": "Centralized relief efforts and optimized resource distribution for faster disaster response."
+    },
+    "p9": {
+      "title": "Statistical Application: Financial Forecast Modeling",
+      "role": "Statistical Researcher",
+      "summary": "Applying rigorous statistical methodologies to validate financial forecasting accuracy.",
+      "challenge": "Financial forecasts often fail due to improper validation of underlying statistical assumptions in high-volatility environments.",
+      "solution": "Engineered a specialized application for comparing predictive performance across various statistical models, incorporating sensitivity analysis.",
+      "impact": "Improved forecast reliability through advanced statistical validation and error distribution checks."
+    }
+  },
+  "Services": {
+    "pageTitle": "Solutions for Intelligence.",
+    "pageSubtitle": "I provide specialized technical bridge-building for organizations that need to transform complex data into automated, measurable ROI.",
+    "available": "Available for Technical Consulting",
+    "consultingTitle": "Need a Technical Roadmap?",
+    "consultingDesc": "Whether you need an AI audit or a high-scale data platform, let's map out your architecture.",
+    "ctaBook": "Book a Strategy Call",
+    "ctaExplore": "Explore Case Studies",
+    "s1": {
+      "title": "AI & Autonomous Systems",
+      "desc": "Architecting the next generation of business logic using multi-agent systems.",
+      "scope": "Strategic Scope",
+      "b1": "Custom Autonomous Agent Architectures (CEO, Eng, & ML Pod pods)",
+      "b2": "LangChain-orchestrated RAG Pipelines with FAISS Vector Search",
+      "b3": "Low-latency Voice AI Simulations (Gemini Live API)",
+      "b4": "Real-time Market Intelligence & Google Search Grounding",
+      "b5": "Automated Discovery Engines with RAG-driven Personalization",
+      "b6": "Agentic Auditing for identifying operational bottlenecks"
+    },
+    "s2": {
+      "title": "Full-Stack Enterprise Ecosystems",
+      "desc": "Building resilient, high-performance platforms that scale.",
+      "scope": "Architecture Scope",
+      "b1": "Developed full-stack web applications using Flask, SQL, HTML, CSS, and JavaScript",
+      "b2": "Implemented authentication (2FA), role-based access control, and performance dashboards",
+      "b3": "Designed backend APIs and optimized database architecture for scalability",
+      "b4": "Integrated structured data storage using MySQL/PostgreSQL",
+      "b5": "Managed high-availability hosting and automated CI/CD pipelines (GitHub Actions)"
+    },
+    "s3": {
+      "title": "Predictive Modeling & Analytics",
+      "desc": "Statistical roadmaps for financial and operational growth.",
+      "scope": "Intelligence Scope",
+      "b1": "Payment Behavior Forecasting with R² > 0.90",
+      "b2": "Healthcare RCM Optimization through predictive kernels",
+      "b3": "Sentiment Intelligence platforms processing 7M+ reviews",
+      "b4": "Executive KPI Dashboards with real-time foresight",
+      "b5": "Advanced statistical validation (PCA, Hypothesis Testing)"
+    },
+    "s4": {
+      "title": "Data Engineering & Infrastructure",
+      "desc": "Designing the 'plumbing' for modern AI: Automated pipelines.",
+      "scope": "Infrastructure Scope",
+      "b1": "ETL/ELT Pipeline Automation for cross-platform data",
+      "b2": "Multi-threaded Data Ingestion with Python/Node.js",
+      "b3": "Redis Cache Optimization & low-latency buffering",
+      "b4": "System Monitoring, Logging & Error-State Telemetry",
+      "b5": "Automated Deployment via GitHub Actions & CI/CD"
+    }
+  },
+  "Experience": {
+    "pageTitle": "Expertise.",
+    "pageSubtitle": "A track record of engineering complex systems and leading digital transformation at scale.",
+    "professional": "Professional Arc",
+    "stack": "Technical Stack",
+    "exp1": {
+      "role": "Assistant Manager & Lead Architect",
+      "company": "Collective RCM (Pvt) Ltd",
+      "period": "2019 – Present",
+      "s1": {
+        "title": "Enterprise Architecture & Digital Transformation",
+        "d1": "Principal Architect of the Collective Intranet System: Engineered a secure, hybrid SQL/NoSQL platform (Flask, PostgreSQL, MongoDB GridFS) centralizing all enterprise workflows.",
+        "d2": "Implemented a high-security framework featuring 2FA, company email validation, Redis-based rate limiting, and account lock logic.",
+        "d3": "Designed a complex training-and-progression engine with timed assessments, automated scoring, and administrative approval gates.",
+        "d4": "Managed end-to-end CI/CD pipelines via GitHub Actions with deployment to Azure Web Apps."
+      },
+      "s2": {
+        "title": "Strategic Leadership & Operational Impact",
+        "d1": "Lead multi-functional teams in healthcare Revenue Cycle Management (RCM), optimizing Billing, Posting, and Denial Management workflows.",
+        "d2": "Architected real-time performance analytics dashboards, reducing manual audit effort by over 40% and improving KPI visibility.",
+        "d3": "Mentored and trained staff on technical and operational workflows, ensuring a 95% pass rate in internal certification programs."
+      }
+    },
+    "exp2": {
+      "role": "Independent Full Stack & AI Developer",
+      "company": "Technical Project Portfolio",
+      "period": "Ongoing",
+      "s1": {
+        "title": "Advanced AI Systems & RAG Innovation",
+        "d1": "AI Job Hunter: Architected an autonomous job application system using a LangChain-orchestrated RAG pipeline, FAISS vector search, and Playwright browser automation.",
+        "d2": "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom static analysis GraphEngine for automatic repository mapping.",
+        "d3": "RevOps AI: Developed a B2B SaaS for healthcare revenue auditing using an Autonomous Agent Architecture (CEO, Eng, ML Pods) and Scikit-learn forecasting.",
+        "d4": "CareerForge AI 3.0: Engineered a multi-agent career OS featuring low-latency voice AI (Gemini 3.1 Live API) and real-time market grounding.",
+        "d5": "ReviewRadar AI: Developed an end-to-end sentiment intelligence platform processing ~7M+ reviews with ensemble ML models."
+      },
+      "s2": {
+        "title": "Scientific Research & Critical Systems",
+        "d1": "RCM Predictive Analytics: Published research achieving R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks.",
+        "d2": "Disaster Management: Developed a Laravel-based flood mitigation system for Sri Lanka with integrated SMS gateways for geo-fenced mass alerting.",
+        "d3": "Statistical App: Built an interactive analysis tool for PCA, Inferential Statistics, and ML lifecycle management using Streamlit."
+      }
+    }
+  },
+  "CTA": {
+    "title1": "Ready to ",
+    "title2": "Engineer",
+    "title3": " the Future?",
+    "desc": "From autonomous AI pods to enterprise-scale platforms—let's build something that moves the needle.",
+    "btn": "Book Strategy"
+  }
+}

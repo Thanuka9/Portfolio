@@ -2,10 +2,10 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { Link, usePathname, useRouter } from '@/i18n/routing';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { Home, Briefcase, Code, GraduationCap, Mail, Phone, Sparkles, Github, Linkedin, MapPin } from 'lucide-react';
+// Pathname is now handled by next-intl
+import { Home, Briefcase, Code, GraduationCap, Mail, Phone, Sparkles, Github, Linkedin, MapPin, BrainCircuit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -21,17 +21,27 @@ interface SidebarProps {
   onToggle?: (val: boolean) => void;
 }
 
+import { useTranslations } from 'next-intl';
+
 export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const tNav = useTranslations('Navigation');
+  const tSide = useTranslations('Sidebar');
+
+  const handleLanguageSwitch = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale });
+  };
   const profileImage = imageData.profile;
 
   const navItems = [
-    { href: '/', label: 'Overview', icon: Home },
-    { href: '/services', label: 'Services & Strategic Value', icon: Sparkles },
-    { href: '/projects', label: 'Case Studies', icon: Code },
-    { href: '/experience', label: 'Professional Impact', icon: Briefcase },
-    { href: '/education', label: 'Academic Foundation', icon: GraduationCap },
-    { href: '/contact', label: 'Strategic Inquiry', icon: Mail },
+    { href: '/', label: tNav('overview'), icon: Home },
+    { href: '/labs', label: tNav('labs'), icon: BrainCircuit },
+    { href: '/services', label: tNav('services'), icon: Sparkles },
+    { href: '/projects', label: tNav('projects'), icon: Code },
+    { href: '/experience', label: tNav('experience'), icon: Briefcase },
+    { href: '/education', label: tNav('education'), icon: GraduationCap },
+    { href: '/contact', label: tNav('contact'), icon: Mail },
   ];
 
   return (
@@ -77,15 +87,15 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                   
                   <div className="space-y-4">
                     <h1 className="text-3xl font-black font-headline tracking-tighter text-foreground group-hover:text-primary transition-colors leading-[0.9]">
-                      Thanuka Ellepola.
+                      {tSide('title')}
                     </h1>
                     <p className="font-bold uppercase tracking-[0.1em] text-muted-foreground leading-tight text-[12px]">
-                      AI Architect | Data Scientist
+                      {tSide('role')}
                     </p>
                   </div>
 
                   <p className="text-muted-foreground leading-relaxed font-medium text-lg">
-                    Architecting high-performance enterprise AI ecosystems and predictive platforms.
+                    {tSide('bio')}
                   </p>
                 </div>
 
@@ -118,7 +128,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
               <div className="space-y-12 pt-12">
                 <div className="space-y-6">
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Connectivity</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">{tSide('connectivity')}</h4>
                   <div className="space-y-4">
                     <a href="mailto:thanuka.ellepola@gmail.com" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-all group" aria-label="Send Email to Thanuka">
                       <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center border border-border/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all"><Mail size={16} /></div> 
@@ -138,7 +148,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 <div className="flex flex-col gap-4">
                   <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground w-full font-black h-14 rounded-xl shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-base group/btn" aria-label="Navigate to Strategic Inquiry">
                     <Link href="/contact" onClick={() => onToggle?.(false)} className="flex items-center justify-center gap-2">
-                        Book Strategy <Sparkles size={18} className="group-hover/btn:rotate-12 transition-transform" />
+                        {tSide('bookStrategy')} <Sparkles size={18} className="group-hover/btn:rotate-12 transition-transform" />
                     </Link>
                   </Button>
                   <div className="flex flex-col gap-2">
@@ -165,11 +175,12 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                           <Linkedin size={20} />
                         </a>
                       </div>
+
                       <div className="flex-grow h-8 w-px bg-border/50 mx-1" />
                       <ThemeToggle />
                     </div>
                     <Link href="/privacy" onClick={() => onToggle?.(false)} className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 hover:text-primary text-center transition-colors py-1">
-                      Privacy Policy & Terms
+                      {tSide('privacy')}
                     </Link>
                   </div>
                 </div>

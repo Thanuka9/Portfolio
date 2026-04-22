@@ -2,7 +2,7 @@
 import React from 'react';
 import type {Metadata} from 'next';
 import { Inter, Outfit } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
@@ -14,15 +14,15 @@ export const metadata: Metadata = {
     default: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
     template: `%s | Thanuka Ellepola`,
   },
-  description: 'AI Engineer & Full-Stack Developer specializing in autonomous agents, predictive analytics, and enterprise systems. Transforming complex data into intelligent, scalable business assets.',
-  keywords: ["AI Engineer", "Data Scientist", "Full Stack Developer", "Autonomous Agents", "Generative AI", "Predictive Modeling", "Healthcare Analytics", "RCM Automation", "React 19", "Next.js", "Python", "Technical Consultant"],
+  description: 'AI Architect & Data Scientist specializing in autonomous agents, RAG architectures, predictive analytics, and enterprise engineering. Transforming complex data into scalable business assets with R² > 0.90 accuracy.',
+  keywords: ["AI Architect", "Data Scientist", "AI Engineer", "Full Stack Developer", "Autonomous Agents", "RAG Pipeline", "Generative AI", "Predictive Modeling", "Healthcare Analytics", "RCM Automation", "Technical Consultant", "Enterprise Architecture"],
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
   verification: {
     google: 'ZQtbsNwZsL_u6jqqqC2oep-_N2sU-5RJ8IxgWrspGOI',
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://thanukaellepola.careers/',
   },
   openGraph: {
     title: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
@@ -52,7 +52,7 @@ const profilePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   dateCreated: '2023-10-01T12:00:00-05:00',
-  dateModified: '2026-04-17', // Use static date to prevent hydration mismatch
+  dateModified: '2026-04-17T12:00:00-05:00', // Use static datetime to address Search Console datetime format requirement
   mainEntity: {
     '@type': 'Person',
     name: 'Thanuka Ellepola',
@@ -78,17 +78,36 @@ const profilePageSchema = {
 };
 
 
-import { NeuralBackground } from '@/components/neural-background';
-import { PageShell } from '@/components/page-shell';
-import { AIChatbox } from '@/components/ai-chatbox';
+import { ClientOverlays } from '@/components/client-overlays';
 
-export default function RootLayout({
+import { GlobalErrorBoundary } from '@/components/error-boundary';
+import React, { Suspense } from 'react';
+import { PageShell } from '@/components/page-shell';
+
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
+
+export default async function RootLayout({
   children,
+  params: {locale}
 }: Readonly<{
   children: React.ReactNode;
+  params: {locale: string};
 }>) {
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} dark`} suppressHydrationWarning>
+    <html lang={locale} className={`${inter.variable} ${outfit.variable} dark`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -96,14 +115,20 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased selection:bg-primary/20 bg-background text-foreground min-h-screen relative overflow-x-hidden">
-        <div className="fixed inset-0 mesh-gradient opacity-60 pointer-events-none -z-10" />
-        <NeuralBackground />
-        <div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        
-        <PageShell>
-          {children}
-        </PageShell>
-        <AIChatbox />
+        <NextIntlClientProvider messages={messages}>
+          {/* Optimized Background Layering */}
+          <div className="fixed inset-0 bg-[#060e20] -z-30" />
+          <div className="fixed inset-0 mesh-gradient opacity-40 pointer-events-none -z-20" />
+          <ClientOverlays />
+          
+          <GlobalErrorBoundary>
+            <Suspense fallback={<div className="fixed inset-0 bg-[#060e20] z-[100] flex items-center justify-center text-primary font-black animate-pulse uppercase tracking-[0.5em] text-xs">Synchronizing Neural Interface...</div>}>
+              <PageShell>
+                {children}
+              </PageShell>
+            </Suspense>
+          </GlobalErrorBoundary>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

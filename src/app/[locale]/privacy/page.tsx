@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Shield, Lock, Eye, FileText, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from "@/i18n/routing";
 
 export default function PrivacyPage() {
   const lastUpdated = "April 17, 2026";
