@@ -81,7 +81,7 @@ const profilePageSchema = {
 import { ClientOverlays } from '@/components/client-overlays';
 
 import { GlobalErrorBoundary } from '@/components/error-boundary';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { PageShell } from '@/components/page-shell';
 
 import { NextIntlClientProvider } from 'next-intl';

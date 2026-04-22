@@ -34,12 +34,14 @@ function ParticleSwarm() {
           count={count}
           array={positions}
           itemSize={3}
+          args={[positions, 3]}
         />
         <bufferAttribute
           attach="attributes-size"
           count={count}
           array={sizes}
           itemSize={1}
+          args={[sizes, 1]}
         />
       </bufferGeometry>
       <pointsMaterial 
