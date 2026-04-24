@@ -65,8 +65,8 @@ export function PredictiveSandbox() {
         <div className="space-y-10">
             <div className="space-y-5">
                 <div className="flex justify-between items-center">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/50">{t('param1')}</label>
-                    <span className="text-[10px] font-black text-primary font-mono">{dataDensity}%</span>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{t('param1')}</label>
+                    <span className="text-sm font-black text-primary font-mono">{dataDensity}%</span>
                 </div>
                 <Slider 
                     value={dataDensity} 
@@ -79,8 +79,8 @@ export function PredictiveSandbox() {
 
             <div className="space-y-5">
                 <div className="flex justify-between items-center">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/50">{t('param2')}</label>
-                    <span className="text-[10px] font-black text-primary font-mono">{complexity}%</span>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{t('param2')}</label>
+                    <span className="text-sm font-black text-primary font-mono">{complexity}%</span>
                 </div>
                 <Slider 
                     value={complexity} 
@@ -93,8 +93,8 @@ export function PredictiveSandbox() {
 
             <div className="space-y-5">
                 <div className="flex justify-between items-center">
-                    <label className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/50">{t('param3')}</label>
-                    <span className="text-[10px] font-black text-amber-500 font-mono">{variance}%</span>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{t('param3')}</label>
+                    <span className="text-sm font-black text-amber-500 font-mono">{variance}%</span>
                 </div>
                 <Slider 
                     value={variance} 
@@ -133,12 +133,12 @@ export function PredictiveSandbox() {
                 className="glass-panel p-6 rounded-2xl border-white/5 bg-emerald-500/[0.03] space-y-3"
             >
                 <div className="flex justify-between items-center">
-                    <Target className="text-emerald-500/70" size={20} />
-                    <span className="text-[7px] font-black uppercase tracking-[0.2em] opacity-20">Precision Gate</span>
+                    <Target className="text-emerald-500/70" size={24} />
+                    <span className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30">Precision Gate</span>
                 </div>
                 <div>
-                    <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/50">{t('results.accuracy')}</p>
-                    <p className="text-3xl font-black font-headline text-emerald-500/90 tracking-tighter">{results.accuracy.toFixed(2)}%</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{t('results.accuracy')}</p>
+                    <p className="text-4xl font-black font-headline text-emerald-500/90 tracking-tighter">{results.accuracy.toFixed(2)}%</p>
                 </div>
             </motion.div>
 
@@ -147,12 +147,12 @@ export function PredictiveSandbox() {
                 className="glass-panel p-6 rounded-2xl border-white/5 bg-amber-500/[0.03] space-y-3"
             >
                 <div className="flex justify-between items-center">
-                    <AlertTriangle className="text-amber-500/70" size={20} />
-                    <span className="text-[7px] font-black uppercase tracking-[0.2em] opacity-20">Risk Factor</span>
+                    <AlertTriangle className="text-amber-500/70" size={24} />
+                    <span className="text-[8px] font-black uppercase tracking-[0.2em] opacity-30">Risk Factor</span>
                 </div>
                 <div>
-                    <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/50">{t('results.risk')}</p>
-                    <p className="text-3xl font-black font-headline text-amber-500/90 tracking-tighter">{results.risk.toFixed(1)}%</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{t('results.risk')}</p>
+                    <p className="text-4xl font-black font-headline text-amber-500/90 tracking-tighter">{results.risk.toFixed(1)}%</p>
                 </div>
             </motion.div>
         </div>
@@ -163,9 +163,9 @@ export function PredictiveSandbox() {
         >
             <div className="flex justify-between items-center relative z-10">
                 <div className="space-y-1">
-                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/60">{t('results.impact')}</p>
-                    <h4 className="text-3xl font-black font-headline tracking-tighter">
-                        ${(results.impact / 1000).toFixed(1)}K <span className="text-xs opacity-20 uppercase ml-2 tracking-widest">ROI / QTR</span>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/70">{t('results.impact')}</p>
+                    <h4 className="text-4xl font-black font-headline tracking-tighter">
+                        ${(results.impact / 1000).toFixed(1)}K <span className="text-sm opacity-30 uppercase ml-2 tracking-widest">ROI / QTR</span>
                     </h4>
                 </div>
                 <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary/60">
@@ -188,12 +188,12 @@ export function PredictiveSandbox() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(138,43,226,0.05),transparent)] pointer-events-none" />
         </motion.div>
 
-        <div className="glass-panel p-6 rounded-2xl border-white/5 bg-background/10 space-y-3">
-            <h4 className="text-[9px] font-black uppercase tracking-[0.3em] flex items-center gap-2.5 text-muted-foreground/80">
-                <BrainCircuit size={12} className="text-primary/70" />
+        <div className="glass-panel p-8 rounded-2xl border-white/5 bg-background/10 space-y-4">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] flex items-center gap-3 text-muted-foreground/80">
+                <BrainCircuit size={16} className="text-primary/70" />
                 Network Architecture Logic
             </h4>
-            <p className="text-[10px] text-muted-foreground/60 leading-relaxed font-medium">
+            <p className="text-xs text-muted-foreground/70 leading-relaxed font-medium">
                 The simulation utilizes a Feed-Forward Neural Network architecture with Dropout layers to mitigate variance. The accuracy peak is derived from the convergence of data density and hyper-parameter optimization logic I developed for Collective RCM.
             </p>
         </div>

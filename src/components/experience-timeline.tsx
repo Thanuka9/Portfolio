@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, CloudCog, Building, Rocket, CheckCircle2 } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, CloudCog, Building, Rocket, CheckCircle2, Layers } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 export function ExperienceTimeline() {
@@ -46,24 +46,74 @@ export function ExperienceTimeline() {
 
   const technicalSkills = [
     {
-      category: "AI & Machine Learning",
-      icon: BrainCircuit,
-      skills: ["Gemini 3.1 Pro", "LangChain", "RAG & Vector DB (FAISS/Pinecone)", "Scikit-learn", "Natural Language Processing"],
-    },
-    {
-      category: "Full Stack & Backend",
+      category: "Programming & Development",
       icon: Code,
-      skills: ["Python (FastAPI, Flask)", "TypeScript / React 19 / Next.js", "PostgreSQL", "MongoDB", "Redis"],
+      skills: ["Python (Pandas, NumPy, Scikit-learn, TensorFlow)", "SQL (MySQL, PostgreSQL)", "Flask, REST APIs", "HTML, CSS, JavaScript", "TypeScript / React 19 / Next.js"],
+      color: "text-blue-400",
+      bg: "bg-blue-400/10",
+      border: "border-blue-400/20",
+      hover: "hover:bg-blue-400/5",
+      accent: "from-blue-500/20 to-cyan-500/20"
     },
     {
-      category: "Cloud & Infrastructure",
-      icon: CloudCog,
-      skills: ["Microsoft Azure", "GCP", "Docker & Kubernetes", "Git / GitHub Actions", "CI/CD Pipelines"],
+      category: "Machine Learning & AI",
+      icon: BrainCircuit,
+      skills: ["Regression, Classification, Clustering", "Ensemble Learning, NLP (TF-IDF, SVD, VADER)", "Model Evaluation & Hyperparameter Tuning", "LLMs, Prompt Engineering, Embeddings", "RAG & Vector Databases (FAISS/Pinecone)"],
+      color: "text-purple-400",
+      bg: "bg-purple-400/10",
+      border: "border-purple-400/20",
+      hover: "hover:bg-purple-400/5",
+      accent: "from-purple-500/20 to-pink-500/20"
     },
     {
-      category: "Tools & Intelligence",
+      category: "AI Systems & Automation",
+      icon: Cpu,
+      skills: ["AI System Design & Decision Engines", "Workflow & Browser Automation (Playwright)", "End-to-End Pipeline Development", "Intelligent Ranking Systems", "System Ready for Query Integration"],
+      color: "text-indigo-400",
+      bg: "bg-indigo-400/10",
+      border: "border-indigo-400/20",
+      hover: "hover:bg-indigo-400/5",
+      accent: "from-indigo-500/20 to-blue-500/20"
+    },
+    {
+      category: "Data Engineering & Processing",
+      icon: Layers,
+      skills: ["ETL Pipelines & Data Preprocessing", "Large-scale Data Handling (~7M+ records)", "Parallel Processing & Batch Processing", "Data Pipeline Design & Feature Extraction", "Data Cleaning & Hygiene"],
+      color: "text-emerald-400",
+      bg: "bg-emerald-400/10",
+      border: "border-emerald-400/20",
+      hover: "hover:bg-emerald-400/5",
+      accent: "from-emerald-500/20 to-teal-500/20"
+    },
+    {
+      category: "Data Visualization & Analytics",
       icon: BarChart3,
-      skills: ["Power BI", "Mermaid.js / Plotly", "Streamlit", "VADER Sentiment", "Pandas / NumPy"],
+      skills: ["Power BI", "Matplotlib, Plotly", "Dashboard Development", "KPI Monitoring", "Statistical Validation (PCA, Hypothesis Testing)"],
+      color: "text-amber-400",
+      bg: "bg-amber-400/10",
+      border: "border-amber-400/20",
+      hover: "hover:bg-amber-400/5",
+      accent: "from-amber-500/20 to-orange-500/20"
+    },
+    {
+      category: "Tools & Technologies",
+      icon: CloudCog,
+      skills: ["Git, GitHub", "SQLAlchemy, Streamlit", "Microsoft Azure / GCP", "Docker & Kubernetes", "CI/CD (GitHub Actions)"],
+      color: "text-sky-400",
+      bg: "bg-sky-400/10",
+      border: "border-sky-400/20",
+      hover: "hover:bg-sky-400/5",
+      accent: "from-sky-500/20 to-indigo-500/20"
+    },
+    {
+      category: "AI Labs (Simulations)",
+      icon: Rocket,
+      skills: ["Architectural simulation of localized RAG", "Agentic workflows & Trace telemetry", "Predictive Forecasting Kernels"],
+      color: "text-primary",
+      bg: "bg-primary/10",
+      border: "border-primary/20",
+      hover: "hover:bg-primary/5",
+      accent: "from-primary/20 to-indigo-500/20"
     }
   ];
 
@@ -154,22 +204,31 @@ export function ExperienceTimeline() {
           <Cpu className="text-primary" />
           {t('stack')}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
             {technicalSkills.map((category, index) => {
               const Icon = category.icon;
               return (
-                <div key={index} className="glass-panel p-8 rounded-[2.5rem] space-y-6 group hover:bg-primary/5 transition-all">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                    <Icon size={28} />
-                  </div>
-                  <h3 className="text-xl font-black tracking-tight">{category.category}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span key={skill} className="px-2.5 py-1 rounded-lg bg-secondary/50 text-[10px] uppercase tracking-widest font-black text-muted-foreground border border-border/50">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                <div key={index} className={`glass-panel p-8 rounded-[2.5rem] space-y-6 group transition-all relative overflow-hidden ${category.hover}`}>
+                   <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${category.accent}`} />
+                   
+                   <div className="relative z-10 space-y-6">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border transition-all duration-500 ${category.bg} ${category.color} ${category.border} group-hover:scale-110 group-hover:rotate-3`}>
+                        <Icon size={32} />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-black tracking-tight group-hover:text-foreground transition-colors">{category.category}</h3>
+                        <div className="h-1 w-12 bg-primary/20 rounded-full transition-all duration-500 group-hover:w-24 group-hover:bg-primary/40" />
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill) => (
+                          <span key={skill} className="px-3 py-1.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all bg-secondary/30 text-muted-foreground border border-white/5 hover:border-primary/30 hover:bg-primary/5 hover:text-primary">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                   </div>
                 </div>
               )
             })}

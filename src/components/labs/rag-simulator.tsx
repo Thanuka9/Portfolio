@@ -32,7 +32,7 @@ export function RAGSimulator() {
   const t = useTranslations('Labs.simulator');
   const [step, setStep] = useState<SimulationStep>('idle');
   const [logs, setLogs] = useState<string[]>([]);
-  const consoleEndRef = useRef<HTMLDivElement>(null);
+  const consoleRef = useRef<HTMLDivElement>(null);
 
   const addLog = (msg: string) => {
     setLogs(prev => [...prev, `[${new Date().toLocaleTimeString()}] ${msg}`].slice(-12));
@@ -63,7 +63,9 @@ export function RAGSimulator() {
   };
 
   useEffect(() => {
-    consoleEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (consoleRef.current) {
+      consoleRef.current.scrollTop = consoleRef.current.scrollHeight;
+    }
   }, [logs]);
 
   const phases = [
@@ -84,11 +86,11 @@ export function RAGSimulator() {
             { label: "Inference", value: "1.2ms", icon: Zap, color: "text-yellow-400" },
             { label: "Confidence", value: "0.984", icon: Activity, color: "text-purple-400" }
         ].map((stat, i) => (
-            <div key={i} className="glass-panel p-3.5 rounded-2xl border-white/5 bg-background/20 flex items-center gap-3">
-                <stat.icon size={14} className={stat.color} />
+            <div key={i} className="glass-panel p-5 rounded-2xl border-white/5 bg-background/20 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                <stat.icon size={18} className={stat.color} />
                 <div>
-                    <p className="text-[7px] font-black uppercase tracking-widest text-muted-foreground/50">{stat.label}</p>
-                    <p className="text-[11px] font-black font-headline tracking-tight">{stat.value}</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">{stat.label}</p>
+                    <p className="text-sm font-black font-headline tracking-tight">{stat.value}</p>
                 </div>
             </div>
         ))}
@@ -102,10 +104,10 @@ export function RAGSimulator() {
              {/* Progress Status Bar */}
              <div className="flex justify-between items-center w-full mb-10">
                 <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    <span className="text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground">Active RAG Engine</span>
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground">Active RAG Engine</span>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-secondary/5 border border-white/5 text-[8px] font-bold text-muted-foreground/60 uppercase tracking-widest">
+                <div className="px-4 py-1.5 rounded-full bg-secondary/10 border border-white/5 text-[9px] font-bold text-muted-foreground/80 uppercase tracking-widest">
                     Kernel: S-902-TR
                 </div>
              </div>
@@ -152,15 +154,15 @@ export function RAGSimulator() {
                                     )}
                                 </motion.div>
                                 <span className={cn(
-                                    "text-[7.5px] font-black uppercase tracking-[0.25em] transition-colors duration-700",
-                                    isActive ? "text-primary" : "text-muted-foreground/20"
-                                )}>
-                                    {p.label}
-                                </span>
-                            </div>
-                        )
-                    })}
-                </div>
+                                     "text-[9px] font-black uppercase tracking-[0.25em] transition-colors duration-700",
+                                     isActive ? "text-primary" : "text-muted-foreground/20"
+                                 )}>
+                                     {p.label}
+                                 </span>
+                             </div>
+                         )
+                     })}
+                 </div>
 
                 {/* Animated Interactive Content Pane */}
                 <div className="w-full max-w-md h-48 glass-panel rounded-[2rem] border-white/5 p-8 relative flex items-center justify-center overflow-hidden bg-background/10">
@@ -173,14 +175,14 @@ export function RAGSimulator() {
                                 exit={{ opacity: 0 }}
                                 className="text-center space-y-8"
                             >
-                                <div className="space-y-4">
-                                    <h4 className="text-sm font-black font-headline tracking-tight">System Ready for Query Integration</h4>
-                                    <p className="text-[10px] text-muted-foreground font-medium max-w-sm mx-auto uppercase tracking-widest">Architectural simulation of localized RAG & Agentic workflows.</p>
-                                </div>
-                                <Button 
-                                    onClick={runSimulation}
-                                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-black px-12 h-16 rounded-2xl shadow-3xl shadow-primary/40 group active:scale-95 transition-all"
-                                >
+                                 <div className="space-y-4">
+                                     <h4 className="text-xl font-black font-headline tracking-tight">System Ready for Query Integration</h4>
+                                     <p className="text-xs text-muted-foreground font-medium max-w-sm mx-auto uppercase tracking-widest">Architectural simulation of localized RAG & Agentic workflows.</p>
+                                 </div>
+                                 <Button 
+                                     onClick={runSimulation}
+                                     className="bg-primary hover:bg-primary/90 text-primary-foreground font-black px-12 h-16 rounded-2xl shadow-3xl shadow-primary/40 group active:scale-95 transition-all text-base"
+                                 >
                                     <Play size={20} className="mr-3 group-hover:scale-110" /> BEGIN AGENTIC TRACE
                                 </Button>
                             </motion.div>
@@ -301,18 +303,18 @@ export function RAGSimulator() {
         {/* Real-time Telemetry Console */}
         <div className="lg:col-span-4 flex flex-col gap-6">
             <div className="glass-panel border-white/5 flex-grow flex flex-col bg-background/10 overflow-hidden relative rounded-[2rem]">
-                <div className="p-6 border-b border-white/5 bg-background/20 backdrop-blur-3xl flex items-center justify-between">
+                 <div className="p-6 border-b border-white/5 bg-background/20 backdrop-blur-3xl flex items-center justify-between">
                      <div className="flex items-center gap-2.5">
-                         <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                         <h3 className="font-black text-[9px] uppercase tracking-[0.3em] font-headline text-muted-foreground/80">Telemetry Trace</h3>
+                         <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                         <h3 className="font-black text-[10px] uppercase tracking-[0.3em] font-headline text-muted-foreground/80">Telemetry Trace</h3>
                      </div>
-                     <Activity size={14} className="text-muted-foreground/20" />
+                     <Activity size={16} className="text-muted-foreground/20" />
                 </div>
-                <div className="p-6 flex-grow font-mono text-[9px] space-y-4 overflow-y-auto max-h-[340px] custom-scrollbar bg-black/20">
+                <div ref={consoleRef} className="p-6 flex-grow font-mono text-[10px] space-y-4 overflow-y-auto max-h-[340px] custom-scrollbar bg-black/20 scroll-smooth">
                     {logs.length === 0 && (
                         <div className="flex flex-col items-center justify-center h-full space-y-3 opacity-10">
-                            <Terminal size={24} />
-                            <p className="text-[8px] font-black uppercase tracking-widest italic">Node Offline</p>
+                            <Terminal size={32} />
+                            <p className="text-[9px] font-black uppercase tracking-widest italic">Node Offline</p>
                         </div>
                     )}
                     {logs.map((log, i) => (
@@ -323,10 +325,9 @@ export function RAGSimulator() {
                             className="flex gap-3 group"
                         >
                             <span className="text-primary font-black opacity-20 select-none">[{i}]</span>
-                            <span className="text-muted-foreground/70 group-hover:text-foreground transition-colors leading-relaxed">{log}</span>
+                             <span className="text-muted-foreground/70 group-hover:text-foreground transition-colors leading-relaxed">{log}</span>
                         </motion.div>
                     ))}
-                    <div ref={consoleEndRef} />
                 </div>
             </div>
 
