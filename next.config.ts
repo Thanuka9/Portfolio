@@ -20,7 +20,7 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://picsum.photos https://i.postimg.cc https://lh3.googleusercontent.com",
       "connect-src 'self' https://api.emailjs.com https://generativelanguage.googleapis.com",
       "media-src 'self'",
-      "frame-ancestors 'self' https://*.cloudworkstations.dev https://*.firebase.com",
+      "frame-ancestors 'self' https://*.cloudworkstations.dev https://*.firebase.com https://*.firebaseapp.com https://*.web.app",
       "base-uri 'self'",
       "form-action 'self'",
     ].join('; '),
@@ -56,6 +56,9 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    if (process.env.NODE_ENV === 'development') {
+      return [];
+    }
     return [{ source: '/(.*)', headers: securityHeaders }];
   },
   images: {
