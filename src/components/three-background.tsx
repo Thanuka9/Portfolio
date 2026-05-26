@@ -30,6 +30,7 @@ function ParticleSwarm({ isDark }: { isDark: boolean }) {
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
+        {/* @ts-ignore */}
         <bufferAttribute
           attach="attributes-position"
           count={count}
@@ -37,6 +38,7 @@ function ParticleSwarm({ isDark }: { isDark: boolean }) {
           itemSize={3}
           args={[positions, 3]}
         />
+        {/* @ts-ignore */}
         <bufferAttribute
           attach="attributes-size"
           count={count}
