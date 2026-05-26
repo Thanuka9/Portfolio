@@ -18,6 +18,14 @@ function buildKnowledgeContext(): string {
     `[EDUCATION] ${e.degree} — ${e.institution} (${e.period})\nFocus: ${e.focus}`
   ).join('\n\n');
 
+  const certificationDocs = kb.certifications.map(c =>
+    `[CERTIFICATION] ${c.name} — ${c.institution} (${c.year})`
+  ).join('\n\n');
+
+  const publicationDocs = kb.publications.map(p =>
+    `[PUBLICATION] ${p.title}\nSummary: ${p.summary}`
+  ).join('\n\n');
+
   const servicesDocs = [
     `[SERVICE] ${kb.services.aiAutonomousSystems.title}\n${kb.services.aiAutonomousSystems.tagline}\nScope: ${kb.services.aiAutonomousSystems.scope.join('; ')}`,
     `[SERVICE] ${kb.services.fullStackEnterprise.title}\n${kb.services.fullStackEnterprise.tagline}\nScope: ${kb.services.fullStackEnterprise.scope.join('; ')}`
@@ -41,6 +49,10 @@ ${projectDocs}
 ${experienceDocs}
 
 ${educationDocs}
+
+${certificationDocs}
+
+${publicationDocs}
 
 ${servicesDocs}
 

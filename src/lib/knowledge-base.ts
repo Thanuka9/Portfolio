@@ -66,7 +66,7 @@ export const SITE_KNOWLEDGE = {
     {
       degree: "Master of Business Analytics",
       institution: "University of Colombo",
-      period: "2023 – 2025 (Expected)",
+      period: "2022 – 2025",
       focus: "Predictive analytics, ML, and business intelligence."
     },
     {
@@ -76,8 +76,32 @@ export const SITE_KNOWLEDGE = {
       focus: "Computer networks, systems administration, and software development."
     }
   ],
+  certifications: [
+    {
+      name: "Google Data Analytics Professional Certificate",
+      institution: "Google / Coursera",
+      year: "2026"
+    },
+    {
+      name: "Game Theory",
+      institution: "Stanford University / Coursera",
+      year: "2026"
+    },
+    {
+      name: "CCNA (Cisco Certified Network Associate)",
+      institution: "Cisco",
+      year: "2023"
+    }
+  ],
+  publications: [
+    {
+      title: "Machine Learning for Future Payment Prediction in Healthcare Revenue Cycle Management",
+      summary: "A research paper on predicting future payments using machine learning models (Random Forest, Neural Networks, Decision Trees, Linear Regression) with real-world healthcare RCM data, achieving R² > 0.90 accuracy on neural networks."
+    }
+  ],
   skills: [
-    "Gemini 3.1 (Pro/Flash/Live API)", "LangChain", "RAG & Vector DB (FAISS)", "Scikit-learn", "Neural Networks", "FastAPI", "Next.js", "Azure", "GCP", "Docker", "Playwright"
+    "Python", "C", "HTML & PHP", "Java & JS", "React", "CSS", "Next.js", "Flask", "Laravel", "Tailwind CSS",
+    "Gemini 3.1 (Pro/Flash/Live API)", "LangChain", "RAG & Vector DB (FAISS)", "Scikit-learn", "Neural Networks", "FastAPI", "Azure", "GCP", "Docker", "Playwright"
   ],
   services: {
     aiAutonomousSystems: {
