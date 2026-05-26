@@ -60,12 +60,20 @@ export default function HomePage() {
     {
       quote: tT('t1Quote'),
       author: tT('t1Author'),
-      company: tT('t1Company')
+      company: tT('t1Company'),
+      initial: "CR"
     },
     {
       quote: tT('t2Quote'),
       author: tT('t2Author'),
-      company: tT('t2Company')
+      company: tT('t2Company'),
+      initial: "AI"
+    },
+    {
+      quote: tT('t3Quote'),
+      author: tT('t3Author'),
+      company: tT('t3Company'),
+      initial: "EP"
     }
   ];
 
@@ -271,53 +279,59 @@ export default function HomePage() {
           viewport={{ once: true }}
           className="relative p-1 lg:p-2 rounded-[4rem] bg-gradient-to-br from-primary via-primary/20 to-transparent shadow-2xl"
         >
-          <div className="bg-background/90 backdrop-blur-3xl rounded-[3.8rem] py-24 px-8 lg:px-20 overflow-hidden relative">
+          <div className="bg-background/90 backdrop-blur-3xl rounded-[3.8rem] py-24 px-8 lg:px-16 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full -z-10" />
             
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-              <div className="lg:w-1/3 space-y-6 text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-black tracking-widest uppercase mb-4">
-                  Industry Feedback
+            <div className="space-y-16">
+              {/* Section Header */}
+              <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+                <div className="space-y-6 text-left lg:max-w-2xl">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-black tracking-widest uppercase">
+                    {tT('badge')}
+                  </div>
+                  <h2 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
+                    {tT('title1')}<br /><span className="text-primary italic">{tT('title2')}</span>
+                  </h2>
+                  <p className="text-muted-foreground font-medium text-lg leading-relaxed">
+                    {tT('subtitle')}
+                  </p>
                 </div>
-                <h2 className="text-4xl lg:text-6xl font-black font-headline tracking-tighter leading-none">
-                  Verified <br /> <span className="text-primary italic">Impact.</span>
-                </h2>
-                <p className="text-muted-foreground font-medium text-lg leading-relaxed">
-                  Direct testimony from industry leaders on the strategic value of engineered intelligence.
-                </p>
-                <div className="flex items-center gap-4 pt-4">
+                <div className="flex items-center gap-4 shrink-0 bg-secondary/50 backdrop-blur px-6 py-4 rounded-3xl border border-primary/10 w-fit">
                   <div className="flex -space-x-4">
-                    {[1, 2, 3].map(i => (
-                      <div key={i} className="w-12 h-12 rounded-full border-4 border-background bg-secondary flex items-center justify-center text-xs font-black">
-                        {String.fromCharCode(64 + i)}
+                    {testimonials.map((t, i) => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-primary flex items-center justify-center text-[10px] font-black text-primary-foreground shadow-md">
+                        {t.initial}
                       </div>
                     ))}
                   </div>
-                  <span className="text-xs font-bold text-muted-foreground">Trusted by 10+ Enterprise Partners</span>
+                  <span className="text-xs font-bold text-muted-foreground">{tT('trusted')}</span>
                 </div>
               </div>
 
-              <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Testimonials Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {testimonials.map((t, i) => (
                   <motion.div 
                     key={i} 
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.2 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.15 }}
                     viewport={{ once: true }}
-                    className="glass-panel p-10 rounded-[3rem] relative group hover:-translate-y-2 transition-all duration-500"
+                    className="glass-panel p-8 rounded-[2.5rem] relative group hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between"
                   >
-                    <Quote size={60} className="text-primary/10 absolute top-8 right-8" />
-                    <p className="text-lg italic leading-relaxed text-foreground/90 font-medium mb-12 relative z-10 font-headline">
-                      "{t.quote}"
-                    </p>
-                    <div className="flex items-center gap-5 pt-4">
-                      <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center font-black text-xl shadow-xl">
-                        {t.author[0]}
+                    <div>
+                      <Quote size={40} className="text-primary/10 mb-6" />
+                      <p className="text-base italic leading-relaxed text-foreground/90 font-medium mb-8 font-headline">
+                        "{t.quote}"
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-4 pt-4 border-t border-primary/5">
+                      <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-black text-base shadow-lg shrink-0">
+                        {t.initial}
                       </div>
-                      <div>
-                        <p className="font-black text-lg font-headline tracking-tight">{t.author}</p>
-                        <p className="text-primary font-bold text-xs uppercase tracking-widest">{t.company}</p>
+                      <div className="min-w-0">
+                        <p className="font-black text-sm font-headline tracking-tight truncate">{t.author}</p>
+                        <p className="text-primary font-bold text-[10px] uppercase tracking-widest truncate">{t.company}</p>
                       </div>
                     </div>
                   </motion.div>

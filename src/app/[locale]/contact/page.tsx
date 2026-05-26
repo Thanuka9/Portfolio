@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin, Send, MessageSquare, Calendar, Sparkles, Activity, Database, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Send, MessageSquare, Calendar, Sparkles, Activity, Database, ShieldCheck, CheckCircle2, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -49,10 +49,10 @@ const formSchema = z.object({
     message: "You must agree to the privacy policy.",
   }),
   human_ver: z.string().superRefine((v, ctx) => {
-    if (v !== "12") {
+    if (v.trim() !== "12") {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: "Incorrect answer. Hint: 6 + 6",
+        message: "Incorrect answer. Hint: 6 + 6 = ?",
       });
     }
   }),
@@ -84,6 +84,8 @@ const contactDetails = [
 
 export default function ContactPage() {
   const [isExporting, setIsExporting] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -98,6 +100,8 @@ export default function ContactPage() {
       human_ver: "",
     },
   });
+
+  const messageValue = form.watch("message") ?? "";
 
   const exportCardAsPNG = async () => {
     const el = document.getElementById('vcard-element');
@@ -153,7 +157,8 @@ export default function ContactPage() {
   };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (values.website) return;
+    if (values.website) return; // honeypot
+    setSubmitError(null);
 
     try {
       const templateParams = {
@@ -163,16 +168,14 @@ export default function ContactPage() {
         message: values.message,
       };
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-      toast({
-        title: "Inquiry Received!",
-        description: "Thank you for reaching out. I'll get back to you within 24 hours.",
-      });
+      setIsSubmitted(true);
       form.reset();
     } catch (error: any) {
+      setSubmitError("There was a problem sending your inquiry. Please email me directly at thanuka.ellepola@gmail.com");
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: `There was a problem sending your inquiry.`,
+        description: "There was a problem sending your inquiry.",
       });
     }
   }
@@ -257,119 +260,181 @@ export default function ContactPage() {
 
         <div className="lg:col-span-7 relative p-1 lg:p-1.5 rounded-[4rem] bg-gradient-to-br from-primary/20 to-transparent shadow-2xl animate-reveal">
             <div className="bg-background/95 backdrop-blur-3xl rounded-[3.8rem] p-10 lg:p-16 space-y-12 h-full">
-                <div className="space-y-4">
-                    <h2 className="text-4xl font-black font-headline tracking-tighter flex items-center gap-4 text-foreground">
-                        <div className="w-2 h-10 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--primary),0.5)]" />
-                        Strategic Inquiry
-                    </h2>
-                    <p className="text-base text-muted-foreground font-medium">Describe your project or challenge below.</p>
+
+                {/* Aria live region for screen-reader announcements */}
+                <div aria-live="polite" aria-atomic="true" className="sr-only">
+                  {isSubmitted ? "Your message has been sent successfully. I will get back to you within 24 hours." : ""}
+                  {submitError ? `Error: ${submitError}` : ""}
                 </div>
 
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {isSubmitted ? (
+                  /* ── Success State ── */
+                  <div className="flex flex-col items-center justify-center text-center space-y-8 py-16" role="status">
+                    <div className="w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center animate-reveal">
+                      <CheckCircle2 size={48} className="text-primary" />
+                    </div>
+                    <div className="space-y-4 animate-slide-up">
+                      <h3 className="text-3xl font-black font-headline tracking-tighter text-foreground">Message Received!</h3>
+                      <p className="text-muted-foreground font-medium text-lg max-w-sm mx-auto leading-relaxed">
+                        Thank you for reaching out. I&apos;ll get back to you within <span className="text-primary font-bold">24 hours</span>.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => { setIsSubmitted(false); setSubmitError(null); }}
+                      className="text-xs font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div className="space-y-4">
+                        <h2 className="text-4xl font-black font-headline tracking-tighter flex items-center gap-4 text-foreground">
+                            <div className="w-2 h-10 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--primary),0.5)]" aria-hidden="true" />
+                            Strategic Inquiry
+                        </h2>
+                        <p className="text-base text-muted-foreground font-medium">Describe your project or challenge below.</p>
+                    </div>
+
+                    {/* Inline error banner */}
+                    {submitError && (
+                      <div role="alert" className="p-4 rounded-2xl bg-destructive/10 border border-destructive/30 text-destructive text-sm font-medium">
+                        {submitError}
+                      </div>
+                    )}
+
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10" noValidate>
+                            {/* Honeypot field — hidden from humans */}
+                            <input type="text" {...form.register("website")} className="hidden" tabIndex={-1} aria-hidden="true" autoComplete="off" />
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                <FormField
+                                    control={form.control}
+                                    name="name"
+                                    render={({ field }) => (
+                                        <FormItem className="space-y-4">
+                                            <FormLabel htmlFor="contact-name" className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Your Name</FormLabel>
+                                            <FormControl>
+                                                <Input id="contact-name" placeholder="E.g. Jane Smith" {...field} autoComplete="name" className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
+                                            </FormControl>
+                                            <FormMessage role="alert" />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem className="space-y-4">
+                                            <FormLabel htmlFor="contact-email" className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Professional Email</FormLabel>
+                                            <FormControl>
+                                                <Input id="contact-email" placeholder="jane@company.com" type="email" {...field} autoComplete="email" className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
+                                            </FormControl>
+                                            <FormMessage role="alert" />
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
+
                             <FormField
                                 control={form.control}
-                                name="name"
+                                name="subject"
                                 render={({ field }) => (
                                     <FormItem className="space-y-4">
-                                        <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Your Name</FormLabel>
+                                        <FormLabel htmlFor="contact-subject" className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Interest</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="E.g. Jane Smith" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
+                                            <Input id="contact-subject" placeholder="E.g. AI Integration / Data Auditing" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage role="alert" />
                                     </FormItem>
                                 )}
                             />
+
                             <FormField
                                 control={form.control}
-                                name="email"
+                                name="message"
                                 render={({ field }) => (
                                     <FormItem className="space-y-4">
-                                        <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Professional Email</FormLabel>
+                                        <div className="flex items-center justify-between">
+                                          <FormLabel htmlFor="contact-message" className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Details</FormLabel>
+                                          <span className={`text-xs font-bold tabular-nums ${
+                                            messageValue.length > 450 ? 'text-destructive' : messageValue.length > 350 ? 'text-primary' : 'text-muted-foreground/50'
+                                          }`}>{messageValue.length}/500</span>
+                                        </div>
                                         <FormControl>
-                                            <Input placeholder="jane@company.com" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
-
-                        <FormField
-                            control={form.control}
-                            name="subject"
-                            render={({ field }) => (
-                                <FormItem className="space-y-4">
-                                    <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Interest</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="E.g. AI Integration / Data Auditing" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                                <FormItem className="space-y-4">
-                                    <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Project Details</FormLabel>
-                                    <FormControl>
-                                        <Textarea
-                                            placeholder="Briefly describe the challenge..."
-                                            className="resize-none min-h-[160px] p-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base leading-relaxed text-foreground"
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            <FormField
-                                control={form.control}
-                                name="human_ver"
-                                render={({ field }) => (
-                                    <FormItem className="space-y-4">
-                                        <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Verification: 8 + 4 = ?</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Enter result" {...field} className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-
-                            <FormField
-                                control={form.control}
-                                name="consent"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-row items-start space-x-4 space-y-0 p-5 rounded-2xl border border-primary/10 bg-secondary/20">
-                                        <FormControl>
-                                            <Checkbox
-                                                checked={field.value}
-                                                onCheckedChange={field.onChange}
-                                                className="mt-1"
+                                            <Textarea
+                                                id="contact-message"
+                                                placeholder="Briefly describe the challenge..."
+                                                className="resize-none min-h-[160px] p-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base leading-relaxed text-foreground"
+                                                {...field}
                                             />
                                         </FormControl>
-                                        <div className="space-y-1">
-                                            <FormLabel className="text-sm font-medium leading-tight text-foreground/80">
-                                                I agree to the <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> and data processing terms.
-                                            </FormLabel>
-                                        </div>
+                                        <FormMessage role="alert" />
                                     </FormItem>
                                 )}
                             />
-                        </div>
 
-                        <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-20 rounded-3xl text-lg shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]" disabled={form.formState.isSubmitting}>
-                            {form.formState.isSubmitting ? 'Transmitting...' : 'Request Consultation'}
-                        </Button>
-                    </form>
-                </Form>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                <FormField
+                                    control={form.control}
+                                    name="human_ver"
+                                    render={({ field }) => (
+                                        <FormItem className="space-y-4">
+                                            <FormLabel htmlFor="contact-human-ver" className="text-xs font-black uppercase tracking-widest text-muted-foreground ml-1">Verification: 6 + 6 = ?</FormLabel>
+                                            <FormControl>
+                                                <Input id="contact-human-ver" placeholder="Enter result" {...field} inputMode="numeric" className="h-16 px-6 rounded-2xl bg-secondary/30 border-primary/10 focus:border-primary/40 focus:bg-background/50 transition-all font-medium text-base text-foreground" />
+                                            </FormControl>
+                                            <FormMessage role="alert" />
+                                        </FormItem>
+                                    )}
+                                />
+
+                                <FormField
+                                    control={form.control}
+                                    name="consent"
+                                    render={({ field }) => (
+                                        <FormItem className="flex flex-row items-start space-x-4 space-y-0 p-5 rounded-2xl border border-primary/10 bg-secondary/20">
+                                            <FormControl>
+                                                <Checkbox
+                                                    id="contact-consent"
+                                                    checked={field.value}
+                                                    onCheckedChange={field.onChange}
+                                                    className="mt-1"
+                                                    aria-required="true"
+                                                />
+                                            </FormControl>
+                                            <div className="space-y-1">
+                                                <FormLabel htmlFor="contact-consent" className="text-sm font-medium leading-tight text-foreground/80">
+                                                    I agree to the <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> and data processing terms.
+                                                </FormLabel>
+                                                <FormMessage role="alert" />
+                                            </div>
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
+
+                            <Button
+                              type="submit"
+                              id="contact-submit"
+                              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black h-20 rounded-3xl text-lg shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:scale-100"
+                              disabled={form.formState.isSubmitting}
+                              aria-busy={form.formState.isSubmitting}
+                            >
+                              {form.formState.isSubmitting ? (
+                                <span className="flex items-center gap-3">
+                                  <Loader2 size={22} className="animate-spin" />
+                                  Transmitting...
+                                </span>
+                              ) : (
+                                'Request Consultation'
+                              )}
+                            </Button>
+                        </form>
+                    </Form>
+                  </>
+                )}
             </div>
         </div>
       </div>

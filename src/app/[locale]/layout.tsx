@@ -52,7 +52,7 @@ const profilePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   dateCreated: '2023-10-01T12:00:00-05:00',
-  dateModified: '2026-04-17T12:00:00-05:00', // Use static datetime to address Search Console datetime format requirement
+  dateModified: '2026-04-17T12:00:00-05:00',
   mainEntity: {
     '@type': 'Person',
     name: 'Thanuka Ellepola',
@@ -76,6 +76,80 @@ const profilePageSchema = {
     knowsAbout: ["AI Engineering", "Generative AI", "Data Science", "Full Stack Development", "Predictive Analytics", "Healthcare Analytics", "Revenue Cycle Management", "Autonomous Agents", "Cloud Architecture"]
   }
 };
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Thanuka Ellepola | AI Architect & Full-Stack solutions',
+  url: 'https://thanukaellepola.careers/',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://thanukaellepola.careers/blog?q={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Overview',
+      item: 'https://thanukaellepola.careers/'
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Professional Impact',
+      item: 'https://thanukaellepola.careers/experience'
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Case Studies',
+      item: 'https://thanukaellepola.careers/projects'
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      name: 'Skills & Expertise',
+      item: 'https://thanukaellepola.careers/skills'
+    },
+    {
+      '@type': 'ListItem',
+      position: 5,
+      name: 'Services & Strategic Value',
+      item: 'https://thanukaellepola.careers/services'
+    },
+    {
+      '@type': 'ListItem',
+      position: 6,
+      name: 'AI Labs (Simulations)',
+      item: 'https://thanukaellepola.careers/labs'
+    },
+    {
+      '@type': 'ListItem',
+      position: 7,
+      name: 'Articles & Insights',
+      item: 'https://thanukaellepola.careers/blog'
+    },
+    {
+      '@type': 'ListItem',
+      position: 8,
+      name: 'Academic Foundation',
+      item: 'https://thanukaellepola.careers/education'
+    },
+    {
+      '@type': 'ListItem',
+      position: 9,
+      name: 'Strategic Inquiry',
+      item: 'https://thanukaellepola.careers/contact'
+    }
+  ]
+};
+
 
 
 import { ClientOverlays } from '@/components/client-overlays';
@@ -113,6 +187,14 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       </head>
       <body className="font-sans antialiased selection:bg-primary/20 bg-background text-foreground min-h-screen relative overflow-x-hidden">

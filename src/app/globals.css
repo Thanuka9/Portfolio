@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Offset for mobile top-bar so skip-link target is not obscured */
 }
 
 @layer base {
@@ -100,6 +101,16 @@ html {
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
+  }
+
+  /* Focus-visible ring for keyboard navigation — required for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background rounded-lg;
+  }
+
+  /* Remove focus ring for mouse users while keeping it for keyboard */
+  :focus:not(:focus-visible) {
+    @apply outline-none ring-0;
   }
 }
 

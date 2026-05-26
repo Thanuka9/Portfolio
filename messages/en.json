@@ -6,7 +6,9 @@
     "experience": "Professional Impact",
     "education": "Academic Foundation",
     "contact": "Strategic Inquiry",
-    "labs": "AI Labs (Simulations)"
+    "labs": "AI Labs (Simulations)",
+    "blog": "Articles & Insights",
+    "skills": "Skills & Expertise"
   },
   "Sidebar": {
     "title": "Thanuka Ellepola.",
@@ -58,15 +60,20 @@
     "c5": "Mission-Critical Security & 2FA"
   },
   "Testimonials": {
+    "badge": "Industry Testimony",
     "title1": "Verified ",
-    "title2": "Impact",
-    "subtitle": "Feedback from the industry",
+    "title2": "Impact.",
+    "subtitle": "Direct testimony from industry collaborators and enterprise partners verifying real-world value and technical leadership.",
+    "trusted": "Trusted by Enterprise Partners",
     "t1Quote": "Thanuka's ability to translate complex RCM data into predictive models transformed how we view our revenue flow. His technical leadership reduced our manual audit efforts by 40%.",
     "t1Author": "Senior Executive",
     "t1Company": "Collective RCM (Pvt) Ltd",
     "t2Quote": "A rare talent who understands both the deep mathematics of AI and the practicalities of full-stack engineering. He delivers systems that actually solve business bottlenecks.",
     "t2Author": "Technical Collaborator",
-    "t2Company": "AI Innovation Lab"
+    "t2Company": "AI Innovation Lab",
+    "t3Quote": "Thanuka's full-stack execution was exemplary. He delivered a highly secure, high-performance web platform that integrated seamless multi-agent workflows, driving operational efficiency.",
+    "t3Author": "Principal Engineer",
+    "t3Company": "Enterprise Partners"
   },
   "Education": {
     "pageTitle": "Academic Foundation.",

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Github, Linkedin, Mail, MapPin, Phone, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone, Sparkles, CircleDot } from 'lucide-react';
 import { Button } from './ui/button';
 
 export default function Footer() {
@@ -41,17 +41,21 @@ export default function Footer() {
 
           <div className="md:col-span-3 space-y-8">
             <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Intelligence Hub</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {[
                 { label: 'Overview', href: '/' },
-                { label: 'Strategic Value', href: '/services' },
-                { label: 'Case Studies', href: '/projects' },
                 { label: 'Professional Impact', href: '/experience' },
+                { label: 'Case Studies', href: '/projects' },
+                { label: 'Skills & Expertise', href: '/skills' },
+                { label: 'Strategic Value', href: '/services' },
+                { label: 'AI Labs (Simulations)', href: '/labs' },
+                { label: 'Articles & Insights', href: '/blog' },
                 { label: 'Academic Foundation', href: '/education' },
-                { label: 'Privacy & Data Protection', href: '/privacy' },
+                { label: 'Privacy Policy', href: '/privacy' },
+                { label: 'Terms & Conditions', href: '/terms' },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-bold tracking-tight">
+                  <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-bold tracking-tight text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -85,7 +89,9 @@ export default function Footer() {
 
         </div>
 
-        <div className="mt-24 pt-12 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-8">
+
+
+        <div className="mt-12 pt-12 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-muted-foreground font-bold tracking-tight">
             &copy; {year} Thanuka Ellepola. Architecting the future of enterprise intelligence.
           </p>

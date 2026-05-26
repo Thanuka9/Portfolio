@@ -6,7 +6,9 @@
     "experience": "专业影响力",
     "education": "学术基础",
     "contact": "战略咨询",
-    "labs": "AI 实验室 (模拟)"
+    "labs": "AI 实验室 (模拟)",
+    "blog": "文章与见解",
+    "skills": "技能与专业知识"
   },
   "Sidebar": {
     "title": "Thanuka Ellepola.",
@@ -58,15 +60,20 @@
     "c5": "任务关键型安全与 2FA"
   },
   "Testimonials": {
+    "badge": "行业证言",
     "title1": "经验 ",
-    "title2": "证言",
-    "subtitle": "来自行业的反馈",
+    "title2": "证言.",
+    "subtitle": "来自行业合作伙伴和企业客户的直接证言，验证了真实世界的价值与技术领导力。",
+    "trusted": "深受企业合作伙伴信赖",
     "t1Quote": "Thanuka 将复杂的 RCM 数据转化为预测模型的能力改变了我们看待收入流的方式。他的技术领导力使我们的人工审计工作量减少了 40%。",
     "t1Author": "高级主管",
     "t1Company": "Collective RCM (Pvt) Ltd",
     "t2Quote": "一个罕见的天才，既精通 AI 的深奥数学，又熟悉全栈工程的实际操作。他交付的系统真正解决了业务瓶颈。",
     "t2Author": "技术合作伙伴",
-    "t2Company": "AI 创新实验室"
+    "t2Company": "AI 创新实验室",
+    "t3Quote": "Thanuka 的全栈执行堪称典范。他交付了一个高度安全、高性能的 Web 平台，并无缝集成了多代理工作流，从而显著提升了运营效率。",
+    "t3Author": "首席工程师",
+    "t3Company": "Enterprise Partners"
   },
   "Education": {
     "pageTitle": "学术基础。",

@@ -5,7 +5,7 @@ import React from 'react';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 import Image from 'next/image';
 // Pathname is now handled by next-intl
-import { Home, Briefcase, Code, GraduationCap, Mail, Phone, Sparkles, Github, Linkedin, MapPin, BrainCircuit } from 'lucide-react';
+import { Home, Briefcase, Code, GraduationCap, Mail, Phone, Sparkles, Github, Linkedin, MapPin, BrainCircuit, BookOpen, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -36,10 +36,12 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
   const navItems = [
     { href: '/', label: tNav('overview'), icon: Home },
-    { href: '/labs', label: tNav('labs'), icon: BrainCircuit },
-    { href: '/services', label: tNav('services'), icon: Sparkles },
-    { href: '/projects', label: tNav('projects'), icon: Code },
     { href: '/experience', label: tNav('experience'), icon: Briefcase },
+    { href: '/projects', label: tNav('projects'), icon: Code },
+    { href: '/skills', label: tNav('skills'), icon: Cpu },
+    { href: '/services', label: tNav('services'), icon: Sparkles },
+    { href: '/labs', label: tNav('labs'), icon: BrainCircuit },
+    { href: '/blog', label: tNav('blog'), icon: BookOpen },
     { href: '/education', label: tNav('education'), icon: GraduationCap },
     { href: '/contact', label: tNav('contact'), icon: Mail },
   ];

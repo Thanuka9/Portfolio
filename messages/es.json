@@ -6,7 +6,9 @@
     "experience": "Impacto Profesional",
     "education": "Base Académica",
     "contact": "Consulta Estratégica",
-    "labs": "Laboratorios de IA (Simulaciones)"
+    "labs": "Laboratorios de IA (Simulaciones)",
+    "blog": "Artículos e Insights",
+    "skills": "Habilidades y Experiencia"
   },
   "Sidebar": {
     "title": "Thanuka Ellepola.",
@@ -58,15 +60,20 @@
     "c5": "Seguridad Crítica y 2FA"
   },
   "Testimonials": {
+    "badge": "Testimonio de la Industria",
     "title1": "Impacto ",
-    "title2": "Verificado",
-    "subtitle": "Comentarios de la industria",
+    "title2": "Verificado.",
+    "subtitle": "Testimonio directo de colaboradores de la industria y socios empresariales que verifican el valor en el mundo real y el liderazgo técnico.",
+    "trusted": "Con la confianza de socios empresariales",
     "t1Quote": "La capacidad de Thanuka para traducir datos complejos de RCM en modelos predictivos transformó nuestra visión del flujo de ingresos. Su liderazgo técnico redujo nuestros esfuerzos de auditoría manual en un 40%.",
     "t1Author": "Ejecutivo Senior",
     "t1Company": "Collective RCM (Pvt) Ltd",
     "t2Quote": "Un talento raro que entiende tanto la matemática profunda de la IA como las practicidades de la ingeniería full-stack. Entrega sistemas que realmente resuelven cuellos de botella empresariales.",
     "t2Author": "Colaborador Técnico",
-    "t2Company": "Laboratorio de Innovación de IA"
+    "t2Company": "Laboratorio de Innovación de IA",
+    "t3Quote": "La ejecución full-stack de Thanuka fue ejemplar. Entregó una plataforma web altamente segura y de alto rendimiento que integró flujos de trabajo de múltiples agentes sin problemas, impulsando la eficiencia operativa.",
+    "t3Author": "Ingeniero Principal",
+    "t3Company": "Enterprise Partners"
   },
   "Education": {
     "pageTitle": "Base Académica.",
