@@ -32,6 +32,30 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   typescript: { ignoreBuildErrors: false },
   eslint: { ignoreDuringBuilds: false },
+  async redirects() {
+    return [
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/:locale/privacy-policy',
+        destination: '/:locale/privacy',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/:locale/terms-and-conditions',
+        destination: '/:locale/terms',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
   },

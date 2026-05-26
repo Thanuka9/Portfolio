@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { Github, Linkedin, Mail, MapPin, Phone, Sparkles, CircleDot } from 'lucide-react';
 import { Button } from './ui/button';
 

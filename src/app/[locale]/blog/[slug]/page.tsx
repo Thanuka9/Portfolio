@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { ArrowLeft, Calendar, Clock, BookOpen, User, Tag, Sparkles, AlertCircle, Quote } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
@@ -216,6 +217,29 @@ neural_network_params = {
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articlesData[slug];
+  if (!article) {
+    return {
+      title: 'Article Not Found',
+    };
+  }
+  return {
+    title: article.title,
+    description: article.summary,
+    alternates: {
+      canonical: `https://thanukaellepola.careers/blog/${slug}`,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.summary,
+      url: `https://thanukaellepola.careers/blog/${slug}`,
+      type: 'article',
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

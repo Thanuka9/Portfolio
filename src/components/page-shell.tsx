@@ -10,7 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { usePathname } from 'next/navigation';
 import { CookieConsent } from './cookie-consent';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 
 export const PageShell = ({ children }: { children: React.ReactNode }) => {
