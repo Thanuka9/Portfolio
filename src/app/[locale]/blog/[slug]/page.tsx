@@ -231,12 +231,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: article.title,
     description: article.summary,
     alternates: {
-      canonical: `https://thanukaellepola.careers/blog/${slug}`,
+      canonical: `https://thanukaellepola.com/en/blog/${slug}`,
     },
     openGraph: {
       title: article.title,
       description: article.summary,
-      url: `https://thanukaellepola.careers/blog/${slug}`,
+      url: `https://thanukaellepola.com/en/blog/${slug}`,
       type: 'article',
     },
   };

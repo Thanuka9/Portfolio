@@ -9,7 +9,7 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thanukaellepola.careers'),
+  metadataBase: new URL('https://thanukaellepola.com'),
   title: {
     default: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
     template: `%s | Thanuka Ellepola`,
@@ -17,17 +17,17 @@ export const metadata: Metadata = {
   description: 'AI Architect & Data Scientist specializing in autonomous agents, RAG architectures, predictive analytics, and enterprise engineering. Transforming complex data into scalable business assets with R² > 0.90 accuracy.',
   keywords: ["AI Architect", "Data Scientist", "AI Engineer", "Full Stack Developer", "Autonomous Agents", "RAG Pipeline", "Generative AI", "Predictive Modeling", "Healthcare Analytics", "RCM Automation", "Technical Consultant", "Enterprise Architecture"],
   creator: 'Thanuka Ellepola',
-  authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.careers/' }],
+  authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.com/en' }],
   verification: {
     google: 'ZQtbsNwZsL_u6jqqqC2oep-_N2sU-5RJ8IxgWrspGOI',
   },
   alternates: {
-    canonical: 'https://thanukaellepola.careers/',
+    canonical: 'https://thanukaellepola.com/en',
   },
   openGraph: {
     title: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
     description: 'Specialized AI Engineering and Full-Stack development for modern enterprises.',
-    url: 'https://thanukaellepola.careers/',
+    url: 'https://thanukaellepola.com/en',
     siteName: 'Thanuka Ellepola Portfolio',
     images: [
       {
@@ -57,7 +57,7 @@ const profilePageSchema = {
     '@type': 'Person',
     name: 'Thanuka Ellepola',
     description: 'AI Architect, Data Scientist, and Full-Stack Engineer with a track record of building autonomous agents, optimizing RCM workflows, and deploying scalable enterprise AI solutions.',
-    url: 'https://thanukaellepola.careers/',
+    url: 'https://thanukaellepola.com/en',
     jobTitle: 'AI Architect & Full-Stack Developer',
     worksFor: {
       '@type': 'Organization',
@@ -81,10 +81,10 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Thanuka Ellepola | AI Architect & Full-Stack solutions',
-  url: 'https://thanukaellepola.careers/',
+  url: 'https://thanukaellepola.com/en',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://thanukaellepola.careers/blog?q={search_term_string}',
+    target: 'https://thanukaellepola.com/en/blog?q={search_term_string}',
     'query-input': 'required name=search_term_string'
   }
 };
@@ -97,55 +97,55 @@ const breadcrumbSchema = {
       '@type': 'ListItem',
       position: 1,
       name: 'Overview',
-      item: 'https://thanukaellepola.careers/'
+      item: 'https://thanukaellepola.com/en'
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Professional Impact',
-      item: 'https://thanukaellepola.careers/experience'
+      item: 'https://thanukaellepola.com/en/experience'
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: 'Case Studies',
-      item: 'https://thanukaellepola.careers/projects'
+      item: 'https://thanukaellepola.com/en/projects'
     },
     {
       '@type': 'ListItem',
       position: 4,
       name: 'Skills & Expertise',
-      item: 'https://thanukaellepola.careers/skills'
+      item: 'https://thanukaellepola.com/en/skills'
     },
     {
       '@type': 'ListItem',
       position: 5,
       name: 'Services & Strategic Value',
-      item: 'https://thanukaellepola.careers/services'
+      item: 'https://thanukaellepola.com/en/services'
     },
     {
       '@type': 'ListItem',
       position: 6,
       name: 'AI Labs (Simulations)',
-      item: 'https://thanukaellepola.careers/labs'
+      item: 'https://thanukaellepola.com/en/labs'
     },
     {
       '@type': 'ListItem',
       position: 7,
       name: 'Articles & Insights',
-      item: 'https://thanukaellepola.careers/blog'
+      item: 'https://thanukaellepola.com/en/blog'
     },
     {
       '@type': 'ListItem',
       position: 8,
       name: 'Academic Foundation',
-      item: 'https://thanukaellepola.careers/education'
+      item: 'https://thanukaellepola.com/en/education'
     },
     {
       '@type': 'ListItem',
       position: 9,
       name: 'Strategic Inquiry',
-      item: 'https://thanukaellepola.careers/contact'
+      item: 'https://thanukaellepola.com/en/contact'
     }
   ]
 };

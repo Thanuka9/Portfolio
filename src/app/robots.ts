@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://thanukaellepola.careers/sitemap.xml',
+    sitemap: 'https://thanukaellepola.com/sitemap.xml',
   };
 }

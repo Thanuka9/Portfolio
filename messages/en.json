@@ -188,12 +188,12 @@
       "impact": "Reduced manual audit effort by 40% and improved KPI visibility for financial controllers through real-time predictive dashboards."
     },
     "p4": {
-      "title": "Collective Intranet: Enterprise Workflow Engine",
+      "title": "TrainIQ: Multi-Tenant Corporate Learning Platform",
       "role": "Full Stack Architect & Main Developer",
-      "summary": "A secure internal platform centralizing onboarding, training, and performance tracking for RCM teams.",
-      "challenge": "Managing a growing team across multiple RCM departments required a centralized, secure system for training, task management, and administrative reporting.",
-      "solution": "Architected a secure internal platform using Next.js and PostgreSQL. Features centralized tasking, onboarding flows, and automated performance tracking for RCM teams.",
-      "impact": "Streamlined operations for 50+ members, improving productivity and data security."
+      "summary": "A multi-tenant SaaS LMS with courses, timed exams, AI-assisted proctoring, local AI tutoring, Stripe billing, and a CEO operations console.",
+      "challenge": "Organizations need secure, tenant-isolated corporate training with assessments, proctoring, task management, and SaaS billing — without leaking data between customers or relying on cloud AI APIs.",
+      "solution": "Architected a Flask-based platform with three-layer tenant isolation (tenant-scoped PostgreSQL, per-tenant MongoDB GridFS databases, Redis-backed limits), a local AI suite via Ollama (LearnIQ tutoring, AnalyticsIQ insights, ProctorIQ trust scoring, CreatorIQ course generation), Stripe subscription billing, and a Prometheus/Grafana observability stack.",
+      "impact": "Streamlined training for 50+ team members and evolved into a productized SaaS with trial-to-enterprise plans, 350+ automated tests, and a three-process production topology (web, platform console, ops worker)."
     },
     "p5": {
       "title": "CareerForge AI 3.0: Voice-AI Career OS",
@@ -297,7 +297,7 @@
       "period": "2019 – Present",
       "s1": {
         "title": "Enterprise Architecture & Digital Transformation",
-        "d1": "Principal Architect of the Collective Intranet System: Engineered a secure, hybrid SQL/NoSQL platform (Flask, PostgreSQL, MongoDB GridFS) centralizing all enterprise workflows.",
+        "d1": "Principal Architect of TrainIQ: Engineered a secure, multi-tenant SQL/NoSQL learning platform (Flask, PostgreSQL, MongoDB GridFS) centralizing training, exams, and enterprise workflows.",
         "d2": "Implemented a high-security framework featuring 2FA, company email validation, Redis-based rate limiting, and account lock logic.",
         "d3": "Designed a complex training-and-progression engine with timed assessments, automated scoring, and administrative approval gates.",
         "d4": "Managed end-to-end CI/CD pipelines via GitHub Actions with deployment to Azure Web Apps."

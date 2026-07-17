@@ -169,12 +169,12 @@
       "impact": "减少了 40% 的人工审计工作量，并通过实时预测仪表板提高了财务控制人员的 KPI 可见性。"
     },
     "p4": {
-      "title": "Collective Intranet: 企业工作流引擎",
+      "title": "TrainIQ: 多租户企业学习平台",
       "role": "全栈架构师与主开发人员",
-      "summary": "一个安全的企业内部平台，为 RCM 团队集成了入职、培训和绩效跟踪。",
-      "challenge": "管理跨多个 RCM 部门的不断壮大的团队，需要一个集中、安全的系统进行培训、任务管理和行政报告。",
-      "solution": "使用 Next.js 和 PostgreSQL 架构了一个安全的企业内部平台。具有集中任务、入职流程和 RCM 团队自动化绩效跟踪等功能。",
-      "impact": "为 50 多名成员简化了操作，提高了生产力和数据安全性。"
+      "summary": "一个多租户 SaaS 学习管理系统（LMS），提供课程、限时考试、AI 辅助监考、本地 AI 辅导、Stripe 计费和 CEO 运营控制台。",
+      "challenge": "企业需要安全、租户隔离的企业培训系统，涵盖评估、考试监考、任务管理和 SaaS 计费——既不能在客户之间泄露数据，也不依赖云端 AI API。",
+      "solution": "基于 Flask 构建了具有三层租户隔离的平台（按租户范围的 PostgreSQL、每租户独立的 MongoDB GridFS 数据库、基于 Redis 的限流），通过 Ollama 提供本地 AI 套件（LearnIQ 辅导、AnalyticsIQ 洞察、ProctorIQ 信任评分、CreatorIQ 课程生成），并集成 Stripe 订阅计费和 Prometheus/Grafana 可观测性体系。",
+      "impact": "为 50 多名团队成员简化了培训流程，并发展为产品化 SaaS，提供从试用到企业级的订阅计划、350 多项自动化测试，以及三进程生产拓扑（Web、平台控制台、运维 Worker）。"
     },
     "p5": {
       "title": "CareerForge AI 3.0: 语音 AI 职业操作系统",
@@ -268,7 +268,7 @@
       "period": "2019 – 至今",
       "s1": {
         "title": "企业架构与数字化转型",
-        "d1": "Collective Intranet 系统首席架构师：设计了一个安全的混合 SQL/NoSQL 平台（Flask, PostgreSQL, MongoDB GridFS），实现了所有企业工作流的集中化管理。",
+        "d1": "TrainIQ 首席架构师：设计了一个安全的多租户 SQL/NoSQL 学习平台（Flask, PostgreSQL, MongoDB GridFS），实现了培训、考试和企业工作流的集中化管理。",
         "d2": "实施了高安全性框架，具有双因素身份验证 (2FA)、公司电子邮件验证、基于 Redis 的速率限制和帐户锁定逻辑。",
         "d3": "设计了一个复杂的培训与晋升引擎，具有定时评估、自动评分和行政审批关口。",
         "d4": "通过 GitHub Actions 管理端到端 CI/CD 管道，并部署到 Azure Web Apps。"

@@ -167,12 +167,12 @@
       "impact": "Reducción del esfuerzo de auditoría manual en un 40% y mejora de la visibilidad de los KPI para los controladores financieros a través de paneles predictivos en tiempo real."
     },
     "p4": {
-      "title": "Intranet Colectiva: Motor de Flujo de Trabajo Empresarial",
+      "title": "TrainIQ: Plataforma de Aprendizaje Corporativo Multi-Tenant",
       "role": "Arquitecto Full Stack y Desarrollador Principal",
-      "summary": "Una plataforma interna segura que centraliza la incorporación, capacitación y seguimiento del desempeño para los equipos de RCM.",
-      "challenge": "La gestión de un equipo en crecimiento en múltiples departamentos de RCM requería un sistema centralizado y seguro para la capacitación, gestión de tareas e informes administrativos.",
-      "solution": "Diseñé una plataforma interna segura utilizando Next.js y PostgreSQL. Cuenta con tareas centralizadas, flujos de incorporación y seguimiento automatizado del desempeño para los equipos de RCM.",
-      "impact": "Operaciones optimizadas para más de 50 miembros, mejorando la productividad y la seguridad de los datos."
+      "summary": "Un LMS SaaS multi-tenant con cursos, exámenes cronometrados, supervisión asistida por IA, tutoría con IA local, facturación con Stripe y una consola de operaciones para el CEO.",
+      "challenge": "Las organizaciones necesitan capacitación corporativa segura y aislada por tenant, con evaluaciones, supervisión de exámenes, gestión de tareas y facturación SaaS — sin filtrar datos entre clientes ni depender de APIs de IA en la nube.",
+      "solution": "Diseñé una plataforma basada en Flask con aislamiento de tenants en tres capas (PostgreSQL con alcance por tenant, bases de datos MongoDB GridFS por tenant, límites respaldados por Redis), una suite de IA local vía Ollama (tutoría LearnIQ, insights AnalyticsIQ, puntuación de confianza ProctorIQ, generación de cursos CreatorIQ), facturación por suscripción con Stripe y observabilidad con Prometheus/Grafana.",
+      "impact": "Optimizó la capacitación de más de 50 miembros del equipo y evolucionó a un SaaS productizado con planes desde prueba hasta enterprise, más de 350 pruebas automatizadas y una topología de producción de tres procesos (web, consola de plataforma, worker de operaciones)."
     },
     "p5": {
       "title": "CareerForge AI 3.0: Sistema de Operación de Carrera con IA de Voz",
@@ -266,7 +266,7 @@
       "period": "2019 – Presente",
       "s1": {
         "title": "Arquitectura Empresarial y Transformación Digital",
-        "d1": "Arquitecto Principal del Sistema de Intranet Colectiva: Diseñé una plataforma híbrida segura SQL/NoSQL (Flask, PostgreSQL, MongoDB GridFS) que centraliza todos los flujos de trabajo empresariales.",
+        "d1": "Arquitecto Principal de TrainIQ: Diseñé una plataforma de aprendizaje multi-tenant segura SQL/NoSQL (Flask, PostgreSQL, MongoDB GridFS) que centraliza la capacitación, los exámenes y los flujos de trabajo empresariales.",
         "d2": "Implementé un marco de alta seguridad con 2FA, validación de correo electrónico de la empresa, limitación de velocidad basada en Redis y lógica de bloqueo de cuentas.",
         "d3": "Diseñé un motor complejo de capacitación y progresión con evaluaciones programadas, calificación automatizada y puertas de aprobación administrativa.",
         "d4": "Gestioné canales de CI/CD de extremo a extremo a través de GitHub Actions con implementación en Azure Web Apps."

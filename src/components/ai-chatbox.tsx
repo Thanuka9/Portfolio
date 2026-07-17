@@ -92,8 +92,8 @@ function localRAG(userMsg: string): string | null {
   if (q.includes('reviewradar') || q.includes('review radar')) {
     return "**ReviewRadar AI** is an end-to-end sentiment intelligence platform that processes **7M+ product reviews** using an ensemble of **XGBoost + VADER + spaCy** models.\n\nThe ETL pipeline feeds a **PostgreSQL** data warehouse for real-time sentiment dashboards.";
   }
-  if (q.includes('collective intranet') || q.includes('intranet')) {
-    return "**Collective Intranet** is a secure hybrid SQL/NoSQL enterprise platform Thanuka built for Collective RCM.\n\nIt centralises onboarding, training, and performance tracking — built with **Flask + PostgreSQL + MongoDB + Redis** and hosted on **Azure** with CI/CD via GitHub Actions.";
+  if (q.includes('trainiq') || q.includes('train iq') || q.includes('collective intranet') || q.includes('intranet')) {
+    return "**TrainIQ** is a multi-tenant corporate learning platform (SaaS LMS) Thanuka architected — courses, timed exams, tasks, and certificates with strict per-tenant data isolation.\n\nHighlights: **local AI via Ollama** (LearnIQ tutoring, AnalyticsIQ insights, ProctorIQ trust scoring, CreatorIQ course generation), **Stripe** subscription billing, and a CEO operations console — built with **Flask + PostgreSQL + MongoDB GridFS + Redis**, shipped with Docker, Prometheus/Grafana observability, and 350+ automated tests.";
   }
   if (q.includes('healthcare') && (q.includes('predict') || q.includes('forecast') || q.includes('payment'))) {
     return "Thanuka's **Predictive Analytics for Healthcare Payment Forecasting** achieved **R² > 0.90** using an ML framework combining **Random Forest and Neural Networks** for financial prioritization in Revenue Cycle Management.\n\nBuilt with Scikit-learn, Pandas, and advanced statistical modelling.";
@@ -139,7 +139,7 @@ function localRAG(userMsg: string): string | null {
 
   // ── Projects overview ─────────────────────────────────────────────────────
   if (q.includes('project') || q.includes('portfolio') || q.includes('built'))
-    return "Thanuka has built **6 flagship projects**:\n\n1. **AI Job Hunter** — 90% effort reduction via RAG\n2. **Predictive Healthcare Analytics** — R² > 0.90\n3. **RevOps AI** — Multi-agent B2B SaaS\n4. **Collective Intranet** — Enterprise Flask platform\n5. **CareerForge AI 3.0** — Voice AI + Search Grounding\n6. **ReviewRadar AI** — 7M+ review sentiment engine\n\nWhich would you like to explore?";
+    return "Thanuka has built **6 flagship projects**:\n\n1. **AI Job Hunter** — 90% effort reduction via RAG\n2. **Predictive Healthcare Analytics** — R² > 0.90\n3. **RevOps AI** — Multi-agent B2B SaaS\n4. **TrainIQ** — Multi-tenant SaaS learning platform\n5. **CareerForge AI 3.0** — Voice AI + Search Grounding\n6. **ReviewRadar AI** — 7M+ review sentiment engine\n\nWhich would you like to explore?";
 
   // ── Contact ───────────────────────────────────────────────────────────────
   if (q.includes('book') || q.includes('call') || q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('reach'))

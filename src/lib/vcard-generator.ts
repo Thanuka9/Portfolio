@@ -4,7 +4,7 @@ export function generateVCard() {
     title: 'AI Architect & Data Scientist',
     email: 'thanuka.ellepola@gmail.com',
     phone: '+94776705832',
-    url: 'https://thanukaellepola.careers',
+    url: 'https://thanukaellepola.com',
     linkedin: 'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/',
     location: 'Colombo, Sri Lanka'
   };

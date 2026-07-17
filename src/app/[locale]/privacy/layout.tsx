@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy policy and data protection terms for thanukaellepola.careers — how your information is collected, used, and protected.',
+  description: 'Privacy policy and data protection terms for thanukaellepola.com — how your information is collected, used, and protected.',
   robots: {
     index: false,
     follow: false,
   },
   alternates: {
-    canonical: 'https://thanukaellepola.careers/privacy',
+    canonical: 'https://thanukaellepola.com/en/privacy',
   },
 };
 

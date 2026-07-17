@@ -30,10 +30,10 @@ export const SITE_KNOWLEDGE = {
       tags: ["FastAPI", "React", "Scikit-learn", "Docker", "GCP", "Agentic AI"]
     },
     {
-      title: "Collective Intranet",
+      title: "TrainIQ",
       role: "Full Stack Architect & Main Developer",
-      summary: "Secure hybrid SQL/NoSQL platform centralizing onboarding, training, and performance tracking.",
-      tags: ["Flask", "PostgreSQL", "MongoDB", "Redis", "Azure", "CI/CD"]
+      summary: "Multi-tenant SaaS LMS with courses, exams, AI proctoring (ProctorIQ), local AI tutoring (LearnIQ), Stripe billing, and a CEO operations console.",
+      tags: ["Flask", "PostgreSQL", "MongoDB", "Redis", "Ollama", "Stripe", "Docker", "CI/CD"]
     },
     {
       title: "CareerForge AI 3.0",

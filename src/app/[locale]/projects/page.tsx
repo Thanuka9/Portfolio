@@ -49,7 +49,8 @@ export default function ProjectsPage() {
       challenge: t('p4.challenge'),
       solution: t('p4.solution'),
       impact: t('p4.impact'),
-      tags: ["Next.js", "PostgreSQL", "Flask", "Tailwind CSS", "Enterprise Architecture"],
+      tags: ["Flask", "PostgreSQL", "MongoDB", "Redis", "Ollama AI", "Stripe", "Multi-Tenant SaaS"],
+      github: "https://github.com/Thanuka9/TrainIQ",
       icon: Server
     },
     {

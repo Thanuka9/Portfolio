@@ -9,7 +9,7 @@ export default function TermsPage() {
     {
       icon: Globe,
       title: "Acceptance of Terms",
-      content: `By accessing and using thanukaellepola.careers (the "Website"), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please discontinue use of this Website immediately. These terms apply to all visitors, users, and others who access the Website.`,
+      content: `By accessing and using thanukaellepola.com (the "Website"), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please discontinue use of this Website immediately. These terms apply to all visitors, users, and others who access the Website.`,
     },
     {
       icon: FileText,
