@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { Link, usePathname, useRouter } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
 import Image from 'next/image';
 // Pathname is now handled by next-intl
 import { Home, Briefcase, Code, GraduationCap, Mail, Phone, Sparkles, Github, Linkedin, MapPin, BrainCircuit, BookOpen, Cpu } from 'lucide-react';
@@ -25,13 +25,9 @@ import { useTranslations } from 'next-intl';
 
 export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
   const pathname = usePathname();
-  const router = useRouter();
   const tNav = useTranslations('Navigation');
   const tSide = useTranslations('Sidebar');
 
-  const handleLanguageSwitch = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale });
-  };
   const profileImage = imageData.profile;
 
   const navItems = [
