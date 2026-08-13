@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, CloudCog, Building, Rocket, CheckCircle2, Layers, Landmark, ExternalLink } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, CloudCog, Building, Rocket, CheckCircle2, Layers, Landmark, ExternalLink, Lock } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 interface RawSection {
@@ -15,6 +15,7 @@ interface RawExperience {
   company: string;
   period: string;
   link?: string;
+  note?: string;
   s1: RawSection;
   s2: RawSection;
 }
@@ -45,6 +46,7 @@ export function ExperienceTimeline() {
       company: raw.company,
       period: raw.period,
       link: raw.link,
+      note: raw.note,
       sections: (['s1', 's2'] as const).map((sectionKey) => {
         const section = raw[sectionKey];
         const details = Object.keys(section)
@@ -204,6 +206,13 @@ export function ExperienceTimeline() {
                   {exp.period}
                 </div>
               </div>
+
+              {exp.note && (
+                <div className="flex items-start gap-3 mb-10 -mt-4 px-5 py-4 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20">
+                  <Lock size={15} className="text-amber-500 shrink-0 mt-0.5" />
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{exp.note}</p>
+                </div>
+              )}
 
               <div className="grid lg:grid-cols-2 gap-12">
                 {exp.sections.map((section, idx) => (

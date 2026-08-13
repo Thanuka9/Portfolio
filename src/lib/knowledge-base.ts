@@ -44,8 +44,16 @@ export const SITE_KNOWLEDGE = {
     {
       title: "ReviewRadar AI",
       role: "AI & Data Engineer",
-      summary: "End-to-end sentiment intelligence platform processing 7M+ reviews with ensemble ML models.",
-      tags: ["Python", "XGBoost", "PostgreSQL", "ETL", "VADER", "spaCy"]
+      summary: "End-to-end Yelp review intelligence platform with PostgreSQL ETL, VADER features, and an enhanced sentiment ensemble (accuracy 0.9106, F1 0.9341, ROC-AUC 0.9687 per public model_metrics.json).",
+      tags: ["Python", "XGBoost", "PostgreSQL", "ETL", "VADER", "spaCy"],
+      github: "https://github.com/Thanuka9/reviewradar_ai"
+    },
+    {
+      title: "Monday.com Data Auditor",
+      role: "Full Stack Developer",
+      summary: "Local Streamlit app that audits Monday.com boards via GraphQL cursor pagination, flags missing Files/Notes cells, and exports clickable CSV remediation lists.",
+      tags: ["Python", "Streamlit", "Pandas", "Monday.com GraphQL"],
+      github: "https://github.com/Thanuka9/Monday"
     },
     {
       title: "Veyra Labs",
@@ -71,7 +79,8 @@ export const SITE_KNOWLEDGE = {
       role: "Data Scientist",
       company: "Central Bank of Sri Lanka",
       period: "Aug 2026 – Present",
-      focus: "Macroeconomic modelling and forecasting, financial sector analytics, risk scoring, and automated statistical reporting."
+      focus: "Macroeconomic modelling and forecasting, financial sector analytics, and statistical methodology. This work is confidential — no project data, figures, or outputs are published.",
+      confidential: true
     },
     {
       role: "Founder & Principal AI Architect",

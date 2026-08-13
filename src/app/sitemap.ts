@@ -1,6 +1,11 @@
 import { MetadataRoute } from 'next';
 
 const BLOG_SLUGS = [
+  'reviewradar-sentiment-ensemble-metrics',
+  'job-hunter-autonomous-rag-agent',
+  'revops-ai-multi-agent-rcm-auditing',
+  'trainiq-multi-tenant-lms-local-ai',
+  'monday-com-graphql-data-auditor',
   'financial-sector-risk-analytics-pipeline',
   'agentic-commerce-model-context-protocol',
   'reproducible-macroeconomic-forecasting',

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Search, Calendar, Clock, ArrowRight, Filter, Sparkles, Brain, Code, Stethoscope, Landmark, ShoppingBag, TrendingUp, Layers, Sigma } from 'lucide-react';
+import { BookOpen, Search, Calendar, Clock, ArrowRight, Filter, Brain, Code, Stethoscope, Landmark, ShoppingBag, TrendingUp, Layers, Sigma, MessageSquareText, Bot, Zap, Server, Table2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 
 interface BlogPost {
@@ -23,14 +23,59 @@ export default function BlogListingPage() {
 
   const posts: BlogPost[] = [
     {
+      slug: 'reviewradar-sentiment-ensemble-metrics',
+      title: 'ReviewRadar AI: Ensemble Sentiment That Actually Moves the Metric',
+      excerpt: 'Published evaluation metrics from model_metrics.json — an enhanced sentiment ensemble lifts accuracy from ~0.84 to 0.91 over prior pipelines on the Yelp review warehouse.',
+      category: 'Data Science',
+      date: 'August 12, 2026',
+      readTime: '7 min read',
+      icon: MessageSquareText,
+      featured: true
+    },
+    {
+      slug: 'job-hunter-autonomous-rag-agent',
+      title: 'Job Hunter: An Autonomous RAG Agent That Applies With Evidence',
+      excerpt: 'FAISS-backed career persona retrieval plus Playwright form filling under a zero-hallucination policy — rank first, then apply only with grounded answers.',
+      category: 'AI Engineering',
+      date: 'August 10, 2026',
+      readTime: '7 min read',
+      icon: Bot
+    },
+    {
+      slug: 'revops-ai-multi-agent-rcm-auditing',
+      title: 'RevOps AI: Multi-Agent Pods for Healthcare RCM Auditing',
+      excerpt: 'FastAPI + React B2B SaaS combining heuristic RCM audits, sklearn payment forecasting, Monday.com sync, and specialised agent pods.',
+      category: 'AI Engineering',
+      date: 'August 8, 2026',
+      readTime: '7 min read',
+      icon: Zap
+    },
+    {
+      slug: 'trainiq-multi-tenant-lms-local-ai',
+      title: 'TrainIQ: Multi-Tenant LMS Isolation with Local AI',
+      excerpt: 'Three-layer tenant isolation, Stripe billing, a CEO platform console, and an Ollama-local AI suite — without requiring cloud LLM keys.',
+      category: 'AI Engineering',
+      date: 'August 6, 2026',
+      readTime: '8 min read',
+      icon: Server
+    },
+    {
       slug: 'financial-sector-risk-analytics-pipeline',
-      title: 'From Loan Ledger to Risk Signal: A Reproducible Financial Analytics Pipeline',
-      excerpt: 'Turning a raw bank loan portfolio workbook into financial KPIs, macro-linked risk scores, and anomaly flags using a numbered, re-runnable script pipeline instead of an unordered pile of notebooks.',
+      title: 'Reproducible Financial Analytics: Designing Pipelines That Survive the Next Revision',
+      excerpt: 'A general methodology for turning messy financial source data into defensible indicators and risk signals — profiling before cleaning, separating pipeline stages, and generating every report from the same processed artefacts.',
       category: 'Data Science',
       date: 'August 5, 2026',
       readTime: '8 min read',
-      icon: Landmark,
-      featured: true
+      icon: Landmark
+    },
+    {
+      slug: 'monday-com-graphql-data-auditor',
+      title: 'Monday.com GraphQL Data Auditor: Local Hygiene Without Zapier',
+      excerpt: 'Streamlit + Monday GraphQL cursor pagination to find missing Files/Notes cells across boards and export clickable CSV remediation lists.',
+      category: 'AI Engineering',
+      date: 'August 4, 2026',
+      readTime: '5 min read',
+      icon: Table2
     },
     {
       slug: 'agentic-commerce-model-context-protocol',

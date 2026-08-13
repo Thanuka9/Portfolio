@@ -319,18 +319,19 @@
       "role": "Data Scientist",
       "company": "Central Bank of Sri Lanka",
       "period": "Aug 2026 – Present",
+      "note": "Work in this role is confidential. Only the general disciplines are described below — no project data, figures, or outputs are published.",
       "s1": {
         "title": "Macroeconomic Modelling & Forecasting",
-        "d1": "Build reproducible forecasting pipelines over Sri Lankan macroeconomic indicators, benchmarking statistical and machine learning models on out-of-sample performance.",
-        "d2": "Engineer end-to-end data workflows — ingestion, cleaning, transformation, and feature construction — that turn raw statistical returns into analysis-ready datasets.",
-        "d3": "Apply rigorous statistical validation (stationarity checks, residual diagnostics, hypothesis testing) before any model output reaches a policy audience.",
-        "d4": "Automate the reporting layer, publishing dashboard-ready datasets and generated Markdown/HTML/DOCX reports directly from the analytical pipeline."
+        "d1": "Time-series and macroeconomic forecasting, benchmarking statistical and machine learning approaches on honest out-of-sample evaluation.",
+        "d2": "Reproducible, end-to-end analytical pipelines in place of ad-hoc notebook workflows.",
+        "d3": "Rigorous statistical validation — stationarity checks, residual diagnostics, and hypothesis testing — before any model output is relied upon.",
+        "d4": "Research communication and automated reporting for a technical and policy readership."
       },
       "s2": {
         "title": "Financial Sector Analytics & Risk",
-        "d1": "Analyse bank loan portfolio data to compute financial KPIs and exposure indicators across products, sectors, and borrower segments.",
-        "d2": "Develop risk scoring and anomaly detection routines that surface outlier exposures and data-quality defects before they distort aggregate reporting.",
-        "d3": "Integrate institution-level data with macroeconomic series to study credit risk behaviour under changing economic conditions."
+        "d1": "Financial sector analytics and risk methodology, including indicator design and portfolio-level analytical techniques.",
+        "d2": "Risk scoring and anomaly detection methods, with an emphasis on separating genuine signal from data-quality defects.",
+        "d3": "Applied econometrics linking institution-level analysis to broader macroeconomic conditions."
       }
     },
     "exp2": {
