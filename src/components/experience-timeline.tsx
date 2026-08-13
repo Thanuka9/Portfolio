@@ -2,8 +2,25 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, CloudCog, Building, Rocket, CheckCircle2, Layers } from "lucide-react";
+import { Briefcase, Cpu, Code, BrainCircuit, BarChart3, CloudCog, Building, Rocket, CheckCircle2, Layers, Landmark, ExternalLink } from "lucide-react";
 import { useTranslations } from 'next-intl';
+
+interface RawSection {
+  title: string;
+  [detailKey: string]: string;
+}
+
+interface RawExperience {
+  role: string;
+  company: string;
+  period: string;
+  link?: string;
+  s1: RawSection;
+  s2: RawSection;
+}
+
+const EXPERIENCE_KEYS = ['exp1', 'exp2', 'exp3', 'exp4'] as const;
+const EXPERIENCE_ICONS = [Landmark, Rocket, Building, Code];
 
 export function ExperienceTimeline() {
   const t = useTranslations('Experience');
@@ -18,31 +35,27 @@ export function ExperienceTimeline() {
     stiffness: 100, damping: 20
   });
 
-  // Helper to extract nested translations
-  const renderExperience = (key: 'exp1' | 'exp2') => {
-    const sections = ['s1', 's2'];
+  // Each role is stored as { role, company, period, s1: { title, d1… }, s2: { … } }.
+  // Reading the raw object keeps the number of bullet points open-ended per role.
+  const experienceData = EXPERIENCE_KEYS.map((key) => {
+    const raw = t.raw(key) as RawExperience;
+
     return {
-      role: t(`${key}.role`),
-      company: t(`${key}.company`),
-      period: t(`${key}.period`),
-      sections: sections.map(s => {
-        const detailsCount = s === 's1' ? (key === 'exp1' ? 4 : 5) : 3;
-        const details = [];
-        for (let i = 1; i <= detailsCount; i++) {
-          try {
-            const detail = t(`${key}.${s}.d${i}`);
-            if (detail) details.push(detail);
-          } catch (e) {}
-        }
-        return {
-          title: t(`${key}.${s}.title`),
-          details
-        };
+      role: raw.role,
+      company: raw.company,
+      period: raw.period,
+      link: raw.link,
+      sections: (['s1', 's2'] as const).map((sectionKey) => {
+        const section = raw[sectionKey];
+        const details = Object.keys(section)
+          .filter((detailKey) => /^d\d+$/.test(detailKey))
+          .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))
+          .map((detailKey) => section[detailKey]);
+
+        return { title: section.title, details };
       })
     };
-  };
-
-  const experienceData = [renderExperience('exp1'), renderExperience('exp2')];
+  });
 
   const technicalSkills = [
     {
@@ -151,7 +164,10 @@ export function ExperienceTimeline() {
           </motion.div>
         </div>
 
-        {experienceData.map((exp, index) => (
+        {experienceData.map((exp, index) => {
+          const RoleIcon = EXPERIENCE_ICONS[index] ?? Briefcase;
+
+          return (
           <motion.div 
             key={index} 
             initial={{ opacity: 0, x: -30 }}
@@ -163,14 +179,26 @@ export function ExperienceTimeline() {
               className="absolute left-0 top-6 w-16 h-16 rounded-2xl glass-panel hidden md:flex items-center justify-center text-primary border-primary/20 bg-background/50 backdrop-blur-3xl z-10 
               group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl"
             >
-               {index === 0 ? <Building size={24} /> : <Rocket size={24} />}
+               <RoleIcon size={24} />
             </motion.div>
 
             <div className="glass-panel p-8 lg:p-12 rounded-[2.5rem] transition-all duration-500 group-hover:border-primary/30 bg-background/40">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
                 <div className="space-y-2">
                   <h2 className="text-2xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{exp.role}</h2>
-                  <p className="text-primary font-bold text-sm bg-primary/10 inline-block px-3 py-1 rounded-full">{exp.company}</p>
+                  {exp.link ? (
+                    <a
+                      href={exp.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary font-bold text-sm bg-primary/10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full hover:bg-primary/20 transition-colors"
+                    >
+                      {exp.company}
+                      <ExternalLink size={12} />
+                    </a>
+                  ) : (
+                    <p className="text-primary font-bold text-sm bg-primary/10 inline-block px-3 py-1 rounded-full">{exp.company}</p>
+                  )}
                 </div>
                 <div className="px-5 py-2 rounded-full bg-secondary text-foreground text-[10px] font-black uppercase tracking-widest border border-border/50">
                   {exp.period}
@@ -196,7 +224,8 @@ export function ExperienceTimeline() {
               </div>
             </div>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
 
       <section className="space-y-12 pt-20">

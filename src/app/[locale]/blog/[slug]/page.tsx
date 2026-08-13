@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { ArrowLeft, Calendar, Clock, BookOpen, User, Tag, Sparkles, AlertCircle, Quote } from 'lucide-react';
-import { Link } from '@/i18n/routing';
+import { Link, routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 
 interface BlogPostContent {
@@ -212,6 +212,364 @@ neural_network_params = {
         ]
       }
     ]
+  },
+  'agentic-commerce-model-context-protocol': {
+    title: 'Agentic Commerce on MCP: From Multilingual Intent to a Completed Checkout',
+    category: 'AI Engineering',
+    date: 'July 24, 2026',
+    readTime: '7 min read',
+    summary: 'A field report from the Kapruka Agent Challenge 2026 — building a shopping agent on the Model Context Protocol that parses English, Sinhala, and Tanglish intent into budget-aware cart plans and completes a real guest checkout.',
+    sections: [
+      {
+        heading: 'Search is the wrong primitive',
+        paragraphs: [
+          'Every e-commerce site asks the same thing of a shopper: translate what you actually want into keywords, then reconcile the results yourself. If your intent is "a birthday hamper for my sister in Kandy, under 15,000 rupees, delivered Saturday", the search box gives you no help at all. You become the planner, the price optimiser, and the delivery validator.',
+          'Kapruka Flow AI, built for the Kapruka Agent Challenge 2026, inverts that. The primitive is intent, not search. You describe the outcome; the agent produces complete, priced, delivery-validated cart plans that you can compare and check out.'
+        ]
+      },
+      {
+        heading: 'Why MCP changes the integration story',
+        paragraphs: [
+          'The Model Context Protocol matters here for a boring but decisive reason: it turns a merchant catalogue into a typed, discoverable tool surface. Instead of scraping HTML or negotiating a bespoke partner API, the agent calls documented tools for product search, item enrichment, delivery validation, and order placement.',
+          'That changes what you spend engineering effort on. Almost none of the build went into integration plumbing, and almost all of it went into the planning logic that sits above the tools. When the catalogue changes, the tool contract absorbs it.'
+        ],
+        callout: 'The public Kapruka MCP requires no API key, which means the agent can be demonstrated end to end by anyone — including judges — without credential provisioning. Removing auth friction from a demo is an underrated design decision.'
+      },
+      {
+        heading: 'Parsing intent across three languages',
+        paragraphs: [
+          'Sri Lankan shoppers do not type in one language. They type in English, in Sinhala, and very often in Tanglish — Sinhala words written in Latin script, mixed freely with English. A model tuned only on clean English collapses on the third case, which is the most common one.',
+          'The intent parser normalises across all three before any catalogue call happens. It extracts the same structured frame regardless of input language: recipient, occasion, product categories, budget ceiling, delivery city, and urgency. Everything downstream operates on that frame, so the planner never has to care which language the request arrived in.'
+        ]
+      },
+      {
+        heading: 'A deterministic planner beats a chatty model',
+        paragraphs: [
+          'The instinct in 2026 is to hand the whole problem to a large language model and let it call tools in a loop. I deliberately did not do that. Cart construction is a constrained optimisation problem: maximise relevance to the parsed intent while staying under a budget ceiling and respecting delivery constraints.',
+          'That is a job for scoring and search, not for token sampling. The planner scores every candidate item against the intent frame, then fills the cart greedily against the budget with backtracking when a constraint is violated. The result is fast, reproducible, and free of the failure mode where the model invents a product that does not exist.'
+        ],
+        code: {
+          language: 'python',
+          snippet: `def build_plan(intent, candidates, budget, strategy):
+    scored = sorted(
+        (score_item(item, intent), item) for item in candidates
+    )
+
+    cart, spend = [], 0
+    for relevance, item in reversed(scored):
+        price = strategy.adjust(item.price)
+        if spend + price > budget:
+            continue                      # skip, keep filling
+        if not delivery_ok(item, intent.city, intent.deadline):
+            continue                      # validated via MCP, not guessed
+        cart.append(item)
+        spend += price
+
+    return Plan(strategy.name, cart, spend, budget)`,
+          caption: 'Cart construction as constrained search — deterministic, auditable, and impossible to hallucinate a SKU into.'
+        }
+      },
+      {
+        heading: 'Four plans instead of one cart',
+        paragraphs: [
+          'A single recommended cart forces a shopper to trust the agent blindly. Four plans invite a decision. Every request produces an Ideal plan balanced on relevance, a Cheaper plan that trades brand for budget headroom, a Premium plan that spends the full ceiling, and a Fast plan optimised for the earliest delivery date.',
+          'Because the plans are generated from the same scored candidate pool, comparing them is cheap, and adjusting the budget slider re-optimises all four client-side in milliseconds. No round trip, no regeneration, no waiting on a model.'
+        ],
+        quote: 'Give a user one AI answer and they audit it. Give them four ranked options and they choose. Choice architecture is a trust mechanism.'
+      },
+      {
+        heading: 'Making the agent auditable',
+        paragraphs: [
+          'Agentic systems fail in public when users cannot see what happened. The interface exposes a live MCP activity feed: every tool invocation, its arguments, and its result are visible while the plan is being assembled.',
+          'This is not a debugging affordance that survived into production by accident. It is the product. When a shopper can watch the agent search the catalogue, enrich three candidate items, and validate delivery to their city, the plan stops being a black-box suggestion and becomes a traceable piece of work.'
+        ]
+      },
+      {
+        heading: 'What I would build next',
+        paragraphs: [
+          'The obvious extension is memory. Accounts and order history already personalise future plans, but the scoring function currently treats history as a static prior. Learning per-user weights from accepted and rejected plans would make the second visit meaningfully better than the first.',
+          'The harder problem is negotiation. Real gift-buying involves trade-offs a shopper cannot articulate up front — they discover their preferences by seeing options. A planner that asks one well-chosen clarifying question, rather than assuming, would beat any amount of additional model capacity.'
+        ]
+      }
+    ]
+  },
+  'multitask-deep-learning-scene-emission': {
+    title: 'One Backbone, Three Heads: Multitask Learning for Scene and Emission Estimation',
+    category: 'Data Science',
+    date: 'June 20, 2026',
+    readTime: '7 min read',
+    summary: 'How a single ResNet-50 trunk can jointly predict Places365 scene categories, binary scene attributes, and a five-class carbon emission estimate — and what actually breaks when you fine-tune one head in isolation.',
+    sections: [
+      {
+        heading: 'Why one model instead of three',
+        paragraphs: [
+          'The Sustainable Vision project needed three predictions from a single photograph: which of the 365 Places categories the scene belongs to, which binary attributes describe it, and roughly how carbon-intensive the depicted environment is. The naive approach is three independently trained networks.',
+          'That is wasteful and, more importantly, it throws away the strongest available signal. Carbon intensity is not a property you can read off pixels directly — it is inferred almost entirely from what the scene is. A highway, a coal plant, and a forest trail have wildly different emission profiles precisely because they are different scenes. Sharing a trunk lets the emission head borrow representations the scene head has already learned.'
+        ]
+      },
+      {
+        heading: 'The architecture: shared trunk, three heads',
+        paragraphs: [
+          'The backbone is a ResNet-50 pretrained on Places365. Above the pooled feature vector sit three independent heads: a 365-way softmax for scene category, a sigmoid layer for binary attribute prediction, and a five-way softmax for emission level running from very low to very high.',
+          'Each head has its own loss, and the training objective is a weighted sum. Weighting matters more than the architecture. Left unweighted, the 365-way scene loss dominates the gradient and the emission head learns almost nothing.'
+        ],
+        code: {
+          language: 'python',
+          snippet: `class MultitaskResNet(nn.Module):
+    def __init__(self, n_scenes=365, n_attrs=102, n_emission=5):
+        super().__init__()
+        backbone = resnet50(weights=Places365_Weights.DEFAULT)
+        self.trunk = nn.Sequential(*list(backbone.children())[:-1])
+        feat = backbone.fc.in_features
+
+        self.scene_head    = nn.Linear(feat, n_scenes)
+        self.attr_head     = nn.Linear(feat, n_attrs)
+        self.emission_head = nn.Sequential(
+            nn.Dropout(0.3), nn.Linear(feat, n_emission)
+        )
+
+    def forward(self, x):
+        z = self.trunk(x).flatten(1)
+        return self.scene_head(z), self.attr_head(z), self.emission_head(z)`,
+          caption: 'Three heads over one trunk. The emission head gets dropout because its label set is the smallest and overfits first.'
+        }
+      },
+      {
+        heading: 'The label scarcity problem',
+        paragraphs: [
+          'Places365 gives you abundant scene labels. Nobody gives you abundant carbon emission labels for arbitrary photographs. This asymmetry is the central difficulty of the project, and it is a very common shape of problem in applied machine learning: the task you care about has the least data.',
+          'The workable answer is to treat the emission head as a small supervised layer over a representation learned from the abundant task, and to accept that its confidence intervals are wider than the scene head. Pretending otherwise produces a model that looks precise and is not.'
+        ],
+        callout: 'When one head has orders of magnitude fewer labels than another, do not report their accuracies side by side without saying so. A 91% emission confidence and a 91% scene confidence are not the same claim.'
+      },
+      {
+        heading: 'Fine-tuning without catastrophic forgetting',
+        paragraphs: [
+          'To adapt emission estimation to a narrower domain, the model was fine-tuned on the Intel Image Classification dataset. The critical constraint: fine-tuning touches only the emission head. The trunk and the scene head stay frozen.',
+          'Unfreezing the trunk during a short fine-tune on a small, narrow dataset is the fastest way to destroy the Places365 representation that makes the whole architecture work. You gain a point of emission accuracy and lose the scene classifier entirely. Freezing is not a shortcut here; it is the correct decision.'
+        ]
+      },
+      {
+        heading: 'Reading the output honestly',
+        paragraphs: [
+          'A representative inference returns a top-5 scene distribution — street at 47.9%, downtown at 6.5%, and so on — alongside attribute probabilities and an emission estimate of medium at 91.6%.',
+          'That 91.6% deserves scrutiny. A five-class softmax trained on limited labels is systematically overconfident, and the number reflects the model committing to a bucket rather than a calibrated probability that the true label is medium. Temperature scaling on a held-out split brings reported confidence much closer to observed accuracy, and costs nothing at inference time.'
+        ]
+      },
+      {
+        heading: 'Which checkpoint ships',
+        paragraphs: [
+          'Two checkpoints came out of training: the Places365 base model and the Intel fine-tuned variant. The fine-tuned checkpoint is the deployment default because emission estimation is the product-facing task, and it performs materially better there.',
+          'The base checkpoint is kept and documented rather than deleted. If a future use case needs scene classification without Intel-specific emission adaptation, retraining from scratch to recover it would be an expensive way to undo a decision that a stored artefact already handles.'
+        ]
+      },
+      {
+        heading: 'What generalises from this',
+        paragraphs: [
+          'Multitask learning is usually presented as an efficiency trick — fewer parameters, one deployment. In practice its real value is the transfer of representation from a data-rich task to a data-poor one that you could not train well in isolation.',
+          'The design questions that actually determine success are unglamorous: how you weight the losses, which parameters you freeze during adaptation, and whether you report calibrated confidence. Get those right and a standard ResNet-50 is more than enough backbone.'
+        ]
+      }
+    ]
+  },
+  'financial-sector-risk-analytics-pipeline': {
+    title: 'From Loan Ledger to Risk Signal: A Reproducible Financial Analytics Pipeline',
+    category: 'Data Science',
+    date: 'August 5, 2026',
+    readTime: '8 min read',
+    summary: 'Turning a raw bank loan portfolio workbook into financial KPIs, macro-linked risk scores, and anomaly flags using a numbered, re-runnable script pipeline instead of an unordered pile of notebooks.',
+    sections: [
+      {
+        heading: 'The raw workbook problem',
+        paragraphs: [
+          'Financial sector analysis rarely begins with a clean table. It begins with an Excel workbook: merged header cells, footnotes embedded in data rows, inconsistent date formats, and a column that is numeric for the first eight hundred rows and then contains the string "n/a".',
+          'The temptation is to fix these by hand once and move on. That single decision is what makes an analysis irreproducible. Six weeks later, when a revised workbook arrives, nobody can reconstruct which manual edits were applied, and the whole exercise restarts.'
+        ]
+      },
+      {
+        heading: 'Profile before you clean',
+        paragraphs: [
+          'The pipeline runs a dedicated raw data profile step before any transformation. It reports null rates per column, distinct value counts, inferred types against declared types, and the specific rows where a numeric column fails to parse.',
+          'This step produces no cleaned output at all, which is exactly the point. Its job is to make the shape of the mess explicit and version-controlled, so cleaning decisions can be justified against evidence rather than recalled from memory.'
+        ]
+      },
+      {
+        heading: 'Cleaning as a separate, testable stage',
+        paragraphs: [
+          'Extraction, cleaning, and transformation are three distinct scripts rather than one function. Extraction pulls the loan table out of Excel and writes an untouched Parquet copy. Cleaning applies typed coercion, null policy, and de-duplication. Transformation derives the analytical columns — tenure buckets, exposure bands, delinquency flags.',
+          'Splitting them means a bug in the delinquency rule can be fixed and re-run in seconds without touching Excel parsing, and the intermediate outputs can be diffed to see exactly what changed.'
+        ],
+        code: {
+          language: 'bash',
+          snippet: `python scripts/01_import_inspect.py        # what is actually in the workbook
+python scripts/01b_raw_data_profile.py     # null rates, type conflicts, bad rows
+python scripts/02_clean_transform.py       # typed, deduplicated, derived columns
+python scripts/03_create_macro_data.py     # annual macroeconomic series
+python scripts/04_merge_loan_macro.py      # join on reporting year
+python scripts/05_eda_financial_indicators.py
+python scripts/06_risk_scoring_anomalies.py
+python scripts/07_dashboard.py
+python scripts/08_final_report.py
+
+# or simply
+python scripts/run_all.py`,
+          caption: 'Numbered stages with a single orchestrator. Any stage can be re-run in isolation; run_all reproduces the entire analysis from the raw workbook.'
+        }
+      },
+      {
+        heading: 'Bringing macroeconomic context in',
+        paragraphs: [
+          'A loan portfolio read in isolation tells you what happened but not why. Delinquency rising by three points means something very different in a year of currency stability than in a year of double-digit inflation.',
+          'The pipeline builds an annual macroeconomic dataset as its own artefact and joins it to the portfolio on reporting year. Keeping it separate matters: macro series get revised, and a revision should trigger a re-join rather than a re-clean of the loan data.'
+        ]
+      },
+      {
+        heading: 'KPIs that survive scrutiny',
+        paragraphs: [
+          'The indicator layer computes the metrics a credit committee actually asks about: non-performing exposure by sector and product, weighted average tenure, concentration by borrower segment, and vintage curves showing how each origination cohort performs as it ages.',
+          'Every indicator is written to disk as a table alongside the chart, not embedded only in a figure. A number that exists only inside a PNG cannot be checked, and reviewers will ask you to check it.'
+        ],
+        callout: 'Vintage analysis is the single most informative view in a loan portfolio and the most frequently omitted. Aggregate delinquency mixes cohorts of different ages and will hide a deteriorating recent vintage behind a healthy mature book.'
+      },
+      {
+        heading: 'Risk scoring and anomaly detection',
+        paragraphs: [
+          'Risk scoring combines the derived indicators into a comparable score across segments, which makes ranking possible without pretending the score is a probability of default. Anomaly detection runs alongside it and serves a different purpose entirely.',
+          'Most anomalies flagged in a real portfolio are not exotic credit events. They are data defects — an exposure recorded in the wrong currency unit, a maturity date before origination, a duplicated facility. Catching those before they enter aggregate reporting is worth more than any modelling refinement downstream.'
+        ]
+      },
+      {
+        heading: 'Dashboards and reports as pipeline outputs',
+        paragraphs: [
+          'The last two stages generate an interactive dashboard and a final analytical report in Markdown and HTML. Both are pipeline outputs, regenerated from the same processed data as everything else.',
+          'This closes the loop that usually breaks. When the dashboard is a separate manual build, it drifts from the analysis within one revision cycle. When it is stage seven of nine, it cannot.'
+        ]
+      },
+      {
+        heading: 'Why numbering the scripts matters',
+        paragraphs: [
+          'The numbered file names look like a trivial convention. They are the thing that makes the project handover-safe. Anyone opening the repository sees the execution order without reading documentation, and any stage can be located by its position in the analysis.',
+          'Reproducibility in financial analytics is not primarily a tooling problem. It is the discipline of making every transformation a committed, ordered, re-runnable artefact — including the boring ones.'
+        ]
+      }
+    ]
+  },
+  'reproducible-macroeconomic-forecasting': {
+    title: 'Reproducible Macroeconomic Forecasting: Pipelines Over Notebooks',
+    category: 'Data Science',
+    date: 'July 8, 2026',
+    readTime: '6 min read',
+    summary: 'Forecasting macro indicators is far less about exotic model architectures than about disciplined data preparation, honest out-of-sample evaluation, and an output layer a policy audience can actually consume.',
+    sections: [
+      {
+        heading: 'The notebook trap',
+        paragraphs: [
+          'Macroeconomic forecasting work almost always starts in a notebook, and for exploration that is correct. The trap is that notebooks reward out-of-order execution. A cell run twice, a variable redefined halfway down, a chart produced from a dataframe that no longer exists in that form — and the result on screen can no longer be reproduced from the file.',
+          'For a forecast that will inform a policy discussion, that is disqualifying. The fix is not more discipline inside the notebook. It is a single entry point that runs the whole thing top to bottom.'
+        ],
+        code: {
+          language: 'powershell',
+          snippet: `python 00_run_final_pipeline.py
+
+# deterministic outputs, every run:
+#   outputs/FINAL_processed_model_data.csv
+#   outputs/05_model_performance.csv
+#   outputs/05_forecast_comparison.csv
+#   dashboard/dashboard_macro_data.csv
+#   report/CBSL_Exercise01_Report.{md,html,docx}`,
+          caption: 'One command reproduces cleaned data, model metrics, forecast comparisons, dashboard feeds, and the written report.'
+        }
+      },
+      {
+        heading: 'Feature construction for macro series',
+        paragraphs: [
+          'Macro indicators arrive at inconsistent frequencies, get revised after publication, and are strongly autocorrelated. Feature construction has to respect all three properties. Resampling to a common frequency needs an explicit aggregation rule per series — a rate is averaged, a flow is summed, and conflating them silently corrupts everything downstream.',
+          'Lag features are where forecasting projects most often leak. If a series is published with a two-month reporting delay, a model that uses last month value is using information that would not have existed at prediction time. Every lag must be justified against the actual publication calendar, not against the index of the dataframe.'
+        ],
+        callout: 'Revision lag is the quiet killer of macro forecasting accuracy. A model validated on final revised data will systematically outperform its live counterpart, which only ever sees first prints.'
+      },
+      {
+        heading: 'Model comparison without self-deception',
+        paragraphs: [
+          'The pipeline benchmarks several model families on the same prepared dataset and writes the comparison to disk. What makes the comparison meaningful is not the number of candidates but the evaluation protocol.',
+          'A random train-test split on time series is meaningless — it lets the model train on the future. Evaluation uses rolling-origin backtesting, where the model is refit at each step on data available up to that point and scored on the next period only. Scores drop noticeably compared to a naive split, which is the point: they become believable.'
+        ]
+      },
+      {
+        heading: 'Diagnostics before dashboards',
+        paragraphs: [
+          'Before any forecast is published, the pipeline emits diagnostics: stationarity tests on the inputs, residual autocorrelation, and plots of error over time. Structure remaining in the residuals means the model has missed something systematic, and a headline accuracy number will not reveal it.',
+          'Error over time is the most useful of these. A model with acceptable average error that degrades sharply in the most recent periods is a model about to fail in production, and only the time-resolved view exposes that.'
+        ]
+      },
+      {
+        heading: 'The reporting layer is part of the model',
+        paragraphs: [
+          'Forecasting work that ends at a metrics table does not get used. This pipeline treats output formatting as a first-class stage: dashboard-ready CSVs for Power BI, and a full report rendered to Markdown, HTML, and DOCX for readers who work in documents rather than tools.',
+          'Generating all three from the same source removes the version drift that appears the moment someone copies a chart into a Word file by hand.'
+        ]
+      },
+      {
+        heading: 'What actually improves accuracy',
+        paragraphs: [
+          'Across this work the ranked drivers of forecast quality were consistent: correct handling of publication lag, appropriate aggregation when resampling, honest backtesting, and only then model selection.',
+          'Swapping a linear model for gradient boosting moves the metric far less than fixing a leaked feature. The unglamorous stages carry the accuracy.'
+        ]
+      }
+    ]
+  },
+  'statistical-rigor-before-machine-learning': {
+    title: 'Statistical Rigor Before Machine Learning',
+    category: 'Thought Leadership',
+    date: 'June 6, 2026',
+    readTime: '5 min read',
+    summary: 'Gradient boosting will happily fit noise and report a confident number. A short case for running descriptive statistics, hypothesis tests, and dimensionality checks before reaching for a model.',
+    sections: [
+      {
+        heading: 'The temptation to skip ahead',
+        paragraphs: [
+          'Modern tooling makes it possible to load a dataset and produce a trained model with a validation score in under five minutes. Nothing in that workflow forces you to look at the data first, and increasingly nobody does.',
+          'The failures that follow are not modelling failures. They are failures to notice that a column is 60% missing, that two features are near-duplicates, or that the target is so imbalanced the reported accuracy is worse than always predicting the majority class.'
+        ]
+      },
+      {
+        heading: 'Descriptive statistics as a bug detector',
+        paragraphs: [
+          'Means, medians, standard deviations, and a histogram per column take minutes and catch a remarkable share of data defects. A median wildly separated from the mean flags skew or sentinel values. A standard deviation of zero flags a constant column that will contribute nothing. A distribution with a spike at exactly 999 flags a missing-value placeholder that will be silently treated as a real measurement.',
+          'None of this requires sophistication. It requires looking.'
+        ],
+        quote: 'Every hour spent on exploratory statistics buys back a day of debugging a model that was never going to work.'
+      },
+      {
+        heading: 'Hypothesis tests answer questions models cannot',
+        paragraphs: [
+          'A model tells you what predicts the target. A hypothesis test tells you whether an observed difference between two groups is distinguishable from noise. These are different questions, and stakeholders usually want the second one.',
+          'A t-test comparing two numeric columns, a chi-square test on categorical association, and ANOVA across multiple groups cover a surprising proportion of real analytical requests. Reaching for a classifier to answer "is segment A different from segment B" is using the wrong instrument and produces a less defensible answer.'
+        ]
+      },
+      {
+        heading: 'PCA as a sanity check',
+        paragraphs: [
+          'Principal component analysis is usually introduced as dimensionality reduction. Its more valuable everyday use is diagnostic. If the first two components explain 98% of the variance across forty features, those features are largely redundant and any feature importance ranking over them will be unstable and misleading.',
+          'Projecting onto the first two components also surfaces cluster structure and outliers that no summary table shows. It is a two-line check that changes how you interpret everything downstream.'
+        ]
+      },
+      {
+        heading: 'Clustering is exploratory, not conclusive',
+        paragraphs: [
+          'K-means will return exactly the number of clusters you request, on any dataset, including pure noise. The algorithm has no opinion about whether the structure it found is real.',
+          'Cluster output is a hypothesis to test, never a finding to report. Validate against a held-out sample and against variables that were not used to fit, and if the segments do not persist, they were an artefact of the parameter choice.'
+        ],
+        callout: 'Building these checks into a reusable workbench — upload, profile, test, reduce, cluster — turns rigour from an act of individual discipline into the default path. That was the motivation behind the Streamlit statistical application in my portfolio.'
+      },
+      {
+        heading: 'The discipline that survives',
+        paragraphs: [
+          'Model architectures churn constantly. The statistical fundamentals underneath them have not changed in decades and will outlast whatever framework is dominant next year.',
+          'The practitioners whose work holds up are not the ones using the newest models. They are the ones who understood their data before they modelled it, and who can still explain why the answer is what it is.'
+        ]
+      }
+    ]
   }
 };
 
@@ -366,17 +724,14 @@ export default async function BlogPostPage({ params }: PageProps) {
 
 // Generate static params for optimal statically generated pages in Next.js
 export async function generateStaticParams() {
-  const slugs = ['building-production-rag-pipelines-2026', 'healthcare-rcm-payment-prediction', 'autonomous-agents-vs-traditional-automation'];
-  
-  // Return arrays of params for each locale / slug combo
-  const locales = ['en', 'es', 'zh'];
+  const slugs = Object.keys(articlesData);
   const params: Array<{ locale: string; slug: string }> = [];
-  
-  locales.forEach(locale => {
+
+  routing.locales.forEach(locale => {
     slugs.forEach(slug => {
       params.push({ locale, slug });
     });
   });
-  
+
   return params;
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Bot, LineChart, Zap, Server, BrainCircuit, Search, Code, Globe, BarChart3 } from "lucide-react";
+import { Bot, LineChart, Zap, Server, BrainCircuit, Search, Code, Globe, BarChart3, ShoppingBag, Layers, Rocket } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import { ProjectsTimeline } from '@/components/projects-timeline';
 
@@ -102,6 +102,41 @@ export default function ProjectsPage() {
       impact: t('p9.impact'),
       tags: ["R", "Statistics", "Predictive Modeling", "Hypothesis Testing", "Financial Analytics"],
       icon: BarChart3
+    },
+    {
+      title: t('p10.title'),
+      role: t('p10.role'),
+      summary: t('p10.summary'),
+      challenge: t('p10.challenge'),
+      solution: t('p10.solution'),
+      impact: t('p10.impact'),
+      tags: ["Model Context Protocol", "FastAPI", "Next.js", "Agentic AI", "Multilingual NLP"],
+      github: "https://github.com/Thanuka9/kapruka-flow-AI",
+      demo: "https://kapruka-flow-ai.vercel.app",
+      icon: ShoppingBag
+    },
+    {
+      title: t('p11.title'),
+      role: t('p11.role'),
+      summary: t('p11.summary'),
+      challenge: t('p11.challenge'),
+      solution: t('p11.solution'),
+      impact: t('p11.impact'),
+      tags: ["PyTorch", "ResNet-50", "Multitask Learning", "Transfer Learning", "Computer Vision"],
+      github: "https://github.com/Thanuka9/Sustainable-Vision-Multitask-Scene-Emission-Estimation-Model",
+      icon: Layers
+    },
+    {
+      title: t('p12.title'),
+      role: t('p12.role'),
+      summary: t('p12.summary'),
+      challenge: t('p12.challenge'),
+      solution: t('p12.solution'),
+      impact: t('p12.impact'),
+      tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Neon Postgres", "Framer Motion"],
+      github: "https://github.com/Thanuka9/Veyra-Labs",
+      demo: "https://veyra-labs.vercel.app",
+      icon: Rocket
     }
   ];
 

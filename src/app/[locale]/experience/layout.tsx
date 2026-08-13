@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Experience',
-  description: 'Professional experience of Thanuka Ellepola — Lead AI Architect at Collective RCM, data science engineering roles, and enterprise AI deployment history.',
+  description: 'Professional experience of Thanuka Ellepola — Data Scientist at the Central Bank of Sri Lanka, Founder of Veyra Labs, and a track record of enterprise AI architecture and digital transformation.',
   alternates: {
     canonical: 'https://thanukaellepola.com/en/experience',
   },

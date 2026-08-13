@@ -1,6 +1,11 @@
 import { MetadataRoute } from 'next';
 
 const BLOG_SLUGS = [
+  'financial-sector-risk-analytics-pipeline',
+  'agentic-commerce-model-context-protocol',
+  'reproducible-macroeconomic-forecasting',
+  'multitask-deep-learning-scene-emission',
+  'statistical-rigor-before-machine-learning',
   'building-production-rag-pipelines-2026',
   'healthcare-rcm-payment-prediction',
   'autonomous-agents-vs-traditional-automation',

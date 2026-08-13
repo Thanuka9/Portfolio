@@ -12,7 +12,7 @@ export function generateVCard() {
   const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contact.name}
-ORG:Collective RCM
+ORG:Central Bank of Sri Lanka
 TITLE:${contact.title}
 TEL;TYPE=CELL,VOICE:${contact.phone}
 EMAIL;TYPE=PREF,INTERNET:${contact.email}

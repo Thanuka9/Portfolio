@@ -75,6 +75,13 @@ export default function SkillsPage() {
 
   const certifications: Certification[] = [
     {
+      title: 'Kapruka Agent Challenge 2026 — Builder (Certificate of Participation)',
+      issuer: 'Kapruka Holdings PLC',
+      date: 'July 2026',
+      link: '/certificates/kapruka-agent-challenge-2026.pdf',
+      badgeColor: 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+    },
+    {
       title: 'Google Data Analytics Professional Certificate',
       issuer: 'Google (Coursera)',
       date: '2026',
@@ -217,11 +224,11 @@ export default function SkillsPage() {
               Professional Certifications
             </h2>
             <p className="text-muted-foreground font-medium max-w-2xl text-sm leading-relaxed">
-              Verified professional credentials and specialized training in analytics, networking systems, and computational theory.
+              Verified professional credentials and specialized training in agentic AI, analytics, networking systems, and computational theory.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {certifications.map((cert) => (
               <div
                 key={cert.title}

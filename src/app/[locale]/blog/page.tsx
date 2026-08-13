@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Search, Calendar, Clock, ArrowRight, Filter, Sparkles, Brain, Code, Stethoscope } from 'lucide-react';
+import { BookOpen, Search, Calendar, Clock, ArrowRight, Filter, Sparkles, Brain, Code, Stethoscope, Landmark, ShoppingBag, TrendingUp, Layers, Sigma } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 
 interface BlogPost {
@@ -23,14 +23,59 @@ export default function BlogListingPage() {
 
   const posts: BlogPost[] = [
     {
+      slug: 'financial-sector-risk-analytics-pipeline',
+      title: 'From Loan Ledger to Risk Signal: A Reproducible Financial Analytics Pipeline',
+      excerpt: 'Turning a raw bank loan portfolio workbook into financial KPIs, macro-linked risk scores, and anomaly flags using a numbered, re-runnable script pipeline instead of an unordered pile of notebooks.',
+      category: 'Data Science',
+      date: 'August 5, 2026',
+      readTime: '8 min read',
+      icon: Landmark,
+      featured: true
+    },
+    {
+      slug: 'agentic-commerce-model-context-protocol',
+      title: 'Agentic Commerce on MCP: From Multilingual Intent to a Completed Checkout',
+      excerpt: 'A field report from the Kapruka Agent Challenge 2026 — building a shopping agent on the Model Context Protocol that parses English, Sinhala, and Tanglish intent into budget-aware cart plans and completes a real guest checkout.',
+      category: 'AI Engineering',
+      date: 'July 24, 2026',
+      readTime: '7 min read',
+      icon: ShoppingBag
+    },
+    {
+      slug: 'reproducible-macroeconomic-forecasting',
+      title: 'Reproducible Macroeconomic Forecasting: Pipelines Over Notebooks',
+      excerpt: 'Forecasting macro indicators is far less about exotic model architectures than about disciplined data preparation, honest out-of-sample evaluation, and an output layer a policy audience can actually consume.',
+      category: 'Data Science',
+      date: 'July 8, 2026',
+      readTime: '6 min read',
+      icon: TrendingUp
+    },
+    {
+      slug: 'multitask-deep-learning-scene-emission',
+      title: 'One Backbone, Three Heads: Multitask Learning for Scene and Emission Estimation',
+      excerpt: 'How a single ResNet-50 trunk can jointly predict Places365 scene categories, binary scene attributes, and a five-class carbon emission estimate — and what actually breaks when you fine-tune one head in isolation.',
+      category: 'Data Science',
+      date: 'June 20, 2026',
+      readTime: '7 min read',
+      icon: Layers
+    },
+    {
+      slug: 'statistical-rigor-before-machine-learning',
+      title: 'Statistical Rigor Before Machine Learning',
+      excerpt: 'Gradient boosting will happily fit noise and report a confident number. A short case for running descriptive statistics, hypothesis tests, and dimensionality checks before reaching for a model.',
+      category: 'Thought Leadership',
+      date: 'June 6, 2026',
+      readTime: '5 min read',
+      icon: Sigma
+    },
+    {
       slug: 'building-production-rag-pipelines-2026',
       title: 'Building Production-Ready RAG Pipelines: Beyond Simple Vector Search',
       excerpt: 'Moving past naive semantic search into advanced retrieval-augmented generation. Exploring hybrid indexing, query rewriting, reranking, and verification gates for enterprise deployment.',
       category: 'AI Engineering',
       date: 'May 18, 2026',
       readTime: '6 min read',
-      icon: Code,
-      featured: true
+      icon: Code
     },
     {
       slug: 'healthcare-rcm-payment-prediction',

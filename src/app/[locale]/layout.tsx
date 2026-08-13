@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     default: 'Thanuka Ellepola | AI Architect & Full-Stack Solutions',
     template: `%s | Thanuka Ellepola`,
   },
-  description: 'AI Architect & Data Scientist specializing in autonomous agents, RAG architectures, predictive analytics, and enterprise engineering. Transforming complex data into scalable business assets with R² > 0.90 accuracy.',
-  keywords: ["AI Architect", "Data Scientist", "AI Engineer", "Full Stack Developer", "Autonomous Agents", "RAG Pipeline", "Generative AI", "Predictive Modeling", "Healthcare Analytics", "RCM Automation", "Technical Consultant", "Enterprise Architecture"],
+  description: 'Data Scientist at the Central Bank of Sri Lanka and founder of Veyra Labs. Specializing in macroeconomic forecasting, financial sector analytics, autonomous agents, RAG architectures, and enterprise engineering — with R² > 0.90 predictive accuracy in production.',
+  keywords: ["AI Architect", "Data Scientist", "Central Bank of Sri Lanka", "Veyra Labs", "Macroeconomic Forecasting", "Financial Sector Analytics", "AI Engineer", "Full Stack Developer", "Autonomous Agents", "RAG Pipeline", "Generative AI", "Predictive Modeling", "Healthcare Analytics", "RCM Automation", "Technical Consultant", "Enterprise Architecture"],
   creator: 'Thanuka Ellepola',
   authors: [{ name: 'Thanuka Ellepola', url: 'https://thanukaellepola.com/en' }],
   verification: {
@@ -52,17 +52,24 @@ const profilePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   dateCreated: '2023-10-01T12:00:00-05:00',
-  dateModified: '2026-04-17T12:00:00-05:00',
+  dateModified: '2026-08-13T12:00:00-05:00',
   mainEntity: {
     '@type': 'Person',
     name: 'Thanuka Ellepola',
-    description: 'AI Architect, Data Scientist, and Full-Stack Engineer with a track record of building autonomous agents, optimizing RCM workflows, and deploying scalable enterprise AI solutions.',
+    description: 'Data Scientist at the Central Bank of Sri Lanka and founder of Veyra Labs, with a track record of macroeconomic forecasting, financial sector analytics, autonomous agent architectures, and scalable enterprise AI systems.',
     url: 'https://thanukaellepola.com/en',
-    jobTitle: 'AI Architect & Full-Stack Developer',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Collective RCM (Pvt) Ltd',
-    },
+    jobTitle: 'Data Scientist | Founder & Principal AI Architect',
+    worksFor: [
+      {
+        '@type': 'Organization',
+        name: 'Central Bank of Sri Lanka',
+      },
+      {
+        '@type': 'Organization',
+        name: 'Veyra Labs',
+        url: 'https://veyra-labs.vercel.app',
+      },
+    ],
     alumniOf: 'University of Colombo',
     address: {
       '@type': 'PostalAddress',
@@ -72,8 +79,9 @@ const profilePageSchema = {
     sameAs: [
       'https://www.linkedin.com/in/thanuka-ellepola-a559b01aa/',
       'https://github.com/Thanuka9',
+      'https://veyra-labs.vercel.app',
     ],
-    knowsAbout: ["AI Engineering", "Generative AI", "Data Science", "Full Stack Development", "Predictive Analytics", "Healthcare Analytics", "Revenue Cycle Management", "Autonomous Agents", "Cloud Architecture"]
+    knowsAbout: ["AI Engineering", "Generative AI", "Data Science", "Macroeconomic Forecasting", "Financial Sector Analytics", "Risk Modelling", "Full Stack Development", "Predictive Analytics", "Healthcare Analytics", "Revenue Cycle Management", "Autonomous Agents", "Model Context Protocol", "Cloud Architecture"]
   }
 };
 

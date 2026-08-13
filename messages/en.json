@@ -12,8 +12,8 @@
   },
   "Sidebar": {
     "title": "Thanuka Ellepola.",
-    "role": "AI Engineer | Data Scientist | Full Stack Dev",
-    "bio": "Architecting high-performance enterprise AI ecosystems and predictive platforms.",
+    "role": "Data Scientist | AI Architect | Full Stack Dev",
+    "bio": "Data Scientist at the Central Bank of Sri Lanka and founder of Veyra Labs, architecting high-performance AI ecosystems and predictive platforms.",
     "connectivity": "Connectivity",
     "bookStrategy": "Book Strategy",
     "privacy": "Privacy Policy & Terms"
@@ -48,13 +48,13 @@
   },
   "About": {
     "title": "The Strategic Edge",
-    "p1": "With over five years of leadership at the intersection of Healthcare and Technology, I don't just solve technical problems—I architect systems that redefine operational efficiency.",
+    "p1": "Seven years of leadership at the intersection of Healthcare and Technology, and now central banking—I don't just solve technical problems, I architect systems that redefine operational efficiency. Today I model Sri Lanka's macroeconomic and financial sector data at the Central Bank, and run Veyra Labs, my own software and AI engineering studio.",
     "sigTitle": "Signature Achievement",
     "sigQuote": "\"Engineered AI-driven forecasting kernels achieving R² > 0.90, effectively reducing manual audit overhead by 40% across enterprise workflows.\"",
-    "sigAuthor": "— Assistant Manager @ Collective RCM",
+    "sigAuthor": "— Assistant Manager, Operations @ Collective RCM (2019–2026)",
     "coreTitle": "Core Competencies",
     "c1": "Autonomous AI Architectures",
-    "c2": "Predictive Analytics (RCM/Healthcare)",
+    "c2": "Predictive Analytics (Financial & Healthcare)",
     "c3": "Enterprise Full-Stack Ecosystems",
     "c4": "Multi-Agent System Orchestration",
     "c5": "Mission-Critical Security & 2FA"
@@ -234,6 +234,30 @@
       "challenge": "Financial forecasts often fail due to improper validation of underlying statistical assumptions in high-volatility environments.",
       "solution": "Engineered a specialized application for comparing predictive performance across various statistical models, incorporating sensitivity analysis.",
       "impact": "Improved forecast reliability through advanced statistical validation and error distribution checks."
+    },
+    "p10": {
+      "title": "Kapruka Flow AI: Agentic Commerce on MCP",
+      "role": "AI Engineer & System Architect",
+      "summary": "A multilingual shopping agent built on the Kapruka Model Context Protocol that converts natural-language intent into four budget-aware cart plans and a live guest checkout.",
+      "challenge": "Sri Lankan shoppers describe what they want in English, Sinhala, and Tanglish, but every storefront forces them to translate that intent into keywords and then act as their own planner, price optimiser, and delivery validator.",
+      "solution": "Built a deterministic planner over the public Kapruka MCP: a multilingual intent parser produces a structured frame, relevance scoring and budget-constrained search assemble Ideal, Cheaper, Premium, and Fast carts, and every tool call is surfaced in a live activity feed. Next.js 13 frontend, FastAPI orchestrator, no external LLM key required.",
+      "impact": "Selected as a Builder submission in the Kapruka Agent Challenge 2026 alongside 700+ developers, delivering real guest checkouts with millisecond client-side re-optimisation when the budget changes."
+    },
+    "p11": {
+      "title": "Sustainable Vision: Multitask Scene & Emission Model",
+      "role": "Machine Learning Engineer & Researcher",
+      "summary": "A single ResNet-50 backbone jointly predicting Places365 scene categories, binary scene attributes, and five-class carbon emission levels from one photograph.",
+      "challenge": "Carbon intensity cannot be read directly from pixels and has orders of magnitude fewer labels than scene classification, making an independently trained emission model impractical.",
+      "solution": "Architected a multitask network with a Places365-pretrained trunk and three task heads under a weighted loss, then fine-tuned only the emission head on the Intel Image Classification dataset with the trunk frozen to prevent catastrophic forgetting.",
+      "impact": "Produced a deployable checkpoint that delivers scene, attribute, and emission predictions in a single forward pass while preserving full Places365 classification quality."
+    },
+    "p12": {
+      "title": "Veyra Labs: Software & AI Engineering Studio",
+      "role": "Founder & Principal Architect",
+      "summary": "The studio platform behind Veyra Labs — an interactive project estimator, quote tracking, and PDF/email delivery wrapped in a premium marketing site.",
+      "challenge": "Prospective clients abandon engineering studios at the pricing step, where opaque quotes and slow email turnarounds stall the conversation before scope is ever discussed.",
+      "solution": "Built a Next.js 16 App Router platform in TypeScript and Tailwind CSS v4 with a step-by-step estimate wizard, server-tracked quote IDs in Neon Postgres, client-side PDF generation, transactional email, and full cookie and privacy compliance.",
+      "impact": "Turned pricing from a bottleneck into a self-service flow, giving prospects an itemised estimate and PDF in minutes instead of days."
     }
   },
   "Services": {
@@ -292,9 +316,46 @@
     "professional": "Professional Arc",
     "stack": "Technical Stack",
     "exp1": {
-      "role": "Assistant Manager & Lead Architect",
+      "role": "Data Scientist",
+      "company": "Central Bank of Sri Lanka",
+      "period": "Aug 2026 – Present",
+      "s1": {
+        "title": "Macroeconomic Modelling & Forecasting",
+        "d1": "Build reproducible forecasting pipelines over Sri Lankan macroeconomic indicators, benchmarking statistical and machine learning models on out-of-sample performance.",
+        "d2": "Engineer end-to-end data workflows — ingestion, cleaning, transformation, and feature construction — that turn raw statistical returns into analysis-ready datasets.",
+        "d3": "Apply rigorous statistical validation (stationarity checks, residual diagnostics, hypothesis testing) before any model output reaches a policy audience.",
+        "d4": "Automate the reporting layer, publishing dashboard-ready datasets and generated Markdown/HTML/DOCX reports directly from the analytical pipeline."
+      },
+      "s2": {
+        "title": "Financial Sector Analytics & Risk",
+        "d1": "Analyse bank loan portfolio data to compute financial KPIs and exposure indicators across products, sectors, and borrower segments.",
+        "d2": "Develop risk scoring and anomaly detection routines that surface outlier exposures and data-quality defects before they distort aggregate reporting.",
+        "d3": "Integrate institution-level data with macroeconomic series to study credit risk behaviour under changing economic conditions."
+      }
+    },
+    "exp2": {
+      "role": "Founder & Principal AI Architect",
+      "company": "Veyra Labs",
+      "period": "2026 – Present",
+      "link": "https://veyra-labs.vercel.app",
+      "s1": {
+        "title": "Studio Leadership & Product Engineering",
+        "d1": "Founded Veyra Labs, a software and AI engineering studio delivering production AI systems, data platforms, and conversion-focused web products.",
+        "d2": "Own the full delivery lifecycle — discovery, architecture, implementation, deployment, and post-launch support — across every client engagement.",
+        "d3": "Built the studio platform on Next.js 16 App Router, TypeScript, Tailwind CSS v4, and Framer Motion, deployed on Vercel.",
+        "d4": "Engineered an interactive estimate wizard with server-tracked quote IDs on Neon Postgres, client-side PDF generation, and transactional email delivery."
+      },
+      "s2": {
+        "title": "Client Delivery & Engineering Standards",
+        "d1": "Ship multi-tenant SaaS, agentic AI, and analytics products for clients across commerce, corporate training, and professional services.",
+        "d2": "Enforce engineering standards by default: fully typed codebases, CI/CD, observability, and privacy and cookie compliance on every build.",
+        "d3": "Package reusable building blocks — RAG services, agent orchestration, billing, and authentication — to compress delivery timelines without cutting quality."
+      }
+    },
+    "exp3": {
+      "role": "Assistant Manager - Operations",
       "company": "Collective RCM (Pvt) Ltd",
-      "period": "2019 – Present",
+      "period": "2019 – Aug 2026",
       "s1": {
         "title": "Enterprise Architecture & Digital Transformation",
         "d1": "Principal Architect of TrainIQ: Engineered a secure, multi-tenant SQL/NoSQL learning platform (Flask, PostgreSQL, MongoDB GridFS) centralizing training, exams, and enterprise workflows.",
@@ -304,28 +365,30 @@
       },
       "s2": {
         "title": "Strategic Leadership & Operational Impact",
-        "d1": "Lead multi-functional teams in healthcare Revenue Cycle Management (RCM), optimizing Billing, Posting, and Denial Management workflows.",
+        "d1": "Led multi-functional teams in healthcare Revenue Cycle Management (RCM), optimizing Billing, Posting, and Denial Management workflows.",
         "d2": "Architected real-time performance analytics dashboards, reducing manual audit effort by over 40% and improving KPI visibility.",
         "d3": "Mentored and trained staff on technical and operational workflows, ensuring a 95% pass rate in internal certification programs."
       }
     },
-    "exp2": {
+    "exp4": {
       "role": "Independent Full Stack & AI Developer",
       "company": "Technical Project Portfolio",
       "period": "Ongoing",
       "s1": {
         "title": "Advanced AI Systems & RAG Innovation",
         "d1": "AI Job Hunter: Architected an autonomous job application system using a LangChain-orchestrated RAG pipeline, FAISS vector search, and Playwright browser automation.",
-        "d2": "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom static analysis GraphEngine for automatic repository mapping.",
+        "d2": "Kapruka Flow AI: Built a multilingual agentic commerce planner on the Kapruka MCP, converting English, Sinhala, and Tanglish intent into four budget-aware cart plans and a live guest checkout.",
         "d3": "RevOps AI: Developed a B2B SaaS for healthcare revenue auditing using an Autonomous Agent Architecture (CEO, Eng, ML Pods) and Scikit-learn forecasting.",
         "d4": "CareerForge AI 3.0: Engineered a multi-agent career OS featuring low-latency voice AI (Gemini 3.1 Live API) and real-time market grounding.",
-        "d5": "ReviewRadar AI: Developed an end-to-end sentiment intelligence platform processing ~7M+ reviews with ensemble ML models."
+        "d5": "ReviewRadar AI: Developed an end-to-end sentiment intelligence platform processing ~7M+ reviews with ensemble ML models.",
+        "d6": "CodeX: Built an Architecture Intelligence Engine using Gemini 3.1 Pro and a custom static analysis GraphEngine for automatic repository mapping."
       },
       "s2": {
         "title": "Scientific Research & Critical Systems",
         "d1": "RCM Predictive Analytics: Published research achieving R² > 0.90 in healthcare payment forecasting using Random Forest and Neural Networks.",
-        "d2": "Disaster Management: Developed a Laravel-based flood mitigation system for Sri Lanka with integrated SMS gateways for geo-fenced mass alerting.",
-        "d3": "Statistical App: Built an interactive analysis tool for PCA, Inferential Statistics, and ML lifecycle management using Streamlit."
+        "d2": "Sustainable Vision: Trained a multitask ResNet-50 that jointly performs Places365 scene classification, attribute prediction, and five-class carbon emission estimation.",
+        "d3": "Disaster Management: Developed a Laravel-based flood mitigation system for Sri Lanka with integrated SMS gateways for geo-fenced mass alerting.",
+        "d4": "Statistical App: Built an interactive analysis tool for PCA, Inferential Statistics, and ML lifecycle management using Streamlit."
       }
     }
   },

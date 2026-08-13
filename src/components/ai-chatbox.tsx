@@ -66,15 +66,15 @@ function localRAG(userMsg: string): string | null {
 
   if (isIntro) {
     return (
-      "**Thanuka Ellepola** is a Lead AI Architect & Data Scientist based in **Colombo, Sri Lanka**.\n\n" +
-      "He currently serves as **Assistant Manager & Lead Architect at Collective RCM**, where he drives enterprise digital transformation in healthcare revenue cycle management.\n\n" +
+      "**Thanuka Ellepola** is a Data Scientist & AI Architect based in **Colombo, Sri Lanka**.\n\n" +
+      "He is currently a **Data Scientist at the Central Bank of Sri Lanka**, working on macroeconomic forecasting and financial sector analytics, and the **Founder & Principal AI Architect of Veyra Labs** — a software and AI engineering studio. Previously he was Assistant Manager - Operations at Collective RCM (2019–Aug 2026), leading enterprise digital transformation in healthcare revenue cycle management.\n\n" +
       "His expertise spans:\n" +
       "• **Autonomous AI Agents** — multi-pod architectures (CEO/Eng/ML pods)\n" +
       "• **RAG Pipelines** — LangChain + FAISS vector search\n" +
       "• **Generative AI** — Gemini 3.1 (Pro/Flash/Live API)\n" +
       "• **Full-Stack** — React, Next.js, FastAPI, Flask\n" +
       "• **Cloud** — Azure & GCP with Docker & CI/CD\n\n" +
-      "He holds an MBA (Business Analytics) from **University of Colombo** and has built 6+ flagship AI systems — from a predictive healthcare payment engine (R² > 0.90) to an autonomous job-application agent that reduces effort by 90%.\n\n" +
+      "He holds a Master of Business Analytics from the **University of Colombo** and has built 9+ flagship AI systems — from a predictive healthcare payment engine (R² > 0.90) to an autonomous job-application agent that reduces effort by 90%.\n\n" +
       "📧 **thanuka.ellepola@gmail.com** · 📞 **+94 77 670 5832**"
     );
   }
@@ -95,6 +95,18 @@ function localRAG(userMsg: string): string | null {
   if (q.includes('trainiq') || q.includes('train iq') || q.includes('collective intranet') || q.includes('intranet')) {
     return "**TrainIQ** is a multi-tenant corporate learning platform (SaaS LMS) Thanuka architected — courses, timed exams, tasks, and certificates with strict per-tenant data isolation.\n\nHighlights: **local AI via Ollama** (LearnIQ tutoring, AnalyticsIQ insights, ProctorIQ trust scoring, CreatorIQ course generation), **Stripe** subscription billing, and a CEO operations console — built with **Flask + PostgreSQL + MongoDB GridFS + Redis**, shipped with Docker, Prometheus/Grafana observability, and 350+ automated tests.";
   }
+  if (q.includes('veyra')) {
+    return "**Veyra Labs** is the software and AI engineering studio Thanuka founded — it ships production AI systems, data platforms, and conversion-focused web products.\n\nHe owns the full delivery lifecycle across every engagement, and built the studio platform on **Next.js 16 App Router, TypeScript, Tailwind CSS v4, and Framer Motion**, including an interactive estimate wizard with server-tracked quote IDs on **Neon Postgres**, client-side PDF generation, and transactional email.\n\n🔗 **veyra-labs.vercel.app**";
+  }
+  if (q.includes('kapruka')) {
+    return "**Kapruka Flow AI** is Thanuka's entry to the **Kapruka Agent Challenge 2026**, where he was recognised as a Builder among 700+ Sri Lankan developers.\n\nIt converts natural language intent in **English, Sinhala, or Tanglish** into four budget-aware cart plans — Ideal, Cheaper, Premium, and Fast — then completes a real guest checkout through the live **Kapruka MCP**. A four-agent pipeline runs inside a single shared MCP session, and every tool call is streamed to a transparent activity feed.\n\nBuilt with **FastAPI + Next.js**, deployed on Vercel.";
+  }
+  if (q.includes('sustainable vision') || q.includes('emission') || q.includes('carbon')) {
+    return "**Sustainable Vision** is a multitask deep learning model built on a custom **ResNet-50** backbone with three heads: Places365 scene classification, binary attribute prediction, and five-class carbon emission estimation (very_low → very_high).\n\nThe emission head was fine-tuned on the Intel Image Classification dataset for deployment accuracy.";
+  }
+  if (q.includes('central bank') || q.includes('cbsl') || q.includes('macroeconomic')) {
+    return "Thanuka is a **Data Scientist at the Central Bank of Sri Lanka** (since Aug 2026).\n\nHis work covers:\n• **Macroeconomic modelling** — reproducible forecasting pipelines benchmarking statistical vs. ML models on out-of-sample performance\n• **Statistical rigour** — stationarity checks, residual diagnostics, and hypothesis testing before any output reaches a policy audience\n• **Financial sector analytics** — bank loan portfolio KPIs, exposure indicators, risk scoring, and anomaly detection\n• **Automated reporting** — dashboard-ready datasets and generated Markdown/HTML/DOCX reports straight from the pipeline";
+  }
   if (q.includes('healthcare') && (q.includes('predict') || q.includes('forecast') || q.includes('payment'))) {
     return "Thanuka's **Predictive Analytics for Healthcare Payment Forecasting** achieved **R² > 0.90** using an ML framework combining **Random Forest and Neural Networks** for financial prioritization in Revenue Cycle Management.\n\nBuilt with Scikit-learn, Pandas, and advanced statistical modelling.";
   }
@@ -108,7 +120,7 @@ function localRAG(userMsg: string): string | null {
     if (q.includes('python'))
       return "Yes. Python is one of Thanuka's core languages — used across ML pipelines (Scikit-learn, XGBoost), FastAPI backends, and LangChain orchestration.";
     if (q.includes('healthcare') || q.includes('rcm'))
-      return "Yes. Thanuka currently works as Assistant Manager & Lead Architect at **Collective RCM** and has built multiple healthcare AI systems including a predictive payment forecasting model with R² > 0.90.";
+      return "Yes. Thanuka spent seven years in healthcare RCM at **Collective RCM** (2019–Aug 2026, most recently as Assistant Manager - Operations) and has built multiple healthcare AI systems including a predictive payment forecasting model with R² > 0.90.";
     if (q.includes('available') || q.includes('hire') || q.includes('consult'))
       return "Yes. Thanuka is accepting new consulting projects. Reach him at **thanuka.ellepola@gmail.com** or **+94 77 670 5832** — he responds within 24 hours.";
     if (q.includes('gemini') || q.includes('google ai'))
@@ -120,7 +132,7 @@ function localRAG(userMsg: string): string | null {
     if (q.includes('docker') || q.includes('container'))
       return "Yes. Thanuka uses **Docker** for containerised deployments on GCP and Azure, with automated CI/CD via GitHub Actions.";
     if (q.includes('master') || q.includes('mba') || q.includes('degree'))
-      return "Yes. Thanuka is completing a **Master of Business Analytics** at the University of Colombo (2023–2025) focused on predictive analytics, ML, and business intelligence.";
+      return "Yes. Thanuka holds a **Master of Business Analytics** from the University of Colombo (2022–2025) focused on predictive analytics, ML, and business intelligence.";
     // Yes/No asked but no specific keyword matched → let API handle it
     return null;
   }
@@ -131,15 +143,19 @@ function localRAG(userMsg: string): string | null {
 
   // ── Experience ────────────────────────────────────────────────────────────
   if (q.includes('experience') || q.includes('career') || q.includes('job') || q.includes('work'))
-    return "Thanuka has **dual professional tracks**:\n\n1. **Lead Architect @ Collective RCM** (2019–Present) — leading enterprise AI & digital transformation in healthcare RCM\n2. **Independent AI Developer** (Ongoing) — building advanced RAG systems, autonomous agents, and scientific research\n\nTotal: 5+ years of end-to-end AI systems delivery.";
+    return "Thanuka's professional arc:\n\n1. **Data Scientist @ Central Bank of Sri Lanka** (Aug 2026–Present) — macroeconomic modelling, forecasting, and financial sector risk analytics\n2. **Founder & Principal AI Architect @ Veyra Labs** (2026–Present) — a software and AI engineering studio shipping production AI systems and data platforms\n3. **Assistant Manager - Operations @ Collective RCM** (2019–Aug 2026) — enterprise AI & digital transformation in healthcare RCM\n4. **Independent AI Developer** (Ongoing) — advanced RAG systems, autonomous agents, and scientific research\n\nTotal: 7+ years spanning operations leadership and end-to-end AI systems delivery.";
 
   // ── Education ─────────────────────────────────────────────────────────────
   if (q.includes('education') || q.includes('study') || q.includes('university') || q.includes('degree'))
-    return "Thanuka's educational background:\n\n🎓 **MBA (Business Analytics)** — University of Colombo (2023–2025 Expected)\n🎓 **BSc Computer Systems & Networking** — Greenwich University (2019–2021)\n\nFocus: Predictive analytics, ML, network architecture, and software engineering.";
+    return "Thanuka's educational background:\n\n🎓 **MSc (Business Analytics)** — University of Colombo (2022–2025)\n🎓 **BSc Computer Systems & Networking** — Greenwich University (2019–2021)\n🎓 **Advanced Diploma in Telecommunication Systems & Digital Networking** — City & Guilds (2017–2018)\n\nFocus: Predictive analytics, ML, network architecture, and software engineering.";
+
+  // ── Certifications ────────────────────────────────────────────────────────
+  if (q.includes('certification') || q.includes('certificate') || q.includes('credential'))
+    return "Thanuka's professional certifications:\n\n🏅 **Kapruka Agent Challenge 2026 — Builder** (Kapruka Holdings PLC, July 2026) — awarded for building and submitting a live AI shopping agent on the Kapruka MCP alongside 700+ Sri Lankan developers\n🏅 **Google Data Analytics Professional Certificate** (Google / Coursera, 2026)\n🏅 **Game Theory** (Stanford University / Coursera, 2026)\n🏅 **CCNA — Cisco Certified Network Associate** (Cisco, 2023)";
 
   // ── Projects overview ─────────────────────────────────────────────────────
   if (q.includes('project') || q.includes('portfolio') || q.includes('built'))
-    return "Thanuka has built **6 flagship projects**:\n\n1. **AI Job Hunter** — 90% effort reduction via RAG\n2. **Predictive Healthcare Analytics** — R² > 0.90\n3. **RevOps AI** — Multi-agent B2B SaaS\n4. **TrainIQ** — Multi-tenant SaaS learning platform\n5. **CareerForge AI 3.0** — Voice AI + Search Grounding\n6. **ReviewRadar AI** — 7M+ review sentiment engine\n\nWhich would you like to explore?";
+    return "Thanuka has built **9 flagship projects**:\n\n1. **AI Job Hunter** — 90% effort reduction via RAG\n2. **Predictive Healthcare Analytics** — R² > 0.90\n3. **RevOps AI** — Multi-agent B2B SaaS\n4. **TrainIQ** — Multi-tenant SaaS learning platform\n5. **CareerForge AI 3.0** — Voice AI + Search Grounding\n6. **ReviewRadar AI** — 7M+ review sentiment engine\n7. **Kapruka Flow AI** — Multilingual agentic commerce on the Kapruka MCP\n8. **Sustainable Vision** — Multitask ResNet-50 for scene & carbon emission estimation\n9. **Veyra Labs** — His own AI engineering studio\n\nWhich would you like to explore?";
 
   // ── Contact ───────────────────────────────────────────────────────────────
   if (q.includes('book') || q.includes('call') || q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('reach'))

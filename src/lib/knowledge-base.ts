@@ -2,9 +2,9 @@
 export const SITE_KNOWLEDGE = {
   profile: {
     name: "Thanuka Ellepola",
-    title: "AI Architect | Data Scientist",
+    title: "Data Scientist, Central Bank of Sri Lanka | Founder, Veyra Labs",
     location: "Colombo, Sri Lanka",
-    summary: "Architecting high-performance enterprise AI ecosystems and predictive platforms. Specialized in autonomous agents, generative AI, and full-stack development.",
+    summary: "Data Scientist at the Central Bank of Sri Lanka working on macroeconomic forecasting and financial sector analytics, and founder of Veyra Labs, a software and AI engineering studio. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
     email: "thanuka.ellepola@gmail.com",
     phone: "+94 77 670 5832",
     linkedin: "thanuka-ellepola",
@@ -46,13 +46,44 @@ export const SITE_KNOWLEDGE = {
       role: "AI & Data Engineer",
       summary: "End-to-end sentiment intelligence platform processing 7M+ reviews with ensemble ML models.",
       tags: ["Python", "XGBoost", "PostgreSQL", "ETL", "VADER", "spaCy"]
+    },
+    {
+      title: "Veyra Labs",
+      role: "Founder & Principal AI Architect",
+      summary: "Software and AI engineering studio (veyra-labs.vercel.app) delivering production AI systems, data platforms, and conversion-focused web products, with an interactive estimate wizard backed by Neon Postgres.",
+      tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Neon Postgres", "Vercel", "Framer Motion"]
+    },
+    {
+      title: "Kapruka Flow AI",
+      role: "Solo Builder — Kapruka Agent Challenge 2026",
+      summary: "Multilingual agentic commerce planner on the Kapruka MCP that turns English, Sinhala, or Tanglish intent into four budget-aware cart plans and a live guest checkout, with a transparent feed of every MCP tool call.",
+      tags: ["FastAPI", "Next.js", "Model Context Protocol", "Agent Pipeline", "SQLite", "Vercel"]
+    },
+    {
+      title: "Sustainable Vision",
+      role: "Deep Learning Researcher",
+      summary: "Multitask ResNet-50 that jointly performs Places365 scene classification, binary attribute prediction, and five-class carbon emission estimation, with an emission head fine-tuned on the Intel Image Classification dataset.",
+      tags: ["PyTorch", "ResNet-50", "Multitask Learning", "Places365", "Transfer Learning", "Computer Vision"]
     }
   ],
   experience: [
     {
-      role: "Assistant Manager & Lead Architect",
+      role: "Data Scientist",
+      company: "Central Bank of Sri Lanka",
+      period: "Aug 2026 – Present",
+      focus: "Macroeconomic modelling and forecasting, financial sector analytics, risk scoring, and automated statistical reporting."
+    },
+    {
+      role: "Founder & Principal AI Architect",
+      company: "Veyra Labs",
+      period: "2026 – Present",
+      website: "https://veyra-labs.vercel.app",
+      focus: "Software and AI engineering studio delivering production AI systems, data platforms, and conversion-focused web products."
+    },
+    {
+      role: "Assistant Manager - Operations",
       company: "Collective RCM (Pvt) Ltd",
-      period: "2019 – Present",
+      period: "2019 – Aug 2026",
       focus: "Enterprise Architecture, Digital Transformation, and Strategic Leadership in Healthcare RCM."
     },
     {
@@ -77,6 +108,11 @@ export const SITE_KNOWLEDGE = {
     }
   ],
   certifications: [
+    {
+      name: "Kapruka Agent Challenge 2026 — Builder (Certificate of Participation)",
+      institution: "Kapruka Holdings PLC",
+      year: "2026"
+    },
     {
       name: "Google Data Analytics Professional Certificate",
       institution: "Google / Coursera",
