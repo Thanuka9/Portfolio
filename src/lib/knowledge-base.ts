@@ -2,9 +2,9 @@
 export const SITE_KNOWLEDGE = {
   profile: {
     name: "Thanuka Ellepola",
-    title: "Data Scientist, Central Bank of Sri Lanka | Founder, Veyra Labs",
+    title: "Working at Central Bank of Sri Lanka",
     location: "Colombo, Sri Lanka",
-    summary: "Data Scientist at the Central Bank of Sri Lanka working on macroeconomic forecasting and financial sector analytics, and founder of Veyra Labs, a software and AI engineering studio. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
+    summary: "Working at the Central Bank of Sri Lanka. Previously founded Veyra Labs, a software and AI engineering studio. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
     email: "thanuka.ellepola@gmail.com",
     phone: "+94 77 670 5832",
     linkedin: "thanuka-ellepola",
@@ -58,7 +58,7 @@ export const SITE_KNOWLEDGE = {
     {
       title: "Veyra Labs",
       role: "Founder & Principal AI Architect",
-      summary: "Software and AI engineering studio (veyra-labs.vercel.app) delivering production AI systems, data platforms, and conversion-focused web products, with an interactive estimate wizard backed by Neon Postgres.",
+      summary: "Past software and AI engineering studio project (veyra-labs.vercel.app) featuring production AI systems, data platforms, and a conversion-focused web experience with an interactive estimate wizard backed by Neon Postgres.",
       tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Neon Postgres", "Vercel", "Framer Motion"]
     },
     {
@@ -76,18 +76,18 @@ export const SITE_KNOWLEDGE = {
   ],
   experience: [
     {
-      role: "Data Scientist",
+      role: "Working at Central Bank",
       company: "Central Bank of Sri Lanka",
       period: "Aug 2026 – Present",
-      focus: "Macroeconomic modelling and forecasting, financial sector analytics, and statistical methodology. This work is confidential — no project data, figures, or outputs are published.",
+      focus: "Current position. Role-specific details are not publicly listed.",
       confidential: true
     },
     {
       role: "Founder & Principal AI Architect",
       company: "Veyra Labs",
-      period: "2026 – Present",
+      period: "2026 – Aug 2026",
       website: "https://veyra-labs.vercel.app",
-      focus: "Software and AI engineering studio delivering production AI systems, data platforms, and conversion-focused web products."
+      focus: "Past experience founding and leading a software and AI engineering studio."
     },
     {
       role: "Assistant Manager - Operations",
