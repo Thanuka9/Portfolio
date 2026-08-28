@@ -13,7 +13,7 @@
   "Sidebar": {
     "title": "Thanuka Ellepola.",
     "role": "AI Architect | Full Stack Dev",
-    "bio": "Working at the Central Bank of Sri Lanka. Previously founded Veyra Labs, a software and AI engineering studio.",
+    "bio": "Working at the Central Bank of Sri Lanka.",
     "connectivity": "Connectivity",
     "bookStrategy": "Book Strategy",
     "privacy": "Privacy Policy & Terms"
@@ -48,7 +48,7 @@
   },
   "About": {
     "title": "The Strategic Edge",
-    "p1": "Seven years of leadership at the intersection of Healthcare and Technology, and now working at the Central Bank of Sri Lanka. I focus on building practical AI, data, and full-stack systems with real-world impact. Previously, I founded Veyra Labs, a software and AI engineering studio.",
+    "p1": "Seven years of leadership at the intersection of Healthcare and Technology, and now working at the Central Bank of Sri Lanka. I focus on building practical AI, data, and full-stack systems with real-world impact.",
     "sigTitle": "Signature Achievement",
     "sigQuote": "\"Engineered AI-driven forecasting kernels achieving R² > 0.90, effectively reducing manual audit overhead by 40% across enterprise workflows.\"",
     "sigAuthor": "— Assistant Manager, Operations @ Collective RCM (2019–2026)",
@@ -325,7 +325,7 @@
       },
       "s2": {
         "title": "Public Profile",
-        "d1": "Role-specific details are not publicly listed."
+        "d1": "No role, project, data, methodology, or output details are published."
       }
     },
     "exp2": {
