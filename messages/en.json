@@ -12,8 +12,8 @@
   },
   "Sidebar": {
     "title": "Thanuka Ellepola.",
-    "role": "Data Scientist | AI Architect | Full Stack Dev",
-    "bio": "Data Scientist at the Central Bank of Sri Lanka and founder of Veyra Labs, architecting high-performance AI ecosystems and predictive platforms.",
+    "role": "AI Architect | Full Stack Dev",
+    "bio": "Working at the Central Bank of Sri Lanka. Previously founded Veyra Labs, a software and AI engineering studio.",
     "connectivity": "Connectivity",
     "bookStrategy": "Book Strategy",
     "privacy": "Privacy Policy & Terms"
@@ -48,7 +48,7 @@
   },
   "About": {
     "title": "The Strategic Edge",
-    "p1": "Seven years of leadership at the intersection of Healthcare and Technology, and now central banking—I don't just solve technical problems, I architect systems that redefine operational efficiency. Today I model Sri Lanka's macroeconomic and financial sector data at the Central Bank, and run Veyra Labs, my own software and AI engineering studio.",
+    "p1": "Seven years of leadership at the intersection of Healthcare and Technology, and now working at the Central Bank of Sri Lanka. I focus on building practical AI, data, and full-stack systems with real-world impact. Previously, I founded Veyra Labs, a software and AI engineering studio.",
     "sigTitle": "Signature Achievement",
     "sigQuote": "\"Engineered AI-driven forecasting kernels achieving R² > 0.90, effectively reducing manual audit overhead by 40% across enterprise workflows.\"",
     "sigAuthor": "— Assistant Manager, Operations @ Collective RCM (2019–2026)",
@@ -316,41 +316,35 @@
     "professional": "Professional Arc",
     "stack": "Technical Stack",
     "exp1": {
-      "role": "Data Scientist",
+      "role": "Working at Central Bank",
       "company": "Central Bank of Sri Lanka",
       "period": "Aug 2026 – Present",
-      "note": "Work in this role is confidential. Only the general disciplines are described below — no project data, figures, or outputs are published.",
       "s1": {
-        "title": "Macroeconomic Modelling & Forecasting",
-        "d1": "Time-series and macroeconomic forecasting, benchmarking statistical and machine learning approaches on honest out-of-sample evaluation.",
-        "d2": "Reproducible, end-to-end analytical pipelines in place of ad-hoc notebook workflows.",
-        "d3": "Rigorous statistical validation — stationarity checks, residual diagnostics, and hypothesis testing — before any model output is relied upon.",
-        "d4": "Research communication and automated reporting for a technical and policy readership."
+        "title": "Current Position",
+        "d1": "Working at the Central Bank of Sri Lanka."
       },
       "s2": {
-        "title": "Financial Sector Analytics & Risk",
-        "d1": "Financial sector analytics and risk methodology, including indicator design and portfolio-level analytical techniques.",
-        "d2": "Risk scoring and anomaly detection methods, with an emphasis on separating genuine signal from data-quality defects.",
-        "d3": "Applied econometrics linking institution-level analysis to broader macroeconomic conditions."
+        "title": "Public Profile",
+        "d1": "Role-specific details are not publicly listed."
       }
     },
     "exp2": {
       "role": "Founder & Principal AI Architect",
       "company": "Veyra Labs",
-      "period": "2026 – Present",
+      "period": "2026 – Aug 2026",
       "link": "https://veyra-labs.vercel.app",
       "s1": {
         "title": "Studio Leadership & Product Engineering",
         "d1": "Founded Veyra Labs, a software and AI engineering studio delivering production AI systems, data platforms, and conversion-focused web products.",
-        "d2": "Own the full delivery lifecycle — discovery, architecture, implementation, deployment, and post-launch support — across every client engagement.",
+        "d2": "Led the full delivery lifecycle — discovery, architecture, implementation, deployment, and post-launch support — across client engagements.",
         "d3": "Built the studio platform on Next.js 16 App Router, TypeScript, Tailwind CSS v4, and Framer Motion, deployed on Vercel.",
         "d4": "Engineered an interactive estimate wizard with server-tracked quote IDs on Neon Postgres, client-side PDF generation, and transactional email delivery."
       },
       "s2": {
         "title": "Client Delivery & Engineering Standards",
-        "d1": "Ship multi-tenant SaaS, agentic AI, and analytics products for clients across commerce, corporate training, and professional services.",
-        "d2": "Enforce engineering standards by default: fully typed codebases, CI/CD, observability, and privacy and cookie compliance on every build.",
-        "d3": "Package reusable building blocks — RAG services, agent orchestration, billing, and authentication — to compress delivery timelines without cutting quality."
+        "d1": "Delivered multi-tenant SaaS, agentic AI, and analytics products across commerce, corporate training, and professional services.",
+        "d2": "Applied engineering standards including fully typed codebases, CI/CD, observability, and privacy and cookie compliance.",
+        "d3": "Packaged reusable building blocks — RAG services, agent orchestration, billing, and authentication — to compress delivery timelines without cutting quality."
       }
     },
     "exp3": {
