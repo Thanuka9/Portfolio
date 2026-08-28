@@ -4,7 +4,7 @@ export const SITE_KNOWLEDGE = {
     name: "Thanuka Ellepola",
     title: "Working at Central Bank of Sri Lanka",
     location: "Colombo, Sri Lanka",
-    summary: "Working at the Central Bank of Sri Lanka. Previously founded Veyra Labs, a software and AI engineering studio. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
+    summary: "Working at the Central Bank of Sri Lanka. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
     email: "thanuka.ellepola@gmail.com",
     phone: "+94 77 670 5832",
     linkedin: "thanuka-ellepola",
@@ -79,7 +79,7 @@ export const SITE_KNOWLEDGE = {
       role: "Working at Central Bank",
       company: "Central Bank of Sri Lanka",
       period: "Aug 2026 – Present",
-      focus: "Current position. Role-specific details are not publicly listed.",
+      focus: "Current position. No role, project, data, methodology, or output details are publicly listed.",
       confidential: true
     },
     {
