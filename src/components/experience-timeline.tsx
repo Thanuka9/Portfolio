@@ -37,25 +37,28 @@ export function ExperienceTimeline() {
   });
 
   // Each role is stored as { role, company, period, s1: { title, d1… }, s2: { … } }.
-  // Reading the raw object keeps the number of bullet points open-ended per role.
+  // The current Central Bank role is intentionally rendered without public detail sections.
   const experienceData = EXPERIENCE_KEYS.map((key) => {
     const raw = t.raw(key) as RawExperience;
+    const isCurrentCentralBankRole = key === 'exp1';
 
     return {
-      role: raw.role,
+      role: isCurrentCentralBankRole ? 'Data Scientist' : raw.role,
       company: raw.company,
       period: raw.period,
       link: raw.link,
-      note: raw.note,
-      sections: (['s1', 's2'] as const).map((sectionKey) => {
-        const section = raw[sectionKey];
-        const details = Object.keys(section)
-          .filter((detailKey) => /^d\d+$/.test(detailKey))
-          .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))
-          .map((detailKey) => section[detailKey]);
+      note: isCurrentCentralBankRole ? undefined : raw.note,
+      sections: isCurrentCentralBankRole
+        ? []
+        : (['s1', 's2'] as const).map((sectionKey) => {
+            const section = raw[sectionKey];
+            const details = Object.keys(section)
+              .filter((detailKey) => /^d\d+$/.test(detailKey))
+              .sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))
+              .map((detailKey) => section[detailKey]);
 
-        return { title: section.title, details };
-      })
+            return { title: section.title, details };
+          })
     };
   });
 
@@ -185,7 +188,7 @@ export function ExperienceTimeline() {
             </motion.div>
 
             <div className="glass-panel p-8 lg:p-12 rounded-[2.5rem] transition-all duration-500 group-hover:border-primary/30 bg-background/40">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+              <div className={`flex flex-col md:flex-row md:items-end justify-between gap-4 ${exp.sections.length > 0 || exp.note ? 'mb-10' : ''}`}>
                 <div className="space-y-2">
                   <h2 className="text-2xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{exp.role}</h2>
                   {exp.link ? (
@@ -214,23 +217,25 @@ export function ExperienceTimeline() {
                 </div>
               )}
 
-              <div className="grid lg:grid-cols-2 gap-12">
-                {exp.sections.map((section, idx) => (
-                  <div key={idx} className="space-y-6">
-                    <h3 className="text-xl font-bold font-headline text-primary/80">{section.title}</h3>
-                    <ul className="space-y-4">
-                      {section.details.map((detail, i) => (
-                        <li key={i} className="flex gap-4 group/item">
-                          <CheckCircle2 size={18} className="text-primary shrink-0 mt-1 opacity-50" />
-                          <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium text-base">
-                            {detail}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+              {exp.sections.length > 0 && (
+                <div className="grid lg:grid-cols-2 gap-12">
+                  {exp.sections.map((section, idx) => (
+                    <div key={idx} className="space-y-6">
+                      <h3 className="text-xl font-bold font-headline text-primary/80">{section.title}</h3>
+                      <ul className="space-y-4">
+                        {section.details.map((detail, i) => (
+                          <li key={i} className="flex gap-4 group/item">
+                            <CheckCircle2 size={18} className="text-primary shrink-0 mt-1 opacity-50" />
+                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium text-base">
+                              {detail}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
           );
