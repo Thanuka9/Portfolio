@@ -1,7 +1,7 @@
 export function generateVCard() {
   const contact = {
     name: 'Thanuka Ellepola',
-    title: 'AI Architect & Data Scientist',
+    title: 'AI Architect & Full Stack Developer',
     email: 'thanuka.ellepola@gmail.com',
     phone: '+94776705832',
     url: 'https://thanukaellepola.com',
@@ -19,7 +19,7 @@ EMAIL;TYPE=PREF,INTERNET:${contact.email}
 URL:${contact.url}
 X-SOCIALPROFILE;TYPE=linkedin:${contact.linkedin}
 ADR;TYPE=WORK,POSTAL,PARCEL:;;Colombo;Western Province;;Sri Lanka
-NOTE:AI Architect & Data Scientist specializing in Autonomous Agents, RAG Pipelines, and Healthcare Predictive Analytics. Achieving R2 > 0.90 in production systems.
+NOTE:AI architect and full-stack developer focused on practical AI systems and enterprise software.
 REV:${new Date().toISOString()}
 END:VCARD`;
 
