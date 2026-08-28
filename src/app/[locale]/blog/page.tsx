@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Search, Calendar, Clock, ArrowRight, Filter, Brain, Code, Stethoscope, Landmark, ShoppingBag, TrendingUp, Layers, Sigma, MessageSquareText, Bot, Zap, Server, Table2 } from 'lucide-react';
+import { BookOpen, Search, Calendar, Clock, ArrowRight, Filter, Brain, Code, Stethoscope, ShoppingBag, Layers, Sigma, MessageSquareText, Bot, Zap, Server, Table2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 
 interface BlogPost {
@@ -60,15 +60,6 @@ export default function BlogListingPage() {
       icon: Server
     },
     {
-      slug: 'financial-sector-risk-analytics-pipeline',
-      title: 'Reproducible Financial Analytics: Designing Pipelines That Survive the Next Revision',
-      excerpt: 'A general methodology for turning messy financial source data into defensible indicators and risk signals — profiling before cleaning, separating pipeline stages, and generating every report from the same processed artefacts.',
-      category: 'Data Science',
-      date: 'August 5, 2026',
-      readTime: '8 min read',
-      icon: Landmark
-    },
-    {
       slug: 'monday-com-graphql-data-auditor',
       title: 'Monday.com GraphQL Data Auditor: Local Hygiene Without Zapier',
       excerpt: 'Streamlit + Monday GraphQL cursor pagination to find missing Files/Notes cells across boards and export clickable CSV remediation lists.',
@@ -85,15 +76,6 @@ export default function BlogListingPage() {
       date: 'July 24, 2026',
       readTime: '7 min read',
       icon: ShoppingBag
-    },
-    {
-      slug: 'reproducible-macroeconomic-forecasting',
-      title: 'Reproducible Macroeconomic Forecasting: Pipelines Over Notebooks',
-      excerpt: 'Forecasting macro indicators is far less about exotic model architectures than about disciplined data preparation, honest out-of-sample evaluation, and an output layer a policy audience can actually consume.',
-      category: 'Data Science',
-      date: 'July 8, 2026',
-      readTime: '6 min read',
-      icon: TrendingUp
     },
     {
       slug: 'multitask-deep-learning-scene-emission',
