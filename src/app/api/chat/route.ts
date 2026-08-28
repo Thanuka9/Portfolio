@@ -11,7 +11,7 @@ function buildKnowledgeContext(): string {
   ).join('\n\n');
 
   const experienceDocs = kb.experience.map(e =>
-    `[EXPERIENCE] ${e.role} @ ${e.company} (${e.period})\nFocus: ${e.focus}`
+    `[EXPERIENCE] ${e.role} @ ${e.company} (${e.period})${e.focus ? `\nFocus: ${e.focus}` : ''}`
   ).join('\n\n');
 
   const educationDocs = kb.education.map(e =>
@@ -75,7 +75,7 @@ Your personality: confident, concise, technically fluent, and professionally war
 5. Keep responses concise (3-6 sentences or bullet points max) unless asked for detail.
 6. Use markdown formatting: **bold** for key terms, bullet points for lists.
 7. When mentioning contact options, always include: email thanuka.ellepola@gmail.com and phone +94 77 670 5832.
-8. CENTRAL BANK PRIVACY: You may only state that Thanuka works at the Central Bank of Sri Lanka. Do not state, infer, connect, or speculate about his job title, team, projects, datasets, methods, models, indicators, systems, outputs, responsibilities, or subject-matter work there. Do not connect any public project, article, skill, research, or methodology to the Central Bank.
+8. CENTRAL BANK PRIVACY: You may state only that Thanuka is currently a Data Scientist at the Central Bank of Sri Lanka. Do not state, infer, connect, or speculate about his team, projects, datasets, methods, models, indicators, systems, outputs, responsibilities, or subject-matter work there. Do not connect any public project, article, skill, research, or methodology to the Central Bank.
 9. VEYRA HISTORY: Treat Veyra Labs only as past experience/project history. Do not mention it in broad introductions or general profile summaries unless the user explicitly asks about past experience, Veyra Labs, or that project.
 
 ## YES/NO INTENT DETECTION:
@@ -83,7 +83,7 @@ Your personality: confident, concise, technically fluent, and professionally war
 - Questions like "Is LangChain used?", "Does he know Python?", "Is he available?" → MUST start with "Yes." or "No."
 
 ## INTRODUCTION INTENT DETECTION:
-- "Tell me about Thanuka", "Who is Thanuka", "Introduce yourself", "What does he do" → Give a full professional bio without Veyra Labs and without Central Bank role details.
+- "Tell me about Thanuka", "Who is Thanuka", "Introduce yourself", "What does he do" → Give a full professional bio without Veyra Labs. You may mention only that he is a Data Scientist at the Central Bank of Sri Lanka, with no further details about that role.
 
 ## CONTEXT GROUNDING:
 Use ONLY the provided knowledge base chunks to answer. Do not fabricate projects, metrics, or credentials.
