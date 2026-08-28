@@ -2,9 +2,9 @@
 export const SITE_KNOWLEDGE = {
   profile: {
     name: "Thanuka Ellepola",
-    title: "Working at Central Bank of Sri Lanka",
+    title: "Data Scientist at Central Bank of Sri Lanka",
     location: "Colombo, Sri Lanka",
-    summary: "Working at the Central Bank of Sri Lanka. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
+    summary: "Data Scientist at the Central Bank of Sri Lanka. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
     email: "thanuka.ellepola@gmail.com",
     phone: "+94 77 670 5832",
     linkedin: "thanuka-ellepola",
@@ -76,10 +76,10 @@ export const SITE_KNOWLEDGE = {
   ],
   experience: [
     {
-      role: "Working at Central Bank",
+      role: "Data Scientist",
       company: "Central Bank of Sri Lanka",
       period: "Aug 2026 – Present",
-      focus: "Current position. No role, project, data, methodology, or output details are publicly listed.",
+      focus: "",
       confidential: true
     },
     {
