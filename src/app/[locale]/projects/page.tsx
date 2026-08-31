@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Bot, LineChart, Zap, Server, BrainCircuit, Search, Code, Globe, BarChart3, ShoppingBag, Layers, Rocket } from "lucide-react";
+import { Bot, LineChart, Zap, Server, BrainCircuit, Search, Code, Globe, BarChart3, ShoppingBag, Layers } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import { ProjectsTimeline } from '@/components/projects-timeline';
 
@@ -125,18 +125,6 @@ export default function ProjectsPage() {
       tags: ["PyTorch", "ResNet-50", "Multitask Learning", "Transfer Learning", "Computer Vision"],
       github: "https://github.com/Thanuka9/Sustainable-Vision-Multitask-Scene-Emission-Estimation-Model",
       icon: Layers
-    },
-    {
-      title: t('p12.title'),
-      role: t('p12.role'),
-      summary: t('p12.summary'),
-      challenge: t('p12.challenge'),
-      solution: t('p12.solution'),
-      impact: t('p12.impact'),
-      tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Neon Postgres", "Framer Motion"],
-      github: "https://github.com/Thanuka9/Veyra-Labs",
-      demo: "https://veyra-labs.vercel.app",
-      icon: Rocket
     }
   ];
 
