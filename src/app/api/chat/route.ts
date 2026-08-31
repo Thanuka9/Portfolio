@@ -5,10 +5,6 @@ import { SITE_KNOWLEDGE } from '@/lib/knowledge-base';
 function buildKnowledgeContext(): string {
   const kb = SITE_KNOWLEDGE;
 
-  const projectDocs = kb.projects.map((p, i) =>
-    `[PROJECT ${i + 1}] ${p.title}\nRole: ${p.role}\nSummary: ${p.summary}\nTech Stack: ${p.tags.join(', ')}`
-  ).join('\n\n');
-
   const experienceDocs = kb.experience.map(e =>
     `[EXPERIENCE] ${e.role} @ ${e.company} (${e.period})${e.focus ? `\nFocus: ${e.focus}` : ''}`
   ).join('\n\n');
@@ -42,8 +38,6 @@ Email: ${kb.profile.email}
 Phone: ${kb.profile.phone}
 LinkedIn: linkedin.com/in/thanuka-ellepola-a559b01aa
 GitHub: github.com/${kb.profile.github}
-
-${projectDocs}
 
 ${experienceDocs}
 
