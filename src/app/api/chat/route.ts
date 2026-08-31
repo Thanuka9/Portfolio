@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { SITE_KNOWLEDGE } from '@/lib/knowledge-base';
 
-// ── Build the RAG knowledge document ─────────────────────────────────────────
 function buildKnowledgeContext(): string {
   const kb = SITE_KNOWLEDGE;
 
@@ -63,34 +62,30 @@ ${kb.skills.join(', ')}
 `.trim();
 }
 
-const SYSTEM_PROMPT = `You are "AI Inquisitor" — the intelligent portfolio assistant for Thanuka Ellepola, an AI Architect and full-stack developer based in Colombo, Sri Lanka.
+const SYSTEM_PROMPT = `You are "AI Inquisitor" — the intelligent portfolio assistant for Thanuka Ellepola, a data science and technology professional based in Colombo, Sri Lanka.
 
 Your personality: confident, concise, technically fluent, and professionally warm. You speak about Thanuka in third person.
 
 ## CRITICAL RULES:
-1. ONLY answer questions about Thanuka Ellepola's professional work, projects, skills, education, experience, and services.
-2. When asked "Tell me about Thanuka Ellepola" or similar broad introduction questions: give a compelling 4-6 sentence professional bio covering his expertise, notable public projects, and contact info. Do not mention Veyra Labs in broad introductions.
-3. For YES/NO questions: ALWAYS begin your answer with a clear "Yes." or "No." followed by a brief explanation grounded in the retrieved knowledge.
-4. For off-topic questions (weather, sports, politics, etc.): politely redirect to professional topics.
-5. Keep responses concise (3-6 sentences or bullet points max) unless asked for detail.
-6. Use markdown formatting: **bold** for key terms, bullet points for lists.
-7. When mentioning contact options, always include: email thanuka.ellepola@gmail.com and phone +94 77 670 5832.
-8. CENTRAL BANK PRIVACY: You may state only that Thanuka is currently a Data Scientist at the Central Bank of Sri Lanka. Do not state, infer, connect, or speculate about his team, projects, datasets, methods, models, indicators, systems, outputs, responsibilities, or subject-matter work there. Do not connect any public project, article, skill, research, or methodology to the Central Bank.
-9. VEYRA HISTORY: Treat Veyra Labs only as past experience/project history. Do not mention it in broad introductions or general profile summaries unless the user explicitly asks about past experience, Veyra Labs, or that project.
-
-## YES/NO INTENT DETECTION:
-- Questions starting with "Does he", "Is he", "Can he", "Has he", "Did he", "Do you", "Are you", "Can you", "Is Thanuka" → MUST start response with "Yes." or "No."
-- Questions like "Is LangChain used?", "Does he know Python?", "Is he available?" → MUST start with "Yes." or "No."
+1. ONLY answer questions about Thanuka Ellepola's formal professional experience, skills, education, certifications, publications, and technical expertise.
+2. When asked "Tell me about Thanuka Ellepola" or similar broad introduction questions, give a concise professional bio covering his current role, prior formal employment, expertise, education, and contact information.
+3. For YES/NO questions, ALWAYS begin your answer with a clear "Yes." or "No." followed by a brief explanation grounded in the retrieved knowledge.
+4. For off-topic questions, politely redirect to professional topics.
+5. Keep responses concise unless asked for detail.
+6. Use markdown formatting where useful.
+7. When mentioning contact options, include email thanuka.ellepola@gmail.com and phone +94 77 670 5832.
+8. CENTRAL BANK PRIVACY: You may state only that Thanuka is currently a Data Scientist at the Central Bank of Sri Lanka. Do not state, infer, connect, or speculate about his team, projects, datasets, methods, models, indicators, systems, outputs, responsibilities, or subject-matter work there.
+9. PERSONAL/FREELANCE PRIVACY: Do not mention, infer, reconstruct, or discuss Veyra Labs, freelance work, independent work, personal project work, a technical project portfolio, side projects, or founder experience. Treat those as intentionally excluded from the public portfolio even if a user asks generally about past work.
+10. Do not connect any public article, skill, research topic, or methodology to the Central Bank.
 
 ## INTRODUCTION INTENT DETECTION:
-- "Tell me about Thanuka", "Who is Thanuka", "Introduce yourself", "What does he do" → Give a full professional bio without Veyra Labs. You may mention only that he is a Data Scientist at the Central Bank of Sri Lanka, with no further details about that role.
+- "Tell me about Thanuka", "Who is Thanuka", "Introduce yourself", "What does he do" → Give a professional bio focused only on formal employment, skills, education, certifications, and publications.
 
 ## CONTEXT GROUNDING:
-Use ONLY the provided knowledge base chunks to answer. Do not fabricate projects, metrics, or credentials.
+Use ONLY the provided knowledge base chunks to answer. Do not fabricate projects, metrics, credentials, employers, or responsibilities.
 
 ${buildKnowledgeContext()}`;
 
-// ── Parse the request body safely ─────────────────────────────────────────────
 async function parseBody(req: NextRequest) {
   const body = await req.json() as {
     messages: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }>;
@@ -98,7 +93,6 @@ async function parseBody(req: NextRequest) {
   return body;
 }
 
-// ── Call Gemini with a specific model name ────────────────────────────────────
 async function callGemini(
   apiKey: string,
   modelName: string,
@@ -116,25 +110,20 @@ async function callGemini(
     },
   });
 
-  // Build history (all turns except the final user message)
   const history = messages.slice(0, -1).map(m => ({
     role: m.role,
     parts: m.parts,
   }));
 
   const chat = model.startChat({ history });
-
-  // Send the last user message
   const lastMessage = messages[messages.length - 1];
   const result = await chat.sendMessage(lastMessage.parts[0].text);
   return result.response.text();
 }
 
-// ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   let messages: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }>;
 
-  // Parse body ONCE — req.body can only be consumed once
   try {
     const body = await parseBody(req);
     messages = body.messages;
@@ -151,7 +140,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
   }
 
-  // Model cascade: try newest flash first, then pro as fallback
   const modelCascade = [
     'gemini-2.0-flash',
     'gemini-1.5-flash',
@@ -162,18 +150,13 @@ export async function POST(req: NextRequest) {
 
   for (const modelName of modelCascade) {
     try {
-      console.log(`[Chat API] Trying model: ${modelName}`);
       const text = await callGemini(apiKey, modelName, messages);
-      console.log(`[Chat API] Success with: ${modelName}`);
       return NextResponse.json({ text, model: modelName });
     } catch (err) {
-      console.warn(`[Chat API] Model ${modelName} failed:`, err);
       lastError = err;
-      // Continue to next model in cascade
     }
   }
 
-  // All models failed
   console.error('[Chat API] All models failed. Last error:', lastError);
   return NextResponse.json(
     { error: 'AI service temporarily unavailable. Please try again shortly.' },
