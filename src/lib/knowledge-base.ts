@@ -4,76 +4,13 @@ export const SITE_KNOWLEDGE = {
     name: "Thanuka Ellepola",
     title: "Data Scientist at Central Bank of Sri Lanka",
     location: "Colombo, Sri Lanka",
-    summary: "Data Scientist at the Central Bank of Sri Lanka. Specialized in autonomous agents, generative AI, predictive modelling, and full-stack development.",
+    summary: "Data Scientist at the Central Bank of Sri Lanka with a background in data science, AI, analytics, and full-stack engineering.",
     email: "thanuka.ellepola@gmail.com",
     phone: "+94 77 670 5832",
     linkedin: "thanuka-ellepola",
     github: "Thanuka9"
   },
-  projects: [
-    {
-      title: "AI Job Hunter",
-      role: "Lead AI Engineer & Architect",
-      summary: "Autonomous system reducing application time by 90% through intelligent filtering and RAG-based personalization using LangChain and Gemini 3.1.",
-      tags: ["LangChain", "Gemini 3.1", "FAISS", "Playwright", "RAG", "Python"]
-    },
-    {
-      title: "Predictive Analytics for Healthcare Payment Forecasting",
-      role: "Lead Data Scientist / Researcher",
-      summary: "ML framework for RCM achieves R² > 0.90 for financial prioritization using Random Forest and Neural Networks.",
-      tags: ["Scikit-learn", "Neural Networks", "Pandas", "Healthcare RCM", "Statistical Modeling"]
-    },
-    {
-      title: "RevOps AI",
-      role: "System Architect & Full Stack Developer",
-      summary: "B2B SaaS with Autonomous Agent Architecture (CEO, Eng, ML Pods) for healthcare data auditing.",
-      tags: ["FastAPI", "React", "Scikit-learn", "Docker", "GCP", "Agentic AI"]
-    },
-    {
-      title: "TrainIQ",
-      role: "Full Stack Architect & Main Developer",
-      summary: "Multi-tenant SaaS LMS with courses, exams, AI proctoring (ProctorIQ), local AI tutoring (LearnIQ), Stripe billing, and a CEO operations console.",
-      tags: ["Flask", "PostgreSQL", "MongoDB", "Redis", "Ollama", "Stripe", "Docker", "CI/CD"]
-    },
-    {
-      title: "CareerForge AI 3.0",
-      role: "Full Stack AI Engineer",
-      summary: "Multi-agent career OS featuring low-latency voice AI via Gemini 3.1 Live API.",
-      tags: ["React 19", "Gemini 3.1 Live API", "Web Audio API", "Google Search Grounding"]
-    },
-    {
-      title: "ReviewRadar AI",
-      role: "AI & Data Engineer",
-      summary: "End-to-end Yelp review intelligence platform with PostgreSQL ETL, VADER features, and an enhanced sentiment ensemble (accuracy 0.9106, F1 0.9341, ROC-AUC 0.9687 per public model_metrics.json).",
-      tags: ["Python", "XGBoost", "PostgreSQL", "ETL", "VADER", "spaCy"],
-      github: "https://github.com/Thanuka9/reviewradar_ai"
-    },
-    {
-      title: "Monday.com Data Auditor",
-      role: "Full Stack Developer",
-      summary: "Local Streamlit app that audits Monday.com boards via GraphQL cursor pagination, flags missing Files/Notes cells, and exports clickable CSV remediation lists.",
-      tags: ["Python", "Streamlit", "Pandas", "Monday.com GraphQL"],
-      github: "https://github.com/Thanuka9/Monday"
-    },
-    {
-      title: "Veyra Labs",
-      role: "Founder & Principal AI Architect",
-      summary: "Past software and AI engineering studio project (veyra-labs.vercel.app) featuring production AI systems, data platforms, and a conversion-focused web experience with an interactive estimate wizard backed by Neon Postgres.",
-      tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Neon Postgres", "Vercel", "Framer Motion"]
-    },
-    {
-      title: "Kapruka Flow AI",
-      role: "Solo Builder — Kapruka Agent Challenge 2026",
-      summary: "Multilingual agentic commerce planner on the Kapruka MCP that turns English, Sinhala, or Tanglish intent into four budget-aware cart plans and a live guest checkout, with a transparent feed of every MCP tool call.",
-      tags: ["FastAPI", "Next.js", "Model Context Protocol", "Agent Pipeline", "SQLite", "Vercel"]
-    },
-    {
-      title: "Sustainable Vision",
-      role: "Deep Learning Researcher",
-      summary: "Multitask ResNet-50 that jointly performs Places365 scene classification, binary attribute prediction, and five-class carbon emission estimation, with an emission head fine-tuned on the Intel Image Classification dataset.",
-      tags: ["PyTorch", "ResNet-50", "Multitask Learning", "Places365", "Transfer Learning", "Computer Vision"]
-    }
-  ],
+  projects: [],
   experience: [
     {
       role: "Data Scientist",
@@ -83,23 +20,10 @@ export const SITE_KNOWLEDGE = {
       confidential: true
     },
     {
-      role: "Founder & Principal AI Architect",
-      company: "Veyra Labs",
-      period: "2026 – Aug 2026",
-      website: "https://veyra-labs.vercel.app",
-      focus: "Past experience founding and leading a software and AI engineering studio."
-    },
-    {
       role: "Assistant Manager - Operations",
       company: "Collective RCM (Pvt) Ltd",
       period: "2019 – Aug 2026",
       focus: "Enterprise Architecture, Digital Transformation, and Strategic Leadership in Healthcare RCM."
-    },
-    {
-      role: "Independent Full Stack & AI Developer",
-      company: "Technical Project Portfolio",
-      period: "Ongoing",
-      focus: "Advanced AI systems, RAG Innovation, and Scientific Research."
     }
   ],
   education: [
@@ -141,35 +65,34 @@ export const SITE_KNOWLEDGE = {
   publications: [
     {
       title: "Machine Learning for Future Payment Prediction in Healthcare Revenue Cycle Management",
-      summary: "A research paper on predicting future payments using machine learning models (Random Forest, Neural Networks, Decision Trees, Linear Regression) with real-world healthcare RCM data, achieving R² > 0.90 accuracy on neural networks."
+      summary: "A research paper on predicting future payments using machine learning models with healthcare RCM data."
     }
   ],
   skills: [
     "Python", "C", "HTML & PHP", "Java & JS", "React", "CSS", "Next.js", "Flask", "Laravel", "Tailwind CSS",
-    "Gemini 3.1 (Pro/Flash/Live API)", "LangChain", "RAG & Vector DB (FAISS)", "Scikit-learn", "Neural Networks", "FastAPI", "Azure", "GCP", "Docker", "Playwright"
+    "Gemini", "LangChain", "RAG & Vector DB", "Scikit-learn", "Neural Networks", "FastAPI", "Azure", "GCP", "Docker", "Playwright"
   ],
   services: {
     aiAutonomousSystems: {
       title: "AI & Autonomous Systems",
-      tagline: "Architecting the next generation of business logic using multi-agent systems and real-time intelligence.",
+      tagline: "Technical expertise in AI systems and intelligent automation.",
       scope: [
-        "Custom Autonomous Agent Architectures (CEO, Eng, & ML Pod pods)",
-        "LangChain-orchestrated RAG Pipelines with FAISS Vector Search",
-        "Low-latency Voice AI Simulations (Gemini Live API)",
-        "Real-time Market Intelligence & Google Search Grounding",
-        "Automated Discovery Engines with RAG-driven Personalization",
-        "Agentic Auditing for identifying operational bottlenecks"
+        "Autonomous Agent Architectures",
+        "RAG Pipelines and Vector Search",
+        "Voice AI",
+        "Search Grounding",
+        "Intelligent Automation"
       ]
     },
     fullStackEnterprise: {
       title: "Full-Stack Enterprise Development",
-      tagline: "Building resilient, high-performance platforms that scale with your operational complexity.",
+      tagline: "Technical expertise in scalable application and platform engineering.",
       scope: [
-        "Developed a full-stack web application using Flask, SQL, HTML, CSS, and JavaScript for internal enterprise operations",
-        "Implemented authentication (2FA), role-based access control, and performance dashboards",
-        "Designed backend APIs and optimized database architecture for scalability",
-        "Integrated structured data storage using MySQL/PostgreSQL",
-        "Managed high-availability hosting and automated CI/CD pipelines (GitHub Actions) for Azure/GCP"
+        "Full-stack web development",
+        "Authentication and role-based access control",
+        "Backend APIs and database architecture",
+        "SQL and PostgreSQL",
+        "Cloud deployment and CI/CD"
       ]
     }
   }
