@@ -20,8 +20,8 @@ interface RawExperience {
   s2: RawSection;
 }
 
-const EXPERIENCE_KEYS = ['exp1', 'exp2', 'exp3', 'exp4'] as const;
-const EXPERIENCE_ICONS = [Landmark, Rocket, Building, Code];
+const EXPERIENCE_KEYS = ['exp1', 'exp3'] as const;
+const EXPERIENCE_ICONS = [Landmark, Building];
 
 export function ExperienceTimeline() {
   const t = useTranslations('Experience');
@@ -36,8 +36,6 @@ export function ExperienceTimeline() {
     stiffness: 100, damping: 20
   });
 
-  // Each role is stored as { role, company, period, s1: { title, d1… }, s2: { … } }.
-  // The current Central Bank role is intentionally rendered without public detail sections.
   const experienceData = EXPERIENCE_KEYS.map((key) => {
     const raw = t.raw(key) as RawExperience;
     const isCurrentCentralBankRole = key === 'exp1';
@@ -138,52 +136,26 @@ export function ExperienceTimeline() {
   return (
     <div className="space-y-20 pb-20" ref={containerRef}>
       <header className="space-y-4">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl lg:text-7xl font-black font-headline tracking-tighter"
-        >
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl lg:text-7xl font-black font-headline tracking-tighter">
           {t('pageTitle')}
         </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-lg text-muted-foreground max-w-2xl font-medium leading-relaxed"
-        >
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-lg text-muted-foreground max-w-2xl font-medium leading-relaxed">
           {t('pageSubtitle')}
         </motion.p>
       </header>
 
       <div className="relative space-y-16">
         <div className="absolute left-[31px] top-6 bottom-6 w-[2px] bg-primary/5 hidden md:block">
-          <motion.div 
-            style={{ height: lineHeight }} 
-            className="w-full bg-gradient-to-b from-primary via-indigo-500 to-emerald-500 shadow-[0_0_25px_rgba(138,43,226,0.6)] relative"
-          >
-             <motion.div 
-               animate={{ opacity: [0.3, 0.6, 0.3] }}
-               transition={{ repeat: Infinity, duration: 2 }}
-               className="absolute inset-0 bg-primary/40 blur-[4px]" 
-             />
+          <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-primary via-indigo-500 to-emerald-500 shadow-[0_0_25px_rgba(138,43,226,0.6)] relative">
+             <motion.div animate={{ opacity: [0.3, 0.6, 0.3] }} transition={{ repeat: Infinity, duration: 2 }} className="absolute inset-0 bg-primary/40 blur-[4px]" />
           </motion.div>
         </div>
 
         {experienceData.map((exp, index) => {
           const RoleIcon = EXPERIENCE_ICONS[index] ?? Briefcase;
-
           return (
-          <motion.div 
-            key={index} 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            className="relative pl-0 md:pl-20 group"
-          >
-            <motion.div 
-              className="absolute left-0 top-6 w-16 h-16 rounded-2xl glass-panel hidden md:flex items-center justify-center text-primary border-primary/20 bg-background/50 backdrop-blur-3xl z-10 
-              group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl"
-            >
+          <motion.div key={index} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10%" }} className="relative pl-0 md:pl-20 group">
+            <motion.div className="absolute left-0 top-6 w-16 h-16 rounded-2xl glass-panel hidden md:flex items-center justify-center text-primary border-primary/20 bg-background/50 backdrop-blur-3xl z-10 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
                <RoleIcon size={24} />
             </motion.div>
 
@@ -192,22 +164,14 @@ export function ExperienceTimeline() {
                 <div className="space-y-2">
                   <h2 className="text-2xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{exp.role}</h2>
                   {exp.link ? (
-                    <a
-                      href={exp.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary font-bold text-sm bg-primary/10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full hover:bg-primary/20 transition-colors"
-                    >
-                      {exp.company}
-                      <ExternalLink size={12} />
+                    <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-primary font-bold text-sm bg-primary/10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                      {exp.company}<ExternalLink size={12} />
                     </a>
                   ) : (
                     <p className="text-primary font-bold text-sm bg-primary/10 inline-block px-3 py-1 rounded-full">{exp.company}</p>
                   )}
                 </div>
-                <div className="px-5 py-2 rounded-full bg-secondary text-foreground text-[10px] font-black uppercase tracking-widest border border-border/50">
-                  {exp.period}
-                </div>
+                <div className="px-5 py-2 rounded-full bg-secondary text-foreground text-[10px] font-black uppercase tracking-widest border border-border/50">{exp.period}</div>
               </div>
 
               {exp.note && (
@@ -226,9 +190,7 @@ export function ExperienceTimeline() {
                         {section.details.map((detail, i) => (
                           <li key={i} className="flex gap-4 group/item">
                             <CheckCircle2 size={18} className="text-primary shrink-0 mt-1 opacity-50" />
-                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium text-base">
-                              {detail}
-                            </span>
+                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed font-medium text-base">{detail}</span>
                           </li>
                         ))}
                       </ul>
@@ -243,38 +205,23 @@ export function ExperienceTimeline() {
       </div>
 
       <section className="space-y-12 pt-20">
-        <h2 className="text-4xl font-black font-headline tracking-tight flex items-center gap-4">
-          <Cpu className="text-primary" />
-          {t('stack')}
-        </h2>
+        <h2 className="text-4xl font-black font-headline tracking-tight flex items-center gap-4"><Cpu className="text-primary" />{t('stack')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-            {technicalSkills.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <div key={index} className={`glass-panel p-8 rounded-[2.5rem] space-y-6 group transition-all relative overflow-hidden ${category.hover}`}>
-                   <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${category.accent}`} />
-                   
-                   <div className="relative z-10 space-y-6">
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border transition-all duration-500 ${category.bg} ${category.color} ${category.border} group-hover:scale-110 group-hover:rotate-3`}>
-                        <Icon size={32} />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-black tracking-tight group-hover:text-foreground transition-colors">{category.category}</h3>
-                        <div className="h-1 w-12 bg-primary/20 rounded-full transition-all duration-500 group-hover:w-24 group-hover:bg-primary/40" />
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill) => (
-                          <span key={skill} className="px-3 py-1.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all bg-secondary/30 text-muted-foreground border border-white/5 hover:border-primary/30 hover:bg-primary/5 hover:text-primary">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                   </div>
+          {technicalSkills.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <div key={index} className={`glass-panel p-8 rounded-[2.5rem] space-y-6 group transition-all relative overflow-hidden ${category.hover}`}>
+                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${category.accent}`} />
+                <div className="relative z-10 space-y-6">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border transition-all duration-500 ${category.bg} ${category.color} ${category.border} group-hover:scale-110 group-hover:rotate-3`}><Icon size={32} /></div>
+                  <div className="space-y-2"><h3 className="text-xl font-black tracking-tight group-hover:text-foreground transition-colors">{category.category}</h3><div className="h-1 w-12 bg-primary/20 rounded-full transition-all duration-500 group-hover:w-24 group-hover:bg-primary/40" /></div>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (<span key={skill} className="px-3 py-1.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all bg-secondary/30 text-muted-foreground border border-white/5 hover:border-primary/30 hover:bg-primary/5 hover:text-primary">{skill}</span>))}
+                  </div>
                 </div>
-              )
-            })}
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>
